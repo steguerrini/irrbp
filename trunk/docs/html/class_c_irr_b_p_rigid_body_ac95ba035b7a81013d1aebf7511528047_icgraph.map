@@ -1,0 +1,6 @@
+<map id="G" name="G">
+<area shape="rect" id="node3" href="$class_c_irr_b_p_world.html#a0bf527c522426b50d959ab5adc27be4c" title="CIrrBPWorld::addRigidBody" alt="" coords="277,5,459,35"/>
+<area shape="rect" id="node7" href="$class_c_irr_b_p_world.html#a7133c6b9763ac425ac579cdfbda8788b" title="CIrrBPWorld::removeRigidBody" alt="" coords="267,59,469,88"/>
+<area shape="rect" id="node5" href="$class_c_irr_b_p_manager.html#af5b96f07769449e5b4a7adb8485e027f" title="CIrrBPManager::addBodyToBulletQueue" alt="" coords="519,5,772,35"/>
+<area shape="rect" id="node9" href="$class_c_irr_b_p_manager.html#ad4896d9448a572add3c84ca5118c6baa" title="CIrrBPManager::removeBody" alt="" coords="551,59,740,88"/>
+</map>

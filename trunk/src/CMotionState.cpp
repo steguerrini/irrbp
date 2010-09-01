@@ -1,0 +1,38 @@
+#include "CMotionState.h"
+#include "Body/CIrrBPRigidBody.h"
+
+using namespace irr;
+using namespace core;
+using namespace scene;
+
+CMotionState::CMotionState(CIrrBPRigidBody * body,const btTransform &startTrans, const btTransform &centerOfMassOffset)
+{
+	m_startWorldTrans = startTrans;
+	m_graphicsWorldTrans = startTrans;
+	m_centerOfMassOffset = centerOfMassOffset;
+	m_body = body;
+	m_irrNode = m_body->getIrrlichtNode();
+	if(!m_irrNode)
+		assert("Error during motion state creation. No irrlicht node engaged");
+}
+
+
+void CMotionState::setWorldTransform(const btTransform &worldTrans)
+{
+	if(m_irrNode)
+	{  
+		m_irrNode->setPosition(bulletVectorToIrrVector(worldTrans.getOrigin()));
+		m_irrNode->setRotation(QuaternionToIrrEuler(worldTrans.getRotation()));
+		m_graphicsWorldTrans = worldTrans * m_centerOfMassOffset ;
+
+	}
+	else
+	{
+		assert("Error during motion state updating.");
+	}
+
+}
+
+CMotionState::~CMotionState()
+{
+}

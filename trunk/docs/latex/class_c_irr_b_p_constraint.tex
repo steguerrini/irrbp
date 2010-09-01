@@ -1,0 +1,87 @@
+\hypertarget{class_c_irr_b_p_constraint}{
+\section{CIrrBPConstraint Class Reference}
+\label{class_c_irr_b_p_constraint}\index{CIrrBPConstraint@{CIrrBPConstraint}}
+}
+
+
+Inherited by \hyperlink{class_c_irr_b_p_hinge_constraint}{CIrrBPHingeConstraint}, \hyperlink{class_c_irr_b_p_p2_p_constraint}{CIrrBPP2PConstraint}, and \hyperlink{class_c_irr_b_p_slide_constraint}{CIrrBPSlideConstraint}.
+
+
+
+Collaboration diagram for CIrrBPConstraint:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=300pt]{class_c_irr_b_p_constraint__coll__graph}
+\end{center}
+\end{figure}
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+virtual void \hyperlink{class_c_irr_b_p_constraint_a2718ef7118d60646a5cfa2dfe5a44795}{drop} ()=0
+\item 
+\hypertarget{class_c_irr_b_p_constraint_acfb5d4e8b25c91e150af372f4bd9187e}{
+btTypedConstraint $\ast$ {\bfseries getConstraintPtr} ()}
+\label{class_c_irr_b_p_constraint_acfb5d4e8b25c91e150af372f4bd9187e}
+
+\item 
+\hypertarget{class_c_irr_b_p_constraint_ac109e0c136271d9c002c5521a2eacc15}{
+\hyperlink{class_c_irr_b_p_rigid_body}{CIrrBPRigidBody} $\ast$ {\bfseries getBodyA} ()}
+\label{class_c_irr_b_p_constraint_ac109e0c136271d9c002c5521a2eacc15}
+
+\item 
+\hypertarget{class_c_irr_b_p_constraint_a0774899cfd927b7dcf7d1ab45552c122}{
+\hyperlink{class_c_irr_b_p_rigid_body}{CIrrBPRigidBody} $\ast$ {\bfseries getBodyB} ()}
+\label{class_c_irr_b_p_constraint_a0774899cfd927b7dcf7d1ab45552c122}
+
+\end{DoxyCompactItemize}
+\subsection*{Protected Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\hypertarget{class_c_irr_b_p_constraint_ad755c2f634eea7261b5bf8b352299977}{
+btTypedConstraint $\ast$ {\bfseries m\_\-Constraint}}
+\label{class_c_irr_b_p_constraint_ad755c2f634eea7261b5bf8b352299977}
+
+\item 
+\hypertarget{class_c_irr_b_p_constraint_ae300a6d42c498864fce18eb2cc4f85ec}{
+\hyperlink{class_c_irr_b_p_rigid_body}{CIrrBPRigidBody} $\ast$ {\bfseries m\_\-bodyA}}
+\label{class_c_irr_b_p_constraint_ae300a6d42c498864fce18eb2cc4f85ec}
+
+\item 
+\hypertarget{class_c_irr_b_p_constraint_ab5ee9998be891258f78badd48702f101}{
+vector3df {\bfseries m\_\-pivotA}}
+\label{class_c_irr_b_p_constraint_ab5ee9998be891258f78badd48702f101}
+
+\item 
+\hypertarget{class_c_irr_b_p_constraint_ae9848f0a6e9b036c0720b6114a501cc1}{
+\hyperlink{class_c_irr_b_p_rigid_body}{CIrrBPRigidBody} $\ast$ {\bfseries m\_\-bodyB}}
+\label{class_c_irr_b_p_constraint_ae9848f0a6e9b036c0720b6114a501cc1}
+
+\item 
+\hypertarget{class_c_irr_b_p_constraint_a573ccefffed59ecff42a2ab1b71b3724}{
+vector3df {\bfseries m\_\-pivotB}}
+\label{class_c_irr_b_p_constraint_a573ccefffed59ecff42a2ab1b71b3724}
+
+\end{DoxyCompactItemize}
+
+
+\subsection{Member Function Documentation}
+\hypertarget{class_c_irr_b_p_constraint_a2718ef7118d60646a5cfa2dfe5a44795}{
+\index{CIrrBPConstraint@{CIrrBPConstraint}!drop@{drop}}
+\index{drop@{drop}!CIrrBPConstraint@{CIrrBPConstraint}}
+\subsubsection[{drop}]{\setlength{\rightskip}{0pt plus 5cm}virtual void CIrrBPConstraint::drop (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily  \mbox{[}pure virtual\mbox{]}}}}
+\label{class_c_irr_b_p_constraint_a2718ef7118d60646a5cfa2dfe5a44795}
+Drop Function. This function should not be used. The destructor will be called automatically by the World Object. 
+
+Implemented in \hyperlink{class_c_irr_b_p_hinge_constraint_a8c9ba8b2ee3bdff9ea684f2200c302ce}{CIrrBPHingeConstraint}, \hyperlink{class_c_irr_b_p_p2_p_constraint_abc3ec07fbc260cb8f88727fd8e9fc2c6}{CIrrBPP2PConstraint}, and \hyperlink{class_c_irr_b_p_slide_constraint_acaaf3cfaba14b8c126ab548f7c21c2b6}{CIrrBPSlideConstraint}.
+
+
+
+The documentation for this class was generated from the following files:\begin{DoxyCompactItemize}
+\item 
+E:/Documenti/Lavori Stefano/ProgettoFPS/Engine/Engine/IrrBP/include/constraint/CIrrBPConstraint.h\item 
+E:/Documenti/Lavori Stefano/ProgettoFPS/Engine/Engine/IrrBP/src/constraint/CIrrBPConstraint.cpp\end{DoxyCompactItemize}
