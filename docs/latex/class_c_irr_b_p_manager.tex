@@ -1,0 +1,468 @@
+\hypertarget{class_c_irr_b_p_manager}{
+\section{CIrrBPManager Class Reference}
+\label{class_c_irr_b_p_manager}\index{CIrrBPManager@{CIrrBPManager}}
+}
+
+
+Collaboration diagram for CIrrBPManager:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=184pt]{class_c_irr_b_p_manager__coll__graph}
+\end{center}
+\end{figure}
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{class_c_irr_b_p_manager_ae449dd7e0fa17f986a8ee2b6afe36a09}{CIrrBPManager} (IrrlichtDevice $\ast$device)
+\item 
+\hyperlink{class_c_irr_b_p_world}{CIrrBPWorld} $\ast$ \hyperlink{class_c_irr_b_p_manager_acdfaf5f8c351d72c4d9680cb75372ae3}{getWorld} ()
+\item 
+\hyperlink{class_c_irr_b_p_box_body}{CIrrBPBoxBody} $\ast$ \hyperlink{class_c_irr_b_p_manager_a61ed9d76cfe90285f6e7d80b5870406f}{addRigidBox} (ISceneNode $\ast$node, irr::f32 mass, irr::s32 bodyId=-\/1)
+\item 
+\hyperlink{class_c_irr_b_p_sphere_body}{CIrrBPSphereBody} $\ast$ \hyperlink{class_c_irr_b_p_manager_aebbe19de8a748a7c66d5d0efc16dc5eb}{addRigidSphere} (ISceneNode $\ast$node, irr::f32 mass, irr::s32 bodyId=-\/1)
+\item 
+\hyperlink{class_c_irr_b_p_cylinder_body}{CIrrBPCylinderBody} $\ast$ \hyperlink{class_c_irr_b_p_manager_a1b4d6c49c0383e11bbc7a32a14de691d}{addRigidCylinder} (ISceneNode $\ast$node, irr::f32 mass, irr::s32 bodyId=-\/1, BODY\_\-OR bodyOrientation=AUTO)
+\item 
+\hyperlink{class_c_irr_b_p_cone_body}{CIrrBPConeBody} $\ast$ \hyperlink{class_c_irr_b_p_manager_a810377e264480789138dc4b9ac5145d4}{addRigidCone} (ISceneNode $\ast$node, irr::f32 mass, irr::s32 bodyId=-\/1, BODY\_\-OR bodyOrientationAxis=AUTO)
+\item 
+\hyperlink{class_c_irr_b_p_capsule_body}{CIrrBPCapsuleBody} $\ast$ \hyperlink{class_c_irr_b_p_manager_acf65bd47e3067b5d7d9574c160acbc38}{addRigidCapsule} (ISceneNode $\ast$node, irr::f32 mass, irr::s32 bodyId=-\/1, BODY\_\-OR bodyOrientation=AUTO)
+\item 
+\hyperlink{class_c_irr_b_p_trimesh}{CIrrBPTrimesh} $\ast$ \hyperlink{class_c_irr_b_p_manager_ad565fee43722307839908de9aab70344}{addTrimesh} (IAnimatedMeshSceneNode $\ast$node, irr::f32 mass, irr::s32 bodyId=-\/1)
+\item 
+\hyperlink{class_c_irr_b_p_trimesh}{CIrrBPTrimesh} $\ast$ \hyperlink{class_c_irr_b_p_manager_a14eef4c19ac93cf7dff82544637833e0}{addTrimesh} (IMeshSceneNode $\ast$node, irr::f32 mass, irr::s32 bodyId=-\/1)
+\item 
+\hyperlink{class_c_irr_b_p_slide_constraint}{CIrrBPSlideConstraint} $\ast$ \hyperlink{class_c_irr_b_p_manager_af916152de29ba8c7c9e727dfe5a1c8af}{buildSlideConstraint} (\hyperlink{class_c_irr_b_p_rigid_body}{CIrrBPRigidBody} $\ast$bodyA, \hyperlink{class_c_irr_b_p_rigid_body}{CIrrBPRigidBody} $\ast$bodyB, const vector3df \&pivotInA=vector3df(0, 0, 0), const vector3df \&pivotInB=vector3df(0, 0, 0), bool autoadapt=true, bool rotatepiston=true)
+\item 
+\hyperlink{class_c_irr_b_p_p2_p_constraint}{CIrrBPP2PConstraint} $\ast$ \hyperlink{class_c_irr_b_p_manager_ab9b2ccaf431413e1ada692eb208a2302}{buildP2PConstraint} (\hyperlink{class_c_irr_b_p_rigid_body}{CIrrBPRigidBody} $\ast$bodyA, const vector3df \&pivotInA)
+\item 
+\hyperlink{class_c_irr_b_p_p2_p_constraint}{CIrrBPP2PConstraint} $\ast$ \hyperlink{class_c_irr_b_p_manager_aae111a76d0283935a6c7aa8dfb98e457}{buildP2PConstraint} (\hyperlink{class_c_irr_b_p_rigid_body}{CIrrBPRigidBody} $\ast$bodyA, \hyperlink{class_c_irr_b_p_rigid_body}{CIrrBPRigidBody} $\ast$bodyB, const vector3df \&pivotInA, const vector3df \&pivotInB)
+\item 
+\hyperlink{class_c_irr_b_p_hinge_constraint}{CIrrBPHingeConstraint} $\ast$ \hyperlink{class_c_irr_b_p_manager_a87b2610eaba14775ac81992ff71ab436}{buildHingeConstraint} (\hyperlink{class_c_irr_b_p_rigid_body}{CIrrBPRigidBody} $\ast$bodyA, const vector3df \&pivotInA, const vector3df \&axisInA)
+\item 
+\hyperlink{class_c_irr_b_p_hinge_constraint}{CIrrBPHingeConstraint} $\ast$ \hyperlink{class_c_irr_b_p_manager_a8a61e921b487d6249e46022b6e9b5ccf}{buildHingeConstraint} (\hyperlink{class_c_irr_b_p_rigid_body}{CIrrBPRigidBody} $\ast$bodyA, \hyperlink{class_c_irr_b_p_rigid_body}{CIrrBPRigidBody} $\ast$bodyB, const vector3df \&pivotInA, const vector3df \&pivotInB, const vector3df \&axisInA, const vector3df \&axisInB)
+\item 
+\hyperlink{class_c_irr_b_p_delete_animator}{CIrrBPDeleteAnimator} $\ast$ \hyperlink{class_c_irr_b_p_manager_a34d992b091c917aa9a0febddadf26141}{createDeleteAnimator} (irr::u32 timeMs)
+\item 
+\hyperlink{class_c_irr_b_p_collision_delete_animator}{CIrrBPCollisionDeleteAnimator} $\ast$ \hyperlink{class_c_irr_b_p_manager_a868af77531e0eb62d14ee060d2c91158}{createCollisionDeleteAnimator} (CIB\_\-DFLAG delFlag)
+\item 
+void \hyperlink{class_c_irr_b_p_manager_af5b96f07769449e5b4a7adb8485e027f}{addBodyToBulletQueue} (\hyperlink{class_c_irr_b_p_rigid_body}{CIrrBPRigidBody} $\ast$body)
+\item 
+void \hyperlink{class_c_irr_b_p_manager_ad4896d9448a572add3c84ca5118c6baa}{removeBody} (\hyperlink{class_c_irr_b_p_rigid_body}{CIrrBPRigidBody} $\ast$body)
+\item 
+void \hyperlink{class_c_irr_b_p_manager_ad3eea990a27f0ce4cfc2564c475f55f2}{setWorldGravity} (const vector3df \&Gravity)
+\item 
+void \hyperlink{class_c_irr_b_p_manager_ab82cddba1a3acd79119e2708680acffb}{drop} ()
+\item 
+\hyperlink{class_c_irr_b_p_rigid_body}{CIrrBPRigidBody} $\ast$ \hyperlink{class_c_irr_b_p_manager_ad48556f70ceddf1501ccc11120ef511c}{getRigidBodyFromId} (irr::s32 id)
+\item 
+\hyperlink{class_c_irr_b_p_rigid_body}{CIrrBPRigidBody} $\ast$ \hyperlink{class_c_irr_b_p_manager_a6dda0b5ecda7508c5b44e29fe72a6d27}{getRigidBodyFromUId} (irr::u32 uid)
+\item 
+\hyperlink{class_c_irr_b_p_rigid_body}{CIrrBPRigidBody} $\ast$ \hyperlink{class_c_irr_b_p_manager_a6da3e324ed8e5eb8332588de2fdde1a0}{getRigidBodyFromName} (irr::c8 $\ast$name)
+\item 
+\hypertarget{class_c_irr_b_p_manager_afac23634af5abf7f5adbce13d166cea5}{
+void {\bfseries stepSimulation} ()}
+\label{class_c_irr_b_p_manager_afac23634af5abf7f5adbce13d166cea5}
+
+\end{DoxyCompactItemize}
+
+
+\subsection{Constructor \& Destructor Documentation}
+\hypertarget{class_c_irr_b_p_manager_ae449dd7e0fa17f986a8ee2b6afe36a09}{
+\index{CIrrBPManager@{CIrrBPManager}!CIrrBPManager@{CIrrBPManager}}
+\index{CIrrBPManager@{CIrrBPManager}!CIrrBPManager@{CIrrBPManager}}
+\subsubsection[{CIrrBPManager}]{\setlength{\rightskip}{0pt plus 5cm}CIrrBPManager::CIrrBPManager (
+\begin{DoxyParamCaption}
+\item[{IrrlichtDevice $\ast$}]{ device}
+\end{DoxyParamCaption}
+)}}
+\label{class_c_irr_b_p_manager_ae449dd7e0fa17f986a8ee2b6afe36a09}
+Constructor. 
+\begin{DoxyParams}{Parameters}
+\item[{\em device}]A pointer to a Irrlicht's device \end{DoxyParams}
+
+
+\subsection{Member Function Documentation}
+\hypertarget{class_c_irr_b_p_manager_af5b96f07769449e5b4a7adb8485e027f}{
+\index{CIrrBPManager@{CIrrBPManager}!addBodyToBulletQueue@{addBodyToBulletQueue}}
+\index{addBodyToBulletQueue@{addBodyToBulletQueue}!CIrrBPManager@{CIrrBPManager}}
+\subsubsection[{addBodyToBulletQueue}]{\setlength{\rightskip}{0pt plus 5cm}void CIrrBPManager::addBodyToBulletQueue (
+\begin{DoxyParamCaption}
+\item[{{\bf CIrrBPRigidBody} $\ast$}]{ body}
+\end{DoxyParamCaption}
+)}}
+\label{class_c_irr_b_p_manager_af5b96f07769449e5b4a7adb8485e027f}
+Adds your own rigid body to the bullet queue. You need to call this if you're not using the IrrBP manager to create a body 
+
+Here is the call graph for this function:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=400pt]{class_c_irr_b_p_manager_af5b96f07769449e5b4a7adb8485e027f_cgraph}
+\end{center}
+\end{figure}
+
+
+\hypertarget{class_c_irr_b_p_manager_a61ed9d76cfe90285f6e7d80b5870406f}{
+\index{CIrrBPManager@{CIrrBPManager}!addRigidBox@{addRigidBox}}
+\index{addRigidBox@{addRigidBox}!CIrrBPManager@{CIrrBPManager}}
+\subsubsection[{addRigidBox}]{\setlength{\rightskip}{0pt plus 5cm}{\bf CIrrBPBoxBody}$\ast$ CIrrBPManager::addRigidBox (
+\begin{DoxyParamCaption}
+\item[{ISceneNode $\ast$}]{ node, }
+\item[{irr::f32}]{ mass, }
+\item[{irr::s32}]{ bodyId = {\ttfamily -\/1}}
+\end{DoxyParamCaption}
+)}}
+\label{class_c_irr_b_p_manager_a61ed9d76cfe90285f6e7d80b5870406f}
+Adds a rigid box into the world. 
+\begin{DoxyParams}{Parameters}
+\item[{\em node}]scene node to which engage the body \item[{\em mass}]body's mass \item[{\em bodyId}]a irrlicht-\/style body id \end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Pointer to the object. 
+\end{DoxyReturn}
+\hypertarget{class_c_irr_b_p_manager_acf65bd47e3067b5d7d9574c160acbc38}{
+\index{CIrrBPManager@{CIrrBPManager}!addRigidCapsule@{addRigidCapsule}}
+\index{addRigidCapsule@{addRigidCapsule}!CIrrBPManager@{CIrrBPManager}}
+\subsubsection[{addRigidCapsule}]{\setlength{\rightskip}{0pt plus 5cm}{\bf CIrrBPCapsuleBody}$\ast$ CIrrBPManager::addRigidCapsule (
+\begin{DoxyParamCaption}
+\item[{ISceneNode $\ast$}]{ node, }
+\item[{irr::f32}]{ mass, }
+\item[{irr::s32}]{ bodyId = {\ttfamily -\/1}, }
+\item[{BODY\_\-OR}]{ bodyOrientation = {\ttfamily AUTO}}
+\end{DoxyParamCaption}
+)}}
+\label{class_c_irr_b_p_manager_acf65bd47e3067b5d7d9574c160acbc38}
+Adds a rigid capsule into the world 
+\begin{DoxyParams}{Parameters}
+\item[{\em node}]scene node to which engage the body \item[{\em mass}]body's mass \item[{\em bodyId}]a irrlicht-\/style body id \item[{\em bodyOrientation}]the object' axis orientation. (====) has an X orientation. \end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Pointer to the object. 
+\end{DoxyReturn}
+\hypertarget{class_c_irr_b_p_manager_a810377e264480789138dc4b9ac5145d4}{
+\index{CIrrBPManager@{CIrrBPManager}!addRigidCone@{addRigidCone}}
+\index{addRigidCone@{addRigidCone}!CIrrBPManager@{CIrrBPManager}}
+\subsubsection[{addRigidCone}]{\setlength{\rightskip}{0pt plus 5cm}{\bf CIrrBPConeBody}$\ast$ CIrrBPManager::addRigidCone (
+\begin{DoxyParamCaption}
+\item[{ISceneNode $\ast$}]{ node, }
+\item[{irr::f32}]{ mass, }
+\item[{irr::s32}]{ bodyId = {\ttfamily -\/1}, }
+\item[{BODY\_\-OR}]{ bodyOrientationAxis = {\ttfamily AUTO}}
+\end{DoxyParamCaption}
+)}}
+\label{class_c_irr_b_p_manager_a810377e264480789138dc4b9ac5145d4}
+Adds a rigid cone into the world 
+\begin{DoxyParams}{Parameters}
+\item[{\em node}]scene node to which engage the body \item[{\em mass}]body's mass \item[{\em bodyId}]a irrlicht-\/style body id \item[{\em bodyOrientation}]the object' axis orientation. /$\backslash$ has an Y orientation. \end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Pointer to the object. 
+\end{DoxyReturn}
+\hypertarget{class_c_irr_b_p_manager_a1b4d6c49c0383e11bbc7a32a14de691d}{
+\index{CIrrBPManager@{CIrrBPManager}!addRigidCylinder@{addRigidCylinder}}
+\index{addRigidCylinder@{addRigidCylinder}!CIrrBPManager@{CIrrBPManager}}
+\subsubsection[{addRigidCylinder}]{\setlength{\rightskip}{0pt plus 5cm}{\bf CIrrBPCylinderBody}$\ast$ CIrrBPManager::addRigidCylinder (
+\begin{DoxyParamCaption}
+\item[{ISceneNode $\ast$}]{ node, }
+\item[{irr::f32}]{ mass, }
+\item[{irr::s32}]{ bodyId = {\ttfamily -\/1}, }
+\item[{BODY\_\-OR}]{ bodyOrientation = {\ttfamily AUTO}}
+\end{DoxyParamCaption}
+)}}
+\label{class_c_irr_b_p_manager_a1b4d6c49c0383e11bbc7a32a14de691d}
+Adds a rigid cylinder into the world 
+\begin{DoxyParams}{Parameters}
+\item[{\em node}]scene node to which engage the body \item[{\em mass}]body's mass \item[{\em bodyId}]a irrlicht-\/style body id \item[{\em bodyOrientation}]the object' axis orientation. For example \mbox{[}====\mbox{]} has an X orientation. \end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Pointer to the object. 
+\end{DoxyReturn}
+\hypertarget{class_c_irr_b_p_manager_aebbe19de8a748a7c66d5d0efc16dc5eb}{
+\index{CIrrBPManager@{CIrrBPManager}!addRigidSphere@{addRigidSphere}}
+\index{addRigidSphere@{addRigidSphere}!CIrrBPManager@{CIrrBPManager}}
+\subsubsection[{addRigidSphere}]{\setlength{\rightskip}{0pt plus 5cm}{\bf CIrrBPSphereBody}$\ast$ CIrrBPManager::addRigidSphere (
+\begin{DoxyParamCaption}
+\item[{ISceneNode $\ast$}]{ node, }
+\item[{irr::f32}]{ mass, }
+\item[{irr::s32}]{ bodyId = {\ttfamily -\/1}}
+\end{DoxyParamCaption}
+)}}
+\label{class_c_irr_b_p_manager_aebbe19de8a748a7c66d5d0efc16dc5eb}
+Adds a rigid sphere into the world 
+\begin{DoxyParams}{Parameters}
+\item[{\em node}]scene node to which engage the body \item[{\em mass}]body's mass \item[{\em bodyId}]a irrlicht-\/style body id \end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Pointer to the object. 
+\end{DoxyReturn}
+\hypertarget{class_c_irr_b_p_manager_a14eef4c19ac93cf7dff82544637833e0}{
+\index{CIrrBPManager@{CIrrBPManager}!addTrimesh@{addTrimesh}}
+\index{addTrimesh@{addTrimesh}!CIrrBPManager@{CIrrBPManager}}
+\subsubsection[{addTrimesh}]{\setlength{\rightskip}{0pt plus 5cm}{\bf CIrrBPTrimesh}$\ast$ CIrrBPManager::addTrimesh (
+\begin{DoxyParamCaption}
+\item[{IMeshSceneNode $\ast$}]{ node, }
+\item[{irr::f32}]{ mass, }
+\item[{irr::s32}]{ bodyId = {\ttfamily -\/1}}
+\end{DoxyParamCaption}
+)}}
+\label{class_c_irr_b_p_manager_a14eef4c19ac93cf7dff82544637833e0}
+Adds a rigid trimesh into the world 
+\begin{DoxyParams}{Parameters}
+\item[{\em node}]scene node to which engage the body \item[{\em mass}]body's mass \item[{\em bodyId}]a irrlicht-\/style body id \end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Pointer to the object. 
+\end{DoxyReturn}
+\hypertarget{class_c_irr_b_p_manager_ad565fee43722307839908de9aab70344}{
+\index{CIrrBPManager@{CIrrBPManager}!addTrimesh@{addTrimesh}}
+\index{addTrimesh@{addTrimesh}!CIrrBPManager@{CIrrBPManager}}
+\subsubsection[{addTrimesh}]{\setlength{\rightskip}{0pt plus 5cm}{\bf CIrrBPTrimesh}$\ast$ CIrrBPManager::addTrimesh (
+\begin{DoxyParamCaption}
+\item[{IAnimatedMeshSceneNode $\ast$}]{ node, }
+\item[{irr::f32}]{ mass, }
+\item[{irr::s32}]{ bodyId = {\ttfamily -\/1}}
+\end{DoxyParamCaption}
+)}}
+\label{class_c_irr_b_p_manager_ad565fee43722307839908de9aab70344}
+Adds a rigid trimesh into the world 
+\begin{DoxyParams}{Parameters}
+\item[{\em node}]scene node to which engage the body \item[{\em mass}]body's mass \item[{\em bodyId}]a irrlicht-\/style body id \end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Pointer to the object. 
+\end{DoxyReturn}
+\hypertarget{class_c_irr_b_p_manager_a87b2610eaba14775ac81992ff71ab436}{
+\index{CIrrBPManager@{CIrrBPManager}!buildHingeConstraint@{buildHingeConstraint}}
+\index{buildHingeConstraint@{buildHingeConstraint}!CIrrBPManager@{CIrrBPManager}}
+\subsubsection[{buildHingeConstraint}]{\setlength{\rightskip}{0pt plus 5cm}{\bf CIrrBPHingeConstraint} $\ast$ CIrrBPManager::buildHingeConstraint (
+\begin{DoxyParamCaption}
+\item[{{\bf CIrrBPRigidBody} $\ast$}]{ bodyA, }
+\item[{const vector3df \&}]{ pivotInA, }
+\item[{const vector3df \&}]{ axisInA}
+\end{DoxyParamCaption}
+)}}
+\label{class_c_irr_b_p_manager_a87b2610eaba14775ac81992ff71ab436}
+Builds and attach a hinge constraint to the body.
+
+
+\begin{DoxyParams}{Parameters}
+\item[{\em bodyA}]The first body \item[{\em pivotInA}]The constraint position in A \item[{\em axisInA}]The axis position in A \end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+pointer to the constraint 
+\end{DoxyReturn}
+\hypertarget{class_c_irr_b_p_manager_a8a61e921b487d6249e46022b6e9b5ccf}{
+\index{CIrrBPManager@{CIrrBPManager}!buildHingeConstraint@{buildHingeConstraint}}
+\index{buildHingeConstraint@{buildHingeConstraint}!CIrrBPManager@{CIrrBPManager}}
+\subsubsection[{buildHingeConstraint}]{\setlength{\rightskip}{0pt plus 5cm}{\bf CIrrBPHingeConstraint} $\ast$ CIrrBPManager::buildHingeConstraint (
+\begin{DoxyParamCaption}
+\item[{{\bf CIrrBPRigidBody} $\ast$}]{ bodyA, }
+\item[{{\bf CIrrBPRigidBody} $\ast$}]{ bodyB, }
+\item[{const vector3df \&}]{ pivotInA, }
+\item[{const vector3df \&}]{ pivotInB, }
+\item[{const vector3df \&}]{ axisInA, }
+\item[{const vector3df \&}]{ axisInB}
+\end{DoxyParamCaption}
+)}}
+\label{class_c_irr_b_p_manager_a8a61e921b487d6249e46022b6e9b5ccf}
+Builds and attach a hinge constraint to the body.
+
+
+\begin{DoxyParams}{Parameters}
+\item[{\em bodyA}]The first body \item[{\em bodyB}]The second body \item[{\em pivotInA}]The constraint position in A \item[{\em pivotInB}]The constraint position in B \item[{\em axisInA}]The axis position in A \item[{\em axisInB}]The axis position in B \end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+pointer to the constraint 
+\end{DoxyReturn}
+\hypertarget{class_c_irr_b_p_manager_ab9b2ccaf431413e1ada692eb208a2302}{
+\index{CIrrBPManager@{CIrrBPManager}!buildP2PConstraint@{buildP2PConstraint}}
+\index{buildP2PConstraint@{buildP2PConstraint}!CIrrBPManager@{CIrrBPManager}}
+\subsubsection[{buildP2PConstraint}]{\setlength{\rightskip}{0pt plus 5cm}{\bf CIrrBPP2PConstraint} $\ast$ CIrrBPManager::buildP2PConstraint (
+\begin{DoxyParamCaption}
+\item[{{\bf CIrrBPRigidBody} $\ast$}]{ bodyA, }
+\item[{const vector3df \&}]{ pivotInA}
+\end{DoxyParamCaption}
+)}}
+\label{class_c_irr_b_p_manager_ab9b2ccaf431413e1ada692eb208a2302}
+Builds and attach a point-\/to-\/point constraint to the body.
+
+
+\begin{DoxyParams}{Parameters}
+\item[{\em bodyA}]The first body \item[{\em pivotInA}]The constraint position in A \end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+pointer to the constraint 
+\end{DoxyReturn}
+\hypertarget{class_c_irr_b_p_manager_aae111a76d0283935a6c7aa8dfb98e457}{
+\index{CIrrBPManager@{CIrrBPManager}!buildP2PConstraint@{buildP2PConstraint}}
+\index{buildP2PConstraint@{buildP2PConstraint}!CIrrBPManager@{CIrrBPManager}}
+\subsubsection[{buildP2PConstraint}]{\setlength{\rightskip}{0pt plus 5cm}{\bf CIrrBPP2PConstraint} $\ast$ CIrrBPManager::buildP2PConstraint (
+\begin{DoxyParamCaption}
+\item[{{\bf CIrrBPRigidBody} $\ast$}]{ bodyA, }
+\item[{{\bf CIrrBPRigidBody} $\ast$}]{ bodyB, }
+\item[{const vector3df \&}]{ pivotInA, }
+\item[{const vector3df \&}]{ pivotInB}
+\end{DoxyParamCaption}
+)}}
+\label{class_c_irr_b_p_manager_aae111a76d0283935a6c7aa8dfb98e457}
+Builds and attach a point-\/to-\/point constraint to the bodies.
+
+
+\begin{DoxyParams}{Parameters}
+\item[{\em bodyA}]The first body \item[{\em bodyB}]The second body \item[{\em pivotInA}]The constraint position in A \item[{\em pivotInB}]The constraint position in B \end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+pointer to the constraint 
+\end{DoxyReturn}
+\hypertarget{class_c_irr_b_p_manager_af916152de29ba8c7c9e727dfe5a1c8af}{
+\index{CIrrBPManager@{CIrrBPManager}!buildSlideConstraint@{buildSlideConstraint}}
+\index{buildSlideConstraint@{buildSlideConstraint}!CIrrBPManager@{CIrrBPManager}}
+\subsubsection[{buildSlideConstraint}]{\setlength{\rightskip}{0pt plus 5cm}{\bf CIrrBPSlideConstraint} $\ast$ CIrrBPManager::buildSlideConstraint (
+\begin{DoxyParamCaption}
+\item[{{\bf CIrrBPRigidBody} $\ast$}]{ bodyA, }
+\item[{{\bf CIrrBPRigidBody} $\ast$}]{ bodyB, }
+\item[{const vector3df \&}]{ pivotInA = {\ttfamily vector3df(0,0,0)}, }
+\item[{const vector3df \&}]{ pivotInB = {\ttfamily vector3df(0,0,0)}, }
+\item[{bool}]{ autoadapt = {\ttfamily true}, }
+\item[{bool}]{ rotatepiston = {\ttfamily true}}
+\end{DoxyParamCaption}
+)}}
+\label{class_c_irr_b_p_manager_af916152de29ba8c7c9e727dfe5a1c8af}
+Builds and attach a Slide Constraint to the bodies. The last 2 parameters will only works if there is a static object.\par
+ Please also note that due to internal conversions, if you place the moving body to a 0.0f position, the object will be moved toward a NEAR 0 value.\par
+
+
+
+\begin{DoxyParams}{Parameters}
+\item[{\em bodyA}]The first body \item[{\em bodyB}]The second body \item[{\em pivotInA}]The constraint position in A (0,0,0 by default) \item[{\em pivotInB}]The constraint position in B (0,0,0 by default) \item[{\em autoadapt}]If one body is static, and this flag is setted to false. The Slide will be only orthogonal \item[{\em rotatepiston}]If setted to true, the dynamic object (piston) will be rotated in the slide direction. \end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+pointer to the constraint 
+\end{DoxyReturn}
+\hypertarget{class_c_irr_b_p_manager_a868af77531e0eb62d14ee060d2c91158}{
+\index{CIrrBPManager@{CIrrBPManager}!createCollisionDeleteAnimator@{createCollisionDeleteAnimator}}
+\index{createCollisionDeleteAnimator@{createCollisionDeleteAnimator}!CIrrBPManager@{CIrrBPManager}}
+\subsubsection[{createCollisionDeleteAnimator}]{\setlength{\rightskip}{0pt plus 5cm}{\bf CIrrBPCollisionDeleteAnimator} $\ast$ CIrrBPManager::createCollisionDeleteAnimator (
+\begin{DoxyParamCaption}
+\item[{CIB\_\-DFLAG}]{ delFlag}
+\end{DoxyParamCaption}
+)}}
+\label{class_c_irr_b_p_manager_a868af77531e0eb62d14ee060d2c91158}
+Creates an on-\/event collision delete animator
+
+
+\begin{DoxyParams}{Parameters}
+\item[{\em delFlag}]The flag that will set the deletion condition \end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+pointer to the animator 
+\end{DoxyReturn}
+\hypertarget{class_c_irr_b_p_manager_a34d992b091c917aa9a0febddadf26141}{
+\index{CIrrBPManager@{CIrrBPManager}!createDeleteAnimator@{createDeleteAnimator}}
+\index{createDeleteAnimator@{createDeleteAnimator}!CIrrBPManager@{CIrrBPManager}}
+\subsubsection[{createDeleteAnimator}]{\setlength{\rightskip}{0pt plus 5cm}{\bf CIrrBPDeleteAnimator} $\ast$ CIrrBPManager::createDeleteAnimator (
+\begin{DoxyParamCaption}
+\item[{irr::u32}]{ timeMs}
+\end{DoxyParamCaption}
+)}}
+\label{class_c_irr_b_p_manager_a34d992b091c917aa9a0febddadf26141}
+Creates a delete animator to attach to a body.
+
+
+\begin{DoxyParams}{Parameters}
+\item[{\em timeMs}]Time after which the body will be deleted \end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+pointer to the animator 
+\end{DoxyReturn}
+\hypertarget{class_c_irr_b_p_manager_ab82cddba1a3acd79119e2708680acffb}{
+\index{CIrrBPManager@{CIrrBPManager}!drop@{drop}}
+\index{drop@{drop}!CIrrBPManager@{CIrrBPManager}}
+\subsubsection[{drop}]{\setlength{\rightskip}{0pt plus 5cm}void CIrrBPManager::drop (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily  \mbox{[}inline\mbox{]}}}}
+\label{class_c_irr_b_p_manager_ab82cddba1a3acd79119e2708680acffb}
+Drops the bullet manager \hypertarget{class_c_irr_b_p_manager_ad48556f70ceddf1501ccc11120ef511c}{
+\index{CIrrBPManager@{CIrrBPManager}!getRigidBodyFromId@{getRigidBodyFromId}}
+\index{getRigidBodyFromId@{getRigidBodyFromId}!CIrrBPManager@{CIrrBPManager}}
+\subsubsection[{getRigidBodyFromId}]{\setlength{\rightskip}{0pt plus 5cm}{\bf CIrrBPRigidBody}$\ast$ CIrrBPManager::getRigidBodyFromId (
+\begin{DoxyParamCaption}
+\item[{irr::s32}]{ id}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily  \mbox{[}inline\mbox{]}}}}
+\label{class_c_irr_b_p_manager_ad48556f70ceddf1501ccc11120ef511c}
+Gets a rigid Body from a id. 
+\begin{DoxyParams}{Parameters}
+\item[{\em id}]The id to search for \end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Pointer to the first rigid body with this id. Returns NULL if no bodies couldn't be found. 
+\end{DoxyReturn}
+\hypertarget{class_c_irr_b_p_manager_a6da3e324ed8e5eb8332588de2fdde1a0}{
+\index{CIrrBPManager@{CIrrBPManager}!getRigidBodyFromName@{getRigidBodyFromName}}
+\index{getRigidBodyFromName@{getRigidBodyFromName}!CIrrBPManager@{CIrrBPManager}}
+\subsubsection[{getRigidBodyFromName}]{\setlength{\rightskip}{0pt plus 5cm}{\bf CIrrBPRigidBody}$\ast$ CIrrBPManager::getRigidBodyFromName (
+\begin{DoxyParamCaption}
+\item[{irr::c8 $\ast$}]{ name}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily  \mbox{[}inline\mbox{]}}}}
+\label{class_c_irr_b_p_manager_a6da3e324ed8e5eb8332588de2fdde1a0}
+Gets a rigid Body from a name. 
+\begin{DoxyParams}{Parameters}
+\item[{\em name}]The name to search for \end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Pointer to the first rigid body with this name. Returns NULL if no bodies couldn't be found. 
+\end{DoxyReturn}
+\hypertarget{class_c_irr_b_p_manager_a6dda0b5ecda7508c5b44e29fe72a6d27}{
+\index{CIrrBPManager@{CIrrBPManager}!getRigidBodyFromUId@{getRigidBodyFromUId}}
+\index{getRigidBodyFromUId@{getRigidBodyFromUId}!CIrrBPManager@{CIrrBPManager}}
+\subsubsection[{getRigidBodyFromUId}]{\setlength{\rightskip}{0pt plus 5cm}{\bf CIrrBPRigidBody}$\ast$ CIrrBPManager::getRigidBodyFromUId (
+\begin{DoxyParamCaption}
+\item[{irr::u32}]{ uid}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily  \mbox{[}inline\mbox{]}}}}
+\label{class_c_irr_b_p_manager_a6dda0b5ecda7508c5b44e29fe72a6d27}
+Gets a rigid Body from a unique id. 
+\begin{DoxyParams}{Parameters}
+\item[{\em id}]The unique id to search for \end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Pointer to the first rigid body with this id. Returns NULL if no bodies couldn't be found. 
+\end{DoxyReturn}
+\hypertarget{class_c_irr_b_p_manager_acdfaf5f8c351d72c4d9680cb75372ae3}{
+\index{CIrrBPManager@{CIrrBPManager}!getWorld@{getWorld}}
+\index{getWorld@{getWorld}!CIrrBPManager@{CIrrBPManager}}
+\subsubsection[{getWorld}]{\setlength{\rightskip}{0pt plus 5cm}{\bf CIrrBPWorld}$\ast$ CIrrBPManager::getWorld (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily  \mbox{[}inline\mbox{]}}}}
+\label{class_c_irr_b_p_manager_acdfaf5f8c351d72c4d9680cb75372ae3}
+Gets the world pointer. \begin{DoxyReturn}{Returns}
+Pointer to the world object 
+\end{DoxyReturn}
+\hypertarget{class_c_irr_b_p_manager_ad4896d9448a572add3c84ca5118c6baa}{
+\index{CIrrBPManager@{CIrrBPManager}!removeBody@{removeBody}}
+\index{removeBody@{removeBody}!CIrrBPManager@{CIrrBPManager}}
+\subsubsection[{removeBody}]{\setlength{\rightskip}{0pt plus 5cm}void CIrrBPManager::removeBody (
+\begin{DoxyParamCaption}
+\item[{{\bf CIrrBPRigidBody} $\ast$}]{ body}
+\end{DoxyParamCaption}
+)}}
+\label{class_c_irr_b_p_manager_ad4896d9448a572add3c84ca5118c6baa}
+Removes a body from the bullet queue. Call this function instead of using body's internal drop function 
+
+Here is the call graph for this function:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=400pt]{class_c_irr_b_p_manager_ad4896d9448a572add3c84ca5118c6baa_cgraph}
+\end{center}
+\end{figure}
+
+
+\hypertarget{class_c_irr_b_p_manager_ad3eea990a27f0ce4cfc2564c475f55f2}{
+\index{CIrrBPManager@{CIrrBPManager}!setWorldGravity@{setWorldGravity}}
+\index{setWorldGravity@{setWorldGravity}!CIrrBPManager@{CIrrBPManager}}
+\subsubsection[{setWorldGravity}]{\setlength{\rightskip}{0pt plus 5cm}void CIrrBPManager::setWorldGravity (
+\begin{DoxyParamCaption}
+\item[{const vector3df \&}]{ Gravity}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily  \mbox{[}inline\mbox{]}}}}
+\label{class_c_irr_b_p_manager_ad3eea990a27f0ce4cfc2564c475f55f2}
+Sets the gravity in the world. 
+\begin{DoxyParams}{Parameters}
+\item[{\em Gravity}]vector containing direction \end{DoxyParams}
+
+
+The documentation for this class was generated from the following files:\begin{DoxyCompactItemize}
+\item 
+E:/Documenti/Lavori Stefano/ProgettoFPS/Engine/Engine/IrrBP/include/CIrrBPManager.h\item 
+E:/Documenti/Lavori Stefano/ProgettoFPS/Engine/Engine/IrrBP/src/CIrrBPManager.cpp\end{DoxyCompactItemize}

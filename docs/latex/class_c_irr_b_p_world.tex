@@ -1,0 +1,248 @@
+\hypertarget{class_c_irr_b_p_world}{
+\section{CIrrBPWorld Class Reference}
+\label{class_c_irr_b_p_world}\index{CIrrBPWorld@{CIrrBPWorld}}
+}
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{class_c_irr_b_p_world_a585d92e41db74a19bf1cb982ddc0cddc}{CIrrBPWorld} (IrrlichtDevice $\ast$device, const vector3df \&Gravity)
+\item 
+void \hyperlink{class_c_irr_b_p_world_aa676e88466f927af2ac0c4c8cd94e0f3}{stepSimulation} ()
+\item 
+irr::u32 \hyperlink{class_c_irr_b_p_world_a0bf527c522426b50d959ab5adc27be4c}{addRigidBody} (\hyperlink{class_c_irr_b_p_rigid_body}{CIrrBPRigidBody} $\ast$body)
+\item 
+\hypertarget{class_c_irr_b_p_world_a7565f787e92f3c3cf76da072fe175b11}{
+void {\bfseries addRigidBodyConstraint} (\hyperlink{class_c_irr_b_p_constraint}{CIrrBPConstraint} $\ast$constraint)}
+\label{class_c_irr_b_p_world_a7565f787e92f3c3cf76da072fe175b11}
+
+\item 
+void \hyperlink{class_c_irr_b_p_world_a7133c6b9763ac425ac579cdfbda8788b}{removeRigidBody} (\hyperlink{class_c_irr_b_p_rigid_body}{CIrrBPRigidBody} $\ast$body)
+\item 
+irr::u32 \hyperlink{class_c_irr_b_p_world_a66e4c4aeef5d3ae6f907753860b8fd5a}{getActiveBodies} ()
+\item 
+\hyperlink{class_c_irr_b_p_rigid_body}{CIrrBPRigidBody} $\ast$ \hyperlink{class_c_irr_b_p_world_a7ebeb8e75b825a493daa1cea6d07aa21}{getRigidBodyFromId} (irr::s32 id)
+\item 
+\hyperlink{class_c_irr_b_p_rigid_body}{CIrrBPRigidBody} $\ast$ \hyperlink{class_c_irr_b_p_world_a1b96effdaad31a6e05185f2b683a0445}{getRigidBodyFromUId} (irr::u32 uid)
+\item 
+\hyperlink{class_c_irr_b_p_rigid_body}{CIrrBPRigidBody} $\ast$ \hyperlink{class_c_irr_b_p_world_a1ed94585fa44f0ab99cfa4a1fdc29fcd}{getRigidBodyFromName} (irr::c8 $\ast$name)
+\item 
+bool \hyperlink{class_c_irr_b_p_world_abc8fc2e0dbc203106e91cb1e944c496a}{isBodyColliding} (\hyperlink{class_c_irr_b_p_rigid_body}{CIrrBPRigidBody} $\ast$body, irr::s32 collMask=-\/1)
+\item 
+void \hyperlink{class_c_irr_b_p_world_a7cd82f40cde955cb54c1fc0268691be6}{drop} ()
+\item 
+\hypertarget{class_c_irr_b_p_world_a96e06a9d2b64d474bfd5325d2ffe809e}{
+void {\bfseries setGravity} (const vector3df \&newGravity)}
+\label{class_c_irr_b_p_world_a96e06a9d2b64d474bfd5325d2ffe809e}
+
+\item 
+btDiscreteDynamicsWorld $\ast$ \hyperlink{class_c_irr_b_p_world_aa9b3e5a74f8ee1185247bc58ec6aec0c}{getBulletWorldPtr} ()
+\end{DoxyCompactItemize}
+\subsection*{Public Attributes}
+\begin{DoxyCompactItemize}
+\item 
+bool \hyperlink{class_c_irr_b_p_world_a4659a995f7b084057cad44480cd09cca}{isClosing}
+\end{DoxyCompactItemize}
+
+
+\subsection{Constructor \& Destructor Documentation}
+\hypertarget{class_c_irr_b_p_world_a585d92e41db74a19bf1cb982ddc0cddc}{
+\index{CIrrBPWorld@{CIrrBPWorld}!CIrrBPWorld@{CIrrBPWorld}}
+\index{CIrrBPWorld@{CIrrBPWorld}!CIrrBPWorld@{CIrrBPWorld}}
+\subsubsection[{CIrrBPWorld}]{\setlength{\rightskip}{0pt plus 5cm}CIrrBPWorld::CIrrBPWorld (
+\begin{DoxyParamCaption}
+\item[{IrrlichtDevice $\ast$}]{ device, }
+\item[{const vector3df \&}]{ Gravity}
+\end{DoxyParamCaption}
+)}}
+\label{class_c_irr_b_p_world_a585d92e41db74a19bf1cb982ddc0cddc}
+Constructor. 
+\begin{DoxyParams}{Parameters}
+\item[{\em device}]A pointer to a Irrlicht's device \item[{\em Gravity}]World's Gravity . \end{DoxyParams}
+
+
+\subsection{Member Function Documentation}
+\hypertarget{class_c_irr_b_p_world_a0bf527c522426b50d959ab5adc27be4c}{
+\index{CIrrBPWorld@{CIrrBPWorld}!addRigidBody@{addRigidBody}}
+\index{addRigidBody@{addRigidBody}!CIrrBPWorld@{CIrrBPWorld}}
+\subsubsection[{addRigidBody}]{\setlength{\rightskip}{0pt plus 5cm}irr::u32 CIrrBPWorld::addRigidBody (
+\begin{DoxyParamCaption}
+\item[{{\bf CIrrBPRigidBody} $\ast$}]{ body}
+\end{DoxyParamCaption}
+)}}
+\label{class_c_irr_b_p_world_a0bf527c522426b50d959ab5adc27be4c}
+Adds a rigid Body to the world. 
+\begin{DoxyParams}{Parameters}
+\item[{\em body}]A pointer to the body that needs to be added \end{DoxyParams}
+
+
+Here is the call graph for this function:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=400pt]{class_c_irr_b_p_world_a0bf527c522426b50d959ab5adc27be4c_cgraph}
+\end{center}
+\end{figure}
+
+
+
+
+Here is the caller graph for this function:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=400pt]{class_c_irr_b_p_world_a0bf527c522426b50d959ab5adc27be4c_icgraph}
+\end{center}
+\end{figure}
+
+
+\hypertarget{class_c_irr_b_p_world_a7cd82f40cde955cb54c1fc0268691be6}{
+\index{CIrrBPWorld@{CIrrBPWorld}!drop@{drop}}
+\index{drop@{drop}!CIrrBPWorld@{CIrrBPWorld}}
+\subsubsection[{drop}]{\setlength{\rightskip}{0pt plus 5cm}void CIrrBPWorld::drop (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily  \mbox{[}inline\mbox{]}}}}
+\label{class_c_irr_b_p_world_a7cd82f40cde955cb54c1fc0268691be6}
+Drop the world pointer and all his child. Please note that all registered rigid bodies pointers, will be destroyed. \hypertarget{class_c_irr_b_p_world_a66e4c4aeef5d3ae6f907753860b8fd5a}{
+\index{CIrrBPWorld@{CIrrBPWorld}!getActiveBodies@{getActiveBodies}}
+\index{getActiveBodies@{getActiveBodies}!CIrrBPWorld@{CIrrBPWorld}}
+\subsubsection[{getActiveBodies}]{\setlength{\rightskip}{0pt plus 5cm}irr::u32 CIrrBPWorld::getActiveBodies (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily  \mbox{[}inline\mbox{]}}}}
+\label{class_c_irr_b_p_world_a66e4c4aeef5d3ae6f907753860b8fd5a}
+Gets the number of active bodies in the world \begin{DoxyReturn}{Returns}
+number of active bodies 
+\end{DoxyReturn}
+\hypertarget{class_c_irr_b_p_world_aa9b3e5a74f8ee1185247bc58ec6aec0c}{
+\index{CIrrBPWorld@{CIrrBPWorld}!getBulletWorldPtr@{getBulletWorldPtr}}
+\index{getBulletWorldPtr@{getBulletWorldPtr}!CIrrBPWorld@{CIrrBPWorld}}
+\subsubsection[{getBulletWorldPtr}]{\setlength{\rightskip}{0pt plus 5cm}btDiscreteDynamicsWorld$\ast$ CIrrBPWorld::getBulletWorldPtr (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily  \mbox{[}inline\mbox{]}}}}
+\label{class_c_irr_b_p_world_aa9b3e5a74f8ee1185247bc58ec6aec0c}
+Only for internal or expert use. \begin{DoxyReturn}{Returns}
+a pointer to the bullet' world object 
+\end{DoxyReturn}
+\hypertarget{class_c_irr_b_p_world_a7ebeb8e75b825a493daa1cea6d07aa21}{
+\index{CIrrBPWorld@{CIrrBPWorld}!getRigidBodyFromId@{getRigidBodyFromId}}
+\index{getRigidBodyFromId@{getRigidBodyFromId}!CIrrBPWorld@{CIrrBPWorld}}
+\subsubsection[{getRigidBodyFromId}]{\setlength{\rightskip}{0pt plus 5cm}{\bf CIrrBPRigidBody} $\ast$ CIrrBPWorld::getRigidBodyFromId (
+\begin{DoxyParamCaption}
+\item[{irr::s32}]{ id}
+\end{DoxyParamCaption}
+)}}
+\label{class_c_irr_b_p_world_a7ebeb8e75b825a493daa1cea6d07aa21}
+Gets a rigid Body from a id. 
+\begin{DoxyParams}{Parameters}
+\item[{\em id}]The id to search for \end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Pointer to the first rigid body with this id. Returns NULL if no bodies couldn't be found. 
+\end{DoxyReturn}
+\hypertarget{class_c_irr_b_p_world_a1ed94585fa44f0ab99cfa4a1fdc29fcd}{
+\index{CIrrBPWorld@{CIrrBPWorld}!getRigidBodyFromName@{getRigidBodyFromName}}
+\index{getRigidBodyFromName@{getRigidBodyFromName}!CIrrBPWorld@{CIrrBPWorld}}
+\subsubsection[{getRigidBodyFromName}]{\setlength{\rightskip}{0pt plus 5cm}{\bf CIrrBPRigidBody} $\ast$ CIrrBPWorld::getRigidBodyFromName (
+\begin{DoxyParamCaption}
+\item[{irr::c8 $\ast$}]{ name}
+\end{DoxyParamCaption}
+)}}
+\label{class_c_irr_b_p_world_a1ed94585fa44f0ab99cfa4a1fdc29fcd}
+Gets a rigid Body from a name. 
+\begin{DoxyParams}{Parameters}
+\item[{\em name}]The name to search for \end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Pointer to the first rigid body with this name. Returns NULL if no bodies couldn't be found. 
+\end{DoxyReturn}
+\hypertarget{class_c_irr_b_p_world_a1b96effdaad31a6e05185f2b683a0445}{
+\index{CIrrBPWorld@{CIrrBPWorld}!getRigidBodyFromUId@{getRigidBodyFromUId}}
+\index{getRigidBodyFromUId@{getRigidBodyFromUId}!CIrrBPWorld@{CIrrBPWorld}}
+\subsubsection[{getRigidBodyFromUId}]{\setlength{\rightskip}{0pt plus 5cm}{\bf CIrrBPRigidBody} $\ast$ CIrrBPWorld::getRigidBodyFromUId (
+\begin{DoxyParamCaption}
+\item[{irr::u32}]{ uid}
+\end{DoxyParamCaption}
+)}}
+\label{class_c_irr_b_p_world_a1b96effdaad31a6e05185f2b683a0445}
+Gets a rigid Body from a unique id. 
+\begin{DoxyParams}{Parameters}
+\item[{\em id}]The unique id to search for \end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Pointer to the first rigid body with this id. Returns NULL if no bodies couldn't be found. 
+\end{DoxyReturn}
+\hypertarget{class_c_irr_b_p_world_abc8fc2e0dbc203106e91cb1e944c496a}{
+\index{CIrrBPWorld@{CIrrBPWorld}!isBodyColliding@{isBodyColliding}}
+\index{isBodyColliding@{isBodyColliding}!CIrrBPWorld@{CIrrBPWorld}}
+\subsubsection[{isBodyColliding}]{\setlength{\rightskip}{0pt plus 5cm}bool CIrrBPWorld::isBodyColliding (
+\begin{DoxyParamCaption}
+\item[{{\bf CIrrBPRigidBody} $\ast$}]{ body, }
+\item[{irr::s32}]{ collMask = {\ttfamily -\/1}}
+\end{DoxyParamCaption}
+)}}
+\label{class_c_irr_b_p_world_abc8fc2e0dbc203106e91cb1e944c496a}
+Verifies if a body is colliding or not. 
+\begin{DoxyParams}{Parameters}
+\item[{\em body}]body to verify \item[{\em collMask}]not yet full implemented. \end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+body colliding status. 
+\end{DoxyReturn}
+\hypertarget{class_c_irr_b_p_world_a7133c6b9763ac425ac579cdfbda8788b}{
+\index{CIrrBPWorld@{CIrrBPWorld}!removeRigidBody@{removeRigidBody}}
+\index{removeRigidBody@{removeRigidBody}!CIrrBPWorld@{CIrrBPWorld}}
+\subsubsection[{removeRigidBody}]{\setlength{\rightskip}{0pt plus 5cm}void CIrrBPWorld::removeRigidBody (
+\begin{DoxyParamCaption}
+\item[{{\bf CIrrBPRigidBody} $\ast$}]{ body}
+\end{DoxyParamCaption}
+)}}
+\label{class_c_irr_b_p_world_a7133c6b9763ac425ac579cdfbda8788b}
+Removes a rigid Body from the world. Please note that the body's Scene Node won't be dropped. 
+\begin{DoxyParams}{Parameters}
+\item[{\em body}]A pointer to the body that needs to be deleted. \end{DoxyParams}
+
+
+Here is the call graph for this function:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=400pt]{class_c_irr_b_p_world_a7133c6b9763ac425ac579cdfbda8788b_cgraph}
+\end{center}
+\end{figure}
+
+
+
+
+Here is the caller graph for this function:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=400pt]{class_c_irr_b_p_world_a7133c6b9763ac425ac579cdfbda8788b_icgraph}
+\end{center}
+\end{figure}
+
+
+\hypertarget{class_c_irr_b_p_world_aa676e88466f927af2ac0c4c8cd94e0f3}{
+\index{CIrrBPWorld@{CIrrBPWorld}!stepSimulation@{stepSimulation}}
+\index{stepSimulation@{stepSimulation}!CIrrBPWorld@{CIrrBPWorld}}
+\subsubsection[{stepSimulation}]{\setlength{\rightskip}{0pt plus 5cm}void CIrrBPWorld::stepSimulation (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}}
+\label{class_c_irr_b_p_world_aa676e88466f927af2ac0c4c8cd94e0f3}
+Steps the simulation. It must be called each frame loop to step the bullet' simulation. 
+
+\subsection{Member Data Documentation}
+\hypertarget{class_c_irr_b_p_world_a4659a995f7b084057cad44480cd09cca}{
+\index{CIrrBPWorld@{CIrrBPWorld}!isClosing@{isClosing}}
+\index{isClosing@{isClosing}!CIrrBPWorld@{CIrrBPWorld}}
+\subsubsection[{isClosing}]{\setlength{\rightskip}{0pt plus 5cm}bool {\bf CIrrBPWorld::isClosing}}}
+\label{class_c_irr_b_p_world_a4659a995f7b084057cad44480cd09cca}
+true if world is going to close 
+
+The documentation for this class was generated from the following files:\begin{DoxyCompactItemize}
+\item 
+E:/Documenti/Lavori Stefano/ProgettoFPS/Engine/Engine/IrrBP/include/CIrrBPWorld.h\item 
+E:/Documenti/Lavori Stefano/ProgettoFPS/Engine/Engine/IrrBP/src/CIrrBPWorld.cpp\end{DoxyCompactItemize}

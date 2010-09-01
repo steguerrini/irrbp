@@ -1,0 +1,230 @@
+\hypertarget{class_c_irr_b_p_rigid_body}{
+\section{CIrrBPRigidBody Class Reference}
+\label{class_c_irr_b_p_rigid_body}\index{CIrrBPRigidBody@{CIrrBPRigidBody}}
+}
+
+
+Inherited by \hyperlink{class_c_irr_b_p_box_body}{CIrrBPBoxBody}, \hyperlink{class_c_irr_b_p_capsule_body}{CIrrBPCapsuleBody}, \hyperlink{class_c_irr_b_p_cone_body}{CIrrBPConeBody}, \hyperlink{class_c_irr_b_p_cylinder_body}{CIrrBPCylinderBody}, \hyperlink{class_c_irr_b_p_sphere_body}{CIrrBPSphereBody}, and \hyperlink{class_c_irr_b_p_trimesh}{CIrrBPTrimesh}.
+
+
+
+Collaboration diagram for CIrrBPRigidBody:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=198pt]{class_c_irr_b_p_rigid_body__coll__graph}
+\end{center}
+\end{figure}
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+virtual void \hyperlink{class_c_irr_b_p_rigid_body_a961d442e36e78260e7a6f203fd0c11e9}{drop} ()=0
+\item 
+\hypertarget{class_c_irr_b_p_rigid_body_a93948bb4c79cea0b3172c5fe1146007c}{
+virtual void {\bfseries applyTorque} (const vector3df \&torque)}
+\label{class_c_irr_b_p_rigid_body_a93948bb4c79cea0b3172c5fe1146007c}
+
+\item 
+\hypertarget{class_c_irr_b_p_rigid_body_aa3fbb7492486b64b0f53e3243f20d3db}{
+virtual void {\bfseries applyForce} (const vector3df \&force, const vector3df \&rel\_\-pos)}
+\label{class_c_irr_b_p_rigid_body_aa3fbb7492486b64b0f53e3243f20d3db}
+
+\item 
+\hypertarget{class_c_irr_b_p_rigid_body_a4697f05241c551fbd80d2786507ceed4}{
+virtual void {\bfseries applyCentralImpulse} (const vector3df \&impulse)}
+\label{class_c_irr_b_p_rigid_body_a4697f05241c551fbd80d2786507ceed4}
+
+\item 
+\hypertarget{class_c_irr_b_p_rigid_body_aea6add503a694f1b54f9b406217416d1}{
+virtual void {\bfseries applyCentralForce} (const vector3df \&force)}
+\label{class_c_irr_b_p_rigid_body_aea6add503a694f1b54f9b406217416d1}
+
+\item 
+\hypertarget{class_c_irr_b_p_rigid_body_a633f6f306f2b061870c78ae5137fe238}{
+virtual void {\bfseries applyTorqueImpulse} (const vector3df \&torque)}
+\label{class_c_irr_b_p_rigid_body_a633f6f306f2b061870c78ae5137fe238}
+
+\item 
+\hypertarget{class_c_irr_b_p_rigid_body_a7cda3cfa35a7b6325b67bc48cc1adcdb}{
+virtual void {\bfseries applyImpulse} (const vector3df \&impulse, const vector3df \&rel\_\-pos)}
+\label{class_c_irr_b_p_rigid_body_a7cda3cfa35a7b6325b67bc48cc1adcdb}
+
+\item 
+\hypertarget{class_c_irr_b_p_rigid_body_a4589194ec0bd56b062fdf9d36a21afea}{
+virtual void {\bfseries setName} (const stringc \&newName)}
+\label{class_c_irr_b_p_rigid_body_a4589194ec0bd56b062fdf9d36a21afea}
+
+\item 
+\hypertarget{class_c_irr_b_p_rigid_body_ae181ccf9a9a5e192b29d4670b65612f2}{
+virtual void {\bfseries setID} (const irr::s32 \&newID)}
+\label{class_c_irr_b_p_rigid_body_ae181ccf9a9a5e192b29d4670b65612f2}
+
+\item 
+\hypertarget{class_c_irr_b_p_rigid_body_a3f7b533714e171a3b2a3cfd6de454445}{
+virtual const c8 $\ast$ {\bfseries getName} () const }
+\label{class_c_irr_b_p_rigid_body_a3f7b533714e171a3b2a3cfd6de454445}
+
+\item 
+\hypertarget{class_c_irr_b_p_rigid_body_acfa13927cb5724c6c0d81ab82b531002}{
+virtual irr::s32 {\bfseries getID} () const }
+\label{class_c_irr_b_p_rigid_body_acfa13927cb5724c6c0d81ab82b531002}
+
+\item 
+\hypertarget{class_c_irr_b_p_rigid_body_a57a51d307201ec99615a0ca623daf0a1}{
+virtual irr::u32 {\bfseries getUniqueID} () const }
+\label{class_c_irr_b_p_rigid_body_a57a51d307201ec99615a0ca623daf0a1}
+
+\item 
+\hypertarget{class_c_irr_b_p_rigid_body_a3e4f7b3000b5955bd8731be4104d963a}{
+virtual btRigidBody $\ast$ {\bfseries getBodyPtr} ()}
+\label{class_c_irr_b_p_rigid_body_a3e4f7b3000b5955bd8731be4104d963a}
+
+\item 
+\hypertarget{class_c_irr_b_p_rigid_body_a1242a37feff707d535c66508afc4bc7f}{
+virtual \hyperlink{class_c_motion_state}{CMotionState} $\ast$ {\bfseries getMotionState} ()}
+\label{class_c_irr_b_p_rigid_body_a1242a37feff707d535c66508afc4bc7f}
+
+\item 
+\hypertarget{class_c_irr_b_p_rigid_body_a50a3138ce669e02f8e7abc1af212b5f6}{
+virtual void {\bfseries setCollisionParam} (irr::s32 newP)}
+\label{class_c_irr_b_p_rigid_body_a50a3138ce669e02f8e7abc1af212b5f6}
+
+\item 
+\hypertarget{class_c_irr_b_p_rigid_body_a2ac9d5458805ae111b2ab2ebf6baec74}{
+virtual irr::s32 {\bfseries getCollisionParam} ()}
+\label{class_c_irr_b_p_rigid_body_a2ac9d5458805ae111b2ab2ebf6baec74}
+
+\item 
+\hypertarget{class_c_irr_b_p_rigid_body_ad0db19bf9575c316e235eb669d499084}{
+virtual bool {\bfseries isStaticObject} ()}
+\label{class_c_irr_b_p_rigid_body_ad0db19bf9575c316e235eb669d499084}
+
+\item 
+\hypertarget{class_c_irr_b_p_rigid_body_ac15067d38996295fbe1ea274ec8d245f}{
+virtual ISceneNode $\ast$ {\bfseries getIrrlichtNode} ()}
+\label{class_c_irr_b_p_rigid_body_ac15067d38996295fbe1ea274ec8d245f}
+
+\item 
+virtual bool \hyperlink{class_c_irr_b_p_rigid_body_a7cf1fec31be0dd1519f0eb85c5df7426}{isValid} ()
+\item 
+virtual void \hyperlink{class_c_irr_b_p_rigid_body_ac95ba035b7a81013d1aebf7511528047}{setValidStatus} (bool newStat)
+\item 
+\hypertarget{class_c_irr_b_p_rigid_body_a2183125d6e49e97403bbef196b71dc47}{
+virtual irr::u32 {\bfseries getAnimatorsNr} ()}
+\label{class_c_irr_b_p_rigid_body_a2183125d6e49e97403bbef196b71dc47}
+
+\item 
+\hypertarget{class_c_irr_b_p_rigid_body_a2556282d3d8b57607b08beb1ea9f80ad}{
+virtual const array$<$ \hyperlink{class_c_irr_b_p_animator}{CIrrBPAnimator} $\ast$ $>$ {\bfseries getAnimators} () const }
+\label{class_c_irr_b_p_rigid_body_a2556282d3d8b57607b08beb1ea9f80ad}
+
+\item 
+\hypertarget{class_c_irr_b_p_rigid_body_a3f424e92b4ae1d243b1cf5691e35110b}{
+virtual void {\bfseries addAnimator} (\hyperlink{class_c_irr_b_p_animator}{CIrrBPAnimator} $\ast$anim)}
+\label{class_c_irr_b_p_rigid_body_a3f424e92b4ae1d243b1cf5691e35110b}
+
+\end{DoxyCompactItemize}
+\subsection*{Protected Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\hypertarget{class_c_irr_b_p_rigid_body_aa49da88d7c108171dadf441915cd2d1c}{
+ISceneNode $\ast$ {\bfseries m\_\-IrrSceneNode}}
+\label{class_c_irr_b_p_rigid_body_aa49da88d7c108171dadf441915cd2d1c}
+
+\item 
+\hypertarget{class_c_irr_b_p_rigid_body_a913c50a2e04215904c69351a000ad5b4}{
+\hyperlink{class_c_motion_state}{CMotionState} $\ast$ {\bfseries m\_\-MotionState}}
+\label{class_c_irr_b_p_rigid_body_a913c50a2e04215904c69351a000ad5b4}
+
+\item 
+\hypertarget{class_c_irr_b_p_rigid_body_a21e96ec352898c0342b2155edb6334b5}{
+btCollisionShape $\ast$ {\bfseries m\_\-Shape}}
+\label{class_c_irr_b_p_rigid_body_a21e96ec352898c0342b2155edb6334b5}
+
+\item 
+\hypertarget{class_c_irr_b_p_rigid_body_a97f19d79af040a5c7a7ace9ae8c5880d}{
+btRigidBody $\ast$ {\bfseries m\_\-RigidBody}}
+\label{class_c_irr_b_p_rigid_body_a97f19d79af040a5c7a7ace9ae8c5880d}
+
+\item 
+\hypertarget{class_c_irr_b_p_rigid_body_a6ce13507bbf89eafdc60ff7a6af36ea2}{
+irr::core::stringc {\bfseries m\_\-BodyName}}
+\label{class_c_irr_b_p_rigid_body_a6ce13507bbf89eafdc60ff7a6af36ea2}
+
+\item 
+\hypertarget{class_c_irr_b_p_rigid_body_a31f24137573d69ec90b25ea6723fb170}{
+irr::s32 {\bfseries m\_\-BodyId}}
+\label{class_c_irr_b_p_rigid_body_a31f24137573d69ec90b25ea6723fb170}
+
+\item 
+\hypertarget{class_c_irr_b_p_rigid_body_a8ff75ddb03bbec7f22c91c8786b3a704}{
+irr::u32 {\bfseries m\_\-uBodyId}}
+\label{class_c_irr_b_p_rigid_body_a8ff75ddb03bbec7f22c91c8786b3a704}
+
+\item 
+\hypertarget{class_c_irr_b_p_rigid_body_a65d97e89e4b6443192011798062699d8}{
+bool {\bfseries m\_\-BodyStatus}}
+\label{class_c_irr_b_p_rigid_body_a65d97e89e4b6443192011798062699d8}
+
+\item 
+\hypertarget{class_c_irr_b_p_rigid_body_aafd90e134007dd14ea335fb44f17585c}{
+irr::s32 {\bfseries cParam}}
+\label{class_c_irr_b_p_rigid_body_aafd90e134007dd14ea335fb44f17585c}
+
+\item 
+\hypertarget{class_c_irr_b_p_rigid_body_a13ee595f0f41a84c96074d4ac9b12a1c}{
+array$<$ \hyperlink{class_c_irr_b_p_animator}{CIrrBPAnimator} $\ast$ $>$ {\bfseries m\_\-Animators}}
+\label{class_c_irr_b_p_rigid_body_a13ee595f0f41a84c96074d4ac9b12a1c}
+
+\end{DoxyCompactItemize}
+
+
+\subsection{Member Function Documentation}
+\hypertarget{class_c_irr_b_p_rigid_body_a961d442e36e78260e7a6f203fd0c11e9}{
+\index{CIrrBPRigidBody@{CIrrBPRigidBody}!drop@{drop}}
+\index{drop@{drop}!CIrrBPRigidBody@{CIrrBPRigidBody}}
+\subsubsection[{drop}]{\setlength{\rightskip}{0pt plus 5cm}virtual void CIrrBPRigidBody::drop (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily  \mbox{[}pure virtual\mbox{]}}}}
+\label{class_c_irr_b_p_rigid_body_a961d442e36e78260e7a6f203fd0c11e9}
+Drop Function. This function should not be used. The destructor will be called automatically by the World Object. 
+
+Implemented in \hyperlink{class_c_irr_b_p_box_body_a144a57bdaaa418c5851f0beb97bdc44b}{CIrrBPBoxBody}, \hyperlink{class_c_irr_b_p_capsule_body_ab9815977583c6135b4b42dee8f536098}{CIrrBPCapsuleBody}, \hyperlink{class_c_irr_b_p_cone_body_a47470fa549f852a5d315f0decb4d195a}{CIrrBPConeBody}, \hyperlink{class_c_irr_b_p_cylinder_body_a966bec7330f778f276294601fc7e0c45}{CIrrBPCylinderBody}, \hyperlink{class_c_irr_b_p_sphere_body_ae5060da603f81cb391c320ef35ae80eb}{CIrrBPSphereBody}, and \hyperlink{class_c_irr_b_p_trimesh_a5106e0daefa0a7dd6198311390711255}{CIrrBPTrimesh}.
+
+\hypertarget{class_c_irr_b_p_rigid_body_a7cf1fec31be0dd1519f0eb85c5df7426}{
+\index{CIrrBPRigidBody@{CIrrBPRigidBody}!isValid@{isValid}}
+\index{isValid@{isValid}!CIrrBPRigidBody@{CIrrBPRigidBody}}
+\subsubsection[{isValid}]{\setlength{\rightskip}{0pt plus 5cm}virtual bool CIrrBPRigidBody::isValid (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily  \mbox{[}inline, virtual\mbox{]}}}}
+\label{class_c_irr_b_p_rigid_body_a7cf1fec31be0dd1519f0eb85c5df7426}
+Returns the status of the node. \hypertarget{class_c_irr_b_p_rigid_body_ac95ba035b7a81013d1aebf7511528047}{
+\index{CIrrBPRigidBody@{CIrrBPRigidBody}!setValidStatus@{setValidStatus}}
+\index{setValidStatus@{setValidStatus}!CIrrBPRigidBody@{CIrrBPRigidBody}}
+\subsubsection[{setValidStatus}]{\setlength{\rightskip}{0pt plus 5cm}virtual void CIrrBPRigidBody::setValidStatus (
+\begin{DoxyParamCaption}
+\item[{bool}]{ newStat}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily  \mbox{[}inline, virtual\mbox{]}}}}
+\label{class_c_irr_b_p_rigid_body_ac95ba035b7a81013d1aebf7511528047}
+Setting the value to false will cause the node's deletion. 
+
+Here is the caller graph for this function:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=400pt]{class_c_irr_b_p_rigid_body_ac95ba035b7a81013d1aebf7511528047_icgraph}
+\end{center}
+\end{figure}
+
+
+
+
+The documentation for this class was generated from the following files:\begin{DoxyCompactItemize}
+\item 
+E:/Documenti/Lavori Stefano/ProgettoFPS/Engine/Engine/IrrBP/include/body/CIrrBPRigidBody.h\item 
+E:/Documenti/Lavori Stefano/ProgettoFPS/Engine/Engine/IrrBP/src/body/CIrrBPRigidBody.cpp\end{DoxyCompactItemize}

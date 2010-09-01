@@ -1,0 +1,5 @@
+<map id="G" name="G">
+<area shape="rect" id="node1" href="$class_c_irr_b_p_animator.html" title="CIrrBPAnimator" alt="" coords="5,32,117,61"/>
+<area shape="rect" id="node3" href="$class_c_irr_b_p_collision_delete_animator.html" title="CIrrBPCollisionDeleteAnimator" alt="" coords="167,5,364,35"/>
+<area shape="rect" id="node5" href="$class_c_irr_b_p_delete_animator.html" title="CIrrBPDeleteAnimator" alt="" coords="191,59,340,88"/>
+</map>
