@@ -8,7 +8,7 @@ Collaboration diagram for CIrrBPManager:\nopagebreak
 \begin{figure}[H]
 \begin{center}
 \leavevmode
-\includegraphics[width=184pt]{class_c_irr_b_p_manager__coll__graph}
+\includegraphics[width=194pt]{class_c_irr_b_p_manager__coll__graph}
 \end{center}
 \end{figure}
 \subsection*{Public Member Functions}
@@ -22,11 +22,11 @@ Collaboration diagram for CIrrBPManager:\nopagebreak
 \item 
 \hyperlink{class_c_irr_b_p_sphere_body}{CIrrBPSphereBody} $\ast$ \hyperlink{class_c_irr_b_p_manager_aebbe19de8a748a7c66d5d0efc16dc5eb}{addRigidSphere} (ISceneNode $\ast$node, irr::f32 mass, irr::s32 bodyId=-\/1)
 \item 
-\hyperlink{class_c_irr_b_p_cylinder_body}{CIrrBPCylinderBody} $\ast$ \hyperlink{class_c_irr_b_p_manager_a1b4d6c49c0383e11bbc7a32a14de691d}{addRigidCylinder} (ISceneNode $\ast$node, irr::f32 mass, irr::s32 bodyId=-\/1, BODY\_\-OR bodyOrientation=AUTO)
+\hyperlink{class_c_irr_b_p_cylinder_body}{CIrrBPCylinderBody} $\ast$ \hyperlink{class_c_irr_b_p_manager_a7866f42ff533e69342c9ad370f07aa23}{addRigidCylinder} (ISceneNode $\ast$node, irr::f32 mass, irr::s32 bodyId=-\/1, BODY\_\-OR bodyOrientationAxis=AUTO)
 \item 
 \hyperlink{class_c_irr_b_p_cone_body}{CIrrBPConeBody} $\ast$ \hyperlink{class_c_irr_b_p_manager_a810377e264480789138dc4b9ac5145d4}{addRigidCone} (ISceneNode $\ast$node, irr::f32 mass, irr::s32 bodyId=-\/1, BODY\_\-OR bodyOrientationAxis=AUTO)
 \item 
-\hyperlink{class_c_irr_b_p_capsule_body}{CIrrBPCapsuleBody} $\ast$ \hyperlink{class_c_irr_b_p_manager_acf65bd47e3067b5d7d9574c160acbc38}{addRigidCapsule} (ISceneNode $\ast$node, irr::f32 mass, irr::s32 bodyId=-\/1, BODY\_\-OR bodyOrientation=AUTO)
+\hyperlink{class_c_irr_b_p_capsule_body}{CIrrBPCapsuleBody} $\ast$ \hyperlink{class_c_irr_b_p_manager_ac351ba81cf28a33bac69bc348860cd48}{addRigidCapsule} (ISceneNode $\ast$node, irr::f32 mass, irr::s32 bodyId=-\/1, BODY\_\-OR bodyOrientationAxis=AUTO)
 \item 
 \hyperlink{class_c_irr_b_p_trimesh}{CIrrBPTrimesh} $\ast$ \hyperlink{class_c_irr_b_p_manager_ad565fee43722307839908de9aab70344}{addTrimesh} (IAnimatedMeshSceneNode $\ast$node, irr::f32 mass, irr::s32 bodyId=-\/1)
 \item 
@@ -34,9 +34,11 @@ Collaboration diagram for CIrrBPManager:\nopagebreak
 \item 
 \hyperlink{class_c_irr_b_p_slide_constraint}{CIrrBPSlideConstraint} $\ast$ \hyperlink{class_c_irr_b_p_manager_af916152de29ba8c7c9e727dfe5a1c8af}{buildSlideConstraint} (\hyperlink{class_c_irr_b_p_rigid_body}{CIrrBPRigidBody} $\ast$bodyA, \hyperlink{class_c_irr_b_p_rigid_body}{CIrrBPRigidBody} $\ast$bodyB, const vector3df \&pivotInA=vector3df(0, 0, 0), const vector3df \&pivotInB=vector3df(0, 0, 0), bool autoadapt=true, bool rotatepiston=true)
 \item 
-\hyperlink{class_c_irr_b_p_p2_p_constraint}{CIrrBPP2PConstraint} $\ast$ \hyperlink{class_c_irr_b_p_manager_ab9b2ccaf431413e1ada692eb208a2302}{buildP2PConstraint} (\hyperlink{class_c_irr_b_p_rigid_body}{CIrrBPRigidBody} $\ast$bodyA, const vector3df \&pivotInA)
+\hyperlink{class_c_irr_b_p_p2_p_constraint}{CIrrBPP2PConstraint} $\ast$ \hyperlink{class_c_irr_b_p_manager_a19a7a9108ded5c076d307efdb390d58a}{buildP2PConstraint} (\hyperlink{class_c_irr_b_p_rigid_body}{CIrrBPRigidBody} $\ast$bodyA, const vector3df \&pivotInA=vector3df(0, 0, 0))
 \item 
-\hyperlink{class_c_irr_b_p_p2_p_constraint}{CIrrBPP2PConstraint} $\ast$ \hyperlink{class_c_irr_b_p_manager_aae111a76d0283935a6c7aa8dfb98e457}{buildP2PConstraint} (\hyperlink{class_c_irr_b_p_rigid_body}{CIrrBPRigidBody} $\ast$bodyA, \hyperlink{class_c_irr_b_p_rigid_body}{CIrrBPRigidBody} $\ast$bodyB, const vector3df \&pivotInA, const vector3df \&pivotInB)
+\hyperlink{class_c_irr_b_p_p2_p_constraint}{CIrrBPP2PConstraint} $\ast$ \hyperlink{class_c_irr_b_p_manager_a1a2dc64a93a8770dfed3ba7f77972c70}{buildP2PConstraint} (\hyperlink{class_c_irr_b_p_rigid_body}{CIrrBPRigidBody} $\ast$bodyA, \hyperlink{class_c_irr_b_p_rigid_body}{CIrrBPRigidBody} $\ast$bodyB, const vector3df \&pivotInA=vector3df(0, 0, 0), const vector3df \&pivotInB=vector3df(0, 0, 0))
+\item 
+\hyperlink{class_c_irr_b_p_cone_twist_constraint}{CIrrBPConeTwistConstraint} $\ast$ \hyperlink{class_c_irr_b_p_manager_ae6c1ebbc11dec61a856bcc7b5c6394ce}{buildConeTwistConstraint} (\hyperlink{class_c_irr_b_p_rigid_body}{CIrrBPRigidBody} $\ast$bodyA, \hyperlink{class_c_irr_b_p_rigid_body}{CIrrBPRigidBody} $\ast$bodyB, const vector3df \&pivotInA=vector3df(0, 0, 0), const vector3df \&pivotInB=vector3df(0, 0, 0))
 \item 
 \hyperlink{class_c_irr_b_p_hinge_constraint}{CIrrBPHingeConstraint} $\ast$ \hyperlink{class_c_irr_b_p_manager_a87b2610eaba14775ac81992ff71ab436}{buildHingeConstraint} (\hyperlink{class_c_irr_b_p_rigid_body}{CIrrBPRigidBody} $\ast$bodyA, const vector3df \&pivotInA, const vector3df \&axisInA)
 \item 
@@ -60,10 +62,7 @@ void \hyperlink{class_c_irr_b_p_manager_ab82cddba1a3acd79119e2708680acffb}{drop}
 \item 
 \hyperlink{class_c_irr_b_p_rigid_body}{CIrrBPRigidBody} $\ast$ \hyperlink{class_c_irr_b_p_manager_a6da3e324ed8e5eb8332588de2fdde1a0}{getRigidBodyFromName} (irr::c8 $\ast$name)
 \item 
-\hypertarget{class_c_irr_b_p_manager_afac23634af5abf7f5adbce13d166cea5}{
-void {\bfseries stepSimulation} ()}
-\label{class_c_irr_b_p_manager_afac23634af5abf7f5adbce13d166cea5}
-
+REALINLINE void \hyperlink{class_c_irr_b_p_manager_ae058cbb1d7ed8c4c3813a7205c7f2d9d}{stepSimulation} ()
 \end{DoxyCompactItemize}
 
 
@@ -120,7 +119,7 @@ Adds a rigid box into the world.
 \begin{DoxyReturn}{Returns}
 Pointer to the object. 
 \end{DoxyReturn}
-\hypertarget{class_c_irr_b_p_manager_acf65bd47e3067b5d7d9574c160acbc38}{
+\hypertarget{class_c_irr_b_p_manager_ac351ba81cf28a33bac69bc348860cd48}{
 \index{CIrrBPManager@{CIrrBPManager}!addRigidCapsule@{addRigidCapsule}}
 \index{addRigidCapsule@{addRigidCapsule}!CIrrBPManager@{CIrrBPManager}}
 \subsubsection[{addRigidCapsule}]{\setlength{\rightskip}{0pt plus 5cm}{\bf CIrrBPCapsuleBody}$\ast$ CIrrBPManager::addRigidCapsule (
@@ -128,10 +127,10 @@ Pointer to the object.
 \item[{ISceneNode $\ast$}]{ node, }
 \item[{irr::f32}]{ mass, }
 \item[{irr::s32}]{ bodyId = {\ttfamily -\/1}, }
-\item[{BODY\_\-OR}]{ bodyOrientation = {\ttfamily AUTO}}
+\item[{BODY\_\-OR}]{ bodyOrientationAxis = {\ttfamily AUTO}}
 \end{DoxyParamCaption}
 )}}
-\label{class_c_irr_b_p_manager_acf65bd47e3067b5d7d9574c160acbc38}
+\label{class_c_irr_b_p_manager_ac351ba81cf28a33bac69bc348860cd48}
 Adds a rigid capsule into the world 
 \begin{DoxyParams}{Parameters}
 \item[{\em node}]scene node to which engage the body \item[{\em mass}]body's mass \item[{\em bodyId}]a irrlicht-\/style body id \item[{\em bodyOrientation}]the object' axis orientation. (====) has an X orientation. \end{DoxyParams}
@@ -156,7 +155,7 @@ Adds a rigid cone into the world
 \begin{DoxyReturn}{Returns}
 Pointer to the object. 
 \end{DoxyReturn}
-\hypertarget{class_c_irr_b_p_manager_a1b4d6c49c0383e11bbc7a32a14de691d}{
+\hypertarget{class_c_irr_b_p_manager_a7866f42ff533e69342c9ad370f07aa23}{
 \index{CIrrBPManager@{CIrrBPManager}!addRigidCylinder@{addRigidCylinder}}
 \index{addRigidCylinder@{addRigidCylinder}!CIrrBPManager@{CIrrBPManager}}
 \subsubsection[{addRigidCylinder}]{\setlength{\rightskip}{0pt plus 5cm}{\bf CIrrBPCylinderBody}$\ast$ CIrrBPManager::addRigidCylinder (
@@ -164,10 +163,10 @@ Pointer to the object.
 \item[{ISceneNode $\ast$}]{ node, }
 \item[{irr::f32}]{ mass, }
 \item[{irr::s32}]{ bodyId = {\ttfamily -\/1}, }
-\item[{BODY\_\-OR}]{ bodyOrientation = {\ttfamily AUTO}}
+\item[{BODY\_\-OR}]{ bodyOrientationAxis = {\ttfamily AUTO}}
 \end{DoxyParamCaption}
 )}}
-\label{class_c_irr_b_p_manager_a1b4d6c49c0383e11bbc7a32a14de691d}
+\label{class_c_irr_b_p_manager_a7866f42ff533e69342c9ad370f07aa23}
 Adds a rigid cylinder into the world 
 \begin{DoxyParams}{Parameters}
 \item[{\em node}]scene node to which engage the body \item[{\em mass}]body's mass \item[{\em bodyId}]a irrlicht-\/style body id \item[{\em bodyOrientation}]the object' axis orientation. For example \mbox{[}====\mbox{]} has an X orientation. \end{DoxyParams}
@@ -225,6 +224,26 @@ Adds a rigid trimesh into the world
 \begin{DoxyReturn}{Returns}
 Pointer to the object. 
 \end{DoxyReturn}
+\hypertarget{class_c_irr_b_p_manager_ae6c1ebbc11dec61a856bcc7b5c6394ce}{
+\index{CIrrBPManager@{CIrrBPManager}!buildConeTwistConstraint@{buildConeTwistConstraint}}
+\index{buildConeTwistConstraint@{buildConeTwistConstraint}!CIrrBPManager@{CIrrBPManager}}
+\subsubsection[{buildConeTwistConstraint}]{\setlength{\rightskip}{0pt plus 5cm}{\bf CIrrBPConeTwistConstraint} $\ast$ CIrrBPManager::buildConeTwistConstraint (
+\begin{DoxyParamCaption}
+\item[{{\bf CIrrBPRigidBody} $\ast$}]{ bodyA, }
+\item[{{\bf CIrrBPRigidBody} $\ast$}]{ bodyB, }
+\item[{const vector3df \&}]{ pivotInA = {\ttfamily vector3df(0,0,0)}, }
+\item[{const vector3df \&}]{ pivotInB = {\ttfamily vector3df(0,0,0)}}
+\end{DoxyParamCaption}
+)}}
+\label{class_c_irr_b_p_manager_ae6c1ebbc11dec61a856bcc7b5c6394ce}
+Builds a cone twist constraint to the bodies. A cone-\/twist can be used to simulate ragdoll joints (shoulders, legs..)
+
+
+\begin{DoxyParams}{Parameters}
+\item[{\em bodyA}]The first body \item[{\em bodyB}]The second body \item[{\em pivotInA}]The constraint position in A \item[{\em pivotInB}]The constraint position in B \end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+pointer to the constraint 
+\end{DoxyReturn}
 \hypertarget{class_c_irr_b_p_manager_a87b2610eaba14775ac81992ff71ab436}{
 \index{CIrrBPManager@{CIrrBPManager}!buildHingeConstraint@{buildHingeConstraint}}
 \index{buildHingeConstraint@{buildHingeConstraint}!CIrrBPManager@{CIrrBPManager}}
@@ -266,16 +285,16 @@ Builds and attach a hinge constraint to the body.
 \begin{DoxyReturn}{Returns}
 pointer to the constraint 
 \end{DoxyReturn}
-\hypertarget{class_c_irr_b_p_manager_ab9b2ccaf431413e1ada692eb208a2302}{
+\hypertarget{class_c_irr_b_p_manager_a19a7a9108ded5c076d307efdb390d58a}{
 \index{CIrrBPManager@{CIrrBPManager}!buildP2PConstraint@{buildP2PConstraint}}
 \index{buildP2PConstraint@{buildP2PConstraint}!CIrrBPManager@{CIrrBPManager}}
 \subsubsection[{buildP2PConstraint}]{\setlength{\rightskip}{0pt plus 5cm}{\bf CIrrBPP2PConstraint} $\ast$ CIrrBPManager::buildP2PConstraint (
 \begin{DoxyParamCaption}
 \item[{{\bf CIrrBPRigidBody} $\ast$}]{ bodyA, }
-\item[{const vector3df \&}]{ pivotInA}
+\item[{const vector3df \&}]{ pivotInA = {\ttfamily vector3df(0,0,0)}}
 \end{DoxyParamCaption}
 )}}
-\label{class_c_irr_b_p_manager_ab9b2ccaf431413e1ada692eb208a2302}
+\label{class_c_irr_b_p_manager_a19a7a9108ded5c076d307efdb390d58a}
 Builds and attach a point-\/to-\/point constraint to the body.
 
 
@@ -284,18 +303,18 @@ Builds and attach a point-\/to-\/point constraint to the body.
 \begin{DoxyReturn}{Returns}
 pointer to the constraint 
 \end{DoxyReturn}
-\hypertarget{class_c_irr_b_p_manager_aae111a76d0283935a6c7aa8dfb98e457}{
+\hypertarget{class_c_irr_b_p_manager_a1a2dc64a93a8770dfed3ba7f77972c70}{
 \index{CIrrBPManager@{CIrrBPManager}!buildP2PConstraint@{buildP2PConstraint}}
 \index{buildP2PConstraint@{buildP2PConstraint}!CIrrBPManager@{CIrrBPManager}}
 \subsubsection[{buildP2PConstraint}]{\setlength{\rightskip}{0pt plus 5cm}{\bf CIrrBPP2PConstraint} $\ast$ CIrrBPManager::buildP2PConstraint (
 \begin{DoxyParamCaption}
 \item[{{\bf CIrrBPRigidBody} $\ast$}]{ bodyA, }
 \item[{{\bf CIrrBPRigidBody} $\ast$}]{ bodyB, }
-\item[{const vector3df \&}]{ pivotInA, }
-\item[{const vector3df \&}]{ pivotInB}
+\item[{const vector3df \&}]{ pivotInA = {\ttfamily vector3df(0,0,0)}, }
+\item[{const vector3df \&}]{ pivotInB = {\ttfamily vector3df(0,0,0)}}
 \end{DoxyParamCaption}
 )}}
-\label{class_c_irr_b_p_manager_aae111a76d0283935a6c7aa8dfb98e457}
+\label{class_c_irr_b_p_manager_a1a2dc64a93a8770dfed3ba7f77972c70}
 Builds and attach a point-\/to-\/point constraint to the bodies.
 
 
@@ -460,7 +479,16 @@ Here is the call graph for this function:\nopagebreak
 Sets the gravity in the world. 
 \begin{DoxyParams}{Parameters}
 \item[{\em Gravity}]vector containing direction \end{DoxyParams}
-
+\hypertarget{class_c_irr_b_p_manager_ae058cbb1d7ed8c4c3813a7205c7f2d9d}{
+\index{CIrrBPManager@{CIrrBPManager}!stepSimulation@{stepSimulation}}
+\index{stepSimulation@{stepSimulation}!CIrrBPManager@{CIrrBPManager}}
+\subsubsection[{stepSimulation}]{\setlength{\rightskip}{0pt plus 5cm}REALINLINE void CIrrBPManager::stepSimulation (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily  \mbox{[}inline\mbox{]}}}}
+\label{class_c_irr_b_p_manager_ae058cbb1d7ed8c4c3813a7205c7f2d9d}
+Steps the simulation. It must be called each frame loop to step the bullet' simulation. 
 
 The documentation for this class was generated from the following files:\begin{DoxyCompactItemize}
 \item 

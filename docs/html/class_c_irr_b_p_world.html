@@ -54,7 +54,14 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <h1>CIrrBPWorld Class Reference</h1>  </div>
 </div>
 <div class="contents">
-<!-- doxytag: class="CIrrBPWorld" -->
+<!-- doxytag: class="CIrrBPWorld" --><div class="dynheader">
+Collaboration diagram for CIrrBPWorld:</div>
+<div class="dyncontent">
+<div class="center"><img src="class_c_irr_b_p_world__coll__graph.png" border="0" usemap="#_c_irr_b_p_world_coll__map" alt="Collaboration graph"/></div>
+<map name="_c_irr_b_p_world_coll__map" id="_c_irr_b_p_world_coll__map">
+<area shape="rect" id="node2" href="class_c_irr_b_p_debug_drawer.html" title="Should not be used. Only for internal use." alt="" coords="5,5,141,35"/></map>
+<center><span class="legend">[<a href="graph_legend.html">legend</a>]</span></center></div>
+
 <p><a href="class_c_irr_b_p_world-members.html">List of all members.</a></p>
 <table class="memberdecls">
 <tr><td colspan="2"><h2><a name="pub-methods"></a>
@@ -74,6 +81,9 @@ void&nbsp;</td><td class="memItemRight" valign="bottom"><b>addRigidBodyConstrain
 <tr><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a96e06a9d2b64d474bfd5325d2ffe809e"></a><!-- doxytag: member="CIrrBPWorld::setGravity" ref="a96e06a9d2b64d474bfd5325d2ffe809e" args="(const vector3df &amp;newGravity)" -->
 void&nbsp;</td><td class="memItemRight" valign="bottom"><b>setGravity</b> (const vector3df &amp;newGravity)</td></tr>
 <tr><td class="memItemLeft" align="right" valign="top">btDiscreteDynamicsWorld *&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_c_irr_b_p_world.html#aa9b3e5a74f8ee1185247bc58ec6aec0c">getBulletWorldPtr</a> ()</td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">void&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_c_irr_b_p_world.html#ad74a875589deb51754aaaca839ca8a5d">createDebugDrawer</a> ()</td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">void&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_c_irr_b_p_world.html#ae0e91f708cfe8927c995a8a09ee2b5b6">stepDebugDrawer</a> ()</td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">void&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_c_irr_b_p_world.html#a8c9037440ffaffca00bf5bd661bf3c62">setDebugDrawerFlags</a> (int flags)</td></tr>
 <tr><td colspan="2"><h2><a name="pub-attribs"></a>
 Public Attributes</h2></td></tr>
 <tr><td class="memItemLeft" align="right" valign="top">bool&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_c_irr_b_p_world.html#a4659a995f7b084057cad44480cd09cca">isClosing</a></td></tr>
@@ -155,6 +165,24 @@ Here is the caller graph for this function:</div>
 <area shape="rect" id="node3" href="class_c_irr_b_p_manager.html#af5b96f07769449e5b4a7adb8485e027f" title="CIrrBPManager::addBodyToBulletQueue" alt="" coords="239,5,492,35"/></map>
 </div>
 </p>
+
+</div>
+</div>
+<a class="anchor" id="ad74a875589deb51754aaaca839ca8a5d"></a><!-- doxytag: member="CIrrBPWorld::createDebugDrawer" ref="ad74a875589deb51754aaaca839ca8a5d" args="()" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void CIrrBPWorld::createDebugDrawer </td>
+          <td>(</td>
+          <td class="paramname"></td>
+          <td>&nbsp;)&nbsp;</td>
+          <td></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+<p>Creates a new bullet' debug drawer. This can be useful for debugging bounding boxes, constraints and contact points </p>
 
 </div>
 </div>
@@ -371,6 +399,43 @@ Here is the caller graph for this function:</div>
 
 </div>
 </div>
+<a class="anchor" id="a8c9037440ffaffca00bf5bd661bf3c62"></a><!-- doxytag: member="CIrrBPWorld::setDebugDrawerFlags" ref="a8c9037440ffaffca00bf5bd661bf3c62" args="(int flags)" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void CIrrBPWorld::setDebugDrawerFlags </td>
+          <td>(</td>
+          <td class="paramtype">int&nbsp;</td>
+          <td class="paramname"> <em>flags</em></td>
+          <td>&nbsp;)&nbsp;</td>
+          <td></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+<p>Sets the debug-drawer flags You can use the IBP_DEBUG_FLAGS defined in <a class="el" href="types_8h_source.html">types.h</a> </p>
+
+</div>
+</div>
+<a class="anchor" id="ae0e91f708cfe8927c995a8a09ee2b5b6"></a><!-- doxytag: member="CIrrBPWorld::stepDebugDrawer" ref="ae0e91f708cfe8927c995a8a09ee2b5b6" args="()" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void CIrrBPWorld::stepDebugDrawer </td>
+          <td>(</td>
+          <td class="paramname"></td>
+          <td>&nbsp;)&nbsp;</td>
+          <td></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+<p>Steps the debug drawer. Must be called between driver-&gt;beginScene() and driver-&gt;endScene() to update debug' datas. </p>
+
+</div>
+</div>
 <a class="anchor" id="aa676e88466f927af2ac0c4c8cd94e0f3"></a><!-- doxytag: member="CIrrBPWorld::stepSimulation" ref="aa676e88466f927af2ac0c4c8cd94e0f3" args="()" -->
 <div class="memitem">
 <div class="memproto">
@@ -423,7 +488,7 @@ Here is the caller graph for this function:</div>
 </iframe>
 </div>
 
-<hr class="footer"/><address class="footer"><small>Generated on Wed Sep 1 2010 15:11:04 for irrBP by&nbsp;
+<hr class="footer"/><address class="footer"><small>Generated on Thu Sep 2 2010 12:31:29 for irrBP by&nbsp;
 <a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.7.1 </small></address>
 </body>

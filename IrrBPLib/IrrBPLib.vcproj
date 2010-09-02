@@ -153,6 +153,10 @@
 			UniqueIdentifier="{4FC737F1-C7A5-4376-A066-2A32D752A2FF}"
 			>
 			<File
+				RelativePath="..\src\CIrrBPDebugDrawer.cpp"
+				>
+			</File>
+			<File
 				RelativePath="..\src\CIrrBPManager.cpp"
 				>
 			</File>
@@ -216,6 +220,10 @@
 				Name="Constraint"
 				>
 				<File
+					RelativePath="..\src\constraint\CIrrBPConeTwistConstraint.cpp"
+					>
+				</File>
+				<File
 					RelativePath="..\src\constraint\CIrrBPConstraint.cpp"
 					>
 				</File>
@@ -238,6 +246,10 @@
 			Filter="h;hpp;hxx;hm;inl;inc;xsd"
 			UniqueIdentifier="{93995380-89BD-4b04-88EB-625FBE52EBFB}"
 			>
+			<File
+				RelativePath="..\include\CIrrBPDebugDrawer.h"
+				>
+			</File>
 			<File
 				RelativePath="..\include\CIrrBPManager.h"
 				>
@@ -313,6 +325,10 @@
 			<Filter
 				Name="Constraint"
 				>
+				<File
+					RelativePath="..\include\constraint\CIrrBPConeTwistConstraint.h"
+					>
+				</File>
 				<File
 					RelativePath="..\include\constraint\CIrrBPConstraint.h"
 					>
