@@ -1,3 +1,10 @@
+r5:
++ Added body orientation support to cone body
++ Doxygen documentation renewed
+
+r4 [minor]:
++ adjusted error in doxygen documentation
+
 IrrBP 0.1 (r3):
 * First irrBP release
 + Added (minimal) Debug Drawer for bullet' world
