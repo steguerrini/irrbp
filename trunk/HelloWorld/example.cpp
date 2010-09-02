@@ -101,7 +101,8 @@ int main()
 	Node2->setMaterialTexture(0,driver->getTexture("sphere1.jpg"));
 	CIrrBPBoxBody * box2 = bulletmgr->addRigidBox(Node2,40);
 	
-	bulletmgr->buildSlideConstraint(box,box2);
+	CIrrBPConeTwistConstraint * constr = bulletmgr->buildConeTwistConstraint(box,box2,vector3df(0,-5,0),vector3df(0,5,0));
+	constr->setLimit(PI/4*0.6,PI/4);
 
 	int lastFPS = -1;
 
@@ -111,8 +112,6 @@ int main()
 		{
 			driver->beginScene(true, true, video::SColor(255,200,200,200));
 			bulletmgr->stepSimulation();
-			driver->setTransform(ETS_WORLD,matrix4());
-
 			smgr->drawAll();
 		
 			int fps = driver->getFPS();

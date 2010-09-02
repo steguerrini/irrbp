@@ -2,6 +2,15 @@
 \section{CIrrBPWorld Class Reference}
 \label{class_c_irr_b_p_world}\index{CIrrBPWorld@{CIrrBPWorld}}
 }
+
+
+Collaboration diagram for CIrrBPWorld:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=182pt]{class_c_irr_b_p_world__coll__graph}
+\end{center}
+\end{figure}
 \subsection*{Public Member Functions}
 \begin{DoxyCompactItemize}
 \item 
@@ -36,6 +45,12 @@ void {\bfseries setGravity} (const vector3df \&newGravity)}
 
 \item 
 btDiscreteDynamicsWorld $\ast$ \hyperlink{class_c_irr_b_p_world_aa9b3e5a74f8ee1185247bc58ec6aec0c}{getBulletWorldPtr} ()
+\item 
+void \hyperlink{class_c_irr_b_p_world_ad74a875589deb51754aaaca839ca8a5d}{createDebugDrawer} ()
+\item 
+void \hyperlink{class_c_irr_b_p_world_ae0e91f708cfe8927c995a8a09ee2b5b6}{stepDebugDrawer} ()
+\item 
+void \hyperlink{class_c_irr_b_p_world_a8c9037440ffaffca00bf5bd661bf3c62}{setDebugDrawerFlags} (int flags)
 \end{DoxyCompactItemize}
 \subsection*{Public Attributes}
 \begin{DoxyCompactItemize}
@@ -95,7 +110,16 @@ Here is the caller graph for this function:\nopagebreak
 \end{figure}
 
 
-\hypertarget{class_c_irr_b_p_world_a7cd82f40cde955cb54c1fc0268691be6}{
+\hypertarget{class_c_irr_b_p_world_ad74a875589deb51754aaaca839ca8a5d}{
+\index{CIrrBPWorld@{CIrrBPWorld}!createDebugDrawer@{createDebugDrawer}}
+\index{createDebugDrawer@{createDebugDrawer}!CIrrBPWorld@{CIrrBPWorld}}
+\subsubsection[{createDebugDrawer}]{\setlength{\rightskip}{0pt plus 5cm}void CIrrBPWorld::createDebugDrawer (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}}
+\label{class_c_irr_b_p_world_ad74a875589deb51754aaaca839ca8a5d}
+Creates a new bullet' debug drawer. This can be useful for debugging bounding boxes, constraints and contact points \hypertarget{class_c_irr_b_p_world_a7cd82f40cde955cb54c1fc0268691be6}{
 \index{CIrrBPWorld@{CIrrBPWorld}!drop@{drop}}
 \index{drop@{drop}!CIrrBPWorld@{CIrrBPWorld}}
 \subsubsection[{drop}]{\setlength{\rightskip}{0pt plus 5cm}void CIrrBPWorld::drop (
@@ -223,7 +247,25 @@ Here is the caller graph for this function:\nopagebreak
 \end{figure}
 
 
-\hypertarget{class_c_irr_b_p_world_aa676e88466f927af2ac0c4c8cd94e0f3}{
+\hypertarget{class_c_irr_b_p_world_a8c9037440ffaffca00bf5bd661bf3c62}{
+\index{CIrrBPWorld@{CIrrBPWorld}!setDebugDrawerFlags@{setDebugDrawerFlags}}
+\index{setDebugDrawerFlags@{setDebugDrawerFlags}!CIrrBPWorld@{CIrrBPWorld}}
+\subsubsection[{setDebugDrawerFlags}]{\setlength{\rightskip}{0pt plus 5cm}void CIrrBPWorld::setDebugDrawerFlags (
+\begin{DoxyParamCaption}
+\item[{int}]{ flags}
+\end{DoxyParamCaption}
+)}}
+\label{class_c_irr_b_p_world_a8c9037440ffaffca00bf5bd661bf3c62}
+Sets the debug-\/drawer flags You can use the IBP\_\-DEBUG\_\-FLAGS defined in \hyperlink{types_8h_source}{types.h} \hypertarget{class_c_irr_b_p_world_ae0e91f708cfe8927c995a8a09ee2b5b6}{
+\index{CIrrBPWorld@{CIrrBPWorld}!stepDebugDrawer@{stepDebugDrawer}}
+\index{stepDebugDrawer@{stepDebugDrawer}!CIrrBPWorld@{CIrrBPWorld}}
+\subsubsection[{stepDebugDrawer}]{\setlength{\rightskip}{0pt plus 5cm}void CIrrBPWorld::stepDebugDrawer (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}}
+\label{class_c_irr_b_p_world_ae0e91f708cfe8927c995a8a09ee2b5b6}
+Steps the debug drawer. Must be called between driver-\/$>$beginScene() and driver-\/$>$endScene() to update debug' datas. \hypertarget{class_c_irr_b_p_world_aa676e88466f927af2ac0c4c8cd94e0f3}{
 \index{CIrrBPWorld@{CIrrBPWorld}!stepSimulation@{stepSimulation}}
 \index{stepSimulation@{stepSimulation}!CIrrBPWorld@{CIrrBPWorld}}
 \subsubsection[{stepSimulation}]{\setlength{\rightskip}{0pt plus 5cm}void CIrrBPWorld::stepSimulation (

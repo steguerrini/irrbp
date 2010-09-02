@@ -1,0 +1,9 @@
+IrrBP 0.1 (r3):
+* First irrBP release
++ Added (minimal) Debug Drawer for bullet' world
++ Added Cone Twist Constraint
++ Set new flag (IRRBP_DEBUG_TEXT) to write debug text into the console.
++ Improved Bullet Manager
+
+r2:
+First SVN release

@@ -19,6 +19,8 @@ CIrrBPWorld::~CIrrBPWorld()
 	for(u32 i=0;i<this->rigidBodiesConst.size();i++)
 		rigidBodiesConst[i]->drop();
 
+	if(dDrawer)
+		delete dDrawer;
 	
 	cout<<"# IrrBP closed successfully!"<<endl;
 
@@ -54,6 +56,8 @@ CIrrBPWorld::CIrrBPWorld(irr::IrrlichtDevice *device,const vector3df & Gravity)
 	irrTimer = device->getTimer();
 	World->setGravity(this->Gravity);
 	isClosing = false;
+
+	dDrawer = NULL;
 }
 bool CIrrBPWorld::isBodyColliding(CIrrBPRigidBody *body, irr::s32 collMask)
 {
@@ -104,7 +108,9 @@ irr::u32 CIrrBPWorld::addRigidBody(CIrrBPRigidBody *body)
 	body->setValidStatus(true);
 	rigidBodiesObj.push_back(body);
 	
+	#ifdef IRRBP_DEBUG_TEXT
 	cout<<"# Added new Body "<<endl<<"## Body ID: "<<body->getID()<<endl<<"## Absolute Body ID: "<<body->getUniqueID()<<endl;
+	#endif
 	return (rigidBodiesObj.size()-1); //UniqueID
 	
 }
@@ -113,10 +119,12 @@ void CIrrBPWorld::addRigidBodyConstraint(CIrrBPConstraint * constraint)
 {
 	rigidBodiesConst.push_back(constraint);
 	World->addConstraint(constraint->getConstraintPtr());
+	#ifdef IRRBP_DEBUG_TEXT
 	cout<<"# Added new constraint"<<endl<<"## Body ID (A): "<<constraint->getBodyA()->getID()<<endl<<"## Body UID (A): "<<constraint->getBodyA()->getUniqueID()<<endl;
+	
 	if(constraint->getBodyB())
 		cout<<"## Body ID (B): "<<constraint->getBodyB()->getID()<<endl<<"## Body UID (B): "<<constraint->getBodyB()->getUniqueID()<<endl;
-
+	#endif
 }
 
 void CIrrBPWorld::removeRigidBody(CIrrBPRigidBody *body)
@@ -127,7 +135,10 @@ void CIrrBPWorld::removeRigidBody(CIrrBPRigidBody *body)
 	{
 		if(tofind == rigidBodies[i])
 		{
+			#ifdef IRRBP_DEBUG_TEXT
 			cout<<"# Deleted Body"<<endl<<"## Body ID: "<<body->getID()<<endl;
+			#endif
+
 			body->setValidStatus(false);
 			World->removeRigidBody(body->getBodyPtr());
 			
@@ -139,9 +150,10 @@ void CIrrBPWorld::removeRigidBody(CIrrBPRigidBody *body)
 		}
 	}
 	
+	#ifdef IRRBP_DEBUG_TEXT
 	if(!finded)
 	cout<<"# Error while deleting body...Body not found!";
-
+	#endif
 
 	
 	
@@ -201,4 +213,26 @@ CIrrBPRigidBody * CIrrBPWorld::getRigidBodyFromName(irr::c8* name)
 			return rigidBodiesObj[1];
 
 	return NULL;
+}
+
+void CIrrBPWorld::createDebugDrawer()
+{
+	dDrawer = new CIrrBPDebugDrawer(this->device->getVideoDriver());
+	if(World)
+		World->setDebugDrawer(dDrawer);
+
+	mat.Lighting = false;
+}
+
+void CIrrBPWorld::stepDebugDrawer()
+{
+	driver->setTransform(ETS_WORLD,matrix4());
+	driver->setMaterial(mat);
+	World->debugDrawWorld();
+}
+
+void CIrrBPWorld::setDebugDrawerFlags(int flags)
+{
+	if(dDrawer)
+		dDrawer->setDebugMode(flags);
 }

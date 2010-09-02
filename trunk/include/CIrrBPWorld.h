@@ -15,6 +15,7 @@
 #include "animator\CIrrBPAnimator.h"
 #include "constraint\CIrrBPConstraint.h"
 
+#include "CIrrBPDebugDrawer.h"
 
 #include <irrlicht.h>
 #include "convert.h"
@@ -118,6 +119,25 @@ public:
 		true if world is  going to close
 	*/
 	bool isClosing;
+
+	/*!
+		Creates a new bullet' debug drawer.
+		This can be useful for debugging bounding boxes, constraints and contact points
+	*/
+	void createDebugDrawer();
+
+	/*!
+		Steps the debug drawer.
+		Must be called between driver->beginScene() and driver->endScene() to update debug' datas.
+	*/
+	void stepDebugDrawer();
+
+	/*!
+		Sets the debug-drawer flags
+		You can use the IBP_DEBUG_FLAGS defined in types.h
+	*/
+	void setDebugDrawerFlags(int flags);
+
 private:
 	inline void updateObjects();
 
@@ -139,8 +159,8 @@ private:
 	IVideoDriver* driver;
 	IMeshSceneNode* worldNode;
 
-	
-
+	CIrrBPDebugDrawer * dDrawer;
+	irr::video::SMaterial mat;
 
 };
 

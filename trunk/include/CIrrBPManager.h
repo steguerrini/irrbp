@@ -14,7 +14,7 @@
 #include "constraint/CIrrBPHingeConstraint.h"
 #include "constraint/CIrrBPP2PConstraint.h"
 #include "constraint/CIrrBPSlideConstraint.h"
-
+#include "constraint/CIrrBPConeTwistConstraint.h"
 
 #include "animator/CIrrBPAnimator.h"
 #include "animator/CIrrBPCollisionDeleteAnimator.h"
@@ -74,7 +74,7 @@ public:
 	  @param bodyOrientation the object' axis orientation. For example [====] has an X orientation.
 	  @return Pointer to the object.
 	*/
-	CIrrBPCylinderBody * addRigidCylinder(ISceneNode * node, irr::f32 mass, irr::s32 bodyId = -1,BODY_OR bodyOrientation = AUTO);
+	CIrrBPCylinderBody * addRigidCylinder(ISceneNode * node, irr::f32 mass, irr::s32 bodyId = -1,BODY_OR bodyOrientationAxis = AUTO);
 
 	/*!
 	  Adds a rigid cone into the world
@@ -94,7 +94,7 @@ public:
 	  @param bodyOrientation the object' axis orientation. (====) has an X orientation.
 	  @return Pointer to the object.
 	*/
-	CIrrBPCapsuleBody * addRigidCapsule (ISceneNode * node,irr::f32 mass, irr::s32 bodyId = -1,BODY_OR bodyOrientation=AUTO);
+	CIrrBPCapsuleBody * addRigidCapsule (ISceneNode * node,irr::f32 mass, irr::s32 bodyId = -1,BODY_OR bodyOrientationAxis =AUTO);
 
 	/*!
 	  Adds a rigid trimesh into the world
@@ -137,7 +137,7 @@ public:
 		@return pointer to the constraint
 	*/
 
-	CIrrBPP2PConstraint * buildP2PConstraint(CIrrBPRigidBody * bodyA,const vector3df & pivotInA);
+	CIrrBPP2PConstraint * buildP2PConstraint(CIrrBPRigidBody * bodyA,const vector3df & pivotInA=vector3df(0,0,0));
 
 	/*!
 		Builds and attach a point-to-point constraint to the bodies.
@@ -148,7 +148,18 @@ public:
 		@param pivotInB The constraint position in B
 		@return pointer to the constraint
 	*/
-	CIrrBPP2PConstraint * buildP2PConstraint (CIrrBPRigidBody * bodyA, CIrrBPRigidBody * bodyB, const vector3df & pivotInA, const vector3df & pivotInB);
+	CIrrBPP2PConstraint * buildP2PConstraint (CIrrBPRigidBody * bodyA, CIrrBPRigidBody * bodyB, const vector3df & pivotInA=vector3df(0,0,0), const vector3df & pivotInB=vector3df(0,0,0));
+
+	/*!
+		Builds a cone twist constraint to the bodies. A cone-twist can be used to simulate ragdoll joints (shoulders, legs..)
+
+		@param bodyA The first body
+		@param bodyB The second body
+		@param pivotInA The constraint position in A
+		@param pivotInB The constraint position in B
+		@return pointer to the constraint
+	*/
+	CIrrBPConeTwistConstraint * buildConeTwistConstraint(CIrrBPRigidBody * bodyA, CIrrBPRigidBody * bodyB, const vector3df & pivotInA=vector3df(0,0,0), const vector3df & pivotInB=vector3df(0,0,0));
 
 	/*!
 		Builds and attach a hinge constraint to the body.
@@ -237,7 +248,11 @@ public:
 	*/
 	CIrrBPRigidBody * getRigidBodyFromName(irr::c8* name) { m_bulletWorld->getRigidBodyFromName(name);}
 
-	inline void stepSimulation()
+	/*!
+		Steps the simulation.
+		It must be called each frame loop to step the bullet' simulation.
+	*/
+	REALINLINE void stepSimulation()
 	{
 		m_bulletWorld->stepSimulation();
 	}

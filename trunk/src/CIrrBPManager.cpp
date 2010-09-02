@@ -105,6 +105,12 @@ CIrrBPP2PConstraint * CIrrBPManager::buildP2PConstraint (CIrrBPRigidBody * bodyA
 	m_bulletWorld->addRigidBodyConstraint(p2p);
 	return p2p;
 }
+CIrrBPConeTwistConstraint* CIrrBPManager::buildConeTwistConstraint(CIrrBPRigidBody * bodyA, CIrrBPRigidBody * bodyB, const vector3df & pivotInA, const vector3df & pivotInB)
+{
+	CIrrBPConeTwistConstraint * ctw = new CIrrBPConeTwistConstraint(bodyA,bodyB,pivotInA,pivotInB);
+	m_bulletWorld->addRigidBodyConstraint(ctw);
+	return ctw;
+}
 CIrrBPHingeConstraint * CIrrBPManager::buildHingeConstraint(CIrrBPRigidBody * bodyA,const vector3df & pivotInA,const vector3df & axisInA)
 {
 	CIrrBPHingeConstraint * hinge = new CIrrBPHingeConstraint(bodyA,pivotInA,axisInA);

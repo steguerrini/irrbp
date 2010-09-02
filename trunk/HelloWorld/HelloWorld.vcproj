@@ -58,7 +58,7 @@
 			/>
 			<Tool
 				Name="VCLinkerTool"
-				AdditionalDependencies="../lib/release/IrrBpLib.lib ../libs/BulletCollision.lib ../libs/BulletDynamics.lib ../libs/BulletSoftBody.lib ../libs/LinearMath.lib ../libs/Irrlicht.lib"
+				AdditionalDependencies="../libs/BulletCollision.lib ../libs/BulletDynamics.lib ../libs/BulletSoftBody.lib ../libs/LinearMath.lib ../libs/Irrlicht.lib ../lib/release/IrrBPLib.lib"
 				GenerateDebugInformation="true"
 				TargetMachine="1"
 			/>

@@ -1,9 +1,3 @@
 <map id="G" name="G">
-<area shape="rect" id="node1" href="$class_c_irr_b_p_rigid_body.html" title="CIrrBPRigidBody" alt="" coords="7,139,124,168"/>
-<area shape="rect" id="node3" href="$class_c_irr_b_p_box_body.html" title="CIrrBPBoxBody" alt="" coords="187,5,299,35"/>
-<area shape="rect" id="node5" href="$class_c_irr_b_p_capsule_body.html" title="CIrrBPCapsuleBody" alt="" coords="175,59,311,88"/>
-<area shape="rect" id="node7" href="$class_c_irr_b_p_cone_body.html" title="CIrrBPConeBody" alt="" coords="183,112,303,141"/>
-<area shape="rect" id="node9" href="$class_c_irr_b_p_cylinder_body.html" title="CIrrBPCylinderBody" alt="" coords="175,165,311,195"/>
-<area shape="rect" id="node11" href="$class_c_irr_b_p_sphere_body.html" title="CIrrBPSphereBody" alt="" coords="177,219,308,248"/>
-<area shape="rect" id="node13" href="$class_c_irr_b_p_trimesh.html" title="CIrrBPTrimesh" alt="" coords="189,272,296,301"/>
+<area shape="rect" id="node1" href="$class_c_irr_b_p_manager.html" title="CIrrBPManager" alt="" coords="7,5,116,35"/>
 </map>
