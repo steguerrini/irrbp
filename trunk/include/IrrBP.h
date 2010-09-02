@@ -28,7 +28,7 @@
 
     @code
 #include <irrlicht.h>
-#include <IrrBullet.h>
+#include <IrrBP.h>
 
 using namespace irr;
 using namespace core;
