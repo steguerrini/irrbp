@@ -18,15 +18,6 @@ CIrrBPPatchSoftBody::CIrrBPPatchSoftBody(const vector3df & corner00 ,const vecto
 	m_softBody->setTotalMass(mass);
 	
 	btSoftBody::Material*	pm=m_softBody->appendMaterial();
-	
-	//setMass(0,0,0);
-	//setMass(resx-1,0,0);
-	setMass(0,resy-1,0);
-	setMass(resx-1,resy-1,0);
-/*	m_softBody->setMass(IDX(0,0),0);
-	m_softBody->setMass(IDX(resx-1,0),0);
-	m_softBody->setMass(IDX(0,resy-1),0);
-	m_softBody->setMass(IDX(resx-1,resy-1),0);*/
 	m_softBody->randomizeConstraints();
 
 }
