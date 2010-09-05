@@ -32,6 +32,10 @@ Collaboration diagram for CIrrBPManager:\nopagebreak
 \item 
 \hyperlink{class_c_irr_b_p_trimesh}{CIrrBPTrimesh} $\ast$ \hyperlink{class_c_irr_b_p_manager_a14eef4c19ac93cf7dff82544637833e0}{addTrimesh} (IMeshSceneNode $\ast$node, irr::f32 mass, irr::s32 bodyId=-\/1)
 \item 
+\hyperlink{class_c_irr_b_p_rope_soft_body}{CIrrBPRopeSoftBody} $\ast$ \hyperlink{class_c_irr_b_p_manager_ae962ff163a13005f463aa51a351a0a87}{addRopeSoftBody} (const vector3df \&from, const vector3df \&to, irr::f32 mass, int res=-\/1)
+\item 
+\hyperlink{class_c_irr_b_p_patch_soft_body}{CIrrBPPatchSoftBody} $\ast$ \hyperlink{class_c_irr_b_p_manager_a4014de850508351affc43026a34a70bb}{addPatchSoftBody} (const vector3df \&corner00, const vector3df \&corner01, const vector3df \&corner10, const vector3df \&corner11, irr::f32 mass, s32 resx, s32 resy)
+\item 
 \hyperlink{class_c_irr_b_p_slide_constraint}{CIrrBPSlideConstraint} $\ast$ \hyperlink{class_c_irr_b_p_manager_af916152de29ba8c7c9e727dfe5a1c8af}{buildSlideConstraint} (\hyperlink{class_c_irr_b_p_rigid_body}{CIrrBPRigidBody} $\ast$bodyA, \hyperlink{class_c_irr_b_p_rigid_body}{CIrrBPRigidBody} $\ast$bodyB, const vector3df \&pivotInA=vector3df(0, 0, 0), const vector3df \&pivotInB=vector3df(0, 0, 0), bool autoadapt=true, bool rotatepiston=true)
 \item 
 \hyperlink{class_c_irr_b_p_p2_p_constraint}{CIrrBPP2PConstraint} $\ast$ \hyperlink{class_c_irr_b_p_manager_a19a7a9108ded5c076d307efdb390d58a}{buildP2PConstraint} (\hyperlink{class_c_irr_b_p_rigid_body}{CIrrBPRigidBody} $\ast$bodyA, const vector3df \&pivotInA=vector3df(0, 0, 0))
@@ -102,6 +106,27 @@ Here is the call graph for this function:\nopagebreak
 \end{figure}
 
 
+\hypertarget{class_c_irr_b_p_manager_a4014de850508351affc43026a34a70bb}{
+\index{CIrrBPManager@{CIrrBPManager}!addPatchSoftBody@{addPatchSoftBody}}
+\index{addPatchSoftBody@{addPatchSoftBody}!CIrrBPManager@{CIrrBPManager}}
+\subsubsection[{addPatchSoftBody}]{\setlength{\rightskip}{0pt plus 5cm}{\bf CIrrBPPatchSoftBody} $\ast$ CIrrBPManager::addPatchSoftBody (
+\begin{DoxyParamCaption}
+\item[{const vector3df \&}]{ corner00, }
+\item[{const vector3df \&}]{ corner01, }
+\item[{const vector3df \&}]{ corner10, }
+\item[{const vector3df \&}]{ corner11, }
+\item[{irr::f32}]{ mass, }
+\item[{s32}]{ resx, }
+\item[{s32}]{ resy}
+\end{DoxyParamCaption}
+)}}
+\label{class_c_irr_b_p_manager_a4014de850508351affc43026a34a70bb}
+Adds a cloth (soft body) into the world. You must specify the 4 cloth' corners. 
+\begin{DoxyParams}{Parameters}
+\item[{\em corner00}]first corner \item[{\em corner01}]second corner \item[{\em corner10}]third corner \item[{\em corner11}]fourth corner \item[{\em mass}]patch's mass \item[{\em resx}]lenght resolution. More resolution, minor performance. \item[{\em resy}]depth resolution. More resolution, minor performance. \end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Pointer to the object. 
+\end{DoxyReturn}
 \hypertarget{class_c_irr_b_p_manager_a61ed9d76cfe90285f6e7d80b5870406f}{
 \index{CIrrBPManager@{CIrrBPManager}!addRigidBox@{addRigidBox}}
 \index{addRigidBox@{addRigidBox}!CIrrBPManager@{CIrrBPManager}}
@@ -190,6 +215,24 @@ Adds a rigid sphere into the world
 \begin{DoxyReturn}{Returns}
 Pointer to the object. 
 \end{DoxyReturn}
+\hypertarget{class_c_irr_b_p_manager_ae962ff163a13005f463aa51a351a0a87}{
+\index{CIrrBPManager@{CIrrBPManager}!addRopeSoftBody@{addRopeSoftBody}}
+\index{addRopeSoftBody@{addRopeSoftBody}!CIrrBPManager@{CIrrBPManager}}
+\subsubsection[{addRopeSoftBody}]{\setlength{\rightskip}{0pt plus 5cm}{\bf CIrrBPRopeSoftBody} $\ast$ CIrrBPManager::addRopeSoftBody (
+\begin{DoxyParamCaption}
+\item[{const vector3df \&}]{ from, }
+\item[{const vector3df \&}]{ to, }
+\item[{irr::f32}]{ mass, }
+\item[{int}]{ res = {\ttfamily -\/1}}
+\end{DoxyParamCaption}
+)}}
+\label{class_c_irr_b_p_manager_ae962ff163a13005f463aa51a351a0a87}
+Adds a rope (soft body) into the world. 
+\begin{DoxyParams}{Parameters}
+\item[{\em from}]start of the rope \item[{\em to}]end of the rope \item[{\em mass}]rope's mass \item[{\em res}]resolution of the rope. By increasing the resolution, you'll have got a more detailed rope but less performance. Leave -\/1 to auto-\/detect \end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Pointer to the object. 
+\end{DoxyReturn}
 \hypertarget{class_c_irr_b_p_manager_a14eef4c19ac93cf7dff82544637833e0}{
 \index{CIrrBPManager@{CIrrBPManager}!addTrimesh@{addTrimesh}}
 \index{addTrimesh@{addTrimesh}!CIrrBPManager@{CIrrBPManager}}
@@ -244,25 +287,6 @@ Builds a cone twist constraint to the bodies. A cone-\/twist can be used to simu
 \begin{DoxyReturn}{Returns}
 pointer to the constraint 
 \end{DoxyReturn}
-\hypertarget{class_c_irr_b_p_manager_a87b2610eaba14775ac81992ff71ab436}{
-\index{CIrrBPManager@{CIrrBPManager}!buildHingeConstraint@{buildHingeConstraint}}
-\index{buildHingeConstraint@{buildHingeConstraint}!CIrrBPManager@{CIrrBPManager}}
-\subsubsection[{buildHingeConstraint}]{\setlength{\rightskip}{0pt plus 5cm}{\bf CIrrBPHingeConstraint} $\ast$ CIrrBPManager::buildHingeConstraint (
-\begin{DoxyParamCaption}
-\item[{{\bf CIrrBPRigidBody} $\ast$}]{ bodyA, }
-\item[{const vector3df \&}]{ pivotInA, }
-\item[{const vector3df \&}]{ axisInA}
-\end{DoxyParamCaption}
-)}}
-\label{class_c_irr_b_p_manager_a87b2610eaba14775ac81992ff71ab436}
-Builds and attach a hinge constraint to the body.
-
-
-\begin{DoxyParams}{Parameters}
-\item[{\em bodyA}]The first body \item[{\em pivotInA}]The constraint position in A \item[{\em axisInA}]The axis position in A \end{DoxyParams}
-\begin{DoxyReturn}{Returns}
-pointer to the constraint 
-\end{DoxyReturn}
 \hypertarget{class_c_irr_b_p_manager_a8a61e921b487d6249e46022b6e9b5ccf}{
 \index{CIrrBPManager@{CIrrBPManager}!buildHingeConstraint@{buildHingeConstraint}}
 \index{buildHingeConstraint@{buildHingeConstraint}!CIrrBPManager@{CIrrBPManager}}
@@ -282,6 +306,25 @@ Builds and attach a hinge constraint to the body.
 
 \begin{DoxyParams}{Parameters}
 \item[{\em bodyA}]The first body \item[{\em bodyB}]The second body \item[{\em pivotInA}]The constraint position in A \item[{\em pivotInB}]The constraint position in B \item[{\em axisInA}]The axis position in A \item[{\em axisInB}]The axis position in B \end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+pointer to the constraint 
+\end{DoxyReturn}
+\hypertarget{class_c_irr_b_p_manager_a87b2610eaba14775ac81992ff71ab436}{
+\index{CIrrBPManager@{CIrrBPManager}!buildHingeConstraint@{buildHingeConstraint}}
+\index{buildHingeConstraint@{buildHingeConstraint}!CIrrBPManager@{CIrrBPManager}}
+\subsubsection[{buildHingeConstraint}]{\setlength{\rightskip}{0pt plus 5cm}{\bf CIrrBPHingeConstraint} $\ast$ CIrrBPManager::buildHingeConstraint (
+\begin{DoxyParamCaption}
+\item[{{\bf CIrrBPRigidBody} $\ast$}]{ bodyA, }
+\item[{const vector3df \&}]{ pivotInA, }
+\item[{const vector3df \&}]{ axisInA}
+\end{DoxyParamCaption}
+)}}
+\label{class_c_irr_b_p_manager_a87b2610eaba14775ac81992ff71ab436}
+Builds and attach a hinge constraint to the body.
+
+
+\begin{DoxyParams}{Parameters}
+\item[{\em bodyA}]The first body \item[{\em pivotInA}]The constraint position in A \item[{\em axisInA}]The axis position in A \end{DoxyParams}
 \begin{DoxyReturn}{Returns}
 pointer to the constraint 
 \end{DoxyReturn}

@@ -74,6 +74,8 @@ Public Member Functions</h2></td></tr>
 <tr><td class="memItemLeft" align="right" valign="top"><a class="el" href="class_c_irr_b_p_capsule_body.html">CIrrBPCapsuleBody</a> *&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_c_irr_b_p_manager.html#ac351ba81cf28a33bac69bc348860cd48">addRigidCapsule</a> (ISceneNode *node, irr::f32 mass, irr::s32 bodyId=-1, BODY_OR bodyOrientationAxis=AUTO)</td></tr>
 <tr><td class="memItemLeft" align="right" valign="top"><a class="el" href="class_c_irr_b_p_trimesh.html">CIrrBPTrimesh</a> *&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_c_irr_b_p_manager.html#ad565fee43722307839908de9aab70344">addTrimesh</a> (IAnimatedMeshSceneNode *node, irr::f32 mass, irr::s32 bodyId=-1)</td></tr>
 <tr><td class="memItemLeft" align="right" valign="top"><a class="el" href="class_c_irr_b_p_trimesh.html">CIrrBPTrimesh</a> *&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_c_irr_b_p_manager.html#a14eef4c19ac93cf7dff82544637833e0">addTrimesh</a> (IMeshSceneNode *node, irr::f32 mass, irr::s32 bodyId=-1)</td></tr>
+<tr><td class="memItemLeft" align="right" valign="top"><a class="el" href="class_c_irr_b_p_rope_soft_body.html">CIrrBPRopeSoftBody</a> *&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_c_irr_b_p_manager.html#ae962ff163a13005f463aa51a351a0a87">addRopeSoftBody</a> (const vector3df &amp;from, const vector3df &amp;to, irr::f32 mass, int res=-1)</td></tr>
+<tr><td class="memItemLeft" align="right" valign="top"><a class="el" href="class_c_irr_b_p_patch_soft_body.html">CIrrBPPatchSoftBody</a> *&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_c_irr_b_p_manager.html#a4014de850508351affc43026a34a70bb">addPatchSoftBody</a> (const vector3df &amp;corner00, const vector3df &amp;corner01, const vector3df &amp;corner10, const vector3df &amp;corner11, irr::f32 mass, s32 resx, s32 resy)</td></tr>
 <tr><td class="memItemLeft" align="right" valign="top"><a class="el" href="class_c_irr_b_p_slide_constraint.html">CIrrBPSlideConstraint</a> *&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_c_irr_b_p_manager.html#af916152de29ba8c7c9e727dfe5a1c8af">buildSlideConstraint</a> (<a class="el" href="class_c_irr_b_p_rigid_body.html">CIrrBPRigidBody</a> *bodyA, <a class="el" href="class_c_irr_b_p_rigid_body.html">CIrrBPRigidBody</a> *bodyB, const vector3df &amp;pivotInA=vector3df(0, 0, 0), const vector3df &amp;pivotInB=vector3df(0, 0, 0), bool autoadapt=true, bool rotatepiston=true)</td></tr>
 <tr><td class="memItemLeft" align="right" valign="top"><a class="el" href="class_c_irr_b_p_p2_p_constraint.html">CIrrBPP2PConstraint</a> *&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_c_irr_b_p_manager.html#a19a7a9108ded5c076d307efdb390d58a">buildP2PConstraint</a> (<a class="el" href="class_c_irr_b_p_rigid_body.html">CIrrBPRigidBody</a> *bodyA, const vector3df &amp;pivotInA=vector3df(0, 0, 0))</td></tr>
 <tr><td class="memItemLeft" align="right" valign="top"><a class="el" href="class_c_irr_b_p_p2_p_constraint.html">CIrrBPP2PConstraint</a> *&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_c_irr_b_p_manager.html#a1a2dc64a93a8770dfed3ba7f77972c70">buildP2PConstraint</a> (<a class="el" href="class_c_irr_b_p_rigid_body.html">CIrrBPRigidBody</a> *bodyA, <a class="el" href="class_c_irr_b_p_rigid_body.html">CIrrBPRigidBody</a> *bodyB, const vector3df &amp;pivotInA=vector3df(0, 0, 0), const vector3df &amp;pivotInB=vector3df(0, 0, 0))</td></tr>
@@ -143,6 +145,77 @@ Here is the call graph for this function:</div>
 <area shape="rect" id="node3" href="class_c_irr_b_p_world.html#a0bf527c522426b50d959ab5adc27be4c" title="CIrrBPWorld::addRigidBody" alt="" coords="311,5,492,35"/><area shape="rect" id="node5" href="class_c_irr_b_p_rigid_body.html#ac95ba035b7a81013d1aebf7511528047" title="CIrrBPRigidBody::setValidStatus" alt="" coords="543,5,753,35"/></map>
 </div>
 </p>
+
+</div>
+</div>
+<a class="anchor" id="a4014de850508351affc43026a34a70bb"></a><!-- doxytag: member="CIrrBPManager::addPatchSoftBody" ref="a4014de850508351affc43026a34a70bb" args="(const vector3df &amp;corner00, const vector3df &amp;corner01, const vector3df &amp;corner10, const vector3df &amp;corner11, irr::f32 mass, s32 resx, s32 resy)" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="class_c_irr_b_p_patch_soft_body.html">CIrrBPPatchSoftBody</a> * CIrrBPManager::addPatchSoftBody </td>
+          <td>(</td>
+          <td class="paramtype">const vector3df &amp;&nbsp;</td>
+          <td class="paramname"> <em>corner00</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const vector3df &amp;&nbsp;</td>
+          <td class="paramname"> <em>corner01</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const vector3df &amp;&nbsp;</td>
+          <td class="paramname"> <em>corner10</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const vector3df &amp;&nbsp;</td>
+          <td class="paramname"> <em>corner11</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">irr::f32&nbsp;</td>
+          <td class="paramname"> <em>mass</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">s32&nbsp;</td>
+          <td class="paramname"> <em>resx</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">s32&nbsp;</td>
+          <td class="paramname"> <em>resy</em></td><td>&nbsp;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td><td></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+<p>Adds a cloth (soft body) into the world. You must specify the 4 cloth' corners. </p>
+<dl><dt><b>Parameters:</b></dt><dd>
+  <table border="0" cellspacing="2" cellpadding="0">
+    <tr><td valign="top"></td><td valign="top"><em>corner00</em>&nbsp;</td><td>first corner </td></tr>
+    <tr><td valign="top"></td><td valign="top"><em>corner01</em>&nbsp;</td><td>second corner </td></tr>
+    <tr><td valign="top"></td><td valign="top"><em>corner10</em>&nbsp;</td><td>third corner </td></tr>
+    <tr><td valign="top"></td><td valign="top"><em>corner11</em>&nbsp;</td><td>fourth corner </td></tr>
+    <tr><td valign="top"></td><td valign="top"><em>mass</em>&nbsp;</td><td>patch's mass </td></tr>
+    <tr><td valign="top"></td><td valign="top"><em>resx</em>&nbsp;</td><td>lenght resolution. More resolution, minor performance. </td></tr>
+    <tr><td valign="top"></td><td valign="top"><em>resy</em>&nbsp;</td><td>depth resolution. More resolution, minor performance. </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="return"><dt><b>Returns:</b></dt><dd>Pointer to the object. </dd></dl>
 
 </div>
 </div>
@@ -382,6 +455,56 @@ Here is the call graph for this function:</div>
 
 </div>
 </div>
+<a class="anchor" id="ae962ff163a13005f463aa51a351a0a87"></a><!-- doxytag: member="CIrrBPManager::addRopeSoftBody" ref="ae962ff163a13005f463aa51a351a0a87" args="(const vector3df &amp;from, const vector3df &amp;to, irr::f32 mass, int res=&#45;1)" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="class_c_irr_b_p_rope_soft_body.html">CIrrBPRopeSoftBody</a> * CIrrBPManager::addRopeSoftBody </td>
+          <td>(</td>
+          <td class="paramtype">const vector3df &amp;&nbsp;</td>
+          <td class="paramname"> <em>from</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const vector3df &amp;&nbsp;</td>
+          <td class="paramname"> <em>to</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">irr::f32&nbsp;</td>
+          <td class="paramname"> <em>mass</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int&nbsp;</td>
+          <td class="paramname"> <em>res</em> = <code>-1</code></td><td>&nbsp;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td><td></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+<p>Adds a rope (soft body) into the world. </p>
+<dl><dt><b>Parameters:</b></dt><dd>
+  <table border="0" cellspacing="2" cellpadding="0">
+    <tr><td valign="top"></td><td valign="top"><em>from</em>&nbsp;</td><td>start of the rope </td></tr>
+    <tr><td valign="top"></td><td valign="top"><em>to</em>&nbsp;</td><td>end of the rope </td></tr>
+    <tr><td valign="top"></td><td valign="top"><em>mass</em>&nbsp;</td><td>rope's mass </td></tr>
+    <tr><td valign="top"></td><td valign="top"><em>res</em>&nbsp;</td><td>resolution of the rope. By increasing the resolution, you'll have got a more detailed rope but less performance. Leave -1 to auto-detect </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="return"><dt><b>Returns:</b></dt><dd>Pointer to the object. </dd></dl>
+
+</div>
+</div>
 <a class="anchor" id="a14eef4c19ac93cf7dff82544637833e0"></a><!-- doxytag: member="CIrrBPManager::addTrimesh" ref="a14eef4c19ac93cf7dff82544637833e0" args="(IMeshSceneNode *node, irr::f32 mass, irr::s32 bodyId=&#45;1)" -->
 <div class="memitem">
 <div class="memproto">
@@ -518,49 +641,6 @@ Here is the call graph for this function:</div>
 
 </div>
 </div>
-<a class="anchor" id="a87b2610eaba14775ac81992ff71ab436"></a><!-- doxytag: member="CIrrBPManager::buildHingeConstraint" ref="a87b2610eaba14775ac81992ff71ab436" args="(CIrrBPRigidBody *bodyA, const vector3df &amp;pivotInA, const vector3df &amp;axisInA)" -->
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname"><a class="el" href="class_c_irr_b_p_hinge_constraint.html">CIrrBPHingeConstraint</a> * CIrrBPManager::buildHingeConstraint </td>
-          <td>(</td>
-          <td class="paramtype"><a class="el" href="class_c_irr_b_p_rigid_body.html">CIrrBPRigidBody</a> *&nbsp;</td>
-          <td class="paramname"> <em>bodyA</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">const vector3df &amp;&nbsp;</td>
-          <td class="paramname"> <em>pivotInA</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">const vector3df &amp;&nbsp;</td>
-          <td class="paramname"> <em>axisInA</em></td><td>&nbsp;</td>
-        </tr>
-        <tr>
-          <td></td>
-          <td>)</td>
-          <td></td><td></td><td></td>
-        </tr>
-      </table>
-</div>
-<div class="memdoc">
-<p>Builds and attach a hinge constraint to the body.</p>
-<dl><dt><b>Parameters:</b></dt><dd>
-  <table border="0" cellspacing="2" cellpadding="0">
-    <tr><td valign="top"></td><td valign="top"><em>bodyA</em>&nbsp;</td><td>The first body </td></tr>
-    <tr><td valign="top"></td><td valign="top"><em>pivotInA</em>&nbsp;</td><td>The constraint position in A </td></tr>
-    <tr><td valign="top"></td><td valign="top"><em>axisInA</em>&nbsp;</td><td>The axis position in A </td></tr>
-  </table>
-  </dd>
-</dl>
-<dl class="return"><dt><b>Returns:</b></dt><dd>pointer to the constraint </dd></dl>
-
-</div>
-</div>
 <a class="anchor" id="a8a61e921b487d6249e46022b6e9b5ccf"></a><!-- doxytag: member="CIrrBPManager::buildHingeConstraint" ref="a8a61e921b487d6249e46022b6e9b5ccf" args="(CIrrBPRigidBody *bodyA, CIrrBPRigidBody *bodyB, const vector3df &amp;pivotInA, const vector3df &amp;pivotInB, const vector3df &amp;axisInA, const vector3df &amp;axisInB)" -->
 <div class="memitem">
 <div class="memproto">
@@ -618,6 +698,49 @@ Here is the call graph for this function:</div>
     <tr><td valign="top"></td><td valign="top"><em>pivotInB</em>&nbsp;</td><td>The constraint position in B </td></tr>
     <tr><td valign="top"></td><td valign="top"><em>axisInA</em>&nbsp;</td><td>The axis position in A </td></tr>
     <tr><td valign="top"></td><td valign="top"><em>axisInB</em>&nbsp;</td><td>The axis position in B </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="return"><dt><b>Returns:</b></dt><dd>pointer to the constraint </dd></dl>
+
+</div>
+</div>
+<a class="anchor" id="a87b2610eaba14775ac81992ff71ab436"></a><!-- doxytag: member="CIrrBPManager::buildHingeConstraint" ref="a87b2610eaba14775ac81992ff71ab436" args="(CIrrBPRigidBody *bodyA, const vector3df &amp;pivotInA, const vector3df &amp;axisInA)" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="class_c_irr_b_p_hinge_constraint.html">CIrrBPHingeConstraint</a> * CIrrBPManager::buildHingeConstraint </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="class_c_irr_b_p_rigid_body.html">CIrrBPRigidBody</a> *&nbsp;</td>
+          <td class="paramname"> <em>bodyA</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const vector3df &amp;&nbsp;</td>
+          <td class="paramname"> <em>pivotInA</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const vector3df &amp;&nbsp;</td>
+          <td class="paramname"> <em>axisInA</em></td><td>&nbsp;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td><td></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+<p>Builds and attach a hinge constraint to the body.</p>
+<dl><dt><b>Parameters:</b></dt><dd>
+  <table border="0" cellspacing="2" cellpadding="0">
+    <tr><td valign="top"></td><td valign="top"><em>bodyA</em>&nbsp;</td><td>The first body </td></tr>
+    <tr><td valign="top"></td><td valign="top"><em>pivotInA</em>&nbsp;</td><td>The constraint position in A </td></tr>
+    <tr><td valign="top"></td><td valign="top"><em>axisInA</em>&nbsp;</td><td>The axis position in A </td></tr>
   </table>
   </dd>
 </dl>
@@ -1034,7 +1157,7 @@ Here is the call graph for this function:</div>
 </iframe>
 </div>
 
-<hr class="footer"/><address class="footer"><small>Generated on Thu Sep 2 2010 13:42:07 for irrBP by&nbsp;
+<hr class="footer"/><address class="footer"><small>Generated on Sun Sep 5 2010 18:56:11 for irrBP by&nbsp;
 <a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.7.1 </small></address>
 </body>

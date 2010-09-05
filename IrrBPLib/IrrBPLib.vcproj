@@ -240,6 +240,22 @@
 					>
 				</File>
 			</Filter>
+			<Filter
+				Name="SoftBody"
+				>
+				<File
+					RelativePath="..\src\softbody\CIrrBPPatchSoftBody.cpp"
+					>
+				</File>
+				<File
+					RelativePath="..\src\softbody\CIrrBPRopeSoftBody.cpp"
+					>
+				</File>
+				<File
+					RelativePath="..\src\softbody\CIrrBPSoftBody.cpp"
+					>
+				</File>
+			</Filter>
 		</Filter>
 		<Filter
 			Name="File di intestazione"
@@ -343,6 +359,22 @@
 				</File>
 				<File
 					RelativePath="..\include\constraint\CIrrBPSlideConstraint.h"
+					>
+				</File>
+			</Filter>
+			<Filter
+				Name="SoftBody"
+				>
+				<File
+					RelativePath="..\include\softbody\CIrrBPPatchSoftBody.h"
+					>
+				</File>
+				<File
+					RelativePath="..\include\softbody\CIrrBPRopeSoftBody.h"
+					>
+				</File>
+				<File
+					RelativePath="..\include\softbody\CIrrBPSoftBody.h"
 					>
 				</File>
 			</Filter>
