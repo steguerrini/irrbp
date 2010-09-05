@@ -123,3 +123,17 @@ CIrrBPHingeConstraint * CIrrBPManager::buildHingeConstraint(CIrrBPRigidBody * bo
 	m_bulletWorld->addRigidBodyConstraint(hinge);
 	return hinge;
 }
+
+CIrrBPRopeSoftBody * CIrrBPManager::addRopeSoftBody(const vector3df & from ,const vector3df & to,irr::f32 mass,int res)
+{
+	CIrrBPRopeSoftBody * rope = new CIrrBPRopeSoftBody(from,to,mass,m_bulletWorld,res);
+	m_bulletWorld->addSoftBody(rope);
+	return rope;
+}
+
+CIrrBPPatchSoftBody * CIrrBPManager::addPatchSoftBody(const vector3df & corner00 ,const vector3df & corner01,const vector3df & corner10 ,const vector3df & corner11,irr::f32 mass,s32 resx,s32 resy)
+{
+	CIrrBPPatchSoftBody * patch = new CIrrBPPatchSoftBody(corner00,corner01,corner10,corner11,mass,m_bulletWorld,resx,resy);
+	m_bulletWorld->addSoftBody(patch);
+	return patch;
+}

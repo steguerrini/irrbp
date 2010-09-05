@@ -1,3 +1,12 @@
+r7:
++ World's destructor optimized. Needed due to soft-body preparation
++ Added Soft Body Implementation (Minimal). In the next releases the implementation will be improved.
+  + Cloth
+  + Rope
+
+r6:
++ SVN Adjust
+
 r5:
 + Added body orientation support to cone body
 + Doxygen documentation renewed

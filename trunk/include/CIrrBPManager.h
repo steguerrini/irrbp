@@ -20,6 +20,10 @@
 #include "animator/CIrrBPCollisionDeleteAnimator.h"
 #include "animator/CIrrBPDeleteAnimator.h"
 
+#include "softbody/CIrrBPSoftBody.h"
+#include "softbody/CIrrBPRopeSoftBody.h"
+#include "softbody/CIrrBPPatchSoftBody.h"
+
 #include "irrlicht.h"
 #include "types.h"
 
@@ -114,6 +118,29 @@ public:
 	*/
 	CIrrBPTrimesh * addTrimesh (IMeshSceneNode * node,irr::f32 mass, irr::s32 bodyId = -1);
 
+
+	/*!
+	  Adds a rope (soft body) into the world.
+	  @param from start of the rope
+	  @param to end of the rope
+	  @param mass rope's mass
+	  @param res resolution of the rope. By increasing the resolution, you'll have got a more detailed rope but less performance. Leave -1 to auto-detect
+	  @return Pointer to the object.
+	*/
+	CIrrBPRopeSoftBody * addRopeSoftBody(const vector3df & from ,const vector3df & to,irr::f32 mass,int res=-1);
+
+	/*!
+	  Adds a cloth\patch (soft body) into the world. You must specify the 4 cloth' corners.
+	  @param corner00 first corner
+	  @param corner01 second corner
+	  @param corner10 third corner
+	  @param corner11 fourth corner
+	  @param mass patch's mass
+	  @param resx lenght resolution. More resolution, minor performance.
+	  @param resy depth resolution. More resolution, minor performance.
+	  @return Pointer to the object.
+	*/
+	CIrrBPPatchSoftBody * addPatchSoftBody(const vector3df & corner00 ,const vector3df & corner01,const vector3df & corner10 ,const vector3df & corner11,irr::f32 mass,s32 resx,s32 resy);
 	/*!
 		Builds and attach a Slide Constraint to the bodies.
 		The last 2 parameters will only works if there is a static object.<br>

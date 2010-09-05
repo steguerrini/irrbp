@@ -5,23 +5,38 @@ CIrrBPWorld::~CIrrBPWorld()
 {
 	isClosing=true;
 	cout<<"# Cleaning IrrBP' pointers..."<<endl;
-	delete World;
-	delete CollisionConfiguration;
-	delete dispatcher;
-	delete pairCache;
-	delete constraintSolver;
+	m_worldInfo.m_sparsesdf.GarbageCollect();
+	m_worldInfo.m_sparsesdf.Reset();
 
 	/*Delete all rigid bodies*/
 	for(u32 i=0;i<this->rigidBodiesObj.size();i++)
+	{
+		World->removeRigidBody(rigidBodiesObj[i]->getBodyPtr());
 		rigidBodiesObj[i]->drop();
+	}
 
 	/*Delete all constraints*/
 	for(u32 i=0;i<this->rigidBodiesConst.size();i++)
+	{
+		World->removeConstraint(rigidBodiesConst[i]->getConstraintPtr());
 		rigidBodiesConst[i]->drop();
+	}
 
+	/*Delete all soft bodies*/
+	for(u32 i=0;i<this->softBodiesObj.size();i++)
+	{
+		World->removeSoftBody(softBodiesObj[i]->getBodyPtr());
+		softBodiesObj[i]->drop();
+	}
 	if(dDrawer)
 		delete dDrawer;
+	delete World;
+	delete constraintSolver;
+	delete pairCache;
+	delete dispatcher;
+	delete CollisionConfiguration;
 	
+
 	cout<<"# IrrBP closed successfully!"<<endl;
 
 }
@@ -34,7 +49,7 @@ CIrrBPWorld::CIrrBPWorld(irr::IrrlichtDevice *device,const vector3df & Gravity)
 
 	this->Gravity = irrVectorToBulletVector(Gravity);
 	
-	CollisionConfiguration = new btDefaultCollisionConfiguration();
+	CollisionConfiguration = new btSoftBodyRigidBodyCollisionConfiguration();
 	
 	//CollisionConfiguration->setConvexConvexMultipointIterations();
 	dispatcher = new btCollisionDispatcher(CollisionConfiguration);
@@ -46,7 +61,7 @@ CIrrBPWorld::CIrrBPWorld(irr::IrrlichtDevice *device,const vector3df & Gravity)
 	
     World = new btSoftRigidDynamicsWorld(dispatcher, pairCache,
         constraintSolver, CollisionConfiguration);
-	
+
 	btGImpactCollisionAlgorithm::registerAlgorithm(/*(btCollisionDispatcher*)*/dispatcher);
 
 	World->getSolverInfo().m_erp = 0.9;
@@ -58,6 +73,19 @@ CIrrBPWorld::CIrrBPWorld(irr::IrrlichtDevice *device,const vector3df & Gravity)
 	isClosing = false;
 
 	dDrawer = NULL;
+
+	/*Set soft body informer*/
+	
+	m_worldInfo.m_broadphase = pairCache;
+    m_worldInfo.m_dispatcher = dispatcher;
+	m_worldInfo.m_sparsesdf.Initialize();
+
+    m_worldInfo.m_gravity.setValue(0,-10.0,0);
+    m_worldInfo.air_density = 1.0f;
+    m_worldInfo.water_density = 0;
+    m_worldInfo.water_offset = 0;
+    m_worldInfo.water_normal = btVector3(0,0,0);
+
 }
 bool CIrrBPWorld::isBodyColliding(CIrrBPRigidBody *body, irr::s32 collMask)
 {
@@ -99,6 +127,16 @@ bool CIrrBPWorld::isBodyColliding(CIrrBPRigidBody *body, irr::s32 collMask)
 	   
    } 
    return false;
+}
+void CIrrBPWorld::addSoftBody(CIrrBPSoftBody * sbody)
+{
+	softBodiesObj.push_back(sbody);
+	World->addSoftBody(sbody->getBodyPtr());
+
+	#ifdef IRRBP_DEBUG_TEXT
+	cout<<"# Added new Soft Body"<<endl;
+	#endif
+	
 }
 irr::u32 CIrrBPWorld::addRigidBody(CIrrBPRigidBody *body)
 {
@@ -165,6 +203,7 @@ void CIrrBPWorld::stepSimulation()
     TimeStamp = irrTimer->getTime();
 	World->stepSimulation(DeltaTime * 0.001f,1);
 	
+	m_worldInfo.m_sparsesdf.GarbageCollect();
 	updateObjects();
 };
 
@@ -222,6 +261,7 @@ void CIrrBPWorld::createDebugDrawer()
 		World->setDebugDrawer(dDrawer);
 
 	mat.Lighting = false;
+	//mat.Thickness = 3;
 }
 
 void CIrrBPWorld::stepDebugDrawer()
@@ -235,4 +275,9 @@ void CIrrBPWorld::setDebugDrawerFlags(int flags)
 {
 	if(dDrawer)
 		dDrawer->setDebugMode(flags);
+}
+
+btSoftBodyWorldInfo& CIrrBPWorld::getSoftBodyWorldInfo() 
+{
+	return m_worldInfo;
 }

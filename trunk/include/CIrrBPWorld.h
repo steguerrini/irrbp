@@ -14,7 +14,8 @@
 #include "body\CIrrBPRigidBody.h"
 #include "animator\CIrrBPAnimator.h"
 #include "constraint\CIrrBPConstraint.h"
-
+#include "softbody\CIrrBPSoftBody.h"
+#include "BulletSoftBody\btSoftBodyRigidBodyCollisionConfiguration.h"
 #include "CIrrBPDebugDrawer.h"
 
 #include <irrlicht.h>
@@ -63,6 +64,9 @@ public:
 		@param body A pointer to the body that needs to be deleted.
 	*/
 	void removeRigidBody(CIrrBPRigidBody *body);
+
+
+	void addSoftBody(CIrrBPSoftBody * sbody);
 
 	/*!
 		Gets the number of active bodies in the world
@@ -138,17 +142,21 @@ public:
 	*/
 	void setDebugDrawerFlags(int flags);
 
+	btSoftBodyWorldInfo & getSoftBodyWorldInfo();
+
 private:
 	inline void updateObjects();
 
-	btDefaultCollisionConfiguration* CollisionConfiguration;
-	btDiscreteDynamicsWorld* World;	
+	btSoftBodyRigidBodyCollisionConfiguration* CollisionConfiguration;
+	//btDiscreteDynamicsWorld* World;	
+	btSoftRigidDynamicsWorld * World;
     btCollisionDispatcher* dispatcher;
     btBroadphaseInterface* pairCache;
     btConstraintSolver*	constraintSolver;
 	
 	array<CIrrBPRigidBody*> rigidBodiesObj;
 	array<btRigidBody *> rigidBodies;
+	array<CIrrBPSoftBody*> softBodiesObj;
 	array<CIrrBPConstraint*> rigidBodiesConst;
 	//list<btRigidBody *> rigidBodies;
 	ITimer* irrTimer;
@@ -161,6 +169,8 @@ private:
 
 	CIrrBPDebugDrawer * dDrawer;
 	irr::video::SMaterial mat;
+
+	btSoftBodyWorldInfo m_worldInfo;
 
 };
 
