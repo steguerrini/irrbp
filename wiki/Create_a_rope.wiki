@@ -47,8 +47,8 @@ Now, we create a cube body to attach to the cloth
 And finally...we attach te box to the low corners of the cloth!
 
 {{{
-	prova->appendAnchor(box,0);
-	prova->appendAnchor(box,9);
+	rope->appendAnchor(box,0);
+	rope->appendAnchor(box,9);
 }}}
 
 *When appending an* _anchor_* to a soft body, we need to specify to which node is applied the anchor. In this case we've got a 10 x 10 precision, so we attach the body to the first row corners [0~9]*
