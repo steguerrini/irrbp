@@ -12,6 +12,7 @@ public:
 	CIrrBPRopeSoftBody(const vector3df & from ,const vector3df & to,irr::f32 mass,CIrrBPWorld * world,int res=-1);
 	~CIrrBPRopeSoftBody();
 	void drop() { delete this;}
+	void update(){};
 protected:
 	int getAutoFixedRes();
 	vector3df from;
