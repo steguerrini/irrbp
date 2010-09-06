@@ -36,6 +36,8 @@ public:
 	btSoftBody::Config getConfig() { return m_softBody->m_cfg;}
 	void setConfig(btSoftBody::Config newConfig) { m_softBody->m_cfg = newConfig;}
 
+	/*Updates soft body triangle*/
+	virtual void update() = 0;
 protected:
 	btSoftBody * m_softBody;
 };

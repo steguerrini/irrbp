@@ -226,6 +226,10 @@ void CIrrBPWorld::updateObjects()
 			i++;
 
 	}
+	for(irr::u32 i=0;i<softBodiesObj.size();i++)
+	{
+		softBodiesObj[i]->update();
+	}
 }
 
 CIrrBPRigidBody * CIrrBPWorld::getRigidBodyFromUId(irr::u32 uid)
