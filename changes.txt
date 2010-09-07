@@ -1,4 +1,7 @@
-IrrBP 0.1 (r14):
+IrrBP 0.1 (r15):
++ Updated VC Projects
+
+r14:
 + Completely changed the object hierarchy to easily implements other futures objects.
 + Bullet Manager Updated
 + Soft Bodies optimization
