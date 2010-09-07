@@ -3,9 +3,7 @@
 
 CIrrBPRigidBody::CIrrBPRigidBody()
 {
-	cParam = -1;
-	m_BodyStatus = false;
-	m_uBodyId = UNIQUE_BODY_ID_GENERATOR++;
+	m_objType = RIGID_BODY;
 }
 
 void CIrrBPRigidBody::applyCentralImpulse(const irr::core::vector3df &impulse)
@@ -33,9 +31,4 @@ void CIrrBPRigidBody::applyTorque (const vector3df &torque)
 	m_RigidBody->applyTorque(irrVectorToBulletVector(torque));
 }
 
-void CIrrBPRigidBody::addAnimator(CIrrBPAnimator * anim)
-{
-	anim->setBody(this);
-	m_Animators.push_back(anim);
-}
 

@@ -1,5 +1,5 @@
 #include "animator/CIrrBPAnimator.h"
-#include "body/CIrrBPRigidBody.h"
+#include "CIrrBPCollisionObject.h"
 #include "CIrrBPWorld.h"
 CIrrBPAnimator::CIrrBPAnimator()
 {

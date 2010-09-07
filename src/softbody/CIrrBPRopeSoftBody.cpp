@@ -16,7 +16,7 @@ CIrrBPRopeSoftBody::CIrrBPRopeSoftBody(const vector3df & From ,const vector3df &
 	m_softBody = btSoftBodyHelpers::CreateRope(world->getSoftBodyWorldInfo(),irrVectorToBulletVector(from),irrVectorToBulletVector(to),res == -1 ? getAutoFixedRes() : res,1);
 	m_softBody->setTotalMass(mass);
 	m_softBody->randomizeConstraints();
-	
+	collisionObj = m_softBody;
 }
 
 int CIrrBPRopeSoftBody::getAutoFixedRes()

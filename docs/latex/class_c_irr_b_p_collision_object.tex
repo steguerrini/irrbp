@@ -1,0 +1,156 @@
+\hypertarget{class_c_irr_b_p_collision_object}{
+\section{CIrrBPCollisionObject Class Reference}
+\label{class_c_irr_b_p_collision_object}\index{CIrrBPCollisionObject@{CIrrBPCollisionObject}}
+}
+
+
+Inherited by \hyperlink{class_c_irr_b_p_rigid_body}{CIrrBPRigidBody}, and \hyperlink{class_c_irr_b_p_soft_body}{CIrrBPSoftBody}.
+
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+virtual void \hyperlink{class_c_irr_b_p_collision_object_a8fda1f4f6c5f34f42c51645baeb436ca}{drop} ()=0
+\item 
+\hypertarget{class_c_irr_b_p_collision_object_a5de2043c24848bff3bcd61dc84830eae}{
+btCollisionObject $\ast$ {\bfseries getPtr} ()}
+\label{class_c_irr_b_p_collision_object_a5de2043c24848bff3bcd61dc84830eae}
+
+\item 
+\hypertarget{class_c_irr_b_p_collision_object_a0d083747feddfe0097ff193f260fc272}{
+COLL\_\-OBJ\_\-TYPE {\bfseries getObjectType} ()}
+\label{class_c_irr_b_p_collision_object_a0d083747feddfe0097ff193f260fc272}
+
+\item 
+virtual bool \hyperlink{class_c_irr_b_p_collision_object_ae2739b17e823ce5850400a5c1d97be44}{isValid} ()
+\item 
+virtual void \hyperlink{class_c_irr_b_p_collision_object_a7dd1e62100c72cebd6c6758d07567f25}{setValidStatus} (bool newStat)
+\item 
+\hypertarget{class_c_irr_b_p_collision_object_a790662278fc1d96e087b89f59433a464}{
+virtual irr::u32 {\bfseries getAnimatorsNr} ()}
+\label{class_c_irr_b_p_collision_object_a790662278fc1d96e087b89f59433a464}
+
+\item 
+\hypertarget{class_c_irr_b_p_collision_object_a95043ef7629302c9d1b57339110aeb15}{
+virtual const array$<$ \hyperlink{class_c_irr_b_p_animator}{CIrrBPAnimator} $\ast$ $>$ {\bfseries getAnimators} () const }
+\label{class_c_irr_b_p_collision_object_a95043ef7629302c9d1b57339110aeb15}
+
+\item 
+\hypertarget{class_c_irr_b_p_collision_object_a5cc22a8625ba5a53b97b5da65f33c5f8}{
+virtual void {\bfseries addAnimator} (\hyperlink{class_c_irr_b_p_animator}{CIrrBPAnimator} $\ast$anim)}
+\label{class_c_irr_b_p_collision_object_a5cc22a8625ba5a53b97b5da65f33c5f8}
+
+\item 
+\hypertarget{class_c_irr_b_p_collision_object_ae7dffc90e038024b656fcc9c3d8bd6cc}{
+virtual void {\bfseries setName} (const stringc \&newName)}
+\label{class_c_irr_b_p_collision_object_ae7dffc90e038024b656fcc9c3d8bd6cc}
+
+\item 
+\hypertarget{class_c_irr_b_p_collision_object_a35397be32742815b13b59216fa9fcac1}{
+virtual void {\bfseries setID} (const irr::s32 \&newID)}
+\label{class_c_irr_b_p_collision_object_a35397be32742815b13b59216fa9fcac1}
+
+\item 
+\hypertarget{class_c_irr_b_p_collision_object_a4f8dfaaf6bfe01e43d5a0660d830d51d}{
+virtual const c8 $\ast$ {\bfseries getName} () const }
+\label{class_c_irr_b_p_collision_object_a4f8dfaaf6bfe01e43d5a0660d830d51d}
+
+\item 
+\hypertarget{class_c_irr_b_p_collision_object_a04d8e22a8c353c5ac4c9ae1b77377d20}{
+virtual irr::s32 {\bfseries getID} () const }
+\label{class_c_irr_b_p_collision_object_a04d8e22a8c353c5ac4c9ae1b77377d20}
+
+\item 
+\hypertarget{class_c_irr_b_p_collision_object_ac045e611a822f39c4f4b449be435cd5d}{
+virtual irr::u32 {\bfseries getUniqueID} () const }
+\label{class_c_irr_b_p_collision_object_ac045e611a822f39c4f4b449be435cd5d}
+
+\end{DoxyCompactItemize}
+\subsection*{Protected Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\hypertarget{class_c_irr_b_p_collision_object_a50a8a11572aa0de96bef261f3831e6c6}{
+irr::core::stringc {\bfseries m\_\-BodyName}}
+\label{class_c_irr_b_p_collision_object_a50a8a11572aa0de96bef261f3831e6c6}
+
+\item 
+\hypertarget{class_c_irr_b_p_collision_object_acfe99f9cbf6a1bfd3996fed86b3425c3}{
+irr::s32 {\bfseries m\_\-BodyId}}
+\label{class_c_irr_b_p_collision_object_acfe99f9cbf6a1bfd3996fed86b3425c3}
+
+\item 
+\hypertarget{class_c_irr_b_p_collision_object_abcce9b0927be797b5539ca0d2ae7cfc7}{
+irr::u32 {\bfseries m\_\-uBodyId}}
+\label{class_c_irr_b_p_collision_object_abcce9b0927be797b5539ca0d2ae7cfc7}
+
+\item 
+\hypertarget{class_c_irr_b_p_collision_object_a5ae5273cbc9b5c8271e97099826258d1}{
+COLL\_\-OBJ\_\-TYPE {\bfseries m\_\-objType}}
+\label{class_c_irr_b_p_collision_object_a5ae5273cbc9b5c8271e97099826258d1}
+
+\item 
+\hypertarget{class_c_irr_b_p_collision_object_af6ccdd10b4e6bba7c577869664364ecf}{
+btCollisionObject $\ast$ {\bfseries collisionObj}}
+\label{class_c_irr_b_p_collision_object_af6ccdd10b4e6bba7c577869664364ecf}
+
+\item 
+\hypertarget{class_c_irr_b_p_collision_object_a8c90a306e5e358a5243e576add6bf366}{
+bool {\bfseries m\_\-BodyStatus}}
+\label{class_c_irr_b_p_collision_object_a8c90a306e5e358a5243e576add6bf366}
+
+\item 
+\hypertarget{class_c_irr_b_p_collision_object_a5e8e2380befa1bc060854bdf00be9a44}{
+array$<$ \hyperlink{class_c_irr_b_p_animator}{CIrrBPAnimator} $\ast$ $>$ {\bfseries m\_\-Animators}}
+\label{class_c_irr_b_p_collision_object_a5e8e2380befa1bc060854bdf00be9a44}
+
+\end{DoxyCompactItemize}
+
+
+\subsection{Member Function Documentation}
+\hypertarget{class_c_irr_b_p_collision_object_a8fda1f4f6c5f34f42c51645baeb436ca}{
+\index{CIrrBPCollisionObject@{CIrrBPCollisionObject}!drop@{drop}}
+\index{drop@{drop}!CIrrBPCollisionObject@{CIrrBPCollisionObject}}
+\subsubsection[{drop}]{\setlength{\rightskip}{0pt plus 5cm}virtual void CIrrBPCollisionObject::drop (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily  \mbox{[}pure virtual\mbox{]}}}}
+\label{class_c_irr_b_p_collision_object_a8fda1f4f6c5f34f42c51645baeb436ca}
+Drop Function. This function should not be used. The destructor will be called automatically by the World Object. 
+
+Implemented in \hyperlink{class_c_irr_b_p_box_body_a144a57bdaaa418c5851f0beb97bdc44b}{CIrrBPBoxBody}, \hyperlink{class_c_irr_b_p_capsule_body_ab9815977583c6135b4b42dee8f536098}{CIrrBPCapsuleBody}, \hyperlink{class_c_irr_b_p_cone_body_a47470fa549f852a5d315f0decb4d195a}{CIrrBPConeBody}, \hyperlink{class_c_irr_b_p_cylinder_body_a966bec7330f778f276294601fc7e0c45}{CIrrBPCylinderBody}, \hyperlink{class_c_irr_b_p_rigid_body_a961d442e36e78260e7a6f203fd0c11e9}{CIrrBPRigidBody}, \hyperlink{class_c_irr_b_p_sphere_body_ae5060da603f81cb391c320ef35ae80eb}{CIrrBPSphereBody}, \hyperlink{class_c_irr_b_p_trimesh_a5106e0daefa0a7dd6198311390711255}{CIrrBPTrimesh}, \hyperlink{class_c_irr_b_p_patch_soft_body_ac6878f329788dfb13818b1189fbe7a7a}{CIrrBPPatchSoftBody}, \hyperlink{class_c_irr_b_p_rope_soft_body_a5db23f15158062419311562d42aa22c9}{CIrrBPRopeSoftBody}, and \hyperlink{class_c_irr_b_p_soft_body_a6a0dabc093e869d674ae14d35084e366}{CIrrBPSoftBody}.
+
+\hypertarget{class_c_irr_b_p_collision_object_ae2739b17e823ce5850400a5c1d97be44}{
+\index{CIrrBPCollisionObject@{CIrrBPCollisionObject}!isValid@{isValid}}
+\index{isValid@{isValid}!CIrrBPCollisionObject@{CIrrBPCollisionObject}}
+\subsubsection[{isValid}]{\setlength{\rightskip}{0pt plus 5cm}virtual bool CIrrBPCollisionObject::isValid (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily  \mbox{[}inline, virtual\mbox{]}}}}
+\label{class_c_irr_b_p_collision_object_ae2739b17e823ce5850400a5c1d97be44}
+Returns the status of the node. \hypertarget{class_c_irr_b_p_collision_object_a7dd1e62100c72cebd6c6758d07567f25}{
+\index{CIrrBPCollisionObject@{CIrrBPCollisionObject}!setValidStatus@{setValidStatus}}
+\index{setValidStatus@{setValidStatus}!CIrrBPCollisionObject@{CIrrBPCollisionObject}}
+\subsubsection[{setValidStatus}]{\setlength{\rightskip}{0pt plus 5cm}virtual void CIrrBPCollisionObject::setValidStatus (
+\begin{DoxyParamCaption}
+\item[{bool}]{ newStat}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily  \mbox{[}inline, virtual\mbox{]}}}}
+\label{class_c_irr_b_p_collision_object_a7dd1e62100c72cebd6c6758d07567f25}
+Setting the value to false will cause the node's deletion. 
+
+Here is the caller graph for this function:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=400pt]{class_c_irr_b_p_collision_object_a7dd1e62100c72cebd6c6758d07567f25_icgraph}
+\end{center}
+\end{figure}
+
+
+
+
+The documentation for this class was generated from the following files:\begin{DoxyCompactItemize}
+\item 
+E:/Documenti/Lavori Stefano/ProgettoFPS/Engine/Engine/IrrBP/include/CIrrBPCollisionObject.h\item 
+E:/Documenti/Lavori Stefano/ProgettoFPS/Engine/Engine/IrrBP/src/CIrrBPCollisionObject.cpp\end{DoxyCompactItemize}

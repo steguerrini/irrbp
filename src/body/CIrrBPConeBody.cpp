@@ -72,6 +72,7 @@ CIrrBPConeBody::CIrrBPConeBody(ISceneNode * node,irr::f32 mass, irr::s32 bodyId,
    m_RigidBody = new btRigidBody(mass, m_MotionState, m_Shape, LocalInertia);
 
    m_RigidBody->setUserPointer((void *)(node));
+   collisionObj = m_RigidBody;
 
 }
 CIrrBPConeBody::~CIrrBPConeBody()

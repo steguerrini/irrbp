@@ -2,6 +2,7 @@
 #define CIrrBP_MGR_H_
 #include "CIrrBPWorld.h"
 
+#include "CIrrBPCollisionObject.h"
 #include "body/CIrrBPRigidBody.h"
 #include "body/CIrrBPTrimeshBody.h"
 #include "body/CIrrBPBoxBody.h"
@@ -230,10 +231,10 @@ public:
 	CIrrBPCollisionDeleteAnimator * createCollisionDeleteAnimator(CIB_DFLAG delFlag);
 
 	/*!
-		Adds your own rigid body to the bullet queue.
-		You need to call this if you're not using the IrrBP manager to create a body
+		Adds your own collision object to the bullet queue.
+		You need to call this if you're not using the IrrBP manager to create a collision object
 	*/
-	void addBodyToBulletQueue(CIrrBPRigidBody * body);
+	void addCollisionObjectToBulletQueue(CIrrBPCollisionObject * cobj);
 
 	/*!
 		Removes a body from the bullet queue.
@@ -254,26 +255,26 @@ public:
 	void drop() { delete this;}
 
 	/*!
-		Gets a rigid Body from a id.
+		Gets a Body from a id.
 		@param id The id to search for
-		@return Pointer to the first rigid body with this id. Returns NULL if no bodies couldn't be found.
+		@return Pointer to the first body with this id. Returns NULL if no bodies couldn't be found.
 	*/
-	CIrrBPRigidBody * getRigidBodyFromId(irr::s32 id){ m_bulletWorld->getRigidBodyFromId(id);}
+	CIrrBPCollisionObject * getRigidBodyFromId(irr::s32 id){ m_bulletWorld->getBodyFromId(id);}
 
 	/*!
-		Gets a rigid Body from a unique id.
+		Gets a Body from a unique id.
 		@param id The unique id to search for
-		@return Pointer to the first rigid body with this id. Returns NULL if no bodies couldn't be found.
+		@return Pointer to the first body with this id. Returns NULL if no bodies couldn't be found.
 	*/
-	CIrrBPRigidBody * getRigidBodyFromUId(irr::u32 uid){ m_bulletWorld->getRigidBodyFromUId(uid);}
+	CIrrBPCollisionObject * getRigidBodyFromUId(irr::u32 uid){ m_bulletWorld->getBodyFromUId(uid);}
 
 
 	/*!
-		Gets a rigid Body from a name.
+		Gets a Body from a name.
 		@param name The name to search for
-		@return Pointer to the first rigid body with this name. Returns NULL if no bodies couldn't be found.
+		@return Pointer to the first body with this name. Returns NULL if no bodies couldn't be found.
 	*/
-	CIrrBPRigidBody * getRigidBodyFromName(irr::c8* name) { m_bulletWorld->getRigidBodyFromName(name);}
+	CIrrBPCollisionObject * getRigidBodyFromName(irr::c8* name) { m_bulletWorld->getBodyFromName(name);}
 
 	/*!
 		Steps the simulation.

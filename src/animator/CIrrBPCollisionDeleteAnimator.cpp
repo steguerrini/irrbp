@@ -1,5 +1,5 @@
 #include "animator/CIrrBPCollisionDeleteAnimator.h"
-#include "body/CIrrBPRigidBody.h"
+#include "CIrrBPCollisionObject.h"
 #include "CIrrBPWorld.h"
 
 
@@ -10,7 +10,7 @@ CIrrBPCollisionDeleteAnimator::CIrrBPCollisionDeleteAnimator(CIB_DFLAG deleteFla
 	rBody= NULL;
 	internalStatus = 0;
 }
-void CIrrBPCollisionDeleteAnimator::setBody(CIrrBPRigidBody *body)
+void CIrrBPCollisionDeleteAnimator::setBody(CIrrBPCollisionObject *body)
 {
 	rBody = body;
 }

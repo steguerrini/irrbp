@@ -37,4 +37,10 @@
 		DBG_FastWireframe = (1<<13),
 		DBG_MAX_DEBUG_DRAW_MODE
 	};
+
+	enum COLL_OBJ_TYPE
+	{
+		RIGID_BODY = 1,
+		SOFT_BODY = 2
+	};
 #endif

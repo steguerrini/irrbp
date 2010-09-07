@@ -1,6 +1,6 @@
 #include "animator/CIrrBPDeleteAnimator.h"
 
-#include "body/CIrrBPRigidBody.h"
+#include "CIrrBPCollisionObject.h"
 
 
 CIrrBPDeleteAnimator::CIrrBPDeleteAnimator(ITimer* timer, irr::u32 end)
@@ -11,7 +11,7 @@ CIrrBPDeleteAnimator::CIrrBPDeleteAnimator(ITimer* timer, irr::u32 end)
 	timeMs = end;
 }
 
-void CIrrBPDeleteAnimator::setBody(CIrrBPRigidBody *body)
+void CIrrBPDeleteAnimator::setBody(CIrrBPCollisionObject *body)
 {
 	activationTime = irrTimer->getRealTime();
 	

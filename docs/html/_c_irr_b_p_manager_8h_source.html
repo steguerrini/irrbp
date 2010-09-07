@@ -51,109 +51,110 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <a name="l00002"></a>00002 <span class="preprocessor"></span><span class="preprocessor">#define CIrrBP_MGR_H_</span>
 <a name="l00003"></a>00003 <span class="preprocessor"></span><span class="preprocessor">#include &quot;CIrrBPWorld.h&quot;</span>
 <a name="l00004"></a>00004 
-<a name="l00005"></a>00005 <span class="preprocessor">#include &quot;body/CIrrBPRigidBody.h&quot;</span>
-<a name="l00006"></a>00006 <span class="preprocessor">#include &quot;body/CIrrBPTrimeshBody.h&quot;</span>
-<a name="l00007"></a>00007 <span class="preprocessor">#include &quot;body/CIrrBPBoxBody.h&quot;</span>
-<a name="l00008"></a>00008 <span class="preprocessor">#include &quot;body/CIrrBPCylinderBody.h&quot;</span>
-<a name="l00009"></a>00009 <span class="preprocessor">#include &quot;body/CIrrBPSphereBody.h&quot;</span>
-<a name="l00010"></a>00010 <span class="preprocessor">#include &quot;body/CIrrBPConeBody.h&quot;</span>
-<a name="l00011"></a>00011 <span class="preprocessor">#include &quot;body/CIrrBPCapsuleBody.h&quot;</span>
-<a name="l00012"></a>00012 
-<a name="l00013"></a>00013 <span class="preprocessor">#include &quot;constraint/CIrrBPConstraint.h&quot;</span>
-<a name="l00014"></a>00014 <span class="preprocessor">#include &quot;constraint/CIrrBPHingeConstraint.h&quot;</span>
-<a name="l00015"></a>00015 <span class="preprocessor">#include &quot;constraint/CIrrBPP2PConstraint.h&quot;</span>
-<a name="l00016"></a>00016 <span class="preprocessor">#include &quot;constraint/CIrrBPSlideConstraint.h&quot;</span>
-<a name="l00017"></a>00017 <span class="preprocessor">#include &quot;constraint/CIrrBPConeTwistConstraint.h&quot;</span>
-<a name="l00018"></a>00018 
-<a name="l00019"></a>00019 <span class="preprocessor">#include &quot;animator/CIrrBPAnimator.h&quot;</span>
-<a name="l00020"></a>00020 <span class="preprocessor">#include &quot;animator/CIrrBPCollisionDeleteAnimator.h&quot;</span>
-<a name="l00021"></a>00021 <span class="preprocessor">#include &quot;animator/CIrrBPDeleteAnimator.h&quot;</span>
-<a name="l00022"></a>00022 
-<a name="l00023"></a>00023 <span class="preprocessor">#include &quot;softbody/CIrrBPSoftBody.h&quot;</span>
-<a name="l00024"></a>00024 <span class="preprocessor">#include &quot;softbody/CIrrBPRopeSoftBody.h&quot;</span>
-<a name="l00025"></a>00025 <span class="preprocessor">#include &quot;softbody/CIrrBPPatchSoftBody.h&quot;</span>
-<a name="l00026"></a>00026 
-<a name="l00027"></a>00027 <span class="preprocessor">#include &quot;irrlicht.h&quot;</span>
-<a name="l00028"></a>00028 <span class="preprocessor">#include &quot;types.h&quot;</span>
-<a name="l00029"></a>00029 
-<a name="l00030"></a>00030 <span class="keyword">using namespace </span>irr;
-<a name="l00031"></a>00031 <span class="keyword">using namespace </span>core;
-<a name="l00032"></a>00032 <span class="keyword">using namespace </span>scene;
-<a name="l00033"></a>00033 <span class="keyword">using namespace </span>io;
-<a name="l00034"></a>00034 <span class="keyword">using namespace </span>gui;
-<a name="l00035"></a>00035 <span class="keyword">using namespace </span>video;
-<a name="l00036"></a>00036 
+<a name="l00005"></a>00005 <span class="preprocessor">#include &quot;CIrrBPCollisionObject.h&quot;</span>
+<a name="l00006"></a>00006 <span class="preprocessor">#include &quot;body/CIrrBPRigidBody.h&quot;</span>
+<a name="l00007"></a>00007 <span class="preprocessor">#include &quot;body/CIrrBPTrimeshBody.h&quot;</span>
+<a name="l00008"></a>00008 <span class="preprocessor">#include &quot;body/CIrrBPBoxBody.h&quot;</span>
+<a name="l00009"></a>00009 <span class="preprocessor">#include &quot;body/CIrrBPCylinderBody.h&quot;</span>
+<a name="l00010"></a>00010 <span class="preprocessor">#include &quot;body/CIrrBPSphereBody.h&quot;</span>
+<a name="l00011"></a>00011 <span class="preprocessor">#include &quot;body/CIrrBPConeBody.h&quot;</span>
+<a name="l00012"></a>00012 <span class="preprocessor">#include &quot;body/CIrrBPCapsuleBody.h&quot;</span>
+<a name="l00013"></a>00013 
+<a name="l00014"></a>00014 <span class="preprocessor">#include &quot;constraint/CIrrBPConstraint.h&quot;</span>
+<a name="l00015"></a>00015 <span class="preprocessor">#include &quot;constraint/CIrrBPHingeConstraint.h&quot;</span>
+<a name="l00016"></a>00016 <span class="preprocessor">#include &quot;constraint/CIrrBPP2PConstraint.h&quot;</span>
+<a name="l00017"></a>00017 <span class="preprocessor">#include &quot;constraint/CIrrBPSlideConstraint.h&quot;</span>
+<a name="l00018"></a>00018 <span class="preprocessor">#include &quot;constraint/CIrrBPConeTwistConstraint.h&quot;</span>
+<a name="l00019"></a>00019 
+<a name="l00020"></a>00020 <span class="preprocessor">#include &quot;animator/CIrrBPAnimator.h&quot;</span>
+<a name="l00021"></a>00021 <span class="preprocessor">#include &quot;animator/CIrrBPCollisionDeleteAnimator.h&quot;</span>
+<a name="l00022"></a>00022 <span class="preprocessor">#include &quot;animator/CIrrBPDeleteAnimator.h&quot;</span>
+<a name="l00023"></a>00023 
+<a name="l00024"></a>00024 <span class="preprocessor">#include &quot;softbody/CIrrBPSoftBody.h&quot;</span>
+<a name="l00025"></a>00025 <span class="preprocessor">#include &quot;softbody/CIrrBPRopeSoftBody.h&quot;</span>
+<a name="l00026"></a>00026 <span class="preprocessor">#include &quot;softbody/CIrrBPPatchSoftBody.h&quot;</span>
+<a name="l00027"></a>00027 
+<a name="l00028"></a>00028 <span class="preprocessor">#include &quot;irrlicht.h&quot;</span>
+<a name="l00029"></a>00029 <span class="preprocessor">#include &quot;types.h&quot;</span>
+<a name="l00030"></a>00030 
+<a name="l00031"></a>00031 <span class="keyword">using namespace </span>irr;
+<a name="l00032"></a>00032 <span class="keyword">using namespace </span>core;
+<a name="l00033"></a>00033 <span class="keyword">using namespace </span>scene;
+<a name="l00034"></a>00034 <span class="keyword">using namespace </span>io;
+<a name="l00035"></a>00035 <span class="keyword">using namespace </span>gui;
+<a name="l00036"></a>00036 <span class="keyword">using namespace </span>video;
 <a name="l00037"></a>00037 
-<a name="l00038"></a><a class="code" href="class_c_irr_b_p_manager.html">00038</a> <span class="keyword">class </span><a class="code" href="class_c_irr_b_p_manager.html">CIrrBPManager</a>
-<a name="l00039"></a>00039 {
-<a name="l00040"></a>00040 <span class="keyword">public</span>:
-<a name="l00046"></a>00046         <a class="code" href="class_c_irr_b_p_manager.html">CIrrBPManager</a>(IrrlichtDevice * device);
-<a name="l00047"></a>00047         ~<a class="code" href="class_c_irr_b_p_manager.html">CIrrBPManager</a>();
-<a name="l00048"></a>00048 
-<a name="l00053"></a><a class="code" href="class_c_irr_b_p_manager.html#acdfaf5f8c351d72c4d9680cb75372ae3">00053</a>         <a class="code" href="class_c_irr_b_p_world.html">CIrrBPWorld</a> * <a class="code" href="class_c_irr_b_p_manager.html#acdfaf5f8c351d72c4d9680cb75372ae3">getWorld</a>() {<span class="keywordflow">return</span> m_bulletWorld;}
-<a name="l00054"></a>00054 
-<a name="l00062"></a>00062         <a class="code" href="class_c_irr_b_p_box_body.html">CIrrBPBoxBody</a> * addRigidBox(ISceneNode * node, irr::f32 mass, irr::s32 bodyId = -1);
-<a name="l00063"></a>00063 
-<a name="l00071"></a>00071         <a class="code" href="class_c_irr_b_p_sphere_body.html">CIrrBPSphereBody</a> * addRigidSphere(ISceneNode * node, irr::f32 mass, irr::s32 bodyId = -1);
-<a name="l00072"></a>00072 
-<a name="l00081"></a>00081         <a class="code" href="class_c_irr_b_p_cylinder_body.html">CIrrBPCylinderBody</a> * addRigidCylinder(ISceneNode * node, irr::f32 mass, irr::s32 bodyId = -1,BODY_OR bodyOrientationAxis = AUTO);
-<a name="l00082"></a>00082 
-<a name="l00091"></a>00091         <a class="code" href="class_c_irr_b_p_cone_body.html">CIrrBPConeBody</a> * addRigidCone(ISceneNode * node, irr::f32 mass, irr::s32 bodyId = -1,BODY_OR bodyOrientationAxis=AUTO);
-<a name="l00092"></a>00092 
-<a name="l00101"></a>00101         <a class="code" href="class_c_irr_b_p_capsule_body.html">CIrrBPCapsuleBody</a> * addRigidCapsule (ISceneNode * node,irr::f32 mass, irr::s32 bodyId = -1,BODY_OR bodyOrientationAxis =AUTO);
-<a name="l00102"></a>00102 
-<a name="l00110"></a>00110         <a class="code" href="class_c_irr_b_p_trimesh.html">CIrrBPTrimesh</a> * addTrimesh (IAnimatedMeshSceneNode * node,irr::f32 mass, irr::s32 bodyId = -1);
-<a name="l00111"></a>00111         
-<a name="l00119"></a>00119         <a class="code" href="class_c_irr_b_p_trimesh.html">CIrrBPTrimesh</a> * addTrimesh (IMeshSceneNode * node,irr::f32 mass, irr::s32 bodyId = -1);
-<a name="l00120"></a>00120 
+<a name="l00038"></a>00038 
+<a name="l00039"></a><a class="code" href="class_c_irr_b_p_manager.html">00039</a> <span class="keyword">class </span><a class="code" href="class_c_irr_b_p_manager.html">CIrrBPManager</a>
+<a name="l00040"></a>00040 {
+<a name="l00041"></a>00041 <span class="keyword">public</span>:
+<a name="l00047"></a>00047         <a class="code" href="class_c_irr_b_p_manager.html">CIrrBPManager</a>(IrrlichtDevice * device);
+<a name="l00048"></a>00048         ~<a class="code" href="class_c_irr_b_p_manager.html">CIrrBPManager</a>();
+<a name="l00049"></a>00049 
+<a name="l00054"></a><a class="code" href="class_c_irr_b_p_manager.html#acdfaf5f8c351d72c4d9680cb75372ae3">00054</a>         <a class="code" href="class_c_irr_b_p_world.html">CIrrBPWorld</a> * <a class="code" href="class_c_irr_b_p_manager.html#acdfaf5f8c351d72c4d9680cb75372ae3">getWorld</a>() {<span class="keywordflow">return</span> m_bulletWorld;}
+<a name="l00055"></a>00055 
+<a name="l00063"></a>00063         <a class="code" href="class_c_irr_b_p_box_body.html">CIrrBPBoxBody</a> * addRigidBox(ISceneNode * node, irr::f32 mass, irr::s32 bodyId = -1);
+<a name="l00064"></a>00064 
+<a name="l00072"></a>00072         <a class="code" href="class_c_irr_b_p_sphere_body.html">CIrrBPSphereBody</a> * addRigidSphere(ISceneNode * node, irr::f32 mass, irr::s32 bodyId = -1);
+<a name="l00073"></a>00073 
+<a name="l00082"></a>00082         <a class="code" href="class_c_irr_b_p_cylinder_body.html">CIrrBPCylinderBody</a> * addRigidCylinder(ISceneNode * node, irr::f32 mass, irr::s32 bodyId = -1,BODY_OR bodyOrientationAxis = AUTO);
+<a name="l00083"></a>00083 
+<a name="l00092"></a>00092         <a class="code" href="class_c_irr_b_p_cone_body.html">CIrrBPConeBody</a> * addRigidCone(ISceneNode * node, irr::f32 mass, irr::s32 bodyId = -1,BODY_OR bodyOrientationAxis=AUTO);
+<a name="l00093"></a>00093 
+<a name="l00102"></a>00102         <a class="code" href="class_c_irr_b_p_capsule_body.html">CIrrBPCapsuleBody</a> * addRigidCapsule (ISceneNode * node,irr::f32 mass, irr::s32 bodyId = -1,BODY_OR bodyOrientationAxis =AUTO);
+<a name="l00103"></a>00103 
+<a name="l00111"></a>00111         <a class="code" href="class_c_irr_b_p_trimesh.html">CIrrBPTrimesh</a> * addTrimesh (IAnimatedMeshSceneNode * node,irr::f32 mass, irr::s32 bodyId = -1);
+<a name="l00112"></a>00112         
+<a name="l00120"></a>00120         <a class="code" href="class_c_irr_b_p_trimesh.html">CIrrBPTrimesh</a> * addTrimesh (IMeshSceneNode * node,irr::f32 mass, irr::s32 bodyId = -1);
 <a name="l00121"></a>00121 
-<a name="l00130"></a>00130         <a class="code" href="class_c_irr_b_p_rope_soft_body.html">CIrrBPRopeSoftBody</a> * addRopeSoftBody(<span class="keyword">const</span> vector3df &amp; from ,<span class="keyword">const</span> vector3df &amp; to,irr::f32 mass,<span class="keywordtype">int</span> res=-1);
-<a name="l00131"></a>00131 
-<a name="l00143"></a>00143         <a class="code" href="class_c_irr_b_p_patch_soft_body.html">CIrrBPPatchSoftBody</a> * addPatchSoftBody(<span class="keyword">const</span> vector3df &amp; corner00 ,<span class="keyword">const</span> vector3df &amp; corner01,<span class="keyword">const</span> vector3df &amp; corner10 ,<span class="keyword">const</span> vector3df &amp; corner11,irr::f32 mass,s32 resx,s32 resy);
-<a name="l00157"></a>00157         <a class="code" href="class_c_irr_b_p_slide_constraint.html">CIrrBPSlideConstraint</a> * buildSlideConstraint(<a class="code" href="class_c_irr_b_p_rigid_body.html">CIrrBPRigidBody</a> * bodyA,<a class="code" href="class_c_irr_b_p_rigid_body.html">CIrrBPRigidBody</a> * bodyB,<span class="keyword">const</span> vector3df &amp; pivotInA=vector3df(0,0,0),<span class="keyword">const</span> vector3df &amp; pivotInB=vector3df(0,0,0),<span class="keywordtype">bool</span> autoadapt=<span class="keyword">true</span>, <span class="keywordtype">bool</span> rotatepiston=<span class="keyword">true</span>);
-<a name="l00158"></a>00158 
-<a name="l00167"></a>00167         <a class="code" href="class_c_irr_b_p_p2_p_constraint.html">CIrrBPP2PConstraint</a> * buildP2PConstraint(<a class="code" href="class_c_irr_b_p_rigid_body.html">CIrrBPRigidBody</a> * bodyA,<span class="keyword">const</span> vector3df &amp; pivotInA=vector3df(0,0,0));
-<a name="l00168"></a>00168 
-<a name="l00178"></a>00178         <a class="code" href="class_c_irr_b_p_p2_p_constraint.html">CIrrBPP2PConstraint</a> * buildP2PConstraint (<a class="code" href="class_c_irr_b_p_rigid_body.html">CIrrBPRigidBody</a> * bodyA, <a class="code" href="class_c_irr_b_p_rigid_body.html">CIrrBPRigidBody</a> * bodyB, <span class="keyword">const</span> vector3df &amp; pivotInA=vector3df(0,0,0), <span class="keyword">const</span> vector3df &amp; pivotInB=vector3df(0,0,0));
-<a name="l00179"></a>00179 
-<a name="l00189"></a>00189         <a class="code" href="class_c_irr_b_p_cone_twist_constraint.html">CIrrBPConeTwistConstraint</a> * buildConeTwistConstraint(<a class="code" href="class_c_irr_b_p_rigid_body.html">CIrrBPRigidBody</a> * bodyA, <a class="code" href="class_c_irr_b_p_rigid_body.html">CIrrBPRigidBody</a> * bodyB, <span class="keyword">const</span> vector3df &amp; pivotInA=vector3df(0,0,0), <span class="keyword">const</span> vector3df &amp; pivotInB=vector3df(0,0,0));
-<a name="l00190"></a>00190 
-<a name="l00199"></a>00199         <a class="code" href="class_c_irr_b_p_hinge_constraint.html">CIrrBPHingeConstraint</a> * buildHingeConstraint(<a class="code" href="class_c_irr_b_p_rigid_body.html">CIrrBPRigidBody</a> * bodyA,<span class="keyword">const</span> vector3df &amp; pivotInA,<span class="keyword">const</span> vector3df &amp; axisInA);
-<a name="l00200"></a>00200         
-<a name="l00212"></a>00212         <a class="code" href="class_c_irr_b_p_hinge_constraint.html">CIrrBPHingeConstraint</a> * buildHingeConstraint(<a class="code" href="class_c_irr_b_p_rigid_body.html">CIrrBPRigidBody</a> * bodyA,<a class="code" href="class_c_irr_b_p_rigid_body.html">CIrrBPRigidBody</a> * bodyB,<span class="keyword">const</span> vector3df &amp; pivotInA,<span class="keyword">const</span> vector3df &amp; pivotInB,<span class="keyword">const</span> vector3df &amp; axisInA,<span class="keyword">const</span> vector3df &amp; axisInB);
-<a name="l00213"></a>00213 
+<a name="l00122"></a>00122 
+<a name="l00131"></a>00131         <a class="code" href="class_c_irr_b_p_rope_soft_body.html">CIrrBPRopeSoftBody</a> * addRopeSoftBody(<span class="keyword">const</span> vector3df &amp; from ,<span class="keyword">const</span> vector3df &amp; to,irr::f32 mass,<span class="keywordtype">int</span> res=-1);
+<a name="l00132"></a>00132 
+<a name="l00144"></a>00144         <a class="code" href="class_c_irr_b_p_patch_soft_body.html">CIrrBPPatchSoftBody</a> * addPatchSoftBody(<span class="keyword">const</span> vector3df &amp; corner00 ,<span class="keyword">const</span> vector3df &amp; corner01,<span class="keyword">const</span> vector3df &amp; corner10 ,<span class="keyword">const</span> vector3df &amp; corner11,irr::f32 mass,s32 resx,s32 resy);
+<a name="l00158"></a>00158         <a class="code" href="class_c_irr_b_p_slide_constraint.html">CIrrBPSlideConstraint</a> * buildSlideConstraint(<a class="code" href="class_c_irr_b_p_rigid_body.html">CIrrBPRigidBody</a> * bodyA,<a class="code" href="class_c_irr_b_p_rigid_body.html">CIrrBPRigidBody</a> * bodyB,<span class="keyword">const</span> vector3df &amp; pivotInA=vector3df(0,0,0),<span class="keyword">const</span> vector3df &amp; pivotInB=vector3df(0,0,0),<span class="keywordtype">bool</span> autoadapt=<span class="keyword">true</span>, <span class="keywordtype">bool</span> rotatepiston=<span class="keyword">true</span>);
+<a name="l00159"></a>00159 
+<a name="l00168"></a>00168         <a class="code" href="class_c_irr_b_p_p2_p_constraint.html">CIrrBPP2PConstraint</a> * buildP2PConstraint(<a class="code" href="class_c_irr_b_p_rigid_body.html">CIrrBPRigidBody</a> * bodyA,<span class="keyword">const</span> vector3df &amp; pivotInA=vector3df(0,0,0));
+<a name="l00169"></a>00169 
+<a name="l00179"></a>00179         <a class="code" href="class_c_irr_b_p_p2_p_constraint.html">CIrrBPP2PConstraint</a> * buildP2PConstraint (<a class="code" href="class_c_irr_b_p_rigid_body.html">CIrrBPRigidBody</a> * bodyA, <a class="code" href="class_c_irr_b_p_rigid_body.html">CIrrBPRigidBody</a> * bodyB, <span class="keyword">const</span> vector3df &amp; pivotInA=vector3df(0,0,0), <span class="keyword">const</span> vector3df &amp; pivotInB=vector3df(0,0,0));
+<a name="l00180"></a>00180 
+<a name="l00190"></a>00190         <a class="code" href="class_c_irr_b_p_cone_twist_constraint.html">CIrrBPConeTwistConstraint</a> * buildConeTwistConstraint(<a class="code" href="class_c_irr_b_p_rigid_body.html">CIrrBPRigidBody</a> * bodyA, <a class="code" href="class_c_irr_b_p_rigid_body.html">CIrrBPRigidBody</a> * bodyB, <span class="keyword">const</span> vector3df &amp; pivotInA=vector3df(0,0,0), <span class="keyword">const</span> vector3df &amp; pivotInB=vector3df(0,0,0));
+<a name="l00191"></a>00191 
+<a name="l00200"></a>00200         <a class="code" href="class_c_irr_b_p_hinge_constraint.html">CIrrBPHingeConstraint</a> * buildHingeConstraint(<a class="code" href="class_c_irr_b_p_rigid_body.html">CIrrBPRigidBody</a> * bodyA,<span class="keyword">const</span> vector3df &amp; pivotInA,<span class="keyword">const</span> vector3df &amp; axisInA);
+<a name="l00201"></a>00201         
+<a name="l00213"></a>00213         <a class="code" href="class_c_irr_b_p_hinge_constraint.html">CIrrBPHingeConstraint</a> * buildHingeConstraint(<a class="code" href="class_c_irr_b_p_rigid_body.html">CIrrBPRigidBody</a> * bodyA,<a class="code" href="class_c_irr_b_p_rigid_body.html">CIrrBPRigidBody</a> * bodyB,<span class="keyword">const</span> vector3df &amp; pivotInA,<span class="keyword">const</span> vector3df &amp; pivotInB,<span class="keyword">const</span> vector3df &amp; axisInA,<span class="keyword">const</span> vector3df &amp; axisInB);
 <a name="l00214"></a>00214 
-<a name="l00221"></a>00221         <a class="code" href="class_c_irr_b_p_delete_animator.html">CIrrBPDeleteAnimator</a> * createDeleteAnimator(irr::u32 timeMs);
-<a name="l00222"></a>00222 
+<a name="l00215"></a>00215 
+<a name="l00222"></a>00222         <a class="code" href="class_c_irr_b_p_delete_animator.html">CIrrBPDeleteAnimator</a> * createDeleteAnimator(irr::u32 timeMs);
 <a name="l00223"></a>00223 
-<a name="l00230"></a>00230         <a class="code" href="class_c_irr_b_p_collision_delete_animator.html">CIrrBPCollisionDeleteAnimator</a> * createCollisionDeleteAnimator(CIB_DFLAG delFlag);
-<a name="l00231"></a>00231 
-<a name="l00236"></a>00236         <span class="keywordtype">void</span> addBodyToBulletQueue(<a class="code" href="class_c_irr_b_p_rigid_body.html">CIrrBPRigidBody</a> * body);
-<a name="l00237"></a>00237 
-<a name="l00242"></a>00242         <span class="keywordtype">void</span> removeBody(<a class="code" href="class_c_irr_b_p_rigid_body.html">CIrrBPRigidBody</a> * body);
-<a name="l00243"></a>00243 
+<a name="l00224"></a>00224 
+<a name="l00231"></a>00231         <a class="code" href="class_c_irr_b_p_collision_delete_animator.html" title="Please note that collision callback against soft body is not yet implemented in Bullet Physics...">CIrrBPCollisionDeleteAnimator</a> * createCollisionDeleteAnimator(CIB_DFLAG delFlag);
+<a name="l00232"></a>00232 
+<a name="l00237"></a>00237         <span class="keywordtype">void</span> addCollisionObjectToBulletQueue(<a class="code" href="class_c_irr_b_p_collision_object.html">CIrrBPCollisionObject</a> * cobj);
+<a name="l00238"></a>00238 
+<a name="l00243"></a>00243         <span class="keywordtype">void</span> removeBody(<a class="code" href="class_c_irr_b_p_rigid_body.html">CIrrBPRigidBody</a> * body);
 <a name="l00244"></a>00244 
-<a name="l00249"></a><a class="code" href="class_c_irr_b_p_manager.html#ad3eea990a27f0ce4cfc2564c475f55f2">00249</a>         <span class="keywordtype">void</span> <a class="code" href="class_c_irr_b_p_manager.html#ad3eea990a27f0ce4cfc2564c475f55f2">setWorldGravity</a>(<span class="keyword">const</span> vector3df &amp; Gravity) { m_bulletWorld-&gt;setGravity(Gravity);}
-<a name="l00250"></a>00250 
-<a name="l00254"></a><a class="code" href="class_c_irr_b_p_manager.html#ab82cddba1a3acd79119e2708680acffb">00254</a>         <span class="keywordtype">void</span> <a class="code" href="class_c_irr_b_p_manager.html#ab82cddba1a3acd79119e2708680acffb">drop</a>() { <span class="keyword">delete</span> <span class="keyword">this</span>;}
-<a name="l00255"></a>00255 
-<a name="l00261"></a><a class="code" href="class_c_irr_b_p_manager.html#ad48556f70ceddf1501ccc11120ef511c">00261</a>         <a class="code" href="class_c_irr_b_p_rigid_body.html">CIrrBPRigidBody</a> * <a class="code" href="class_c_irr_b_p_manager.html#ad48556f70ceddf1501ccc11120ef511c">getRigidBodyFromId</a>(irr::s32 <span class="keywordtype">id</span>){ m_bulletWorld-&gt;getRigidBodyFromId(<span class="keywordtype">id</span>);}
-<a name="l00262"></a>00262 
-<a name="l00268"></a><a class="code" href="class_c_irr_b_p_manager.html#a6dda0b5ecda7508c5b44e29fe72a6d27">00268</a>         <a class="code" href="class_c_irr_b_p_rigid_body.html">CIrrBPRigidBody</a> * <a class="code" href="class_c_irr_b_p_manager.html#a6dda0b5ecda7508c5b44e29fe72a6d27">getRigidBodyFromUId</a>(irr::u32 uid){ m_bulletWorld-&gt;getRigidBodyFromUId(uid);}
-<a name="l00269"></a>00269 
+<a name="l00245"></a>00245 
+<a name="l00250"></a><a class="code" href="class_c_irr_b_p_manager.html#ad3eea990a27f0ce4cfc2564c475f55f2">00250</a>         <span class="keywordtype">void</span> <a class="code" href="class_c_irr_b_p_manager.html#ad3eea990a27f0ce4cfc2564c475f55f2">setWorldGravity</a>(<span class="keyword">const</span> vector3df &amp; Gravity) { m_bulletWorld-&gt;setGravity(Gravity);}
+<a name="l00251"></a>00251 
+<a name="l00255"></a><a class="code" href="class_c_irr_b_p_manager.html#ab82cddba1a3acd79119e2708680acffb">00255</a>         <span class="keywordtype">void</span> <a class="code" href="class_c_irr_b_p_manager.html#ab82cddba1a3acd79119e2708680acffb">drop</a>() { <span class="keyword">delete</span> <span class="keyword">this</span>;}
+<a name="l00256"></a>00256 
+<a name="l00262"></a><a class="code" href="class_c_irr_b_p_manager.html#a0dd849ddab18d640c2dff7847d305ac4">00262</a>         <a class="code" href="class_c_irr_b_p_collision_object.html">CIrrBPCollisionObject</a> * <a class="code" href="class_c_irr_b_p_manager.html#a0dd849ddab18d640c2dff7847d305ac4">getRigidBodyFromId</a>(irr::s32 <span class="keywordtype">id</span>){ m_bulletWorld-&gt;getBodyFromId(<span class="keywordtype">id</span>);}
+<a name="l00263"></a>00263 
+<a name="l00269"></a><a class="code" href="class_c_irr_b_p_manager.html#a98905295ca376a5ab08e2e1fe13a17fe">00269</a>         <a class="code" href="class_c_irr_b_p_collision_object.html">CIrrBPCollisionObject</a> * <a class="code" href="class_c_irr_b_p_manager.html#a98905295ca376a5ab08e2e1fe13a17fe">getRigidBodyFromUId</a>(irr::u32 uid){ m_bulletWorld-&gt;getBodyFromUId(uid);}
 <a name="l00270"></a>00270 
-<a name="l00276"></a><a class="code" href="class_c_irr_b_p_manager.html#a6da3e324ed8e5eb8332588de2fdde1a0">00276</a>         <a class="code" href="class_c_irr_b_p_rigid_body.html">CIrrBPRigidBody</a> * <a class="code" href="class_c_irr_b_p_manager.html#a6da3e324ed8e5eb8332588de2fdde1a0">getRigidBodyFromName</a>(irr::c8* name) { m_bulletWorld-&gt;getRigidBodyFromName(name);}
-<a name="l00277"></a>00277 
-<a name="l00282"></a><a class="code" href="class_c_irr_b_p_manager.html#ae058cbb1d7ed8c4c3813a7205c7f2d9d">00282</a>         REALINLINE <span class="keywordtype">void</span> stepSimulation()
-<a name="l00283"></a>00283         {
-<a name="l00284"></a>00284                 m_bulletWorld-&gt;stepSimulation();
-<a name="l00285"></a>00285         }
-<a name="l00286"></a>00286 <span class="keyword">private</span>:
-<a name="l00287"></a>00287         IrrlichtDevice * m_irrDevice;
-<a name="l00288"></a>00288         <a class="code" href="class_c_irr_b_p_world.html">CIrrBPWorld</a> * m_bulletWorld;
-<a name="l00289"></a>00289         array&lt;CIrrBPAnimator *&gt; m_bodyAnimators;
-<a name="l00290"></a>00290 };
-<a name="l00291"></a>00291 <span class="preprocessor">#endif</span>
+<a name="l00271"></a>00271 
+<a name="l00277"></a><a class="code" href="class_c_irr_b_p_manager.html#a60406c7bd5c47ca75e46585644db3e0b">00277</a>         <a class="code" href="class_c_irr_b_p_collision_object.html">CIrrBPCollisionObject</a> * <a class="code" href="class_c_irr_b_p_manager.html#a60406c7bd5c47ca75e46585644db3e0b">getRigidBodyFromName</a>(irr::c8* name) { m_bulletWorld-&gt;getBodyFromName(name);}
+<a name="l00278"></a>00278 
+<a name="l00283"></a><a class="code" href="class_c_irr_b_p_manager.html#ae058cbb1d7ed8c4c3813a7205c7f2d9d">00283</a>         REALINLINE <span class="keywordtype">void</span> stepSimulation()
+<a name="l00284"></a>00284         {
+<a name="l00285"></a>00285                 m_bulletWorld-&gt;stepSimulation();
+<a name="l00286"></a>00286         }
+<a name="l00287"></a>00287 <span class="keyword">private</span>:
+<a name="l00288"></a>00288         IrrlichtDevice * m_irrDevice;
+<a name="l00289"></a>00289         <a class="code" href="class_c_irr_b_p_world.html">CIrrBPWorld</a> * m_bulletWorld;
+<a name="l00290"></a>00290         array&lt;CIrrBPAnimator *&gt; m_bodyAnimators;
+<a name="l00291"></a>00291 };
+<a name="l00292"></a>00292 <span class="preprocessor">#endif</span>
 </pre></div></div>
 </div>
 <!--- window showing the filter options -->
@@ -170,7 +171,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 </iframe>
 </div>
 
-<hr class="footer"/><address class="footer"><small>Generated on Sun Sep 5 2010 18:56:11 for irrBP by&nbsp;
+<hr class="footer"/><address class="footer"><small>Generated on Tue Sep 7 2010 15:24:39 for irrBP by&nbsp;
 <a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.7.1 </small></address>
 </body>

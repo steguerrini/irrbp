@@ -3,6 +3,7 @@
 
 CIrrBPPatchSoftBody::~CIrrBPPatchSoftBody()
 {
+	mesh->clear();
 	if(mesh)
 		mesh->drop();
 	delete m_softBody;
@@ -18,8 +19,8 @@ CIrrBPPatchSoftBody::CIrrBPPatchSoftBody(const vector3df & corner00 ,const vecto
 	this->resy = resy;
 	m_softBody = btSoftBodyHelpers::CreatePatch(world->getSoftBodyWorldInfo(),irrVectorToBulletVector(corner00),irrVectorToBulletVector(corner01),irrVectorToBulletVector(corner10),irrVectorToBulletVector(corner11), resx,resy,0,true);
 	m_softBody->setTotalMass(mass);
-	btSoftBody::Material*	pm=m_softBody->appendMaterial();
 	m_softBody->randomizeConstraints();
+	collisionObj = m_softBody;
 
 }
 

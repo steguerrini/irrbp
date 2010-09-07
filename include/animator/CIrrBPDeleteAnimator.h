@@ -2,12 +2,12 @@
 #define CIrrBP_DEL_ANIM_H_
 #include "animator/CIrrBPAnimator.h"
 
-class CIrrBPRigidBody;
+class CIrrBPCollisionObject;
 class CIrrBPDeleteAnimator : public CIrrBPAnimator
 {
 public:
 	CIrrBPDeleteAnimator(ITimer* timer, irr::u32 end);
-	void setBody(CIrrBPRigidBody* body) ;
+	void setBody(CIrrBPCollisionObject* body) ;
 	void animate();
 	void drop() {delete this;}
 private:

@@ -1,3 +1,10 @@
+IrrBP 0.1 (r14):
++ Completely changed the object hierarchy to easily implements other futures objects.
++ Bullet Manager Updated
++ Soft Bodies optimization
++ IrrBP Bullet World optimization
++ Code tweaks to avoid strange memory leaks
+
 r13:
 + Completed mesh support for Patch/Ropes. You can new use getMesh() [Only for patch] or setDraw(true) [Only for Rope] to draw the objects
 
@@ -23,7 +30,7 @@ r5:
 r4 [minor]:
 + adjusted error in doxygen documentation
 
-IrrBP 0.1 (r3):
+IrrBP 0.01 (r3):
 * First irrBP release
 + Added (minimal) Debug Drawer for bullet' world
 + Added Cone Twist Constraint
