@@ -24,6 +24,7 @@ CIrrBPSphereBody::CIrrBPSphereBody(irr::scene::ISceneNode *node, irr::f32 mass, 
    m_RigidBody->setUserPointer((void *)(node));
 
 //   m_RigidBody->setActivationState(DISABLE_DEACTIVATION);
+   collisionObj = m_RigidBody;
    
 }
 

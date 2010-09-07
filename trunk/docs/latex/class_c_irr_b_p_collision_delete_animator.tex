@@ -4,6 +4,16 @@
 }
 
 
+Please note that collision callback against soft body is not yet implemented in Bullet Physics.\par
+ So The Collision Delete Animator DOESN'T works with soft bodies.  
+
+
+
+
+{\ttfamily \#include $<$CIrrBPCollisionDeleteAnimator.h$>$}
+
+
+
 Inherits \hyperlink{class_c_irr_b_p_animator}{CIrrBPAnimator}.
 
 
@@ -12,7 +22,7 @@ Collaboration diagram for CIrrBPCollisionDeleteAnimator:\nopagebreak
 \begin{figure}[H]
 \begin{center}
 \leavevmode
-\includegraphics[width=366pt]{class_c_irr_b_p_collision_delete_animator__coll__graph}
+\includegraphics[width=310pt]{class_c_irr_b_p_collision_delete_animator__coll__graph}
 \end{center}
 \end{figure}
 \subsection*{Public Member Functions}
@@ -23,9 +33,9 @@ Collaboration diagram for CIrrBPCollisionDeleteAnimator:\nopagebreak
 \label{class_c_irr_b_p_collision_delete_animator_a4f097a814c55b2680acaa341e55aacc5}
 
 \item 
-\hypertarget{class_c_irr_b_p_collision_delete_animator_a3f815a8328eff4783d8f8ad985bddbe2}{
-void {\bfseries setBody} (\hyperlink{class_c_irr_b_p_rigid_body}{CIrrBPRigidBody} $\ast$body)}
-\label{class_c_irr_b_p_collision_delete_animator_a3f815a8328eff4783d8f8ad985bddbe2}
+\hypertarget{class_c_irr_b_p_collision_delete_animator_af69d93e6d128c6526ab8213ea69a63ab}{
+void {\bfseries setBody} (\hyperlink{class_c_irr_b_p_collision_object}{CIrrBPCollisionObject} $\ast$body)}
+\label{class_c_irr_b_p_collision_delete_animator_af69d93e6d128c6526ab8213ea69a63ab}
 
 \item 
 \hypertarget{class_c_irr_b_p_collision_delete_animator_a45e5e67fe3f214bcd0b12a29c657a2bf}{
@@ -39,6 +49,10 @@ void {\bfseries drop} ()}
 
 \end{DoxyCompactItemize}
 
+
+\subsection{Detailed Description}
+Please note that collision callback against soft body is not yet implemented in Bullet Physics.\par
+ So The Collision Delete Animator DOESN'T works with soft bodies. 
 
 The documentation for this class was generated from the following files:\begin{DoxyCompactItemize}
 \item 

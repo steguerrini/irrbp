@@ -1,0 +1,11 @@
+<map id="G" name="G">
+<area shape="rect" id="node3" href="$class_c_irr_b_p_world.html#aed7c6f5d1240e3b1b27ba880d3b31d77" title="CIrrBPWorld::addRigidBody" alt="" coords="319,5,500,35"/>
+<area shape="rect" id="node9" href="$class_c_irr_b_p_world.html#aa0f65ab61bfef47d9e0792141ebc8e35" title="CIrrBPWorld::addSoftBody" alt="" coords="321,59,497,88"/>
+<area shape="rect" id="node16" href="$class_c_irr_b_p_world.html#ab5e0297133d23d91f2400148072df1b9" title="CIrrBPWorld::removeCollisionObject" alt="" coords="295,139,524,168"/>
+<area shape="rect" id="node5" href="$class_c_irr_b_p_world.html#a566ce1f1107d563cec07c2406946bb2c" title="CIrrBPWorld::addCollisionObject" alt="" coords="581,5,792,35"/>
+<area shape="rect" id="node7" href="$class_c_irr_b_p_manager.html#a58e4019b664a6f3be5500394c4950206" title="CIrrBPManager::addCollisionObjectToBulletQueue" alt="" coords="849,5,1159,35"/>
+<area shape="rect" id="node12" href="$class_c_irr_b_p_manager.html#a4014de850508351affc43026a34a70bb" title="CIrrBPManager::addPatchSoftBody" alt="" coords="573,59,800,88"/>
+<area shape="rect" id="node14" href="$class_c_irr_b_p_manager.html#ae962ff163a13005f463aa51a351a0a87" title="CIrrBPManager::addRopeSoftBody" alt="" coords="576,112,797,141"/>
+<area shape="rect" id="node18" href="$class_c_irr_b_p_world.html#a7133c6b9763ac425ac579cdfbda8788b" title="CIrrBPWorld::removeRigidBody" alt="" coords="585,165,788,195"/>
+<area shape="rect" id="node20" href="$class_c_irr_b_p_manager.html#ad4896d9448a572add3c84ca5118c6baa" title="CIrrBPManager::removeBody" alt="" coords="909,165,1099,195"/>
+</map>

@@ -11,7 +11,7 @@ using namespace io;
 using namespace gui;
 using namespace video;
 
-class CIrrBPRigidBody;
+class CIrrBPCollisionObject;
 
 class CIrrBPAnimator
 {
@@ -22,9 +22,9 @@ public:
 	virtual void drop() = 0;
 	virtual bool isEnd();
 	
-	virtual void setBody(CIrrBPRigidBody* body) { rBody = body;}
+	virtual void setBody(CIrrBPCollisionObject* body) { rBody = body;}
 protected:
-	CIrrBPRigidBody* rBody;
+	CIrrBPCollisionObject* rBody;
 	bool isEnded;
 };
 

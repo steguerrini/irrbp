@@ -1,0 +1,6 @@
+<map id="G" name="G">
+<area shape="rect" id="node3" href="$class_c_irr_b_p_manager.html#ae6c1ebbc11dec61a856bcc7b5c6394ce" title="CIrrBPManager::buildConeTwistConstraint" alt="" coords="296,5,560,35"/>
+<area shape="rect" id="node5" href="$class_c_irr_b_p_manager.html#a87b2610eaba14775ac81992ff71ab436" title="CIrrBPManager::buildHingeConstraint" alt="" coords="309,59,547,88"/>
+<area shape="rect" id="node7" href="$class_c_irr_b_p_manager.html#a19a7a9108ded5c076d307efdb390d58a" title="CIrrBPManager::buildP2PConstraint" alt="" coords="313,112,543,141"/>
+<area shape="rect" id="node9" href="$class_c_irr_b_p_manager.html#af916152de29ba8c7c9e727dfe5a1c8af" title="CIrrBPManager::buildSlideConstraint" alt="" coords="312,165,544,195"/>
+</map>

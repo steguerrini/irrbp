@@ -1,42 +1,41 @@
 #ifndef _CSOFTBODY_H
 #define _CSOFTBODY_H
 
+#include "CIrrBPCollisionObject.h"
 #include <btBulletCollisionCommon.h>
 
 #include <BulletSoftBody\btSoftRigidDynamicsWorld.h>
 #include <BulletSoftBody\btSoftBodyHelpers.h>
-#include <body\CIrrBpRigidBody.h>
-#include <irrlicht.h>
-#include "convert.h"
-#include "types.h"
 
 
-using namespace irr;
-using namespace core;
-using namespace scene;
-using namespace io;
-using namespace gui;
-using namespace video;
-using namespace bullet;
+class CIrrBPRigidBody;
 
-class CIrrBPSoftBody
+class CIrrBPSoftBody : public CIrrBPCollisionObject
 {
 public:
-	CIrrBPSoftBody(){};
+	CIrrBPSoftBody(){m_objType = SOFT_BODY;}
 	virtual void drop() = 0;
 	virtual void addForce(const vector3df& force);
 	virtual void addForce(const vector3df& force,int node);
 	virtual void addVelocity(const vector3df& velocity);
 	virtual void setVelocity(const vector3df& velocity);
 	virtual void addVelocity(const vector3df& velocity,int node);
+	/*! Appends an anchor in the last cluster of the body*/
 	void appendAnchor(CIrrBPRigidBody * body);
+	/*! Appends an anchor to a specific cluster of the body*/
 	void appendAnchor(CIrrBPRigidBody * body,int pos);
+	/*! Sets a specific mass to a body's cluster.*/
 	void setMass(irr::s32 node, irr::f32 mass);
+
 	virtual btSoftBody * getBodyPtr() { return m_softBody;}
+
+	/*! Gets the config structure. Useful to change soft body' nature.*/
 	btSoftBody::Config getConfig() { return m_softBody->m_cfg;}
+
+	/*! Sets a new config.*/
 	void setConfig(btSoftBody::Config newConfig) { m_softBody->m_cfg = newConfig;}
 
-	/*Updates soft body triangle*/
+	/*! Updates soft body triangles*/
 	REALINLINE virtual void update() = 0;
 protected:
 	btSoftBody * m_softBody;

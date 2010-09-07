@@ -1,0 +1,162 @@
+\hypertarget{class_c_irr_b_p_soft_body}{
+\section{CIrrBPSoftBody Class Reference}
+\label{class_c_irr_b_p_soft_body}\index{CIrrBPSoftBody@{CIrrBPSoftBody}}
+}
+
+
+Inherits \hyperlink{class_c_irr_b_p_collision_object}{CIrrBPCollisionObject}.
+
+
+
+Inherited by \hyperlink{class_c_irr_b_p_patch_soft_body}{CIrrBPPatchSoftBody}, and \hyperlink{class_c_irr_b_p_rope_soft_body}{CIrrBPRopeSoftBody}.
+
+
+
+Collaboration diagram for CIrrBPSoftBody:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=190pt]{class_c_irr_b_p_soft_body__coll__graph}
+\end{center}
+\end{figure}
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+virtual void \hyperlink{class_c_irr_b_p_soft_body_a6a0dabc093e869d674ae14d35084e366}{drop} ()=0
+\item 
+\hypertarget{class_c_irr_b_p_soft_body_ad12bae7d279b63fe1e9e332281ab79f2}{
+virtual void {\bfseries addForce} (const vector3df \&force)}
+\label{class_c_irr_b_p_soft_body_ad12bae7d279b63fe1e9e332281ab79f2}
+
+\item 
+\hypertarget{class_c_irr_b_p_soft_body_a68026ecad3ffce887ca6b1d3f95b33c1}{
+virtual void {\bfseries addForce} (const vector3df \&force, int node)}
+\label{class_c_irr_b_p_soft_body_a68026ecad3ffce887ca6b1d3f95b33c1}
+
+\item 
+\hypertarget{class_c_irr_b_p_soft_body_a827d8a2e7890a2a651d201a8f214ced3}{
+virtual void {\bfseries addVelocity} (const vector3df \&velocity)}
+\label{class_c_irr_b_p_soft_body_a827d8a2e7890a2a651d201a8f214ced3}
+
+\item 
+\hypertarget{class_c_irr_b_p_soft_body_a7fc7b890b79cb265ab4c45769146ab22}{
+virtual void {\bfseries setVelocity} (const vector3df \&velocity)}
+\label{class_c_irr_b_p_soft_body_a7fc7b890b79cb265ab4c45769146ab22}
+
+\item 
+\hypertarget{class_c_irr_b_p_soft_body_aa8d216f67d103bf3fbf9d66b2f566795}{
+virtual void {\bfseries addVelocity} (const vector3df \&velocity, int node)}
+\label{class_c_irr_b_p_soft_body_aa8d216f67d103bf3fbf9d66b2f566795}
+
+\item 
+void \hyperlink{class_c_irr_b_p_soft_body_a088854e004b50e08e4694e24a29a597f}{appendAnchor} (\hyperlink{class_c_irr_b_p_rigid_body}{CIrrBPRigidBody} $\ast$body)
+\item 
+void \hyperlink{class_c_irr_b_p_soft_body_a53bdc4e61a37a3f352a9733791e5953f}{appendAnchor} (\hyperlink{class_c_irr_b_p_rigid_body}{CIrrBPRigidBody} $\ast$body, int pos)
+\item 
+void \hyperlink{class_c_irr_b_p_soft_body_a426a1c9bb3d5c0d4c6f2852b5b93729c}{setMass} (irr::s32 node, irr::f32 mass)
+\item 
+\hypertarget{class_c_irr_b_p_soft_body_a656ebb1c277691729e5c87f33ec89b14}{
+virtual btSoftBody $\ast$ {\bfseries getBodyPtr} ()}
+\label{class_c_irr_b_p_soft_body_a656ebb1c277691729e5c87f33ec89b14}
+
+\item 
+btSoftBody::Config \hyperlink{class_c_irr_b_p_soft_body_af8c53ac0291f89c021809e7212d43a38}{getConfig} ()
+\item 
+void \hyperlink{class_c_irr_b_p_soft_body_a1e76924b9dd02161e1bc6ec46f0968a1}{setConfig} (btSoftBody::Config newConfig)
+\item 
+virtual REALINLINE void \hyperlink{class_c_irr_b_p_soft_body_ad181a9deb172592d195692595bee2cd1}{update} ()=0
+\end{DoxyCompactItemize}
+\subsection*{Protected Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\hypertarget{class_c_irr_b_p_soft_body_a911e09af810dc2c466154cfb5368528b}{
+btSoftBody $\ast$ {\bfseries m\_\-softBody}}
+\label{class_c_irr_b_p_soft_body_a911e09af810dc2c466154cfb5368528b}
+
+\end{DoxyCompactItemize}
+
+
+\subsection{Member Function Documentation}
+\hypertarget{class_c_irr_b_p_soft_body_a53bdc4e61a37a3f352a9733791e5953f}{
+\index{CIrrBPSoftBody@{CIrrBPSoftBody}!appendAnchor@{appendAnchor}}
+\index{appendAnchor@{appendAnchor}!CIrrBPSoftBody@{CIrrBPSoftBody}}
+\subsubsection[{appendAnchor}]{\setlength{\rightskip}{0pt plus 5cm}void CIrrBPSoftBody::appendAnchor (
+\begin{DoxyParamCaption}
+\item[{{\bf CIrrBPRigidBody} $\ast$}]{ body, }
+\item[{int}]{ pos}
+\end{DoxyParamCaption}
+)}}
+\label{class_c_irr_b_p_soft_body_a53bdc4e61a37a3f352a9733791e5953f}
+Appends an anchor to a specific cluster of the body \hypertarget{class_c_irr_b_p_soft_body_a088854e004b50e08e4694e24a29a597f}{
+\index{CIrrBPSoftBody@{CIrrBPSoftBody}!appendAnchor@{appendAnchor}}
+\index{appendAnchor@{appendAnchor}!CIrrBPSoftBody@{CIrrBPSoftBody}}
+\subsubsection[{appendAnchor}]{\setlength{\rightskip}{0pt plus 5cm}void CIrrBPSoftBody::appendAnchor (
+\begin{DoxyParamCaption}
+\item[{{\bf CIrrBPRigidBody} $\ast$}]{ body}
+\end{DoxyParamCaption}
+)}}
+\label{class_c_irr_b_p_soft_body_a088854e004b50e08e4694e24a29a597f}
+Appends an anchor in the last cluster of the body \hypertarget{class_c_irr_b_p_soft_body_a6a0dabc093e869d674ae14d35084e366}{
+\index{CIrrBPSoftBody@{CIrrBPSoftBody}!drop@{drop}}
+\index{drop@{drop}!CIrrBPSoftBody@{CIrrBPSoftBody}}
+\subsubsection[{drop}]{\setlength{\rightskip}{0pt plus 5cm}virtual void CIrrBPSoftBody::drop (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily  \mbox{[}pure virtual\mbox{]}}}}
+\label{class_c_irr_b_p_soft_body_a6a0dabc093e869d674ae14d35084e366}
+Drop Function. This function should not be used. The destructor will be called automatically by the World Object. 
+
+Implements \hyperlink{class_c_irr_b_p_collision_object_a8fda1f4f6c5f34f42c51645baeb436ca}{CIrrBPCollisionObject}.
+
+
+
+Implemented in \hyperlink{class_c_irr_b_p_patch_soft_body_ac6878f329788dfb13818b1189fbe7a7a}{CIrrBPPatchSoftBody}, and \hyperlink{class_c_irr_b_p_rope_soft_body_a5db23f15158062419311562d42aa22c9}{CIrrBPRopeSoftBody}.
+
+\hypertarget{class_c_irr_b_p_soft_body_af8c53ac0291f89c021809e7212d43a38}{
+\index{CIrrBPSoftBody@{CIrrBPSoftBody}!getConfig@{getConfig}}
+\index{getConfig@{getConfig}!CIrrBPSoftBody@{CIrrBPSoftBody}}
+\subsubsection[{getConfig}]{\setlength{\rightskip}{0pt plus 5cm}btSoftBody::Config CIrrBPSoftBody::getConfig (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily  \mbox{[}inline\mbox{]}}}}
+\label{class_c_irr_b_p_soft_body_af8c53ac0291f89c021809e7212d43a38}
+Gets the config structure. Useful to change soft body' nature. \hypertarget{class_c_irr_b_p_soft_body_a1e76924b9dd02161e1bc6ec46f0968a1}{
+\index{CIrrBPSoftBody@{CIrrBPSoftBody}!setConfig@{setConfig}}
+\index{setConfig@{setConfig}!CIrrBPSoftBody@{CIrrBPSoftBody}}
+\subsubsection[{setConfig}]{\setlength{\rightskip}{0pt plus 5cm}void CIrrBPSoftBody::setConfig (
+\begin{DoxyParamCaption}
+\item[{btSoftBody::Config}]{ newConfig}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily  \mbox{[}inline\mbox{]}}}}
+\label{class_c_irr_b_p_soft_body_a1e76924b9dd02161e1bc6ec46f0968a1}
+Sets a new config. \hypertarget{class_c_irr_b_p_soft_body_a426a1c9bb3d5c0d4c6f2852b5b93729c}{
+\index{CIrrBPSoftBody@{CIrrBPSoftBody}!setMass@{setMass}}
+\index{setMass@{setMass}!CIrrBPSoftBody@{CIrrBPSoftBody}}
+\subsubsection[{setMass}]{\setlength{\rightskip}{0pt plus 5cm}void CIrrBPSoftBody::setMass (
+\begin{DoxyParamCaption}
+\item[{irr::s32}]{ node, }
+\item[{irr::f32}]{ mass}
+\end{DoxyParamCaption}
+)}}
+\label{class_c_irr_b_p_soft_body_a426a1c9bb3d5c0d4c6f2852b5b93729c}
+Sets a specific mass to a body's cluster. \hypertarget{class_c_irr_b_p_soft_body_ad181a9deb172592d195692595bee2cd1}{
+\index{CIrrBPSoftBody@{CIrrBPSoftBody}!update@{update}}
+\index{update@{update}!CIrrBPSoftBody@{CIrrBPSoftBody}}
+\subsubsection[{update}]{\setlength{\rightskip}{0pt plus 5cm}virtual REALINLINE void CIrrBPSoftBody::update (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily  \mbox{[}pure virtual\mbox{]}}}}
+\label{class_c_irr_b_p_soft_body_ad181a9deb172592d195692595bee2cd1}
+Updates soft body triangles 
+
+Implemented in \hyperlink{class_c_irr_b_p_patch_soft_body_a4eaf661dd261ffc1211052fce006b074}{CIrrBPPatchSoftBody}, and \hyperlink{class_c_irr_b_p_rope_soft_body_ab6ae47a99c795fd10737fda7a350fc85}{CIrrBPRopeSoftBody}.
+
+
+
+The documentation for this class was generated from the following files:\begin{DoxyCompactItemize}
+\item 
+E:/Documenti/Lavori Stefano/ProgettoFPS/Engine/Engine/IrrBP/include/softbody/CIrrBPSoftBody.h\item 
+E:/Documenti/Lavori Stefano/ProgettoFPS/Engine/Engine/IrrBP/src/softbody/CIrrBPSoftBody.cpp\end{DoxyCompactItemize}

@@ -64,9 +64,9 @@ CIrrBPTrimesh * CIrrBPManager::addTrimesh(irr::scene::IAnimatedMeshSceneNode *no
 	m_bulletWorld->addRigidBody(trimesh);
 	return trimesh;
 }
-void CIrrBPManager::addBodyToBulletQueue(CIrrBPRigidBody * body)
+void CIrrBPManager::addCollisionObjectToBulletQueue(CIrrBPCollisionObject * cobj)
 {
-	m_bulletWorld->addRigidBody(body);
+	m_bulletWorld->addCollisionObject(cobj);
 }
 CIrrBPDeleteAnimator * CIrrBPManager::createDeleteAnimator(irr::u32 timeMs)
 {

@@ -19,12 +19,7 @@ void CIrrBPTrimesh::initializeMesh(IMesh * mesh, const vector3df & pos, const ve
 	m_trimeshShape = new btGImpactMeshShape(m_indexVertexArrays);
 
 
-	//Calculate Transform
-/*	btTransform Transform;
-	Transform.setIdentity();
-	Transform = getTransformFromIrrlichtNode(m_IrrSceneNode);
-	Transform.setOrigin(irrVectorToBulletVector(pos)); //Workaround for trimesh nodes. 
-	m_trimeshShape->updateBound();*/
+
 
 	m_MotionState = new CMotionState(this,getTransformFromIrrlichtNode(m_IrrSceneNode));		
 	m_trimeshShape->updateBound();
@@ -38,6 +33,7 @@ void CIrrBPTrimesh::initializeMesh(IMesh * mesh, const vector3df & pos, const ve
     m_RigidBody->setUserPointer(nodePtr);
 	//m_RigidBody->setCollisionFlags( m_RigidBody->getCollisionFlags() | btCollisionObject::CF_KINEMATIC_OBJECT);
 	//m_RigidBody->setActivationState(DISABLE_DEACTIVATION);
+	collisionObj = m_RigidBody;
 	
 }
 

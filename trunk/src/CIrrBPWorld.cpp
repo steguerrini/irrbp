@@ -8,25 +8,17 @@ CIrrBPWorld::~CIrrBPWorld()
 	m_worldInfo.m_sparsesdf.GarbageCollect();
 	m_worldInfo.m_sparsesdf.Reset();
 
-	/*Delete all rigid bodies*/
-	for(u32 i=0;i<this->rigidBodiesObj.size();i++)
+	/*Delete all objects*/
+	for(u32 i=0;i<this->collisionObj.size();i++)
 	{
-		World->removeRigidBody(rigidBodiesObj[i]->getBodyPtr());
-		rigidBodiesObj[i]->drop();
+		World->removeCollisionObject(collisionObj[i]->getPtr());
+		collisionObj[i]->drop();
 	}
-
 	/*Delete all constraints*/
 	for(u32 i=0;i<this->rigidBodiesConst.size();i++)
 	{
 		World->removeConstraint(rigidBodiesConst[i]->getConstraintPtr());
 		rigidBodiesConst[i]->drop();
-	}
-
-	/*Delete all soft bodies*/
-	for(u32 i=0;i<this->softBodiesObj.size();i++)
-	{
-		World->removeSoftBody(softBodiesObj[i]->getBodyPtr());
-		softBodiesObj[i]->drop();
 	}
 	if(dDrawer)
 		delete dDrawer;
@@ -50,7 +42,6 @@ CIrrBPWorld::CIrrBPWorld(irr::IrrlichtDevice *device,const vector3df & Gravity)
 	this->Gravity = irrVectorToBulletVector(Gravity);
 	
 	CollisionConfiguration = new btSoftBodyRigidBodyCollisionConfiguration();
-	
 	//CollisionConfiguration->setConvexConvexMultipointIterations();
 	dispatcher = new btCollisionDispatcher(CollisionConfiguration);
 
@@ -65,6 +56,7 @@ CIrrBPWorld::CIrrBPWorld(irr::IrrlichtDevice *device,const vector3df & Gravity)
 	btGImpactCollisionAlgorithm::registerAlgorithm(/*(btCollisionDispatcher*)*/dispatcher);
 
 	World->getSolverInfo().m_erp = 0.9;
+	
 	World->getSolverInfo().m_erp2 = 0.9f;
 	World->getSolverInfo().m_globalCfm = 0.9f;
 	
@@ -87,7 +79,7 @@ CIrrBPWorld::CIrrBPWorld(irr::IrrlichtDevice *device,const vector3df & Gravity)
     m_worldInfo.water_normal = btVector3(0,0,0);
 
 }
-bool CIrrBPWorld::isBodyColliding(CIrrBPRigidBody *body, irr::s32 collMask)
+bool CIrrBPWorld::isBodyColliding(CIrrBPCollisionObject *body)
 {
 	const int numManifolds = World->getDispatcher()->getNumManifolds();
    
@@ -96,33 +88,14 @@ bool CIrrBPWorld::isBodyColliding(CIrrBPRigidBody *body, irr::s32 collMask)
    {
       int id[2];
       id[0]=id[1]=-1;
+
       btPersistentManifold* contactManifold = World->getDispatcher()->getManifoldByIndexInternal(i);
       btCollisionObject* obA = static_cast<btCollisionObject*>(contactManifold->getBody0());
       btCollisionObject* obB = static_cast<btCollisionObject*>(contactManifold->getBody1());
-	  if(obA == body->getBodyPtr() || obB == body->getBodyPtr())
+	  if(obA == body->getPtr() || obB == body->getPtr())
 	  {
 		  //cout<<"#Collided"<<endl;
-
-		 if(collMask == -1)
 					  return true;
-
-		  btCollisionObject * obC;
-		  if(obA==body->getBodyPtr())
-			obC=obB;
-		  else
-			 obC=obA;
-		  
-		  for(u32 i=0;i<rigidBodiesObj.size();i++)
-		  {
-			  if(rigidBodiesObj[i]->getBodyPtr() == obC)
-			  {
-				//  cout<<"##Collided With: "<<rigidBodiesObj[i]->getName()<<endl;
-				  if(rigidBodiesObj[i]->getCollisionParam() == collMask)
-					  return true;
-				  else
-					  return false;
-			  }
-		  }
 	  }
 	   
    } 
@@ -130,29 +103,39 @@ bool CIrrBPWorld::isBodyColliding(CIrrBPRigidBody *body, irr::s32 collMask)
 }
 void CIrrBPWorld::addSoftBody(CIrrBPSoftBody * sbody)
 {
-	softBodiesObj.push_back(sbody);
+	collisionObj.push_back(sbody);
 	World->addSoftBody(sbody->getBodyPtr());
-
+	sbody->setValidStatus(true);
 	#ifdef IRRBP_DEBUG_TEXT
 	cout<<"# Added new Soft Body"<<endl;
 	#endif
 	
 }
-irr::u32 CIrrBPWorld::addRigidBody(CIrrBPRigidBody *body)
+void CIrrBPWorld::addRigidBody(CIrrBPRigidBody *body)
 {
 	
-	rigidBodies.push_back(body->getBodyPtr());
+	collisionObj.push_back(body);
 	World->addRigidBody(body->getBodyPtr());
 	body->setValidStatus(true);
-	rigidBodiesObj.push_back(body);
 	
 	#ifdef IRRBP_DEBUG_TEXT
 	cout<<"# Added new Body "<<endl<<"## Body ID: "<<body->getID()<<endl<<"## Absolute Body ID: "<<body->getUniqueID()<<endl;
 	#endif
-	return (rigidBodiesObj.size()-1); //UniqueID
-	
+
 }
 
+void CIrrBPWorld::addCollisionObject(CIrrBPCollisionObject * cobj)
+{
+	switch(cobj->getObjectType())
+	{
+		case RIGID_BODY:
+			this->addRigidBody(dynamic_cast<CIrrBPRigidBody*>(cobj));
+		break;
+		case SOFT_BODY:
+			this->addSoftBody(dynamic_cast<CIrrBPSoftBody*>(cobj));
+		break;
+	}
+}
 void CIrrBPWorld::addRigidBodyConstraint(CIrrBPConstraint * constraint)
 {
 	rigidBodiesConst.push_back(constraint);
@@ -165,35 +148,30 @@ void CIrrBPWorld::addRigidBodyConstraint(CIrrBPConstraint * constraint)
 	#endif
 }
 
-void CIrrBPWorld::removeRigidBody(CIrrBPRigidBody *body)
+void CIrrBPWorld::removeCollisionObject(CIrrBPCollisionObject * cobj)
 {
-	btRigidBody * tofind = body->getBodyPtr();
-	bool finded = false;
-	for(irr::u32 i = 0; i<rigidBodies.size();i++)
+	for(irr::u32 i = 0;i<collisionObj.size(); i++)
 	{
-		if(tofind == rigidBodies[i])
+		if(cobj == collisionObj[i])
 		{
+			cobj->setValidStatus(false);
+			World->removeCollisionObject(cobj->getPtr());
+			collisionObj[i]->drop();
+			collisionObj.erase(i);
 			#ifdef IRRBP_DEBUG_TEXT
-			cout<<"# Deleted Body"<<endl<<"## Body ID: "<<body->getID()<<endl;
+			cout<<"# Deleted Body"<<endl<<"## Body ID: "<<cobj->getID()<<endl;
 			#endif
 
-			body->setValidStatus(false);
-			World->removeRigidBody(body->getBodyPtr());
-			
-			rigidBodies.erase(i);
-			rigidBodiesObj[i]->drop();
-			rigidBodiesObj.erase(i);
-			finded=true;
 			return;
 		}
 	}
-	
 	#ifdef IRRBP_DEBUG_TEXT
-	if(!finded)
 	cout<<"# Error while deleting body...Body not found!";
 	#endif
-
-	
+}
+void CIrrBPWorld::removeRigidBody(CIrrBPRigidBody *body)
+{
+	this->removeCollisionObject(body);
 	
 }
 
@@ -210,50 +188,46 @@ void CIrrBPWorld::stepSimulation()
 void CIrrBPWorld::updateObjects()
 {
 	array<CIrrBPAnimator *> anims;
-	for(irr::u32 i=0;i<rigidBodies.size();)
+	for(irr::u32 i=0;i<collisionObj.size();)
 	{
-		if(rigidBodiesObj[i]->isValid() == false)
+		if(collisionObj[i]->isValid() == false)
 		{
-			removeRigidBody(rigidBodiesObj[i]);
+			removeCollisionObject(collisionObj[i]);
 			continue;
 		}
-
-		anims = rigidBodiesObj[i]->getAnimators();
-			
+		anims = collisionObj[i]->getAnimators();
 		for(irr::u32 k=0;k<anims.size();k++)
-			anims[k]->animate();	
-			
-			i++;
+			anims[k]->animate();
 
-	}
-	for(irr::u32 i=0;i<softBodiesObj.size();i++)
-	{
-		softBodiesObj[i]->update();
+		
+		if(collisionObj[i]->getObjectType() == SOFT_BODY)
+			static_cast<CIrrBPSoftBody*>(collisionObj[i])->update();
+		i++;
 	}
 }
 
-CIrrBPRigidBody * CIrrBPWorld::getRigidBodyFromUId(irr::u32 uid)
+CIrrBPCollisionObject * CIrrBPWorld::getBodyFromUId(irr::u32 uid)
 {
-	for(irr::u32 i=0;i<this->rigidBodiesObj.size();i++)
-		if(rigidBodiesObj[i]->getUniqueID() == uid)
-			return rigidBodiesObj[i];
+	for(irr::u32 i=0;i<this->collisionObj.size();i++)
+		if(collisionObj[i]->getUniqueID() == uid)
+			return collisionObj[i];
 	
 	return NULL;
 }
-CIrrBPRigidBody * CIrrBPWorld::getRigidBodyFromId(irr::s32 id)
+CIrrBPCollisionObject * CIrrBPWorld::getBodyFromId(irr::s32 id)
 {
 	
-	for(irr::u32 i=0;i<this->rigidBodiesObj.size();i++)
-		if(rigidBodiesObj[i]->getID() == id)
-			return rigidBodiesObj[i];
+	for(irr::u32 i=0;i<this->collisionObj.size();i++)
+		if(collisionObj[i]->getID() == id)
+			return collisionObj[i];
 	
 	return NULL;
 }
-CIrrBPRigidBody * CIrrBPWorld::getRigidBodyFromName(irr::c8* name)
+CIrrBPCollisionObject * CIrrBPWorld::getBodyFromName(irr::c8* name)
 {
-	for(irr::u32 i=0;i<this->rigidBodiesObj.size();i++)
-		if(strcmp(rigidBodiesObj[i]->getName(),name)==0)
-			return rigidBodiesObj[1];
+	for(irr::u32 i=0;i<this->collisionObj.size();i++)
+		if(strcmp(collisionObj[i]->getName(),name)==0)
+			return collisionObj[1];
 
 	return NULL;
 }

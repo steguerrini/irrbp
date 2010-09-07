@@ -2,8 +2,8 @@
 #define _CBULLETWORLD_H
 
 #define IrrBP_MAJOR_VERSION 0
-#define IrrBP_MINOR_VERSION 0 
-#define IrrBP_REVISION_VERSION 1
+#define IrrBP_MINOR_VERSION 1
+#define IrrBP_REVISION_VERSION 0
 
 #include <btBulletCollisionCommon.h>
 #include <btBulletDynamicsCommon.h>
@@ -11,6 +11,7 @@
 #include "BulletSoftBody\btSoftRigidDynamicsWorld.h"
 #include "BulletCollision\CollisionDispatch\btConvexConcaveCollisionAlgorithm.h"
 #include "BulletCollision\CollisionDispatch\btCollisionDispatcher.h"
+#include "CIrrBPCollisionObject.h"
 #include "body\CIrrBPRigidBody.h"
 #include "animator\CIrrBPAnimator.h"
 #include "constraint\CIrrBPConstraint.h"
@@ -55,55 +56,69 @@ public:
 		Adds a rigid Body to the world.
 		@param body A pointer to the body that needs to be added
 	*/
-	irr::u32 addRigidBody(CIrrBPRigidBody * body);
+	void addRigidBody(CIrrBPRigidBody * body);
 
+	/*!
+		Adds a constraint to the world.
+		@param constraint A pointer to the constraint that needs to be added
+	*/
 	void addRigidBodyConstraint(CIrrBPConstraint * constraint);
+
 	/*!
 		Removes a rigid Body from the world.
 		Please note that the body's Scene Node won't be dropped.
 		@param body A pointer to the body that needs to be deleted.
+		Only left for backwards compatibility. Use removeCollisionObject instead.
 	*/
 	void removeRigidBody(CIrrBPRigidBody *body);
 
-
+	/*!
+		Adds a soft Body to the world.
+		@param sbody A pointer to the body that needs to be added
+	*/
 	void addSoftBody(CIrrBPSoftBody * sbody);
 
 	/*!
-		Gets the number of active bodies in the world
-		@return number of active bodies
+		Removes a collision object to the world.
+		@param cobj A pointer to the object that needs to be removed
 	*/
+	void removeCollisionObject(CIrrBPCollisionObject * cobj);
+	/*! 
+		Adds an 'unknown' object to the world.
+		You can use that instead of addRigidBody, it will know the object for you.
+	*/
+	void addCollisionObject(CIrrBPCollisionObject * cobj);
 
-	irr::u32 getActiveBodies() { return rigidBodies.size();}
+
 	
 	/*!
-		Gets a rigid Body from a id.
+		Gets a Body from a id.
 		@param id The id to search for
-		@return Pointer to the first rigid body with this id. Returns NULL if no bodies couldn't be found.
+		@return Pointer to the first body with this id. Returns NULL if no bodies couldn't be found.
 	*/
-	CIrrBPRigidBody * getRigidBodyFromId(irr::s32 id);
+	CIrrBPCollisionObject * getBodyFromId(irr::s32 id);
 
 	/*!
-		Gets a rigid Body from a unique id.
+		Gets a Body from a unique id.
 		@param id The unique id to search for
-		@return Pointer to the first rigid body with this id. Returns NULL if no bodies couldn't be found.
+		@return Pointer to the first body with this id. Returns NULL if no bodies couldn't be found.
 	*/
-	CIrrBPRigidBody * getRigidBodyFromUId(irr::u32 uid);
+	CIrrBPCollisionObject * getBodyFromUId(irr::u32 uid);
 
 
 	/*!
-		Gets a rigid Body from a name.
+		Gets a Body from a name.
 		@param name The name to search for
-		@return Pointer to the first rigid body with this name. Returns NULL if no bodies couldn't be found.
+		@return Pointer to the first body with this name. Returns NULL if no bodies couldn't be found.
 	*/
-	CIrrBPRigidBody * getRigidBodyFromName(irr::c8* name);
+	CIrrBPCollisionObject * getBodyFromName(irr::c8* name);
 
 	/*!
 		Verifies if a body is colliding or not.
 		@param body body to verify
-		@param collMask not yet full implemented.
 		@return body colliding status.
 	*/
-	bool isBodyColliding(CIrrBPRigidBody *body, irr::s32 collMask=-1);
+	bool isBodyColliding(CIrrBPCollisionObject *body);
 	
 	/*!
 		Drop the world pointer and all his child.
@@ -155,9 +170,10 @@ private:
     btBroadphaseInterface* pairCache;
     btConstraintSolver*	constraintSolver;
 	
-	array<CIrrBPRigidBody*> rigidBodiesObj;
-	array<btRigidBody *> rigidBodies;
-	array<CIrrBPSoftBody*> softBodiesObj;
+	array<CIrrBPCollisionObject *> collisionObj;
+	//array<CIrrBPRigidBody*> rigidBodiesObj;
+	//array<btRigidBody *> rigidBodies;
+	//array<CIrrBPSoftBody*> softBodiesObj;
 	array<CIrrBPConstraint*> rigidBodiesConst;
 	//list<btRigidBody *> rigidBodies;
 	ITimer* irrTimer;

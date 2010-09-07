@@ -84,13 +84,13 @@ Public Member Functions</h2></td></tr>
 <tr><td class="memItemLeft" align="right" valign="top"><a class="el" href="class_c_irr_b_p_hinge_constraint.html">CIrrBPHingeConstraint</a> *&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_c_irr_b_p_manager.html#a8a61e921b487d6249e46022b6e9b5ccf">buildHingeConstraint</a> (<a class="el" href="class_c_irr_b_p_rigid_body.html">CIrrBPRigidBody</a> *bodyA, <a class="el" href="class_c_irr_b_p_rigid_body.html">CIrrBPRigidBody</a> *bodyB, const vector3df &amp;pivotInA, const vector3df &amp;pivotInB, const vector3df &amp;axisInA, const vector3df &amp;axisInB)</td></tr>
 <tr><td class="memItemLeft" align="right" valign="top"><a class="el" href="class_c_irr_b_p_delete_animator.html">CIrrBPDeleteAnimator</a> *&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_c_irr_b_p_manager.html#a34d992b091c917aa9a0febddadf26141">createDeleteAnimator</a> (irr::u32 timeMs)</td></tr>
 <tr><td class="memItemLeft" align="right" valign="top"><a class="el" href="class_c_irr_b_p_collision_delete_animator.html">CIrrBPCollisionDeleteAnimator</a> *&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_c_irr_b_p_manager.html#a868af77531e0eb62d14ee060d2c91158">createCollisionDeleteAnimator</a> (CIB_DFLAG delFlag)</td></tr>
-<tr><td class="memItemLeft" align="right" valign="top">void&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_c_irr_b_p_manager.html#af5b96f07769449e5b4a7adb8485e027f">addBodyToBulletQueue</a> (<a class="el" href="class_c_irr_b_p_rigid_body.html">CIrrBPRigidBody</a> *body)</td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">void&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_c_irr_b_p_manager.html#a58e4019b664a6f3be5500394c4950206">addCollisionObjectToBulletQueue</a> (<a class="el" href="class_c_irr_b_p_collision_object.html">CIrrBPCollisionObject</a> *cobj)</td></tr>
 <tr><td class="memItemLeft" align="right" valign="top">void&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_c_irr_b_p_manager.html#ad4896d9448a572add3c84ca5118c6baa">removeBody</a> (<a class="el" href="class_c_irr_b_p_rigid_body.html">CIrrBPRigidBody</a> *body)</td></tr>
 <tr><td class="memItemLeft" align="right" valign="top">void&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_c_irr_b_p_manager.html#ad3eea990a27f0ce4cfc2564c475f55f2">setWorldGravity</a> (const vector3df &amp;Gravity)</td></tr>
 <tr><td class="memItemLeft" align="right" valign="top">void&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_c_irr_b_p_manager.html#ab82cddba1a3acd79119e2708680acffb">drop</a> ()</td></tr>
-<tr><td class="memItemLeft" align="right" valign="top"><a class="el" href="class_c_irr_b_p_rigid_body.html">CIrrBPRigidBody</a> *&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_c_irr_b_p_manager.html#ad48556f70ceddf1501ccc11120ef511c">getRigidBodyFromId</a> (irr::s32 id)</td></tr>
-<tr><td class="memItemLeft" align="right" valign="top"><a class="el" href="class_c_irr_b_p_rigid_body.html">CIrrBPRigidBody</a> *&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_c_irr_b_p_manager.html#a6dda0b5ecda7508c5b44e29fe72a6d27">getRigidBodyFromUId</a> (irr::u32 uid)</td></tr>
-<tr><td class="memItemLeft" align="right" valign="top"><a class="el" href="class_c_irr_b_p_rigid_body.html">CIrrBPRigidBody</a> *&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_c_irr_b_p_manager.html#a6da3e324ed8e5eb8332588de2fdde1a0">getRigidBodyFromName</a> (irr::c8 *name)</td></tr>
+<tr><td class="memItemLeft" align="right" valign="top"><a class="el" href="class_c_irr_b_p_collision_object.html">CIrrBPCollisionObject</a> *&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_c_irr_b_p_manager.html#a0dd849ddab18d640c2dff7847d305ac4">getRigidBodyFromId</a> (irr::s32 id)</td></tr>
+<tr><td class="memItemLeft" align="right" valign="top"><a class="el" href="class_c_irr_b_p_collision_object.html">CIrrBPCollisionObject</a> *&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_c_irr_b_p_manager.html#a98905295ca376a5ab08e2e1fe13a17fe">getRigidBodyFromUId</a> (irr::u32 uid)</td></tr>
+<tr><td class="memItemLeft" align="right" valign="top"><a class="el" href="class_c_irr_b_p_collision_object.html">CIrrBPCollisionObject</a> *&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_c_irr_b_p_manager.html#a60406c7bd5c47ca75e46585644db3e0b">getRigidBodyFromName</a> (irr::c8 *name)</td></tr>
 <tr><td class="memItemLeft" align="right" valign="top">REALINLINE void&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_c_irr_b_p_manager.html#ae058cbb1d7ed8c4c3813a7205c7f2d9d">stepSimulation</a> ()</td></tr>
 </table>
 <hr/><h2>Constructor &amp; Destructor Documentation</h2>
@@ -120,29 +120,29 @@ Public Member Functions</h2></td></tr>
 </div>
 </div>
 <hr/><h2>Member Function Documentation</h2>
-<a class="anchor" id="af5b96f07769449e5b4a7adb8485e027f"></a><!-- doxytag: member="CIrrBPManager::addBodyToBulletQueue" ref="af5b96f07769449e5b4a7adb8485e027f" args="(CIrrBPRigidBody *body)" -->
+<a class="anchor" id="a58e4019b664a6f3be5500394c4950206"></a><!-- doxytag: member="CIrrBPManager::addCollisionObjectToBulletQueue" ref="a58e4019b664a6f3be5500394c4950206" args="(CIrrBPCollisionObject *cobj)" -->
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">void CIrrBPManager::addBodyToBulletQueue </td>
+          <td class="memname">void CIrrBPManager::addCollisionObjectToBulletQueue </td>
           <td>(</td>
-          <td class="paramtype"><a class="el" href="class_c_irr_b_p_rigid_body.html">CIrrBPRigidBody</a> *&nbsp;</td>
-          <td class="paramname"> <em>body</em></td>
+          <td class="paramtype"><a class="el" href="class_c_irr_b_p_collision_object.html">CIrrBPCollisionObject</a> *&nbsp;</td>
+          <td class="paramname"> <em>cobj</em></td>
           <td>&nbsp;)&nbsp;</td>
           <td></td>
         </tr>
       </table>
 </div>
 <div class="memdoc">
-<p>Adds your own rigid body to the bullet queue. You need to call this if you're not using the IrrBP manager to create a body </p>
+<p>Adds your own collision object to the bullet queue. You need to call this if you're not using the IrrBP manager to create a collision object </p>
 
 <p><div class="dynheader">
 Here is the call graph for this function:</div>
 <div class="dyncontent">
-<div class="center"><img src="class_c_irr_b_p_manager_af5b96f07769449e5b4a7adb8485e027f_cgraph.png" border="0" usemap="#class_c_irr_b_p_manager_af5b96f07769449e5b4a7adb8485e027f_cgraph" alt=""/></div>
-<map name="class_c_irr_b_p_manager_af5b96f07769449e5b4a7adb8485e027f_cgraph" id="class_c_irr_b_p_manager_af5b96f07769449e5b4a7adb8485e027f_cgraph">
-<area shape="rect" id="node3" href="class_c_irr_b_p_world.html#a0bf527c522426b50d959ab5adc27be4c" title="CIrrBPWorld::addRigidBody" alt="" coords="311,5,492,35"/><area shape="rect" id="node5" href="class_c_irr_b_p_rigid_body.html#ac95ba035b7a81013d1aebf7511528047" title="CIrrBPRigidBody::setValidStatus" alt="" coords="543,5,753,35"/></map>
+<div class="center"><img src="class_c_irr_b_p_manager_a58e4019b664a6f3be5500394c4950206_cgraph.png" border="0" usemap="#class_c_irr_b_p_manager_a58e4019b664a6f3be5500394c4950206_cgraph" alt=""/></div>
+<map name="class_c_irr_b_p_manager_a58e4019b664a6f3be5500394c4950206_cgraph" id="class_c_irr_b_p_manager_a58e4019b664a6f3be5500394c4950206_cgraph">
+<area shape="rect" id="node3" href="class_c_irr_b_p_world.html#a566ce1f1107d563cec07c2406946bb2c" title="CIrrBPWorld::addCollisionObject" alt="" coords="365,32,576,61"/><area shape="rect" id="node5" href="class_c_irr_b_p_world.html#aed7c6f5d1240e3b1b27ba880d3b31d77" title="CIrrBPWorld::addRigidBody" alt="" coords="625,5,807,35"/><area shape="rect" id="node9" href="class_c_irr_b_p_world.html#aa0f65ab61bfef47d9e0792141ebc8e35" title="CIrrBPWorld::addSoftBody" alt="" coords="628,59,804,88"/><area shape="rect" id="node7" href="class_c_irr_b_p_collision_object.html#a7dd1e62100c72cebd6c6758d07567f25" title="CIrrBPCollisionObject::setValidStatus" alt="" coords="856,32,1096,61"/></map>
 </div>
 </p>
 
@@ -216,6 +216,15 @@ Here is the call graph for this function:</div>
   </dd>
 </dl>
 <dl class="return"><dt><b>Returns:</b></dt><dd>Pointer to the object. </dd></dl>
+
+<p><div class="dynheader">
+Here is the call graph for this function:</div>
+<div class="dyncontent">
+<div class="center"><img src="class_c_irr_b_p_manager_a4014de850508351affc43026a34a70bb_cgraph.png" border="0" usemap="#class_c_irr_b_p_manager_a4014de850508351affc43026a34a70bb_cgraph" alt=""/></div>
+<map name="class_c_irr_b_p_manager_a4014de850508351affc43026a34a70bb_cgraph" id="class_c_irr_b_p_manager_a4014de850508351affc43026a34a70bb_cgraph">
+<area shape="rect" id="node3" href="class_c_irr_b_p_world.html#aa0f65ab61bfef47d9e0792141ebc8e35" title="CIrrBPWorld::addSoftBody" alt="" coords="280,5,456,35"/><area shape="rect" id="node5" href="class_c_irr_b_p_collision_object.html#a7dd1e62100c72cebd6c6758d07567f25" title="CIrrBPCollisionObject::setValidStatus" alt="" coords="504,5,744,35"/></map>
+</div>
+</p>
 
 </div>
 </div>
@@ -503,6 +512,15 @@ Here is the call graph for this function:</div>
 </dl>
 <dl class="return"><dt><b>Returns:</b></dt><dd>Pointer to the object. </dd></dl>
 
+<p><div class="dynheader">
+Here is the call graph for this function:</div>
+<div class="dyncontent">
+<div class="center"><img src="class_c_irr_b_p_manager_ae962ff163a13005f463aa51a351a0a87_cgraph.png" border="0" usemap="#class_c_irr_b_p_manager_ae962ff163a13005f463aa51a351a0a87_cgraph" alt=""/></div>
+<map name="class_c_irr_b_p_manager_ae962ff163a13005f463aa51a351a0a87_cgraph" id="class_c_irr_b_p_manager_ae962ff163a13005f463aa51a351a0a87_cgraph">
+<area shape="rect" id="node3" href="class_c_irr_b_p_world.html#aa0f65ab61bfef47d9e0792141ebc8e35" title="CIrrBPWorld::addSoftBody" alt="" coords="277,5,453,35"/><area shape="rect" id="node5" href="class_c_irr_b_p_collision_object.html#a7dd1e62100c72cebd6c6758d07567f25" title="CIrrBPCollisionObject::setValidStatus" alt="" coords="501,5,741,35"/></map>
+</div>
+</p>
+
 </div>
 </div>
 <a class="anchor" id="a14eef4c19ac93cf7dff82544637833e0"></a><!-- doxytag: member="CIrrBPManager::addTrimesh" ref="a14eef4c19ac93cf7dff82544637833e0" args="(IMeshSceneNode *node, irr::f32 mass, irr::s32 bodyId=&#45;1)" -->
@@ -639,6 +657,15 @@ Here is the call graph for this function:</div>
 </dl>
 <dl class="return"><dt><b>Returns:</b></dt><dd>pointer to the constraint </dd></dl>
 
+<p><div class="dynheader">
+Here is the call graph for this function:</div>
+<div class="dyncontent">
+<div class="center"><img src="class_c_irr_b_p_manager_ae6c1ebbc11dec61a856bcc7b5c6394ce_cgraph.png" border="0" usemap="#class_c_irr_b_p_manager_ae6c1ebbc11dec61a856bcc7b5c6394ce_cgraph" alt=""/></div>
+<map name="class_c_irr_b_p_manager_ae6c1ebbc11dec61a856bcc7b5c6394ce_cgraph" id="class_c_irr_b_p_manager_ae6c1ebbc11dec61a856bcc7b5c6394ce_cgraph">
+<area shape="rect" id="node3" href="class_c_irr_b_p_world.html#a7565f787e92f3c3cf76da072fe175b11" title="CIrrBPWorld::addRigidBodyConstraint" alt="" coords="319,5,559,35"/></map>
+</div>
+</p>
+
 </div>
 </div>
 <a class="anchor" id="a8a61e921b487d6249e46022b6e9b5ccf"></a><!-- doxytag: member="CIrrBPManager::buildHingeConstraint" ref="a8a61e921b487d6249e46022b6e9b5ccf" args="(CIrrBPRigidBody *bodyA, CIrrBPRigidBody *bodyB, const vector3df &amp;pivotInA, const vector3df &amp;pivotInB, const vector3df &amp;axisInA, const vector3df &amp;axisInB)" -->
@@ -703,6 +730,15 @@ Here is the call graph for this function:</div>
 </dl>
 <dl class="return"><dt><b>Returns:</b></dt><dd>pointer to the constraint </dd></dl>
 
+<p><div class="dynheader">
+Here is the call graph for this function:</div>
+<div class="dyncontent">
+<div class="center"><img src="class_c_irr_b_p_manager_a8a61e921b487d6249e46022b6e9b5ccf_cgraph.png" border="0" usemap="#class_c_irr_b_p_manager_a8a61e921b487d6249e46022b6e9b5ccf_cgraph" alt=""/></div>
+<map name="class_c_irr_b_p_manager_a8a61e921b487d6249e46022b6e9b5ccf_cgraph" id="class_c_irr_b_p_manager_a8a61e921b487d6249e46022b6e9b5ccf_cgraph">
+<area shape="rect" id="node3" href="class_c_irr_b_p_world.html#a7565f787e92f3c3cf76da072fe175b11" title="CIrrBPWorld::addRigidBodyConstraint" alt="" coords="292,5,532,35"/></map>
+</div>
+</p>
+
 </div>
 </div>
 <a class="anchor" id="a87b2610eaba14775ac81992ff71ab436"></a><!-- doxytag: member="CIrrBPManager::buildHingeConstraint" ref="a87b2610eaba14775ac81992ff71ab436" args="(CIrrBPRigidBody *bodyA, const vector3df &amp;pivotInA, const vector3df &amp;axisInA)" -->
@@ -746,6 +782,15 @@ Here is the call graph for this function:</div>
 </dl>
 <dl class="return"><dt><b>Returns:</b></dt><dd>pointer to the constraint </dd></dl>
 
+<p><div class="dynheader">
+Here is the call graph for this function:</div>
+<div class="dyncontent">
+<div class="center"><img src="class_c_irr_b_p_manager_a87b2610eaba14775ac81992ff71ab436_cgraph.png" border="0" usemap="#class_c_irr_b_p_manager_a87b2610eaba14775ac81992ff71ab436_cgraph" alt=""/></div>
+<map name="class_c_irr_b_p_manager_a87b2610eaba14775ac81992ff71ab436_cgraph" id="class_c_irr_b_p_manager_a87b2610eaba14775ac81992ff71ab436_cgraph">
+<area shape="rect" id="node3" href="class_c_irr_b_p_world.html#a7565f787e92f3c3cf76da072fe175b11" title="CIrrBPWorld::addRigidBodyConstraint" alt="" coords="292,5,532,35"/></map>
+</div>
+</p>
+
 </div>
 </div>
 <a class="anchor" id="a19a7a9108ded5c076d307efdb390d58a"></a><!-- doxytag: member="CIrrBPManager::buildP2PConstraint" ref="a19a7a9108ded5c076d307efdb390d58a" args="(CIrrBPRigidBody *bodyA, const vector3df &amp;pivotInA=vector3df(0, 0, 0))" -->
@@ -781,6 +826,15 @@ Here is the call graph for this function:</div>
   </dd>
 </dl>
 <dl class="return"><dt><b>Returns:</b></dt><dd>pointer to the constraint </dd></dl>
+
+<p><div class="dynheader">
+Here is the call graph for this function:</div>
+<div class="dyncontent">
+<div class="center"><img src="class_c_irr_b_p_manager_a19a7a9108ded5c076d307efdb390d58a_cgraph.png" border="0" usemap="#class_c_irr_b_p_manager_a19a7a9108ded5c076d307efdb390d58a_cgraph" alt=""/></div>
+<map name="class_c_irr_b_p_manager_a19a7a9108ded5c076d307efdb390d58a_cgraph" id="class_c_irr_b_p_manager_a19a7a9108ded5c076d307efdb390d58a_cgraph">
+<area shape="rect" id="node3" href="class_c_irr_b_p_world.html#a7565f787e92f3c3cf76da072fe175b11" title="CIrrBPWorld::addRigidBodyConstraint" alt="" coords="284,5,524,35"/></map>
+</div>
+</p>
 
 </div>
 </div>
@@ -831,6 +885,15 @@ Here is the call graph for this function:</div>
   </dd>
 </dl>
 <dl class="return"><dt><b>Returns:</b></dt><dd>pointer to the constraint </dd></dl>
+
+<p><div class="dynheader">
+Here is the call graph for this function:</div>
+<div class="dyncontent">
+<div class="center"><img src="class_c_irr_b_p_manager_a1a2dc64a93a8770dfed3ba7f77972c70_cgraph.png" border="0" usemap="#class_c_irr_b_p_manager_a1a2dc64a93a8770dfed3ba7f77972c70_cgraph" alt=""/></div>
+<map name="class_c_irr_b_p_manager_a1a2dc64a93a8770dfed3ba7f77972c70_cgraph" id="class_c_irr_b_p_manager_a1a2dc64a93a8770dfed3ba7f77972c70_cgraph">
+<area shape="rect" id="node3" href="class_c_irr_b_p_world.html#a7565f787e92f3c3cf76da072fe175b11" title="CIrrBPWorld::addRigidBodyConstraint" alt="" coords="284,5,524,35"/></map>
+</div>
+</p>
 
 </div>
 </div>
@@ -897,6 +960,15 @@ Here is the call graph for this function:</div>
   </dd>
 </dl>
 <dl class="return"><dt><b>Returns:</b></dt><dd>pointer to the constraint </dd></dl>
+
+<p><div class="dynheader">
+Here is the call graph for this function:</div>
+<div class="dyncontent">
+<div class="center"><img src="class_c_irr_b_p_manager_af916152de29ba8c7c9e727dfe5a1c8af_cgraph.png" border="0" usemap="#class_c_irr_b_p_manager_af916152de29ba8c7c9e727dfe5a1c8af_cgraph" alt=""/></div>
+<map name="class_c_irr_b_p_manager_af916152de29ba8c7c9e727dfe5a1c8af_cgraph" id="class_c_irr_b_p_manager_af916152de29ba8c7c9e727dfe5a1c8af_cgraph">
+<area shape="rect" id="node3" href="class_c_irr_b_p_world.html#a7565f787e92f3c3cf76da072fe175b11" title="CIrrBPWorld::addRigidBodyConstraint" alt="" coords="289,5,529,35"/></map>
+</div>
+</p>
 
 </div>
 </div>
@@ -970,12 +1042,12 @@ Here is the call graph for this function:</div>
 
 </div>
 </div>
-<a class="anchor" id="ad48556f70ceddf1501ccc11120ef511c"></a><!-- doxytag: member="CIrrBPManager::getRigidBodyFromId" ref="ad48556f70ceddf1501ccc11120ef511c" args="(irr::s32 id)" -->
+<a class="anchor" id="a0dd849ddab18d640c2dff7847d305ac4"></a><!-- doxytag: member="CIrrBPManager::getRigidBodyFromId" ref="a0dd849ddab18d640c2dff7847d305ac4" args="(irr::s32 id)" -->
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname"><a class="el" href="class_c_irr_b_p_rigid_body.html">CIrrBPRigidBody</a>* CIrrBPManager::getRigidBodyFromId </td>
+          <td class="memname"><a class="el" href="class_c_irr_b_p_collision_object.html">CIrrBPCollisionObject</a>* CIrrBPManager::getRigidBodyFromId </td>
           <td>(</td>
           <td class="paramtype">irr::s32&nbsp;</td>
           <td class="paramname"> <em>id</em></td>
@@ -985,23 +1057,23 @@ Here is the call graph for this function:</div>
       </table>
 </div>
 <div class="memdoc">
-<p>Gets a rigid Body from a id. </p>
+<p>Gets a Body from a id. </p>
 <dl><dt><b>Parameters:</b></dt><dd>
   <table border="0" cellspacing="2" cellpadding="0">
     <tr><td valign="top"></td><td valign="top"><em>id</em>&nbsp;</td><td>The id to search for </td></tr>
   </table>
   </dd>
 </dl>
-<dl class="return"><dt><b>Returns:</b></dt><dd>Pointer to the first rigid body with this id. Returns NULL if no bodies couldn't be found. </dd></dl>
+<dl class="return"><dt><b>Returns:</b></dt><dd>Pointer to the first body with this id. Returns NULL if no bodies couldn't be found. </dd></dl>
 
 </div>
 </div>
-<a class="anchor" id="a6da3e324ed8e5eb8332588de2fdde1a0"></a><!-- doxytag: member="CIrrBPManager::getRigidBodyFromName" ref="a6da3e324ed8e5eb8332588de2fdde1a0" args="(irr::c8 *name)" -->
+<a class="anchor" id="a60406c7bd5c47ca75e46585644db3e0b"></a><!-- doxytag: member="CIrrBPManager::getRigidBodyFromName" ref="a60406c7bd5c47ca75e46585644db3e0b" args="(irr::c8 *name)" -->
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname"><a class="el" href="class_c_irr_b_p_rigid_body.html">CIrrBPRigidBody</a>* CIrrBPManager::getRigidBodyFromName </td>
+          <td class="memname"><a class="el" href="class_c_irr_b_p_collision_object.html">CIrrBPCollisionObject</a>* CIrrBPManager::getRigidBodyFromName </td>
           <td>(</td>
           <td class="paramtype">irr::c8 *&nbsp;</td>
           <td class="paramname"> <em>name</em></td>
@@ -1011,23 +1083,23 @@ Here is the call graph for this function:</div>
       </table>
 </div>
 <div class="memdoc">
-<p>Gets a rigid Body from a name. </p>
+<p>Gets a Body from a name. </p>
 <dl><dt><b>Parameters:</b></dt><dd>
   <table border="0" cellspacing="2" cellpadding="0">
     <tr><td valign="top"></td><td valign="top"><em>name</em>&nbsp;</td><td>The name to search for </td></tr>
   </table>
   </dd>
 </dl>
-<dl class="return"><dt><b>Returns:</b></dt><dd>Pointer to the first rigid body with this name. Returns NULL if no bodies couldn't be found. </dd></dl>
+<dl class="return"><dt><b>Returns:</b></dt><dd>Pointer to the first body with this name. Returns NULL if no bodies couldn't be found. </dd></dl>
 
 </div>
 </div>
-<a class="anchor" id="a6dda0b5ecda7508c5b44e29fe72a6d27"></a><!-- doxytag: member="CIrrBPManager::getRigidBodyFromUId" ref="a6dda0b5ecda7508c5b44e29fe72a6d27" args="(irr::u32 uid)" -->
+<a class="anchor" id="a98905295ca376a5ab08e2e1fe13a17fe"></a><!-- doxytag: member="CIrrBPManager::getRigidBodyFromUId" ref="a98905295ca376a5ab08e2e1fe13a17fe" args="(irr::u32 uid)" -->
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname"><a class="el" href="class_c_irr_b_p_rigid_body.html">CIrrBPRigidBody</a>* CIrrBPManager::getRigidBodyFromUId </td>
+          <td class="memname"><a class="el" href="class_c_irr_b_p_collision_object.html">CIrrBPCollisionObject</a>* CIrrBPManager::getRigidBodyFromUId </td>
           <td>(</td>
           <td class="paramtype">irr::u32&nbsp;</td>
           <td class="paramname"> <em>uid</em></td>
@@ -1037,14 +1109,14 @@ Here is the call graph for this function:</div>
       </table>
 </div>
 <div class="memdoc">
-<p>Gets a rigid Body from a unique id. </p>
+<p>Gets a Body from a unique id. </p>
 <dl><dt><b>Parameters:</b></dt><dd>
   <table border="0" cellspacing="2" cellpadding="0">
     <tr><td valign="top"></td><td valign="top"><em>id</em>&nbsp;</td><td>The unique id to search for </td></tr>
   </table>
   </dd>
 </dl>
-<dl class="return"><dt><b>Returns:</b></dt><dd>Pointer to the first rigid body with this id. Returns NULL if no bodies couldn't be found. </dd></dl>
+<dl class="return"><dt><b>Returns:</b></dt><dd>Pointer to the first body with this id. Returns NULL if no bodies couldn't be found. </dd></dl>
 
 </div>
 </div>
@@ -1089,7 +1161,7 @@ Here is the call graph for this function:</div>
 <div class="dyncontent">
 <div class="center"><img src="class_c_irr_b_p_manager_ad4896d9448a572add3c84ca5118c6baa_cgraph.png" border="0" usemap="#class_c_irr_b_p_manager_ad4896d9448a572add3c84ca5118c6baa_cgraph" alt=""/></div>
 <map name="class_c_irr_b_p_manager_ad4896d9448a572add3c84ca5118c6baa_cgraph" id="class_c_irr_b_p_manager_ad4896d9448a572add3c84ca5118c6baa_cgraph">
-<area shape="rect" id="node3" href="class_c_irr_b_p_world.html#a7133c6b9763ac425ac579cdfbda8788b" title="CIrrBPWorld::removeRigidBody" alt="" coords="243,5,445,35"/><area shape="rect" id="node5" href="class_c_irr_b_p_rigid_body.html#ac95ba035b7a81013d1aebf7511528047" title="CIrrBPRigidBody::setValidStatus" alt="" coords="495,5,705,35"/></map>
+<area shape="rect" id="node3" href="class_c_irr_b_p_world.html#a7133c6b9763ac425ac579cdfbda8788b" title="CIrrBPWorld::removeRigidBody" alt="" coords="243,5,445,35"/><area shape="rect" id="node5" href="class_c_irr_b_p_world.html#ab5e0297133d23d91f2400148072df1b9" title="CIrrBPWorld::removeCollisionObject" alt="" coords="495,5,724,35"/><area shape="rect" id="node7" href="class_c_irr_b_p_collision_object.html#a7dd1e62100c72cebd6c6758d07567f25" title="CIrrBPCollisionObject::setValidStatus" alt="" coords="773,5,1013,35"/></map>
 </div>
 </p>
 
@@ -1157,7 +1229,7 @@ Here is the call graph for this function:</div>
 </iframe>
 </div>
 
-<hr class="footer"/><address class="footer"><small>Generated on Sun Sep 5 2010 18:56:11 for irrBP by&nbsp;
+<hr class="footer"/><address class="footer"><small>Generated on Tue Sep 7 2010 15:24:40 for irrBP by&nbsp;
 <a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.7.1 </small></address>
 </body>
