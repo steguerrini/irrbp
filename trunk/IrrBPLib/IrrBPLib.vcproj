@@ -153,6 +153,10 @@
 			UniqueIdentifier="{4FC737F1-C7A5-4376-A066-2A32D752A2FF}"
 			>
 			<File
+				RelativePath="..\src\CIrrBPCollisionObject.cpp"
+				>
+			</File>
+			<File
 				RelativePath="..\src\CIrrBPDebugDrawer.cpp"
 				>
 			</File>
@@ -263,6 +267,10 @@
 			UniqueIdentifier="{93995380-89BD-4b04-88EB-625FBE52EBFB}"
 			>
 			<File
+				RelativePath="..\include\CIrrBPCollisionObject.h"
+				>
+			</File>
+			<File
 				RelativePath="..\include\CIrrBPDebugDrawer.h"
 				>
 			</File>
@@ -290,22 +298,6 @@
 				RelativePath="..\include\types.h"
 				>
 			</File>
-			<Filter
-				Name="Animator"
-				>
-				<File
-					RelativePath="..\include\animator\CIrrBPAnimator.h"
-					>
-				</File>
-				<File
-					RelativePath="..\include\animator\CIrrBPCollisionDeleteAnimator.h"
-					>
-				</File>
-				<File
-					RelativePath="..\include\animator\CIrrBPDeleteAnimator.h"
-					>
-				</File>
-			</Filter>
 			<Filter
 				Name="Body"
 				>
@@ -375,6 +367,22 @@
 				</File>
 				<File
 					RelativePath="..\include\softbody\CIrrBPSoftBody.h"
+					>
+				</File>
+			</Filter>
+			<Filter
+				Name="Animator"
+				>
+				<File
+					RelativePath="..\include\animator\CIrrBPAnimator.h"
+					>
+				</File>
+				<File
+					RelativePath="..\include\animator\CIrrBPCollisionDeleteAnimator.h"
+					>
+				</File>
+				<File
+					RelativePath="..\include\animator\CIrrBPDeleteAnimator.h"
 					>
 				</File>
 			</Filter>
