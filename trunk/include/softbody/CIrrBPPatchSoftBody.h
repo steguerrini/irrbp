@@ -4,7 +4,7 @@
 #include "SoftBody/CIrrBPSoftBody.h"
 #include "Body/CIrrBPRigidBody.h"
 #include <map>
-#include <utility>
+
 class CIrrBPWorld;
 
 class CIrrBPPatchSoftBody : public CIrrBPSoftBody
@@ -17,7 +17,7 @@ public:
 	/*! Returns the mesh to attach to a node.*/
 	IMesh * getMesh();
 	void drop() { delete this;}
-	void update();
+	REALINLINE void update();
 protected:
 	void createMesh();
 	irr::s32 resx,resy;

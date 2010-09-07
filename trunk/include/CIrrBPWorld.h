@@ -144,6 +144,7 @@ public:
 
 	btSoftBodyWorldInfo & getSoftBodyWorldInfo();
 
+	IrrlichtDevice * getIrrDevice() {return device;}
 private:
 	inline void updateObjects();
 

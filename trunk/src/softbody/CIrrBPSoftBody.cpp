@@ -32,5 +32,7 @@ void CIrrBPSoftBody::appendAnchor(CIrrBPRigidBody * body,int pos)
 }
 void CIrrBPSoftBody::setMass(irr::s32 node, irr::f32 mass)
 {
+	if(node > m_softBody->m_nodes.size())
+		return;
 	m_softBody->setMass(node,mass);
 }
