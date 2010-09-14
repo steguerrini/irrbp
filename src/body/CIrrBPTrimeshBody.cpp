@@ -34,6 +34,7 @@ void CIrrBPTrimesh::initializeMesh(IMesh * mesh, const vector3df & pos, const ve
 	//m_RigidBody->setCollisionFlags( m_RigidBody->getCollisionFlags() | btCollisionObject::CF_KINEMATIC_OBJECT);
 	//m_RigidBody->setActivationState(DISABLE_DEACTIVATION);
 	collisionObj = m_RigidBody;
+	setAutomaticCCD();
 	
 }
 

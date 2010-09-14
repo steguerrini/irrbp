@@ -55,6 +55,8 @@ public:
 
 	virtual irr::u32 getUniqueID() const { return m_uBodyId;}
 	
+	virtual void setCcdSweptSphereRadius(irr::f32 sphrad) { collisionObj->setCcdSweptSphereRadius(sphrad);}
+	virtual void setCcdMotionThreshold(irr::f32 thres) {collisionObj->setCcdMotionThreshold(thres);}
 protected:
 	irr::core::stringc m_BodyName;
 	irr::s32 m_BodyId; //User setted BodyID
