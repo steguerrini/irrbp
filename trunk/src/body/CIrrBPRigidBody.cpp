@@ -31,4 +31,37 @@ void CIrrBPRigidBody::applyTorque (const vector3df &torque)
 	m_RigidBody->applyTorque(irrVectorToBulletVector(torque));
 }
 
+irr::f32 CIrrBPRigidBody::getAutomaticCCDSSR()
+{
+	vector3df realExt = m_IrrSceneNode->getBoundingBox().getExtent() * m_IrrSceneNode->getScale();
+	irr::f32 ccdSSR = 0.0f;
+	irr::f32 tolerance = 2.0f;
+	if(realExt.X < realExt.Y && realExt.X < realExt.Z)
+		ccdSSR = realExt.X / tolerance;
+	else if(realExt.Y < realExt.X && realExt.Y < realExt.Z)
+		ccdSSR = realExt.Y / tolerance;
+	else
+		ccdSSR = realExt.Z / tolerance;
+	return ccdSSR;
+}
 
+irr::f32 CIrrBPRigidBody::getAutomaticCCDMT()
+{
+	vector3df realExt = m_IrrSceneNode->getBoundingBox().getExtent() * m_IrrSceneNode->getScale();
+	irr::f32 ccdMT = 0.0f;
+	irr::f32 tolerance = 1.2f;
+	if(realExt.X < realExt.Y && realExt.X < realExt.Z)
+		ccdMT = realExt.X / tolerance;
+	else if(realExt.Y < realExt.X && realExt.Y < realExt.Z)
+		ccdMT = realExt.Y / tolerance;
+	else
+		ccdMT = realExt.Z / tolerance;
+	return ccdMT;
+}
+
+
+void CIrrBPRigidBody::setAutomaticCCD()
+{
+	this->setCcdMotionThreshold(this->getAutomaticCCDMT());
+	this->setCcdSweptSphereRadius(this->getAutomaticCCDSSR());
+}

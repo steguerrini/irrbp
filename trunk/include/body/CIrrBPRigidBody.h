@@ -30,6 +30,9 @@ public:
 	virtual ISceneNode * getIrrlichtNode() { return m_IrrSceneNode;}
 
 protected:
+	irr::f32 getAutomaticCCDSSR();
+	irr::f32 getAutomaticCCDMT();
+	void setAutomaticCCD();
 	ISceneNode * m_IrrSceneNode;
 	CMotionState * m_MotionState;
 	btCollisionShape * m_Shape;

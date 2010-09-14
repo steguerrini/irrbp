@@ -259,14 +259,14 @@ public:
 		@param id The id to search for
 		@return Pointer to the first body with this id. Returns NULL if no bodies couldn't be found.
 	*/
-	CIrrBPCollisionObject * getRigidBodyFromId(irr::s32 id){ m_bulletWorld->getBodyFromId(id);}
+	CIrrBPCollisionObject * getBodyFromId(irr::s32 id){ m_bulletWorld->getBodyFromId(id);}
 
 	/*!
 		Gets a Body from a unique id.
 		@param id The unique id to search for
 		@return Pointer to the first body with this id. Returns NULL if no bodies couldn't be found.
 	*/
-	CIrrBPCollisionObject * getRigidBodyFromUId(irr::u32 uid){ m_bulletWorld->getBodyFromUId(uid);}
+	CIrrBPCollisionObject * getBodyFromUId(irr::u32 uid){ m_bulletWorld->getBodyFromUId(uid);}
 
 
 	/*!
@@ -274,7 +274,7 @@ public:
 		@param name The name to search for
 		@return Pointer to the first body with this name. Returns NULL if no bodies couldn't be found.
 	*/
-	CIrrBPCollisionObject * getRigidBodyFromName(irr::c8* name) { m_bulletWorld->getBodyFromName(name);}
+	CIrrBPCollisionObject * getBodyFromName(irr::c8* name) { m_bulletWorld->getBodyFromName(name);}
 
 	/*!
 		Steps the simulation.

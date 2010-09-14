@@ -55,6 +55,8 @@ CIrrBPCapsuleBody::CIrrBPCapsuleBody(ISceneNode * node,irr::f32 mass, irr::s32 b
    m_RigidBody->setUserPointer((void *)(node));
    collisionObj = m_RigidBody;
 
+   setAutomaticCCD();
+
 }
 CIrrBPCapsuleBody::~CIrrBPCapsuleBody()
 {

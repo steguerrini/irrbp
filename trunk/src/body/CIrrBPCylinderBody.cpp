@@ -54,7 +54,7 @@ CIrrBPCylinderBody::CIrrBPCylinderBody(ISceneNode * node,irr::f32 mass, irr::s32
    m_RigidBody->setUserPointer((void *)(node));
    //sm_RigidBody->setActivationState(DISABLE_DEACTIVATION);
    collisionObj = m_RigidBody;
-
+	setAutomaticCCD();
 }
 
 CIrrBPCylinderBody::~CIrrBPCylinderBody()
