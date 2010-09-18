@@ -1,3 +1,6 @@
+r17:
++ Removed an un-necessary library from Hello World example
+
 r16:
 + Added CCD support
 
