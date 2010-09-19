@@ -10,3 +10,5 @@ Thanks for contributions:
 - Buck1000 for the trimesh converter (from Irrlicht Forum)
 - Cobra for the "shooting" object source (from Irrlicht Forum)
 - Going for the soft body help (from Bullet Forum)
+
+IF YOU ARE USING A BULLET VERSION > 2.76 PLEASE READ THE DOCUMENTATION TIP.
