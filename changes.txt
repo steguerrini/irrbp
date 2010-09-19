@@ -1,3 +1,6 @@
+IrrBP 0.11 (r18):
++ Updated Documentation to solve linking problems with bullet > 2.76
+
 r17:
 + Removed an un-necessary library from Hello World example
 

@@ -1,11 +1,11 @@
 /*IRR-BULLET MAIN INCLUDE.*/
 /*					IRR-BULLET
 			An Irrlicht-Bullet Wrapper.
-					  V.0.0.1
+					  V.0.1.1
 */
 
 /*!
-    @mainpage IrrBP 0.0.1 Documentation
+    @mainpage IrrBP 0.1.1 Documentation
 
 
     @section intro Introduction
@@ -184,6 +184,10 @@ int main()
 		</ul>
 		<li> Add IrrBP Source and Include directory into your project
 	</ol>
+
+<b>Important NOTE:</b>
+If you use a bullet version, different from the irrBP official bullet supported version (2.76 right now), you must pay attention when compiling BULLET PHYSICS:
+To avoid linking problems in your project you need to verify (and even change) that the runtime library in BULLET_PHYSICS project is setted to "MultiThreaded".
 
 
 */
