@@ -1,3 +1,7 @@
+r19:
++ Added ERP-ERP2-CFM modifier functions
++ Added Time-Step modifier function
+
 IrrBP 0.11 (r18):
 + Updated Documentation to solve linking problems with bullet > 2.76
 

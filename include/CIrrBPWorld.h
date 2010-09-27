@@ -160,6 +160,33 @@ public:
 	btSoftBodyWorldInfo & getSoftBodyWorldInfo();
 
 	IrrlichtDevice * getIrrDevice() {return device;}
+
+	/*!
+		Sets your own value of ERP
+		@param erp new erp value
+	*/
+	void setERP(irr::f32 erp);
+
+	/*!
+		Sets your own value of ERP2
+		@param erp2 new erp2 value
+	*/
+	void setERP2(irr::f32 erp2);
+
+	/*!
+		Sets your own value of CFM
+		@param cfm new cfm value
+	*/
+	void setCFM(irr::f32 cfm);
+
+	/*!
+	   Sets your own time step. Use this function only if you know what you are doing.
+	   Using a dynamic timestep can be useless, and your program can have an undefined behavior
+
+	   @param step new time step
+	*/
+	void setTimeStep(irr::f32 step) {timestep = step;}
+
 private:
 	inline void updateObjects();
 
@@ -188,6 +215,8 @@ private:
 	irr::video::SMaterial mat;
 
 	btSoftBodyWorldInfo m_worldInfo;
+
+	irr::f32 timestep;
 
 };
 

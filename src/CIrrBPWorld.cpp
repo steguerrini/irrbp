@@ -54,11 +54,6 @@ CIrrBPWorld::CIrrBPWorld(irr::IrrlichtDevice *device,const vector3df & Gravity)
         constraintSolver, CollisionConfiguration);
 
 	btGImpactCollisionAlgorithm::registerAlgorithm(/*(btCollisionDispatcher*)*/dispatcher);
-
-	World->getSolverInfo().m_erp = 0.9;
-	
-	World->getSolverInfo().m_erp2 = 0.9f;
-	World->getSolverInfo().m_globalCfm = 0.9f;
 	
 	irrTimer = device->getTimer();
 	World->setGravity(this->Gravity);
@@ -77,6 +72,8 @@ CIrrBPWorld::CIrrBPWorld(irr::IrrlichtDevice *device,const vector3df & Gravity)
     m_worldInfo.water_density = 0;
     m_worldInfo.water_offset = 0;
     m_worldInfo.water_normal = btVector3(0,0,0);
+
+	timestep = 1.0f/100.0f;
 
 }
 bool CIrrBPWorld::isBodyColliding(CIrrBPCollisionObject *body)
@@ -179,7 +176,7 @@ void CIrrBPWorld::stepSimulation()
 {
 	DeltaTime = irrTimer->getTime() - TimeStamp;
     TimeStamp = irrTimer->getTime();
-	World->stepSimulation(DeltaTime * 0.001f,1);
+	World->stepSimulation(DeltaTime * 0.001f,1,timestep);
 	
 	m_worldInfo.m_sparsesdf.GarbageCollect();
 	updateObjects();
@@ -258,4 +255,18 @@ void CIrrBPWorld::setDebugDrawerFlags(int flags)
 btSoftBodyWorldInfo& CIrrBPWorld::getSoftBodyWorldInfo() 
 {
 	return m_worldInfo;
+}
+
+void CIrrBPWorld::setERP(irr::f32 erp)
+{
+	World->getSolverInfo().m_erp = erp;
+}
+void CIrrBPWorld::setERP2(irr::f32 erp2)
+{
+	World->getSolverInfo().m_erp2 = erp2;
+}
+
+void CIrrBPWorld::setCFM(irr::f32 cfm)
+{
+	World->getSolverInfo().m_globalCfm = cfm;
 }
