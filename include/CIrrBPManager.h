@@ -276,6 +276,12 @@ public:
 	*/
 	CIrrBPCollisionObject * getBodyFromName(irr::c8* name) { m_bulletWorld->getBodyFromName(name);}
 
+
+	/*!
+		Cleans the bullet world: removes all bodies and joints
+	*/
+	void clear();
+
 	/*!
 		Steps the simulation.
 		It must be called each frame loop to step the bullet' simulation.

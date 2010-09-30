@@ -187,22 +187,21 @@ public:
 	*/
 	void setTimeStep(irr::f32 step) {timestep = step;}
 
+	/*!
+		Cleans the bullet world: removes all bodies and joints
+	*/
+	void clear();
 private:
 	inline void updateObjects();
 
 	btSoftBodyRigidBodyCollisionConfiguration* CollisionConfiguration;
-	//btDiscreteDynamicsWorld* World;	
 	btSoftRigidDynamicsWorld * World;
     btCollisionDispatcher* dispatcher;
     btBroadphaseInterface* pairCache;
     btConstraintSolver*	constraintSolver;
 	
 	array<CIrrBPCollisionObject *> collisionObj;
-	//array<CIrrBPRigidBody*> rigidBodiesObj;
-	//array<btRigidBody *> rigidBodies;
-	//array<CIrrBPSoftBody*> softBodiesObj;
 	array<CIrrBPConstraint*> rigidBodiesConst;
-	//list<btRigidBody *> rigidBodies;
 	ITimer* irrTimer;
 	u32 TimeStamp;
     u32 DeltaTime;

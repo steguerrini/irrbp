@@ -1,3 +1,6 @@
+r20:
++ New function clear() to remove all bodies and constraints from the world
+
 r19:
 + Added ERP-ERP2-CFM modifier functions
 + Added Time-Step modifier function
