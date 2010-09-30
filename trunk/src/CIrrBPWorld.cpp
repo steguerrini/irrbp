@@ -76,6 +76,21 @@ CIrrBPWorld::CIrrBPWorld(irr::IrrlichtDevice *device,const vector3df & Gravity)
 	timestep = 1.0f/100.0f;
 
 }
+void CIrrBPWorld::clear()
+{
+	/*Delete all objects*/
+	for(u32 i=0;i<this->collisionObj.size();i++)
+	{
+		World->removeCollisionObject(collisionObj[i]->getPtr());
+		collisionObj[i]->drop();
+	}
+	/*Delete all constraints*/
+	for(u32 i=0;i<this->rigidBodiesConst.size();i++)
+	{
+		World->removeConstraint(rigidBodiesConst[i]->getConstraintPtr());
+		rigidBodiesConst[i]->drop();
+	}
+}
 bool CIrrBPWorld::isBodyColliding(CIrrBPCollisionObject *body)
 {
 	const int numManifolds = World->getDispatcher()->getNumManifolds();

@@ -137,3 +137,8 @@ CIrrBPPatchSoftBody * CIrrBPManager::addPatchSoftBody(const vector3df & corner00
 	m_bulletWorld->addSoftBody(patch);
 	return patch;
 }
+
+void CIrrBPManager::clear()
+{
+	m_bulletWorld->clear();
+}
