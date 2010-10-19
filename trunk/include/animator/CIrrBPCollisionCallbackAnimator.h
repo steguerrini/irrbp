@@ -20,7 +20,6 @@ private:
 	CIrrBPWorld * rWorld;
 	contactPoint contact;
 	void (*cbkFunc)(const irr::core::vector3df &);
-	vector3df contactPoint;
 	bool coll;
 };
 
