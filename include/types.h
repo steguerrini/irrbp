@@ -43,4 +43,10 @@
 		RIGID_BODY = 1,
 		SOFT_BODY = 2
 	};
+
+	struct contactPoint
+	{
+		bool contact;
+		irr::core::vector3df point;
+	};
 #endif

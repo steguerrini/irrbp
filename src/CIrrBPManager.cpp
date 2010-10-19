@@ -86,6 +86,12 @@ CIrrBPCollisionDeleteAnimator * CIrrBPManager::createCollisionDeleteAnimator(CIB
 	m_bodyAnimators.push_back(collAnim);
 	return collAnim;
 }
+CIrrBPCollisionCallbackAnimator * CIrrBPManager::createCollisionCallbackAnimator(CIB_DFLAG cFlag,void (*Func)(const irr::core::vector3df &))
+{
+	CIrrBPCollisionCallbackAnimator * ccback = new CIrrBPCollisionCallbackAnimator(cFlag,m_bulletWorld,Func);
+	m_bodyAnimators.push_back(ccback);
+	return ccback;
+}
 
 CIrrBPSlideConstraint  * CIrrBPManager::buildSlideConstraint(CIrrBPRigidBody * bodyA,CIrrBPRigidBody * bodyB,const vector3df & pivotInA,const vector3df & pivotInB,bool autoadapt, bool rotatepiston)
 {

@@ -20,6 +20,7 @@
 #include "animator/CIrrBPAnimator.h"
 #include "animator/CIrrBPCollisionDeleteAnimator.h"
 #include "animator/CIrrBPDeleteAnimator.h"
+#include "animator/CIrrBPCollisionCallbackAnimator.h"
 
 #include "softbody/CIrrBPSoftBody.h"
 #include "softbody/CIrrBPRopeSoftBody.h"
@@ -229,6 +230,14 @@ public:
 		@return pointer to the animator
 	*/
 	CIrrBPCollisionDeleteAnimator * createCollisionDeleteAnimator(CIB_DFLAG delFlag);
+
+	/*!
+		Creates an on-collsion event callback animator. It will call Func when the body collides
+
+		@param Func Pointer to the user call back function. The vector will contain the collision point.
+		@return pointer to the animator
+	*/
+	CIrrBPCollisionCallbackAnimator * createCollisionCallbackAnimator(CIB_DFLAG cFlag, void (*Func)(const irr::core::vector3df &));
 
 	/*!
 		Adds your own collision object to the bullet queue.

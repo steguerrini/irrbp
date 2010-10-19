@@ -78,6 +78,7 @@ Public Member Functions</h2></td></tr>
 <tr><td class="memItemLeft" align="right" valign="top"><a class="el" href="class_c_irr_b_p_collision_object.html">CIrrBPCollisionObject</a> *&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_c_irr_b_p_world.html#a814c63b0e2c83baa9566a35b1c043b9d">getBodyFromUId</a> (irr::u32 uid)</td></tr>
 <tr><td class="memItemLeft" align="right" valign="top"><a class="el" href="class_c_irr_b_p_collision_object.html">CIrrBPCollisionObject</a> *&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_c_irr_b_p_world.html#a0fcfac8b63cd5c886a763503b85c5f63">getBodyFromName</a> (irr::c8 *name)</td></tr>
 <tr><td class="memItemLeft" align="right" valign="top">bool&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_c_irr_b_p_world.html#a9938308730b814fdd43d2413af29f4d7">isBodyColliding</a> (<a class="el" href="class_c_irr_b_p_collision_object.html">CIrrBPCollisionObject</a> *body)</td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">bool&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_c_irr_b_p_world.html#ad40d8c7d4eb737fe37993fe5f22e26f8">getBodyCollidingPoint</a> (<a class="el" href="class_c_irr_b_p_collision_object.html">CIrrBPCollisionObject</a> *body, <a class="el" href="structcontact_point.html">contactPoint</a> *dCP)</td></tr>
 <tr><td class="memItemLeft" align="right" valign="top">void&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_c_irr_b_p_world.html#a7cd82f40cde955cb54c1fc0268691be6">drop</a> ()</td></tr>
 <tr><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a96e06a9d2b64d474bfd5325d2ffe809e"></a><!-- doxytag: member="CIrrBPWorld::setGravity" ref="a96e06a9d2b64d474bfd5325d2ffe809e" args="(const vector3df &amp;newGravity)" -->
 void&nbsp;</td><td class="memItemRight" valign="bottom"><b>setGravity</b> (const vector3df &amp;newGravity)</td></tr>
@@ -89,6 +90,11 @@ void&nbsp;</td><td class="memItemRight" valign="bottom"><b>setGravity</b> (const
 btSoftBodyWorldInfo &amp;&nbsp;</td><td class="memItemRight" valign="bottom"><b>getSoftBodyWorldInfo</b> ()</td></tr>
 <tr><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a51adea625ff6050f6c54ce521ece3245"></a><!-- doxytag: member="CIrrBPWorld::getIrrDevice" ref="a51adea625ff6050f6c54ce521ece3245" args="()" -->
 IrrlichtDevice *&nbsp;</td><td class="memItemRight" valign="bottom"><b>getIrrDevice</b> ()</td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">void&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_c_irr_b_p_world.html#ac1d35fa3917496623d290647de808c6d">setERP</a> (irr::f32 erp)</td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">void&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_c_irr_b_p_world.html#ad0c1f240a9b316649036ef994f4e9628">setERP2</a> (irr::f32 erp2)</td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">void&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_c_irr_b_p_world.html#a1d61451b544c0bc74cce1b22e7c591a7">setCFM</a> (irr::f32 cfm)</td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">void&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_c_irr_b_p_world.html#a49ebebc7054da077a669e82b74383316">setTimeStep</a> (irr::f32 step)</td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">void&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_c_irr_b_p_world.html#a81533cc60a6eed42b6846d1eced0b48e">clear</a> ()</td></tr>
 <tr><td colspan="2"><h2><a name="pub-attribs"></a>
 Public Attributes</h2></td></tr>
 <tr><td class="memItemLeft" align="right" valign="top">bool&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_c_irr_b_p_world.html#a4659a995f7b084057cad44480cd09cca">isClosing</a></td></tr>
@@ -287,6 +293,33 @@ Here is the caller graph for this function:</div>
 
 </div>
 </div>
+<a class="anchor" id="a81533cc60a6eed42b6846d1eced0b48e"></a><!-- doxytag: member="CIrrBPWorld::clear" ref="a81533cc60a6eed42b6846d1eced0b48e" args="()" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void CIrrBPWorld::clear </td>
+          <td>(</td>
+          <td class="paramname"></td>
+          <td>&nbsp;)&nbsp;</td>
+          <td></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+<p>Cleans the bullet world: removes all bodies and joints </p>
+
+<p><div class="dynheader">
+Here is the caller graph for this function:</div>
+<div class="dyncontent">
+<div class="center"><img src="class_c_irr_b_p_world_a81533cc60a6eed42b6846d1eced0b48e_icgraph.png" border="0" usemap="#class_c_irr_b_p_world_a81533cc60a6eed42b6846d1eced0b48e_icgraph" alt=""/></div>
+<map name="class_c_irr_b_p_world_a81533cc60a6eed42b6846d1eced0b48e_icgraph" id="class_c_irr_b_p_world_a81533cc60a6eed42b6846d1eced0b48e_icgraph">
+<area shape="rect" id="node3" href="class_c_irr_b_p_manager.html#a46c75b6e65e76b6932dd60762e5c0ef8" title="CIrrBPManager::clear" alt="" coords="184,5,331,35"/></map>
+</div>
+</p>
+
+</div>
+</div>
 <a class="anchor" id="ad74a875589deb51754aaaca839ca8a5d"></a><!-- doxytag: member="CIrrBPWorld::createDebugDrawer" ref="ad74a875589deb51754aaaca839ca8a5d" args="()" -->
 <div class="memitem">
 <div class="memproto">
@@ -320,6 +353,42 @@ Here is the caller graph for this function:</div>
 </div>
 <div class="memdoc">
 <p>Drop the world pointer and all his child. Please note that all registered rigid bodies pointers, will be destroyed. </p>
+
+</div>
+</div>
+<a class="anchor" id="ad40d8c7d4eb737fe37993fe5f22e26f8"></a><!-- doxytag: member="CIrrBPWorld::getBodyCollidingPoint" ref="ad40d8c7d4eb737fe37993fe5f22e26f8" args="(CIrrBPCollisionObject *body, contactPoint *dCP)" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool CIrrBPWorld::getBodyCollidingPoint </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="class_c_irr_b_p_collision_object.html">CIrrBPCollisionObject</a> *&nbsp;</td>
+          <td class="paramname"> <em>body</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="structcontact_point.html">contactPoint</a> *&nbsp;</td>
+          <td class="paramname"> <em>dCP</em></td><td>&nbsp;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td><td></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+<p>Verifies if a body is colliding or not. This function is more deeper than <a class="el" href="class_c_irr_b_p_world.html#a9938308730b814fdd43d2413af29f4d7">isBodyColliding()</a> because it will give also the contact point </p>
+<dl><dt><b>Parameters:</b></dt><dd>
+  <table border="0" cellspacing="2" cellpadding="0">
+    <tr><td valign="top"></td><td valign="top"><em>body</em>&nbsp;</td><td>body to verify </td></tr>
+    <tr><td valign="top"></td><td valign="top"><em>dCP</em>&nbsp;</td><td>pointer to the <a class="el" href="structcontact_point.html">contactPoint</a> destination. </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="return"><dt><b>Returns:</b></dt><dd>body colliding status. </dd></dl>
 
 </div>
 </div>
@@ -532,6 +601,31 @@ Here is the caller graph for this function:</div>
 
 </div>
 </div>
+<a class="anchor" id="a1d61451b544c0bc74cce1b22e7c591a7"></a><!-- doxytag: member="CIrrBPWorld::setCFM" ref="a1d61451b544c0bc74cce1b22e7c591a7" args="(irr::f32 cfm)" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void CIrrBPWorld::setCFM </td>
+          <td>(</td>
+          <td class="paramtype">irr::f32&nbsp;</td>
+          <td class="paramname"> <em>cfm</em></td>
+          <td>&nbsp;)&nbsp;</td>
+          <td></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+<p>Sets your own value of CFM </p>
+<dl><dt><b>Parameters:</b></dt><dd>
+  <table border="0" cellspacing="2" cellpadding="0">
+    <tr><td valign="top"></td><td valign="top"><em>cfm</em>&nbsp;</td><td>new cfm value </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
 <a class="anchor" id="a8c9037440ffaffca00bf5bd661bf3c62"></a><!-- doxytag: member="CIrrBPWorld::setDebugDrawerFlags" ref="a8c9037440ffaffca00bf5bd661bf3c62" args="(int flags)" -->
 <div class="memitem">
 <div class="memproto">
@@ -548,6 +642,81 @@ Here is the caller graph for this function:</div>
 </div>
 <div class="memdoc">
 <p>Sets the debug-drawer flags You can use the IBP_DEBUG_FLAGS defined in <a class="el" href="types_8h_source.html">types.h</a> </p>
+
+</div>
+</div>
+<a class="anchor" id="ac1d35fa3917496623d290647de808c6d"></a><!-- doxytag: member="CIrrBPWorld::setERP" ref="ac1d35fa3917496623d290647de808c6d" args="(irr::f32 erp)" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void CIrrBPWorld::setERP </td>
+          <td>(</td>
+          <td class="paramtype">irr::f32&nbsp;</td>
+          <td class="paramname"> <em>erp</em></td>
+          <td>&nbsp;)&nbsp;</td>
+          <td></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+<p>Sets your own value of ERP </p>
+<dl><dt><b>Parameters:</b></dt><dd>
+  <table border="0" cellspacing="2" cellpadding="0">
+    <tr><td valign="top"></td><td valign="top"><em>erp</em>&nbsp;</td><td>new erp value </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a class="anchor" id="ad0c1f240a9b316649036ef994f4e9628"></a><!-- doxytag: member="CIrrBPWorld::setERP2" ref="ad0c1f240a9b316649036ef994f4e9628" args="(irr::f32 erp2)" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void CIrrBPWorld::setERP2 </td>
+          <td>(</td>
+          <td class="paramtype">irr::f32&nbsp;</td>
+          <td class="paramname"> <em>erp2</em></td>
+          <td>&nbsp;)&nbsp;</td>
+          <td></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+<p>Sets your own value of ERP2 </p>
+<dl><dt><b>Parameters:</b></dt><dd>
+  <table border="0" cellspacing="2" cellpadding="0">
+    <tr><td valign="top"></td><td valign="top"><em>erp2</em>&nbsp;</td><td>new erp2 value </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a class="anchor" id="a49ebebc7054da077a669e82b74383316"></a><!-- doxytag: member="CIrrBPWorld::setTimeStep" ref="a49ebebc7054da077a669e82b74383316" args="(irr::f32 step)" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void CIrrBPWorld::setTimeStep </td>
+          <td>(</td>
+          <td class="paramtype">irr::f32&nbsp;</td>
+          <td class="paramname"> <em>step</em></td>
+          <td>&nbsp;)&nbsp;</td>
+          <td><code> [inline]</code></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+<p>Sets your own time step. Use this function only if you know what you are doing. Using a dynamic timestep can be useless, and your program can have an undefined behavior</p>
+<dl><dt><b>Parameters:</b></dt><dd>
+  <table border="0" cellspacing="2" cellpadding="0">
+    <tr><td valign="top"></td><td valign="top"><em>step</em>&nbsp;</td><td>new time step </td></tr>
+  </table>
+  </dd>
+</dl>
 
 </div>
 </div>
@@ -621,7 +790,7 @@ Here is the caller graph for this function:</div>
 </iframe>
 </div>
 
-<hr class="footer"/><address class="footer"><small>Generated on Tue Sep 7 2010 15:24:40 for irrBP by&nbsp;
+<hr class="footer"/><address class="footer"><small>Generated on Tue Oct 19 2010 22:02:32 for irrBP by&nbsp;
 <a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.7.1 </small></address>
 </body>

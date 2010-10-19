@@ -121,6 +121,14 @@ public:
 	bool isBodyColliding(CIrrBPCollisionObject *body);
 	
 	/*!
+		Verifies if a body is colliding or not. 
+		This function is more deeper than isBodyColliding() because it will give also the contact point
+		@param body body to verify
+		@param dCP pointer to the contactPoint destination.
+		@return body colliding status.
+	*/
+	bool getBodyCollidingPoint(CIrrBPCollisionObject *body, contactPoint * dCP);
+	/*!
 		Drop the world pointer and all his child.
 		Please note that all registered rigid bodies pointers, will be destroyed.
 	*/
