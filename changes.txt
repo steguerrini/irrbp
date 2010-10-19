@@ -1,3 +1,6 @@
+r22:
++ Removed an unused variable, updated irrBPLib VS project
+
 r21:
 + Added new animator, called CollisionCallbackAnimator that helps to retrieve the collision-point of an object by calling a user function
 

@@ -180,6 +180,10 @@
 					>
 				</File>
 				<File
+					RelativePath="..\src\constraint\CIrrBPCollisionCallbackAnimator.cpp"
+					>
+				</File>
+				<File
 					RelativePath="..\src\animator\CIrrBPCollisionDeleteAnimator.cpp"
 					>
 				</File>
@@ -375,6 +379,10 @@
 				>
 				<File
 					RelativePath="..\include\animator\CIrrBPAnimator.h"
+					>
+				</File>
+				<File
+					RelativePath="..\include\animator\CIrrBPCollisionCallbackAnimator.h"
 					>
 				</File>
 				<File
