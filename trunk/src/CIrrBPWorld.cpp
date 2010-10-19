@@ -1,5 +1,25 @@
 #include "CIrrBPWorld.h"
 
+struct collisionCallback : public btCollisionWorld::ContactResultCallback
+{
+	bool collided;
+	btVector3 pos;
+	btCollisionObject* obj;
+   collisionCallback(btCollisionObject* colObj)
+   {
+		collided=false;
+		obj = colObj;
+   }
+   virtual   btScalar   addSingleResult(btManifoldPoint& cp,   const btCollisionObject* colObj0,int partId0,int index0,const btCollisionObject* colObj1,int partId1,int index1)
+   {
+     if(colObj0 == obj)
+      pos = cp.getPositionWorldOnA();
+	 else
+      pos = cp.getPositionWorldOnB();
+	 collided=true;
+      return 0;
+   }
+};
 
 CIrrBPWorld::~CIrrBPWorld()
 {
@@ -91,22 +111,33 @@ void CIrrBPWorld::clear()
 		rigidBodiesConst[i]->drop();
 	}
 }
+bool CIrrBPWorld::getBodyCollidingPoint(CIrrBPCollisionObject *body, contactPoint * dCP)
+{
+	if(!body)
+		assert(!body);
+	if(!dCP)
+		assert(!dCP);
+	collisionCallback cBack(body->getPtr());
+	World->contactTest(body->getPtr(),cBack);
+	dCP->point = bulletVectorToIrrVector(cBack.pos);
+	dCP->contact = cBack.collided;
+	return cBack.collided;
+}
 bool CIrrBPWorld::isBodyColliding(CIrrBPCollisionObject *body)
 {
 	const int numManifolds = World->getDispatcher()->getNumManifolds();
-   
+	   
    int i;
    for (i=0;i<numManifolds;i++)
    {
-      int id[2];
-      id[0]=id[1]=-1;
+      
 
       btPersistentManifold* contactManifold = World->getDispatcher()->getManifoldByIndexInternal(i);
       btCollisionObject* obA = static_cast<btCollisionObject*>(contactManifold->getBody0());
       btCollisionObject* obB = static_cast<btCollisionObject*>(contactManifold->getBody1());
 	  if(obA == body->getPtr() || obB == body->getPtr())
 	  {
-		  //cout<<"#Collided"<<endl;
+//				  (*contactPoint)= bulletVectorToIrrVector(obA == body->getPtr()?contactManifold->getContactPoint(0).getPositionWorldOnA() : contactManifold->getContactPoint(0).getPositionWorldOnB());
 					  return true;
 	  }
 	   
