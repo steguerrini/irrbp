@@ -107,7 +107,7 @@
 				Name="VCCLCompilerTool"
 				Optimization="3"
 				InlineFunctionExpansion="2"
-				AdditionalIncludeDirectories="&quot;E:\Documenti\Lavori Stefano\ProgettoFPS\Engine\Engine\IrrBP\include&quot;;&quot;E:\Programmi\PROGRAMMAZIONE\Bullet Physics\bullet-2.76\src&quot;;&quot;E:\Documenti\Lavori Stefano\ProgettoFPS\Engine\Engine\irrlicht\include&quot;"
+				AdditionalIncludeDirectories="&quot;E:\Documenti\Lavori Stefano\ProgettoFPS\Engine\Engine\IrrBP\include&quot;;&quot;E:\Programmi\PROGRAMMAZIONE\Bullet Physics\bullet-2.77\src&quot;;&quot;E:\Documenti\Lavori Stefano\ProgettoFPS\Engine\Engine\irrlicht\include&quot;"
 				RuntimeLibrary="1"
 				BufferSecurityCheck="false"
 				EnableFunctionLevelLinking="true"
@@ -180,7 +180,7 @@
 					>
 				</File>
 				<File
-					RelativePath="..\src\constraint\CIrrBPCollisionCallbackAnimator.cpp"
+					RelativePath="..\src\animator\CIrrBPCollisionCallbackAnimator.cpp"
 					>
 				</File>
 				<File
