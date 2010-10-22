@@ -4,6 +4,7 @@
 CIrrBPRigidBody::CIrrBPRigidBody()
 {
 	m_objType = RIGID_BODY;
+	kinematic = false;
 }
 
 void CIrrBPRigidBody::applyCentralImpulse(const irr::core::vector3df &impulse)
@@ -64,4 +65,36 @@ void CIrrBPRigidBody::setAutomaticCCD()
 {
 	this->setCcdMotionThreshold(this->getAutomaticCCDMT());
 	this->setCcdSweptSphereRadius(this->getAutomaticCCDSSR());
+}
+
+vector3df CIrrBPRigidBody::getPosition()
+{
+	return bulletVectorToIrrVector(this->collisionObj->getWorldTransform().getOrigin());
+}
+
+void CIrrBPRigidBody::setPosition(const vector3df & newPos)
+{
+	if(!kinematic)
+		return;
+	
+	m_IrrSceneNode->setPosition(newPos);
+	m_MotionState->m_graphicsWorldTrans = getTransformFromIrrlichtNode(m_IrrSceneNode);
+
+	m_RigidBody->setActivationState(DISABLE_DEACTIVATION);
+	//m_MotionState->setWorldTransform(newTransf);
+	
+//	m_MotionState->getWorldTransform(getTransformFromIrrlichtNode(m_IrrSceneNode));
+}
+void CIrrBPRigidBody::setKinematic(bool isKinematic)
+{
+	kinematic = isKinematic;
+	if(kinematic)
+		this->m_RigidBody->setCollisionFlags(m_RigidBody->getCollisionFlags() | btCollisionObject::CF_KINEMATIC_OBJECT);
+	else
+		this->m_RigidBody->setCollisionFlags(m_RigidBody->getCollisionFlags() ^ btCollisionObject::CF_KINEMATIC_OBJECT);
+
+}
+bool CIrrBPRigidBody::isKinematic()
+{
+	return kinematic;
 }

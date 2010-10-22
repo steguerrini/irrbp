@@ -191,6 +191,10 @@
 					RelativePath="..\src\animator\CIrrBPDeleteAnimator.cpp"
 					>
 				</File>
+				<File
+					RelativePath="..\src\animator\CIrrBPTimeCallBackAnimator.cpp"
+					>
+				</File>
 			</Filter>
 			<Filter
 				Name="Body"
@@ -391,6 +395,10 @@
 				</File>
 				<File
 					RelativePath="..\include\animator\CIrrBPDeleteAnimator.h"
+					>
+				</File>
+				<File
+					RelativePath="..\include\animator\CIrrBPTimeCallBackAnimator.h"
 					>
 				</File>
 			</Filter>

@@ -93,6 +93,13 @@ CIrrBPCollisionCallbackAnimator * CIrrBPManager::createCollisionCallbackAnimator
 	return ccback;
 }
 
+CIrrBPTimeCallbackAnimator * CIrrBPManager::createTimeCallbackAnimator(irr::s32 timeMs,void(*Func)())
+{
+	CIrrBPTimeCallbackAnimator * tcback = new CIrrBPTimeCallbackAnimator(this->m_irrDevice->getTimer(),timeMs,Func);
+	m_bodyAnimators.push_back(tcback);
+	return tcback;
+}
+
 CIrrBPSlideConstraint  * CIrrBPManager::buildSlideConstraint(CIrrBPRigidBody * bodyA,CIrrBPRigidBody * bodyB,const vector3df & pivotInA,const vector3df & pivotInB,bool autoadapt, bool rotatepiston)
 {
 	CIrrBPSlideConstraint * slide = new CIrrBPSlideConstraint(bodyA,bodyB,pivotInA,pivotInB,autoadapt,rotatepiston);

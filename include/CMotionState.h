@@ -28,6 +28,7 @@ class CMotionState : public btDefaultMotionState
 
         virtual ~CMotionState();
 
+		virtual void getWorldTransform(btTransform &worldTrans);
         virtual void setWorldTransform(const btTransform &worldTrans);
 
     protected:
