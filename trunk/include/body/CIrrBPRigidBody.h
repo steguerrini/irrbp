@@ -29,6 +29,10 @@ public:
 	virtual bool isStaticObject() { return m_RigidBody->isStaticObject();}
 	virtual ISceneNode * getIrrlichtNode() { return m_IrrSceneNode;}
 
+	vector3df getPosition();
+	void setPosition(const vector3df & newPos);
+	void setKinematic(bool isKinematic);
+	bool isKinematic();
 protected:
 	irr::f32 getAutomaticCCDSSR();
 	irr::f32 getAutomaticCCDMT();
@@ -37,7 +41,8 @@ protected:
 	CMotionState * m_MotionState;
 	btCollisionShape * m_Shape;
 	btRigidBody * m_RigidBody;
-
+	
+	bool kinematic;
 
 
 };

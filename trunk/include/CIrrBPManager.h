@@ -21,6 +21,7 @@
 #include "animator/CIrrBPCollisionDeleteAnimator.h"
 #include "animator/CIrrBPDeleteAnimator.h"
 #include "animator/CIrrBPCollisionCallbackAnimator.h"
+#include "animator/CIrrBPTimeCallbackAnimator.h"
 
 #include "softbody/CIrrBPSoftBody.h"
 #include "softbody/CIrrBPRopeSoftBody.h"
@@ -238,6 +239,16 @@ public:
 		@return pointer to the animator
 	*/
 	CIrrBPCollisionCallbackAnimator * createCollisionCallbackAnimator(CIB_DFLAG cFlag, void (*Func)(const irr::core::vector3df &));
+
+	/*!
+		Creates an on-time event callback animator. It will call Func after timeMs is passed.
+
+		@param timeMs Time after which the function will be call
+		@param Func Pointer to the user call back function. 
+		@return pointer to the animator
+	*/
+	
+	CIrrBPTimeCallbackAnimator * createTimeCallbackAnimator(irr::s32 timeMs,void(*Func)());
 
 	/*!
 		Adds your own collision object to the bullet queue.

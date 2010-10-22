@@ -22,10 +22,11 @@ CIrrBPBoxBody::CIrrBPBoxBody(irr::scene::ISceneNode *node, irr::f32 mass, irr::s
    m_Shape->calculateLocalInertia(mass, LocalInertia);
 
    m_RigidBody = new btRigidBody(mass, m_MotionState, m_Shape, LocalInertia);
-
+	
    m_RigidBody->setUserPointer((void *)(node));
   // m_RigidBody->setActivationState(DISABLE_DEACTIVATION);
    collisionObj = m_RigidBody;
+   
    setAutomaticCCD();
      
 }

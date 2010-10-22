@@ -16,7 +16,11 @@ CMotionState::CMotionState(CIrrBPRigidBody * body,const btTransform &startTrans,
 		assert("Error during motion state creation. No irrlicht node engaged");
 }
 
-
+void CMotionState::getWorldTransform(btTransform &worldTrans)
+{
+	worldTrans = 	m_centerOfMassOffset.inverse() * m_graphicsWorldTrans ;
+	
+}
 void CMotionState::setWorldTransform(const btTransform &worldTrans)
 {
 	if(m_irrNode)
