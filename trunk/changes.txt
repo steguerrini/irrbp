@@ -1,4 +1,7 @@
-r25
+r26:
++ Adjusted setPosition() function. It's now possible to move KINEMATIC objects trough the levels like an irrlicht node.
+
+r25:
 + Added new animator, called TimeCallBackAnimator that helps to call a function after a defined time
 
 r22:

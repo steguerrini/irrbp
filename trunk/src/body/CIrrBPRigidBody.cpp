@@ -81,9 +81,7 @@ void CIrrBPRigidBody::setPosition(const vector3df & newPos)
 	m_MotionState->m_graphicsWorldTrans = getTransformFromIrrlichtNode(m_IrrSceneNode);
 
 	m_RigidBody->setActivationState(DISABLE_DEACTIVATION);
-	//m_MotionState->setWorldTransform(newTransf);
 	
-//	m_MotionState->getWorldTransform(getTransformFromIrrlichtNode(m_IrrSceneNode));
 }
 void CIrrBPRigidBody::setKinematic(bool isKinematic)
 {
