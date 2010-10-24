@@ -1,3 +1,8 @@
+r27:
++ Re-wrote the CollisionCallbackAnimator with CollisionResultCallback to customize the callback
++ Re-wrote the TimeCallbackAnimator with EndTimeCallback to customize the callback
++ Preparing for irrBP 0.2 release
+
 r26:
 + Adjusted setPosition() function. It's now possible to move KINEMATIC objects trough the levels like an irrlicht node.
 

@@ -112,7 +112,8 @@
 			/>
 			<Tool
 				Name="VCCLCompilerTool"
-				RuntimeLibrary="2"
+				AdditionalIncludeDirectories="&quot;E:\Documenti\Lavori Stefano\ProgettoFPS\Engine\Engine\IrrBP\include&quot;;&quot;E:\Programmi\PROGRAMMAZIONE\Bullet Physics\bullet-2.76\src&quot;;&quot;E:\Documenti\Lavori Stefano\ProgettoFPS\Engine\Engine\irrlicht\include&quot;"
+				RuntimeLibrary="1"
 				WarningLevel="3"
 				Detect64BitPortabilityProblems="true"
 				DebugInformationFormat="3"
@@ -128,6 +129,7 @@
 			/>
 			<Tool
 				Name="VCLinkerTool"
+				AdditionalDependencies="../libs/BulletCollision.lib ../libs/BulletDynamics.lib ../libs/BulletSoftBody.lib ../libs/LinearMath.lib ../libs/Irrlicht.lib ../lib/release/IrrBPLib.lib"
 				GenerateDebugInformation="true"
 				OptimizeReferences="2"
 				EnableCOMDATFolding="2"
@@ -168,7 +170,7 @@
 			UniqueIdentifier="{4FC737F1-C7A5-4376-A066-2A32D752A2FF}"
 			>
 			<File
-				RelativePath=".\example.cpp"
+				RelativePath=".\example_callback.cpp"
 				>
 			</File>
 		</Filter>

@@ -2,14 +2,14 @@
 #include "CIrrBPCollisionObject.h"
 #include "CIrrBPWorld.h"
 
-CIrrBPCollisionCallbackAnimator::CIrrBPCollisionCallbackAnimator(CIB_DFLAG collFlag,CIrrBPWorld * world, void (*Func)(const irr::core::vector3df &))
+CIrrBPCollisionCallbackAnimator::CIrrBPCollisionCallbackAnimator(CIB_DFLAG collFlag,CIrrBPWorld * world,CollisionResultCallback * resultCallback)
 {
 	rWorld = world;
 	rBody= NULL;
 	internalStatus = 0;
-	cbkFunc = Func;
+	cbk = resultCallback;
 	cFlag = collFlag;
-	coll=false;
+
 }
 void CIrrBPCollisionCallbackAnimator::setBody(CIrrBPCollisionObject *body)
 {
@@ -25,9 +25,8 @@ void CIrrBPCollisionCallbackAnimator::animate()
 		case ON_COLLIDE:
 			if(rWorld->getBodyCollidingPoint(rBody,&contact))
 			{
-				cbkFunc(contact.point);
+				this->cbk->addSingleResult(contact.point);
 				isEnded=true;
-			
 			}
 		break;
 		case ON_COLLISION_RELEASE:
@@ -43,7 +42,7 @@ void CIrrBPCollisionCallbackAnimator::animate()
 			}
 			else if(internalStatus == 2)
 			{
-				cbkFunc(contact.point);
+				this->cbk->addSingleResult(contact.point);
 				isEnded = true;
 			}
 

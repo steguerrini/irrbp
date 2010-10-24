@@ -10,6 +10,7 @@ using namespace scene;
 
 static CIrrBPManager * bulletmgr;
 static ISceneManager* smgr;
+CIrrBPBoxBody * box;
 class Receiver : public IEventReceiver
 {
 public:
@@ -21,13 +22,15 @@ Receiver::Receiver()
 {
 
 }
-
-void printCP(const vector3df & point)
+class callbacker : public CollisionResultCallback
+{
+void addSingleResult(const vector3df & point)
 {
 	cout<<"CollisionPoint: "<<point.X<<" "<<point.Y<< " "<<point.Z<<endl;
 	smgr->addCubeSceneNode(5,0,-1,point);
 }
-
+};
+callbacker cBack;
 bool Receiver::OnEvent(const irr::SEvent &event)
 {
 
@@ -46,8 +49,17 @@ bool Receiver::OnEvent(const irr::SEvent &event)
 			irr::core::vector3df forwardDir(irr::core::vector3df(mat[8],mat[9],mat[10]) *120);
 			
 			body->getBodyPtr()->setLinearVelocity(irrVectorToBulletVector(forwardDir) * 70);
-			body->addAnimator(bulletmgr->createCollisionCallbackAnimator(ON_COLLISION_RELEASE,printCP));
+			body->addAnimator(bulletmgr->createCollisionCallbackAnimator(ON_COLLISION_RELEASE,&cBack));
 			body->addAnimator(bulletmgr->createCollisionDeleteAnimator(ON_COLLISION_RELEASE));
+
+			box->setPosition(vector3df(0,10,0));
+ 			//box->getIrrlichtNode()->setPosition(vector3df(0,10,0));
+			
+			//box->getMotionState()->getWorldTransform(bullet::getTransformFromIrrlichtNode(box->getIrrlichtNode()));
+		}
+		if(event.MouseInput.Event == EMIE_RMOUSE_PRESSED_DOWN)
+		{
+			box->setKinematic(false);
 		}
 		
 	}
@@ -101,8 +113,8 @@ int main()
 	Node = smgr->addCubeSceneNode(5,0,-1,vector3df(-20,30,0));
 	Node->setMaterialFlag(EMF_LIGHTING,false);
 	Node->setMaterialTexture(0,driver->getTexture("sphere1.jpg"));
-	CIrrBPBoxBody * box= bulletmgr->addRigidBox(Node,0);
-	
+	box= bulletmgr->addRigidBox(Node,0);
+	box->setKinematic(true);
 	CIrrBPBoxBody * box2;
 	for(int i=0;i<100;i++)
 	{

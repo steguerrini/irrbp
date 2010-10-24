@@ -235,20 +235,20 @@ public:
 	/*!
 		Creates an on-collsion event callback animator. It will call Func when the body collides
 
-		@param Func Pointer to the user call back function. The vector will contain the collision point.
+		@param resultCallback Pointer to the user call back class.
 		@return pointer to the animator
 	*/
-	CIrrBPCollisionCallbackAnimator * createCollisionCallbackAnimator(CIB_DFLAG cFlag, void (*Func)(const irr::core::vector3df &));
+	CIrrBPCollisionCallbackAnimator * createCollisionCallbackAnimator(CIB_DFLAG cFlag, CollisionResultCallback *resultCallback);
 
 	/*!
 		Creates an on-time event callback animator. It will call Func after timeMs is passed.
 
 		@param timeMs Time after which the function will be call
-		@param Func Pointer to the user call back function. 
+		@param callback Pointer to the user call back class.
 		@return pointer to the animator
 	*/
 	
-	CIrrBPTimeCallbackAnimator * createTimeCallbackAnimator(irr::s32 timeMs,void(*Func)());
+	CIrrBPTimeCallbackAnimator * createTimeCallbackAnimator(irr::s32 timeMs,EndTimeCallback * callback);
 
 	/*!
 		Adds your own collision object to the bullet queue.
