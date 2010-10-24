@@ -5,11 +5,19 @@
 class CIrrBPCollisionObject;
 class CIrrBPWorld;
 
+class CollisionResultCallback
+{
+public:
+	CollisionResultCallback()	{	}
+	virtual ~CollisionResultCallback()	{	}
+	virtual void addSingleResult(const irr::core::vector3df & point)=0;
+};
+
 //!Please note that collision callback against soft body is not yet implemented in Bullet Physics.<br> So The Collision Delete Animator DOESN'T works with soft bodies.
 class CIrrBPCollisionCallbackAnimator  : public CIrrBPAnimator
 {
 public:
-	CIrrBPCollisionCallbackAnimator(CIB_DFLAG collFlag,CIrrBPWorld * world, void (*Func)(const irr::core::vector3df &));
+	CIrrBPCollisionCallbackAnimator(CIB_DFLAG collFlag,CIrrBPWorld * world,CollisionResultCallback * resultCallback);
 	void setBody(CIrrBPCollisionObject* body) ;
 	void animate();
 	
@@ -19,8 +27,7 @@ private:
 	irr::s16 internalStatus;
 	CIrrBPWorld * rWorld;
 	contactPoint contact;
-	void (*cbkFunc)(const irr::core::vector3df &);
-	bool coll;
+	CollisionResultCallback * cbk;
 };
 
 #endif

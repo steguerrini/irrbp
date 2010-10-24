@@ -9,6 +9,7 @@ using namespace scene;
 
 static CIrrBPManager * bulletmgr;
 static ISceneManager* smgr;
+CIrrBPBoxBody * box;
 class Receiver : public IEventReceiver
 {
 public:
@@ -91,7 +92,7 @@ int main()
 	Node->setMaterialType(EMT_TRANSPARENT_ADD_COLOR);
 	Node->setMaterialFlag(EMF_LIGHTING,false);
 	Node->setMaterialTexture(0,driver->getTexture("sphere1.jpg"));
-	CIrrBPBoxBody * box= bulletmgr->addRigidBox(Node,0);
+	box= bulletmgr->addRigidBox(Node,0);
 	
 	Node2 = smgr->addCubeSceneNode(5,0,-1,vector3df(20,0,-20));
 	Node2->setMaterialType(EMT_TRANSPARENT_ADD_COLOR);

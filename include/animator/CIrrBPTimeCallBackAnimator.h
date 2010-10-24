@@ -5,11 +5,18 @@
 class CIrrBPCollisionObject;
 class CIrrBPWorld;
 
-//!Please note that collision callback against soft body is not yet implemented in Bullet Physics.<br> So The Collision Delete Animator DOESN'T works with soft bodies.
+class EndTimeCallback
+{
+public:
+	EndTimeCallback()	{	}
+	virtual ~EndTimeCallback()	{	}
+	virtual void addSingleResult()=0;
+};
+
 class CIrrBPTimeCallbackAnimator  : public CIrrBPAnimator
 {
 public:
-	CIrrBPTimeCallbackAnimator(ITimer* timer, irr::s32 ms, void (*Func)());
+	CIrrBPTimeCallbackAnimator(ITimer* timer, irr::s32 ms, EndTimeCallback * callback);
 	void setBody(CIrrBPCollisionObject* body) ;
 	void animate();
 	
@@ -22,6 +29,6 @@ private:
 
 	CIrrBPWorld * rWorld;
 
-	void (*cbkFunc)();
+	EndTimeCallback * cbk;
 };
 #endif

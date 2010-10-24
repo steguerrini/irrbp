@@ -86,16 +86,16 @@ CIrrBPCollisionDeleteAnimator * CIrrBPManager::createCollisionDeleteAnimator(CIB
 	m_bodyAnimators.push_back(collAnim);
 	return collAnim;
 }
-CIrrBPCollisionCallbackAnimator * CIrrBPManager::createCollisionCallbackAnimator(CIB_DFLAG cFlag,void (*Func)(const irr::core::vector3df &))
+CIrrBPCollisionCallbackAnimator * CIrrBPManager::createCollisionCallbackAnimator(CIB_DFLAG cFlag, CollisionResultCallback *resultCallback)
 {
-	CIrrBPCollisionCallbackAnimator * ccback = new CIrrBPCollisionCallbackAnimator(cFlag,m_bulletWorld,Func);
+	CIrrBPCollisionCallbackAnimator * ccback = new CIrrBPCollisionCallbackAnimator(cFlag,m_bulletWorld,resultCallback);
 	m_bodyAnimators.push_back(ccback);
 	return ccback;
 }
 
-CIrrBPTimeCallbackAnimator * CIrrBPManager::createTimeCallbackAnimator(irr::s32 timeMs,void(*Func)())
+CIrrBPTimeCallbackAnimator * CIrrBPManager::createTimeCallbackAnimator(irr::s32 timeMs,EndTimeCallback * callback)
 {
-	CIrrBPTimeCallbackAnimator * tcback = new CIrrBPTimeCallbackAnimator(this->m_irrDevice->getTimer(),timeMs,Func);
+	CIrrBPTimeCallbackAnimator * tcback = new CIrrBPTimeCallbackAnimator(this->m_irrDevice->getTimer(),timeMs,callback);
 	m_bodyAnimators.push_back(tcback);
 	return tcback;
 }

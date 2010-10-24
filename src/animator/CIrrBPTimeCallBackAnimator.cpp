@@ -1,12 +1,12 @@
 #include "animator/CIrrBPTimeCallBackAnimator.h"
 
-CIrrBPTimeCallbackAnimator::CIrrBPTimeCallbackAnimator(ITimer* timer, irr::s32 ms, void (*Func)())
+CIrrBPTimeCallbackAnimator::CIrrBPTimeCallbackAnimator(ITimer* timer, irr::s32 ms,EndTimeCallback * callback)
 {
 		isEnded = false;
 	rBody = NULL;
 	irrTimer = timer;
 	timeMs = ms;
-	cbkFunc=Func;
+	cbk=callback;
 }
 void CIrrBPTimeCallbackAnimator::setBody(CIrrBPCollisionObject *body)
 {
@@ -24,6 +24,6 @@ void CIrrBPTimeCallbackAnimator::animate()
 	if(endTime <= irrTimer->getRealTime())
 	{
 		isEnded = true;
-		cbkFunc();
+		cbk->addSingleResult();
 	}
 }
