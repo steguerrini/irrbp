@@ -64,6 +64,18 @@ CIrrBPTrimesh * CIrrBPManager::addTrimesh(irr::scene::IAnimatedMeshSceneNode *no
 	m_bulletWorld->addRigidBody(trimesh);
 	return trimesh;
 }
+CIrrBPConvexHullBody * CIrrBPManager::addConvexHullBody(IAnimatedMeshSceneNode * node, irr::f32 mass, irr::s32 bodyId)
+{
+	CIrrBPConvexHullBody * chb = new CIrrBPConvexHullBody(node,mass,bodyId);
+	m_bulletWorld->addRigidBody(chb);
+	return chb;
+}
+CIrrBPConvexHullBody * CIrrBPManager::addConvexHullBody(IMeshSceneNode * node, irr::f32 mass, irr::s32 bodyId)
+{
+	CIrrBPConvexHullBody * chb = new CIrrBPConvexHullBody(node,mass,bodyId);
+	m_bulletWorld->addRigidBody(chb);
+	return chb;
+}
 void CIrrBPManager::addCollisionObjectToBulletQueue(CIrrBPCollisionObject * cobj)
 {
 	m_bulletWorld->addCollisionObject(cobj);

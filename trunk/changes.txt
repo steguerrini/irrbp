@@ -1,3 +1,7 @@
+IrrBP 0.2 (r28):
++ Implemented convex hull bodies
+- SVN Docs wont be update by now. You must download the SDK to view the updated doxygen documentation
+
 r27:
 + Re-wrote the CollisionCallbackAnimator with CollisionResultCallback to customize the callback
 + Re-wrote the TimeCallbackAnimator with EndTimeCallback to customize the callback
