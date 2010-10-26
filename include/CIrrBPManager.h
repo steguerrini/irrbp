@@ -10,7 +10,7 @@
 #include "body/CIrrBPSphereBody.h"
 #include "body/CIrrBPConeBody.h"
 #include "body/CIrrBPCapsuleBody.h"
-
+#include "body/CIrrBPConvexHullBody.h"
 #include "constraint/CIrrBPConstraint.h"
 #include "constraint/CIrrBPHingeConstraint.h"
 #include "constraint/CIrrBPP2PConstraint.h"
@@ -121,6 +121,23 @@ public:
 	*/
 	CIrrBPTrimesh * addTrimesh (IMeshSceneNode * node,irr::f32 mass, irr::s32 bodyId = -1);
 
+	/*!
+	  Adds a convex hull body into the world
+	  @param node scene node to which engage the body
+	  @param mass body's mass
+	  @param bodyId a irrlicht-style body id
+	  @return Pointer to the object.
+	*/
+	CIrrBPConvexHullBody * addConvexHullBody(IAnimatedMeshSceneNode * node, irr::f32 mass, irr::s32 bodyId = -1);
+
+	/*!
+	  Adds a convex hull body into the world
+	  @param node scene node to which engage the body
+	  @param mass body's mass
+	  @param bodyId a irrlicht-style body id
+	  @return Pointer to the object.
+	*/
+	CIrrBPConvexHullBody * addConvexHullBody(IMeshSceneNode * node, irr::f32 mass, irr::s32 bodyId = -1);
 
 	/*!
 	  Adds a rope (soft body) into the world.
