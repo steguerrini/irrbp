@@ -1,3 +1,6 @@
+IrrBP 0.21 (r29):
++ Fixed an important bug that can swallow bullet determinism when FPS changes
+
 IrrBP 0.2 (r28):
 + Implemented convex hull bodies
 - SVN Docs wont be update by now. You must download the SDK to view the updated doxygen documentation

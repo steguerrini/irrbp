@@ -94,7 +94,7 @@ CIrrBPWorld::CIrrBPWorld(irr::IrrlichtDevice *device,const vector3df & Gravity)
     m_worldInfo.water_normal = btVector3(0,0,0);
 
 	timestep = 1.0f/100.0f;
-
+	maxSubSteps = 5;
 }
 void CIrrBPWorld::clear()
 {
@@ -217,15 +217,31 @@ void CIrrBPWorld::removeRigidBody(CIrrBPRigidBody *body)
 	this->removeCollisionObject(body);
 	
 }
+void CIrrBPWorld::autoMaxSubSteps(int maxFPS)
+{
 
+	//Equation: timestamp < m.s.s. * f.t.s
+	// 1/FPS <  m.s.s. * f.t.s
+	// m.s.s. > (1/FPS)/f.t.s
+	float eq = (1.0f/((float)maxFPS))/timestep;
+	maxSubSteps = irr::core::ceil32(eq);
+}
 void CIrrBPWorld::stepSimulation()
 {
-	DeltaTime = irrTimer->getTime() - TimeStamp;
-    TimeStamp = irrTimer->getTime();
-	World->stepSimulation(DeltaTime * 0.001f,1,timestep);
 	
+	DeltaTime = irrTimer->getRealTime();
+	#ifdef IRRBP_DEBUG_TEXT
+		if((DeltaTime-TimeStamp) / 1000.0f >= (10*timestep))
+		cout<<"You must fix your physics parameters"<<endl;
+	#endif
+
+	World->stepSimulation((DeltaTime-TimeStamp) / 1000.0f,maxSubSteps,timestep);
+	TimeStamp = irrTimer->getRealTime();
+
 	m_worldInfo.m_sparsesdf.GarbageCollect();
 	updateObjects();
+	
+	
 };
 
 void CIrrBPWorld::updateObjects()

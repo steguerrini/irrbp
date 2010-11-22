@@ -189,11 +189,32 @@ public:
 
 	/*!
 	   Sets your own time step. Use this function only if you know what you are doing.
+	   If the timestep decreases, the simulation resolution increases.
 	   Using a dynamic timestep can be useless, and your program can have an undefined behavior
 
 	   @param step new time step
 	*/
 	void setTimeStep(irr::f32 step) {timestep = step;}
+
+	/*!
+		Sets your own max sub steps value. You need to fix the value of max sub steps and time step in order to meet the equation above:
+		timeStep [FPS/1000] < maxSubSteps * fixedTimeStep.
+		This is strictly necessary in order to make the simulation deterministic.
+		Please use only positive parameters. Otherwise the simulation can have an unexpected behavior.
+		If you don't know how to use this function, you can use the autoMaxSubSteps function.
+
+		@param ssteps new max sub steps number
+	*/
+	void setMaxSubSteps(irr::s32 ssteps){maxSubSteps = ssteps;}
+
+	/*!
+		Auto-set the maxsubsteps in order to meet the equation timeStep < maxSubSteps * fixedTimeStep.
+		You must recall this function after setting a new time step.
+		In order to meet the equation above, you need to "cap" your FPS to a value.
+
+		@param maxFPS FPS max cap value
+	*/
+	void autoMaxSubSteps(int maxFPS);
 
 	/*!
 		Cleans the bullet world: removes all bodies and joints
@@ -213,6 +234,7 @@ private:
 	ITimer* irrTimer;
 	u32 TimeStamp;
     u32 DeltaTime;
+	
 	btVector3 Gravity;
 	IrrlichtDevice *device;
 	IVideoDriver* driver;
@@ -224,7 +246,7 @@ private:
 	btSoftBodyWorldInfo m_worldInfo;
 
 	irr::f32 timestep;
-
+	int maxSubSteps;
 };
 
 #endif
