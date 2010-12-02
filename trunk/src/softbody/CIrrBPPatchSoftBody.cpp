@@ -3,9 +3,11 @@
 
 CIrrBPPatchSoftBody::~CIrrBPPatchSoftBody()
 {
-	mesh->clear();
 	if(mesh)
-		mesh->drop();
+	{
+	mesh->clear();
+	mesh->drop();
+	}
 	delete m_softBody;
 }
 CIrrBPPatchSoftBody::CIrrBPPatchSoftBody(const vector3df & corner00 ,const vector3df & corner01,const vector3df & corner10 ,const vector3df & corner11,irr::f32 mass,CIrrBPWorld * world,int resx,int resy)
