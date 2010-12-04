@@ -217,13 +217,13 @@ void CIrrBPWorld::removeRigidBody(CIrrBPRigidBody *body)
 	this->removeCollisionObject(body);
 	
 }
-void CIrrBPWorld::autoMaxSubSteps(int maxFPS)
+void CIrrBPWorld::autoMaxSubSteps(int minFPS)
 {
 
 	//Equation: timestamp < m.s.s. * f.t.s
 	// 1/FPS <  m.s.s. * f.t.s
 	// m.s.s. > (1/FPS)/f.t.s
-	float eq = (1.0f/((float)maxFPS))/timestep;
+	float eq = (1.0f/((float)minFPS))/timestep;
 	maxSubSteps = irr::core::ceil32(eq);
 }
 void CIrrBPWorld::stepSimulation()
