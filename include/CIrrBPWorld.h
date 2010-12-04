@@ -210,11 +210,11 @@ public:
 	/*!
 		Auto-set the maxsubsteps in order to meet the equation timeStep < maxSubSteps * fixedTimeStep.
 		You must recall this function after setting a new time step.
-		In order to meet the equation above, you need to "cap" your FPS to a value.
+		In order to meet the equation above, you need to "cap" your minimun FPS to a value.
 
-		@param maxFPS FPS max cap value
+		@param minFPS FPS min cap value
 	*/
-	void autoMaxSubSteps(int maxFPS);
+	void autoMaxSubSteps(int minFPS);
 
 	/*!
 		Cleans the bullet world: removes all bodies and joints

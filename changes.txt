@@ -1,3 +1,6 @@
+r32:
++ Minor documentation bugfix.
+
 r31:
 + Updated rigid bodies destructors. The older versions of destructor can have some problems
 
