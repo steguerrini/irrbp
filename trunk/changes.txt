@@ -1,3 +1,9 @@
+r31:
++ Updated rigid bodies destructors. The older versions of destructor can have some problems
+
+r30:
+- Removed bug when using Patch Soft Body without assign it a mesh
+
 IrrBP 0.21 (r29):
 + Fixed an important bug that can swallow bullet determinism when FPS changes
 

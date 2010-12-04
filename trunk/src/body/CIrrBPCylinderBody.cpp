@@ -56,16 +56,3 @@ CIrrBPCylinderBody::CIrrBPCylinderBody(ISceneNode * node,irr::f32 mass, irr::s32
    collisionObj = m_RigidBody;
 	setAutomaticCCD();
 }
-
-CIrrBPCylinderBody::~CIrrBPCylinderBody()
-{
-	if(m_IrrSceneNode != NULL)
-		this->m_IrrSceneNode->remove();
-	delete this->m_Shape;
-	this->m_Shape = NULL;
-	delete this->m_MotionState;
-	this->m_MotionState = NULL;
-	delete this->m_RigidBody;
-	this->m_RigidBody = NULL;
-
-}

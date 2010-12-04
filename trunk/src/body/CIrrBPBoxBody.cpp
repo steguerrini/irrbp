@@ -30,15 +30,3 @@ CIrrBPBoxBody::CIrrBPBoxBody(irr::scene::ISceneNode *node, irr::f32 mass, irr::s
    setAutomaticCCD();
      
 }
-CIrrBPBoxBody::~CIrrBPBoxBody()
-{
-
-	if(m_IrrSceneNode != NULL)
-		this->m_IrrSceneNode->remove();
-	delete this->m_Shape;
-	this->m_Shape = NULL;
-	delete this->m_MotionState;
-	this->m_MotionState = NULL;
-	delete this->m_RigidBody;
-	this->m_RigidBody = NULL;
-}

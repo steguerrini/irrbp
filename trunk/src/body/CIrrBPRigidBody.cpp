@@ -5,8 +5,27 @@ CIrrBPRigidBody::CIrrBPRigidBody()
 {
 	m_objType = RIGID_BODY;
 	kinematic = false;
+	m_Shape = NULL;
+	m_MotionState = NULL;
+	m_RigidBody = NULL;
 }
+CIrrBPRigidBody::~CIrrBPRigidBody()
+{
+	if(m_Shape)
+	delete m_Shape;
+	
+	m_Shape = NULL;
 
+	if(m_MotionState)
+	delete m_MotionState;
+
+	m_MotionState = NULL;
+
+	if(m_RigidBody)
+	delete m_RigidBody;
+	
+	m_RigidBody = NULL;
+}
 void CIrrBPRigidBody::applyCentralImpulse(const irr::core::vector3df &impulse)
 {
 	m_RigidBody->applyCentralImpulse(irrVectorToBulletVector(impulse));
