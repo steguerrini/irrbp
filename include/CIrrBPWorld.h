@@ -2,7 +2,7 @@
 #define _CBULLETWORLD_H
 
 #define IrrBP_MAJOR_VERSION 0
-#define IrrBP_MINOR_VERSION 1
+#define IrrBP_MINOR_VERSION 2
 #define IrrBP_REVISION_VERSION 1
 
 #include <btBulletCollisionCommon.h>

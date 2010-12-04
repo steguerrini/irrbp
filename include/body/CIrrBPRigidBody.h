@@ -13,7 +13,7 @@ class CIrrBPRigidBody : public CIrrBPCollisionObject
 {
 public:
 	CIrrBPRigidBody();
-
+	virtual ~CIrrBPRigidBody();
 	virtual void drop() = 0;
 
 	virtual void  applyTorque (const vector3df &torque) ;

@@ -6,7 +6,6 @@ class CIrrBPSphereBody : public CIrrBPRigidBody
 {
 public:
 	virtual void drop() { delete this;}
-	~CIrrBPSphereBody();
 	CIrrBPSphereBody(ISceneNode * node,irr::f32 mass, irr::s32 bodyId = -1);
 
 };
