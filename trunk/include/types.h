@@ -43,6 +43,11 @@
 		RIGID_BODY = 1,
 		SOFT_BODY = 2
 	};
+	enum ACTIONINT_OBJ_TYPE
+	{
+		VEHICLE,
+		CHARCONTROLLER,
+	};
 
 	struct contactPoint
 	{
