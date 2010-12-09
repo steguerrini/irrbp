@@ -31,6 +31,10 @@ public:
 
 	vector3df getPosition();
 	void setPosition(const vector3df & newPos);
+
+	vector3df getRotation();
+	void setRotation(const vector3df & newPos);
+
 	void setKinematic(bool isKinematic);
 	bool isKinematic();
 protected:

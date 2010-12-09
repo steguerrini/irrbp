@@ -1,3 +1,7 @@
+r34:
++ Fixed RigidBody setPosition() method
++ Added setRotation() method in Rigid Body class
+
 r33:
 + Fixed mesh->clear() function missing bug. The function was only implemented in SVN Versions of irrlicht
 + Fixed header include folder, to cleanly compile irrBP on other platforms (thanks to serengeor).

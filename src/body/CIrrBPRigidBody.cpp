@@ -88,20 +88,30 @@ void CIrrBPRigidBody::setAutomaticCCD()
 
 vector3df CIrrBPRigidBody::getPosition()
 {
-	return bulletVectorToIrrVector(this->collisionObj->getWorldTransform().getOrigin());
+	return bulletVectorToIrrVector(m_RigidBody->getWorldTransform().getOrigin());
 }
 
 void CIrrBPRigidBody::setPosition(const vector3df & newPos)
 {
-	if(!kinematic)
-		return;
-	
 	m_IrrSceneNode->setPosition(newPos);
-	m_MotionState->m_graphicsWorldTrans = getTransformFromIrrlichtNode(m_IrrSceneNode);
-
-	m_RigidBody->setActivationState(DISABLE_DEACTIVATION);
-	
+	btTransform  tr = m_RigidBody->getWorldTransform();
+	tr.setOrigin(irrVectorToBulletVector(newPos));	
+	m_RigidBody->setWorldTransform(tr);
 }
+
+vector3df CIrrBPRigidBody::getRotation()
+{
+	return QuaternionToIrrEuler(m_RigidBody->getWorldTransform().getRotation());
+}
+
+void CIrrBPRigidBody::setRotation(const vector3df & newPos)
+{
+	m_IrrSceneNode->setRotation(newPos);
+	btTransform  tr = m_RigidBody->getWorldTransform();
+	tr.setRotation(irrRotationToBulletQuaterion(newPos));
+	m_RigidBody->setWorldTransform(tr);
+}
+
 void CIrrBPRigidBody::setKinematic(bool isKinematic)
 {
 	kinematic = isKinematic;
