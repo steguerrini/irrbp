@@ -1,4 +1,4 @@
-#include "animator/CIrrBPCollisionCallBackAnimator.h"
+#include "animator/CIrrBPCollisionCallbackAnimator.h"
 #include "CIrrBPCollisionObject.h"
 #include "CIrrBPWorld.h"
 

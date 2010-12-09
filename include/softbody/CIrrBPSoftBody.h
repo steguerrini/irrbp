@@ -4,8 +4,8 @@
 #include "CIrrBPCollisionObject.h"
 #include <btBulletCollisionCommon.h>
 
-#include <BulletSoftBody\btSoftRigidDynamicsWorld.h>
-#include <BulletSoftBody\btSoftBodyHelpers.h>
+#include <BulletSoftBody/btSoftRigidDynamicsWorld.h>
+#include <BulletSoftBody/btSoftBodyHelpers.h>
 
 
 class CIrrBPRigidBody;

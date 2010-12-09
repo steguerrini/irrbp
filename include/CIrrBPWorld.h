@@ -7,16 +7,16 @@
 
 #include <btBulletCollisionCommon.h>
 #include <btBulletDynamicsCommon.h>
-#include <BulletCollision\CollisionDispatch\btGhostObject.h>
-#include "BulletSoftBody\btSoftRigidDynamicsWorld.h"
-#include "BulletCollision\CollisionDispatch\btConvexConcaveCollisionAlgorithm.h"
-#include "BulletCollision\CollisionDispatch\btCollisionDispatcher.h"
+#include "BulletCollision/CollisionDispatch/btGhostObject.h"
+#include "BulletSoftBody/btSoftRigidDynamicsWorld.h"
+#include "BulletCollision/CollisionDispatch/btConvexConcaveCollisionAlgorithm.h"
+#include "BulletCollision/CollisionDispatch/btCollisionDispatcher.h"
 #include "CIrrBPCollisionObject.h"
-#include "body\CIrrBPRigidBody.h"
-#include "animator\CIrrBPAnimator.h"
-#include "constraint\CIrrBPConstraint.h"
-#include "softbody\CIrrBPSoftBody.h"
-#include "BulletSoftBody\btSoftBodyRigidBodyCollisionConfiguration.h"
+#include "body/CIrrBPRigidBody.h"
+#include "animator/CIrrBPAnimator.h"
+#include "constraint/CIrrBPConstraint.h"
+#include "softbody/CIrrBPSoftBody.h"
+#include "BulletSoftBody/btSoftBodyRigidBodyCollisionConfiguration.h"
 #include "CIrrBPDebugDrawer.h"
 
 #include <irrlicht.h>
@@ -45,7 +45,7 @@ public:
 	CIrrBPWorld(IrrlichtDevice *device,const vector3df & Gravity);
 
 	~CIrrBPWorld();
-	
+
 	/*!
 		Steps the simulation.
 		It must be called each frame loop to step the bullet' simulation.
@@ -83,14 +83,14 @@ public:
 		@param cobj A pointer to the object that needs to be removed
 	*/
 	void removeCollisionObject(CIrrBPCollisionObject * cobj);
-	/*! 
+	/*!
 		Adds an 'unknown' object to the world.
 		You can use that instead of addRigidBody, it will know the object for you.
 	*/
 	void addCollisionObject(CIrrBPCollisionObject * cobj);
 
 
-	
+
 	/*!
 		Gets a Body from a id.
 		@param id The id to search for
@@ -119,9 +119,9 @@ public:
 		@return body colliding status.
 	*/
 	bool isBodyColliding(CIrrBPCollisionObject *body);
-	
+
 	/*!
-		Verifies if a body is colliding or not. 
+		Verifies if a body is colliding or not.
 		This function is more deeper than isBodyColliding() because it will give also the contact point
 		@param body body to verify
 		@param dCP pointer to the contactPoint destination.
@@ -142,7 +142,7 @@ public:
 	*/
 	btDiscreteDynamicsWorld* getBulletWorldPtr(){return World;}
 
-	/*! 
+	/*!
 		true if world is  going to close
 	*/
 	bool isClosing;
@@ -228,13 +228,13 @@ private:
     btCollisionDispatcher* dispatcher;
     btBroadphaseInterface* pairCache;
     btConstraintSolver*	constraintSolver;
-	
+
 	array<CIrrBPCollisionObject *> collisionObj;
 	array<CIrrBPConstraint*> rigidBodiesConst;
 	ITimer* irrTimer;
 	u32 TimeStamp;
     u32 DeltaTime;
-	
+
 	btVector3 Gravity;
 	IrrlichtDevice *device;
 	IVideoDriver* driver;

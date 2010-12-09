@@ -1,11 +1,21 @@
-#include <SoftBody/CIrrBPPatchSoftBody.h>
+#include <softbody/CIrrBPPatchSoftBody.h>
 #include "CIrrBpWorld.h"
 
 CIrrBPPatchSoftBody::~CIrrBPPatchSoftBody()
 {
 	if(mesh)
 	{
-	mesh->clear();
+	
+	//mesh->clear();
+	//Workaround to mesh->clear(). Thanks to serengeor for the submit. 
+	//mesh->clear() is only available on SVN version.
+
+	for (u32 i=0; i<mesh->MeshBuffers.size(); ++i)
+		mesh->MeshBuffers[i]->drop();
+	mesh->MeshBuffers.clear();
+	mesh->BoundingBox.reset ( 0.f, 0.f, 0.f );
+
+	
 	mesh->drop();
 	}
 	delete m_softBody;
