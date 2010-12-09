@@ -163,6 +163,12 @@ CIrrBPPatchSoftBody * CIrrBPManager::addPatchSoftBody(const vector3df & corner00
 	return patch;
 }
 
+CIrrBPRaycastVehicle * CIrrBPManager::addRaycastVehicle(CIrrBPRigidBody * chassis)
+{
+	CIrrBPRaycastVehicle * vehicle = new CIrrBPRaycastVehicle(chassis,m_bulletWorld);
+	m_bulletWorld->addAction(vehicle);
+	return vehicle;
+}
 void CIrrBPManager::clear()
 {
 	m_bulletWorld->clear();

@@ -40,6 +40,13 @@ CIrrBPWorld::~CIrrBPWorld()
 		World->removeConstraint(rigidBodiesConst[i]->getConstraintPtr());
 		rigidBodiesConst[i]->drop();
 	}
+
+	/*Delete all action intefaces*/
+	for(u32 i=0;i<this->actionObj.size();i++)
+	{
+		World->removeAction(actionObj[i]->getPtr());
+		actionObj[i]->drop();
+	}
 	if(dDrawer)
 		delete dDrawer;
 	delete World;
@@ -191,6 +198,34 @@ void CIrrBPWorld::addRigidBodyConstraint(CIrrBPConstraint * constraint)
 	#endif
 }
 
+void CIrrBPWorld::addAction(CIrrBPActionInterface * action)
+{
+	actionObj.push_back(action);
+	World->addAction(action->getPtr());
+	#ifdef IRRBP_DEBUG_TEXT
+	cout<<"# Added new action "<<endl<<"## Action ID: "<<action->getID()<<endl<<"## Absolute Action ID: "<<action->getUniqueID()<<endl;
+	#endif
+
+}
+
+void CIrrBPWorld::removeAction(CIrrBPActionInterface * action)
+{
+	for(irr::u32 i=0;i<actionObj.size();i++)
+	{
+		if(action == actionObj[i])
+		{
+			action->setValidStatus(false);
+			World->removeAction(action->getPtr());
+			actionObj[i]->drop();
+			actionObj.erase(i);
+			#ifdef IRRBP_DEBUG_TEXT
+			cout<<"# Deleted action "<<endl<<"## Action ID: "<<action->getID()<<endl<<"## Absolute Action ID: "<<action->getUniqueID()<<endl;
+			#endif
+			return;
+		}
+	}
+}
+
 void CIrrBPWorld::removeCollisionObject(CIrrBPCollisionObject * cobj)
 {
 	for(irr::u32 i = 0;i<collisionObj.size(); i++)
@@ -288,6 +323,32 @@ CIrrBPCollisionObject * CIrrBPWorld::getBodyFromName(irr::c8* name)
 		if(strcmp(collisionObj[i]->getName(),name)==0)
 			return collisionObj[1];
 
+	return NULL;
+}
+
+CIrrBPActionInterface * CIrrBPWorld::getActionFromId(irr::s32 id)
+{
+	for(irr::u32 i=0;i<this->actionObj.size();i++)
+		if(actionObj[i]->getID() == id)
+			return actionObj[i];
+	
+	return NULL;
+}
+CIrrBPActionInterface * CIrrBPWorld::getActionFromUId(irr::u32 uid)
+{
+	
+	for(irr::u32 i=0;i<this->actionObj.size();i++)
+		if(actionObj[i]->getUniqueID() == uid)
+			return actionObj[i];
+	
+	return NULL;
+}
+CIrrBPActionInterface * CIrrBPWorld::getActionFromName(irr::c8* name)
+{
+	for(irr::u32 i=0;i<this->actionObj.size();i++)
+		if(strcmp(actionObj[i]->getName(),name)==0)
+			return actionObj[i];
+	
 	return NULL;
 }
 

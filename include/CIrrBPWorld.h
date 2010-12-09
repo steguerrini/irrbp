@@ -2,8 +2,8 @@
 #define _CBULLETWORLD_H
 
 #define IrrBP_MAJOR_VERSION 0
-#define IrrBP_MINOR_VERSION 2
-#define IrrBP_REVISION_VERSION 1
+#define IrrBP_MINOR_VERSION 3
+#define IrrBP_REVISION_VERSION 0
 
 #include <btBulletCollisionCommon.h>
 #include <btBulletDynamicsCommon.h>
@@ -16,6 +16,7 @@
 #include "animator/CIrrBPAnimator.h"
 #include "constraint/CIrrBPConstraint.h"
 #include "softbody/CIrrBPSoftBody.h"
+#include "actions/CIrrBPActionInterface.h"
 #include "BulletSoftBody/btSoftBodyRigidBodyCollisionConfiguration.h"
 #include "CIrrBPDebugDrawer.h"
 
@@ -83,13 +84,25 @@ public:
 		@param cobj A pointer to the object that needs to be removed
 	*/
 	void removeCollisionObject(CIrrBPCollisionObject * cobj);
+
 	/*!
 		Adds an 'unknown' object to the world.
 		You can use that instead of addRigidBody, it will know the object for you.
+		@param cobj A pointer to the object that needs to be added
 	*/
 	void addCollisionObject(CIrrBPCollisionObject * cobj);
 
+	/*!
+		Adds an action interface to the world
+		@param action A pointer to the object that needs to be added
+	*/
+	void addAction(CIrrBPActionInterface * action);
 
+	/*!
+		Removes an action interface to the world
+		@param action A pointer to the object that needs to be removed
+	*/
+	void removeAction(CIrrBPActionInterface * action);
 
 	/*!
 		Gets a Body from a id.
@@ -112,6 +125,27 @@ public:
 		@return Pointer to the first body with this name. Returns NULL if no bodies couldn't be found.
 	*/
 	CIrrBPCollisionObject * getBodyFromName(irr::c8* name);
+
+	/*!
+		Gets a Action from a id.
+		@param id The id to search for
+		@return Pointer to the first action with this id. Returns NULL if no bodies couldn't be found.
+	*/
+	CIrrBPActionInterface * getActionFromId(irr::s32 id);
+	
+	/*!
+		Gets a Action from a unique id.
+		@param id The id to search for
+		@return Pointer to the first action with this id. Returns NULL if no bodies couldn't be found.
+	*/
+	CIrrBPActionInterface * getActionFromUId(irr::u32 uid);
+
+	/*!
+		Gets a Action from a name.
+		@param id The id to search for
+		@return Pointer to the first action with this id. Returns NULL if no bodies couldn't be found.
+	*/
+	CIrrBPActionInterface * getActionFromName(irr::c8* name);
 
 	/*!
 		Verifies if a body is colliding or not.
@@ -140,7 +174,7 @@ public:
 		Only for internal or expert use.
 		@return a pointer to the bullet' world object
 	*/
-	btDiscreteDynamicsWorld* getBulletWorldPtr(){return World;}
+	btSoftRigidDynamicsWorld* getBulletWorldPtr(){return World;}
 
 	/*!
 		true if world is  going to close
@@ -231,6 +265,7 @@ private:
 
 	array<CIrrBPCollisionObject *> collisionObj;
 	array<CIrrBPConstraint*> rigidBodiesConst;
+	array<CIrrBPActionInterface*> actionObj;
 	ITimer* irrTimer;
 	u32 TimeStamp;
     u32 DeltaTime;

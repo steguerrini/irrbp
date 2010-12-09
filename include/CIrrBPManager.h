@@ -27,6 +27,8 @@
 #include "softbody/CIrrBPRopeSoftBody.h"
 #include "softbody/CIrrBPPatchSoftBody.h"
 
+#include "actions/CIrrBPRaycastVehicle.h"
+
 #include "irrlicht.h"
 #include "types.h"
 
@@ -161,6 +163,14 @@ public:
 	  @return Pointer to the object.
 	*/
 	CIrrBPPatchSoftBody * addPatchSoftBody(const vector3df & corner00 ,const vector3df & corner01,const vector3df & corner10 ,const vector3df & corner11,irr::f32 mass,s32 resx,s32 resy);
+
+	/*!
+	  Adds a raycast vehicle into the world. 
+	  @param chassis rigid boid, pointer to the chassis body
+	  @return Pointer to the object.
+	*/
+	CIrrBPRaycastVehicle * addRaycastVehicle(CIrrBPRigidBody * chassis);
+
 	/*!
 		Builds and attach a Slide Constraint to the bodies.
 		The last 2 parameters will only works if there is a static object.<br>
