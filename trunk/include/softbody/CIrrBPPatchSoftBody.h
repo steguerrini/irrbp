@@ -1,8 +1,8 @@
 #ifndef CIrrBP_PATCH_SBODY_H_
 #define CIrrBP_PATCH_SBODY_H_
 
-#include "SoftBody/CIrrBPSoftBody.h"
-#include "Body/CIrrBPRigidBody.h"
+#include "softbody/CIrrBPSoftBody.h"
+#include "body/CIrrBPRigidBody.h"
 #include <map>
 
 class CIrrBPWorld;

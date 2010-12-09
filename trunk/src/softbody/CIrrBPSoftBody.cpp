@@ -1,5 +1,5 @@
 #include "softbody/CIrrBPSoftBody.h"
-#include <body\CIrrBpRigidBody.h>
+#include <body/CIrrBPRigidBody.h>
 
 void CIrrBPSoftBody::addForce(const vector3df& force)
 {

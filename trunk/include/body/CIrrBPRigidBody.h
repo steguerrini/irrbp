@@ -3,8 +3,8 @@
 
 #include "CIrrBPCollisionObject.h"
 #include <btBulletCollisionCommon.h>
-#include <BulletCollision\Gimpact\btGImpactShape.h>
-#include <BulletCollision\Gimpact\btGImpactCollisionAlgorithm.h>
+#include <BulletCollision/Gimpact/btGImpactShape.h>
+#include <BulletCollision/Gimpact/btGImpactCollisionAlgorithm.h>
 
 
 class CIrrBPAnimator;
@@ -41,7 +41,7 @@ protected:
 	CMotionState * m_MotionState;
 	btCollisionShape * m_Shape;
 	btRigidBody * m_RigidBody;
-	
+
 	bool kinematic;
 
 

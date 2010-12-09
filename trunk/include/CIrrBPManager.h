@@ -21,7 +21,7 @@
 #include "animator/CIrrBPCollisionDeleteAnimator.h"
 #include "animator/CIrrBPDeleteAnimator.h"
 #include "animator/CIrrBPCollisionCallbackAnimator.h"
-#include "animator/CIrrBPTimeCallbackAnimator.h"
+#include "animator/CIrrBPTimeCallBackAnimator.h"
 
 #include "softbody/CIrrBPSoftBody.h"
 #include "softbody/CIrrBPRopeSoftBody.h"
@@ -88,7 +88,7 @@ public:
 	  @param node scene node to which engage the body
 	  @param mass body's mass
 	  @param bodyId a irrlicht-style body id
-	  @param bodyOrientation the object' axis orientation. /\ has an Y orientation.
+	  @param bodyOrientation the object' axis orientation. // has an Y orientation.
 	  @return Pointer to the object.
 	*/
 	CIrrBPConeBody * addRigidCone(ISceneNode * node, irr::f32 mass, irr::s32 bodyId = -1,BODY_OR bodyOrientationAxis=AUTO);
@@ -111,7 +111,7 @@ public:
 	  @return Pointer to the object.
 	*/
 	CIrrBPTrimesh * addTrimesh (IAnimatedMeshSceneNode * node,irr::f32 mass, irr::s32 bodyId = -1);
-	
+
 	/*!
 	  Adds a rigid trimesh into the world
 	  @param node scene node to which engage the body
@@ -150,7 +150,7 @@ public:
 	CIrrBPRopeSoftBody * addRopeSoftBody(const vector3df & from ,const vector3df & to,irr::f32 mass,int res=-1);
 
 	/*!
-	  Adds a cloth\patch (soft body) into the world. You must specify the 4 cloth' corners.
+	  Adds a cloth/patch (soft body) into the world. You must specify the 4 cloth' corners.
 	  @param corner00 first corner
 	  @param corner01 second corner
 	  @param corner10 third corner
@@ -217,7 +217,7 @@ public:
 		@return pointer to the constraint
 	*/
 	CIrrBPHingeConstraint * buildHingeConstraint(CIrrBPRigidBody * bodyA,const vector3df & pivotInA,const vector3df & axisInA);
-	
+
 	/*!
 		Builds and attach a hinge constraint to the body.
 
@@ -232,7 +232,7 @@ public:
 	CIrrBPHingeConstraint * buildHingeConstraint(CIrrBPRigidBody * bodyA,CIrrBPRigidBody * bodyB,const vector3df & pivotInA,const vector3df & pivotInB,const vector3df & axisInA,const vector3df & axisInB);
 
 
-	/*! 
+	/*!
 		Creates a delete animator to attach to a body.
 
 		@param timeMs Time after which the body will be deleted
@@ -264,7 +264,7 @@ public:
 		@param callback Pointer to the user call back class.
 		@return pointer to the animator
 	*/
-	
+
 	CIrrBPTimeCallbackAnimator * createTimeCallbackAnimator(irr::s32 timeMs,EndTimeCallback * callback);
 
 	/*!

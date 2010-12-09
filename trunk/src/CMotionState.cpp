@@ -1,5 +1,5 @@
 #include "CMotionState.h"
-#include "Body/CIrrBPRigidBody.h"
+#include "body/CIrrBPRigidBody.h"
 
 using namespace irr;
 using namespace core;
@@ -19,12 +19,12 @@ CMotionState::CMotionState(CIrrBPRigidBody * body,const btTransform &startTrans,
 void CMotionState::getWorldTransform(btTransform &worldTrans)
 {
 	worldTrans = 	m_centerOfMassOffset.inverse() * m_graphicsWorldTrans ;
-	
+
 }
 void CMotionState::setWorldTransform(const btTransform &worldTrans)
 {
 	if(m_irrNode)
-	{  
+	{
 		m_irrNode->setPosition(bulletVectorToIrrVector(worldTrans.getOrigin()));
 		m_irrNode->setRotation(QuaternionToIrrEuler(worldTrans.getRotation()));
 		m_graphicsWorldTrans = worldTrans * m_centerOfMassOffset ;

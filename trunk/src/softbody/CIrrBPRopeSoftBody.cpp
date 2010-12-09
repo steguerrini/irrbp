@@ -1,5 +1,5 @@
-#include <SoftBody/CIrrBPRopeSoftBody.h>
-#include "CIrrBpWorld.h"
+#include <softbody/CIrrBPRopeSoftBody.h>
+#include "CIrrBPWorld.h"
 
 CIrrBPRopeSoftBody::~CIrrBPRopeSoftBody()
 {

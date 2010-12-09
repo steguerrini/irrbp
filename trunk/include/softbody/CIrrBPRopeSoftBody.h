@@ -1,8 +1,8 @@
 #ifndef CIrrBP_ROPE_SBODY_H_
 #define CIrrBP_ROPE_SBODY_H_
 
-#include "SoftBody/CIrrBPSoftBody.h"
-#include "Body/CIrrBPRigidBody.h"
+#include "softbody/CIrrBPSoftBody.h"
+#include "body/CIrrBPRigidBody.h"
 
 class CIrrBPWorld;
 
@@ -14,7 +14,7 @@ public:
 	void drop() { delete this;}
 	/*Set this to true to draw the rope*/
 	void setDraw(bool Draw) { draw=Draw;}
-	
+
 	void update();
 protected:
 	bool draw;
