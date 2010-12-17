@@ -272,6 +272,14 @@
 					>
 				</File>
 			</Filter>
+			<Filter
+				Name="Actions"
+				>
+				<File
+					RelativePath="..\src\actions\CIrrBPRaycastVehicle.cpp"
+					>
+				</File>
+			</Filter>
 		</Filter>
 		<Filter
 			Name="File di intestazione"
@@ -407,6 +415,22 @@
 				</File>
 				<File
 					RelativePath="..\include\animator\CIrrBPTimeCallBackAnimator.h"
+					>
+				</File>
+			</Filter>
+			<Filter
+				Name="Actions"
+				>
+				<File
+					RelativePath="..\include\actions\CIrrBPActionInterface.h"
+					>
+				</File>
+				<File
+					RelativePath="..\include\actions\CIrrBPRaycastVehicle.h"
+					>
+				</File>
+				<File
+					RelativePath="..\include\actions\wheel.h"
 					>
 				</File>
 			</Filter>
