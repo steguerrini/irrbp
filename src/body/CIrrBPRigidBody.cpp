@@ -125,3 +125,12 @@ bool CIrrBPRigidBody::isKinematic()
 {
 	return kinematic;
 }
+void CIrrBPRigidBody::setDeactivation(bool value)
+{
+	deactivate = value;
+	
+	if(value)
+		m_RigidBody->setActivationState(WANTS_DEACTIVATION);
+	else
+		m_RigidBody->setActivationState(DISABLE_DEACTIVATION);
+}

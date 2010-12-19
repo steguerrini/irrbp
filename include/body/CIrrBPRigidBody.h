@@ -37,6 +37,11 @@ public:
 
 	void setKinematic(bool isKinematic);
 	bool isKinematic();
+
+	//! If set to true, the body can be deactivated, otherwise not.
+	void setDeactivation(bool value);
+
+	bool canDeactivate(){return deactivate;}
 protected:
 	irr::f32 getAutomaticCCDSSR();
 	irr::f32 getAutomaticCCDMT();
@@ -47,7 +52,7 @@ protected:
 	btRigidBody * m_RigidBody;
 
 	bool kinematic;
-
+	bool deactivate;
 
 };
 

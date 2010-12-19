@@ -1,3 +1,6 @@
+r37:
++ Added setDeactivation function in rigidBody class, so the user can manually set the deactivation flag of a body.
+
 IrrBP 0.30 Final (r36):
 + Updated irrBP Project with actions folder
 
