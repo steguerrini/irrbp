@@ -1,3 +1,6 @@
+r38:
++ Fixed a memory bug in the CIrrBPWorld class. It caused a heap corruption after inserting a constraint.
+
 r37:
 + Added setDeactivation function in rigidBody class, so the user can manually set the deactivation flag of a body.
 
