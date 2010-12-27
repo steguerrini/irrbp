@@ -28,25 +28,8 @@ CIrrBPWorld::~CIrrBPWorld()
 	m_worldInfo.m_sparsesdf.GarbageCollect();
 	m_worldInfo.m_sparsesdf.Reset();
 
-	/*Delete all objects*/
-	for(u32 i=0;i<this->collisionObj.size();i++)
-	{
-		World->removeCollisionObject(collisionObj[i]->getPtr());
-		collisionObj[i]->drop();
-	}
-	/*Delete all constraints*/
-	for(u32 i=0;i<this->rigidBodiesConst.size();i++)
-	{
-		World->removeConstraint(rigidBodiesConst[i]->getConstraintPtr());
-		rigidBodiesConst[i]->drop();
-	}
+	clear();
 
-	/*Delete all action intefaces*/
-	for(u32 i=0;i<this->actionObj.size();i++)
-	{
-		World->removeAction(actionObj[i]->getPtr());
-		actionObj[i]->drop();
-	}
 	if(dDrawer)
 		delete dDrawer;
 	delete World;
@@ -105,18 +88,31 @@ CIrrBPWorld::CIrrBPWorld(irr::IrrlichtDevice *device,const vector3df & Gravity)
 }
 void CIrrBPWorld::clear()
 {
-	/*Delete all objects*/
-	for(u32 i=0;i<this->collisionObj.size();i++)
-	{
-		World->removeCollisionObject(collisionObj[i]->getPtr());
-		collisionObj[i]->drop();
-	}
+
 	/*Delete all constraints*/
 	for(u32 i=0;i<this->rigidBodiesConst.size();i++)
 	{
 		World->removeConstraint(rigidBodiesConst[i]->getConstraintPtr());
 		rigidBodiesConst[i]->drop();
 	}
+	rigidBodiesConst.set_used(0);
+
+	/*Delete all objects*/
+	for(u32 i=0;i<this->collisionObj.size();i++)
+	{
+		World->removeCollisionObject(collisionObj[i]->getPtr());
+		collisionObj[i]->drop();
+	}
+	collisionObj.set_used(0);
+
+	/*Delete all action intefaces*/
+	for(u32 i=0;i<this->actionObj.size();i++)
+	{
+		World->removeAction(actionObj[i]->getPtr());
+		actionObj[i]->drop();
+	}
+
+	actionObj.set_used(0);
 }
 bool CIrrBPWorld::getBodyCollidingPoint(CIrrBPCollisionObject *body, contactPoint * dCP)
 {
