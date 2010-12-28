@@ -101,15 +101,17 @@ void CIrrBPRigidBody::setPosition(const vector3df & newPos)
 
 vector3df CIrrBPRigidBody::getRotation()
 {
-	return QuaternionToIrrEuler(m_RigidBody->getWorldTransform().getRotation());
+	return bulletTransformToIrrRotation(m_RigidBody->getWorldTransform());
 }
 
 void CIrrBPRigidBody::setRotation(const vector3df & newPos)
 {
 	m_IrrSceneNode->setRotation(newPos);
-	btTransform  tr = m_RigidBody->getWorldTransform();
-	tr.setRotation(irrRotationToBulletQuaterion(newPos));
-	m_RigidBody->setWorldTransform(tr);
+	btTransform bt;
+	bt = irrRotationToBulletTransform(newPos);
+	bt.setOrigin(m_RigidBody->getWorldTransform().getOrigin());
+	
+	m_RigidBody->setWorldTransform(bt);
 }
 
 void CIrrBPRigidBody::setKinematic(bool isKinematic)

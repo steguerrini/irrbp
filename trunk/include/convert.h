@@ -42,9 +42,22 @@ namespace bullet
 		return bulletVectorToIrrVector(bulletEuler);
 	}
 
-	inline static btQuaternion irrRotationToBulletQuaterion(const vector3df & rotation)
+	inline static irr::core::vector3df bulletTransformToIrrRotation(const btTransform & tr)
 	{
-		return btQuaternion(degToRad(rotation.Y),degToRad(rotation.X),degToRad(rotation.Z));
+		irr::core::matrix4 mat;
+		irr::f32 * ptr;
+		ptr = mat.pointer();
+		tr.getOpenGLMatrix(ptr);
+		return mat.getRotationDegrees();
+	}
+	inline static btTransform irrRotationToBulletTransform(const vector3df & rotation)
+	{
+		irr::core::matrix4 mat;
+		mat.setRotationDegrees(rotation);
+		btTransform tr;
+		tr.setFromOpenGLMatrix(mat.pointer());
+
+		return tr;
 	}
 
 	static btTransform getTransformFromIrrlichtNode(const ISceneNode * irrNode)

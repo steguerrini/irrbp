@@ -26,7 +26,9 @@ void CMotionState::setWorldTransform(const btTransform &worldTrans)
 	if(m_irrNode)
 	{
 		m_irrNode->setPosition(bulletVectorToIrrVector(worldTrans.getOrigin()));
-		m_irrNode->setRotation(QuaternionToIrrEuler(worldTrans.getRotation()));
+		//Seems to be more precise
+		m_irrNode->setRotation(bulletTransformToIrrRotation(worldTrans));
+		//m_irrNode->setRotation(QuaternionToIrrEuler(worldTrans.getRotation()));
 		m_graphicsWorldTrans = worldTrans * m_centerOfMassOffset ;
 
 	}

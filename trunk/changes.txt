@@ -1,3 +1,8 @@
+r40:
++ Fixed setRotation() and getRotation() methods. [issue 4]
++ Fixed body collding test functions. [issue 5]
++ Increased rotation precision by introducing a new conversion method, based on matrix.
+
 r39:
 + Added isPairColliding method to test collision between two objects.
 
