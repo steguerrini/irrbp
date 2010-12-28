@@ -162,6 +162,17 @@ public:
 		@return body colliding status.
 	*/
 	bool getBodyCollidingPoint(CIrrBPCollisionObject *body, contactPoint * dCP);
+
+	/*!
+		Checks if a pairs of bodies is colliding or not and returns the contact point.
+		@param body1 body to verify
+		@param body2 second body to verify
+		@param dCP pointer to the contactPoint destination (NULL if you don't need contactPoint information).
+		@param returnSecondPoint if dCP is passed, setting this parameter to TRUE will return the second body's relative contact point.
+		@return body colliding status.
+	*/
+	bool isPairColliding(CIrrBPCollisionObject *body1,CIrrBPCollisionObject *body2, contactPoint * dCP=NULL, bool returnSecondPoint=false);
+
 	/*!
 		Drop the world pointer and all his child.
 		Please note that all registered rigid bodies pointers, will be destroyed.
