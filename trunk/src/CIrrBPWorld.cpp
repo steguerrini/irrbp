@@ -3,21 +3,40 @@
 struct collisionCallback : public btCollisionWorld::ContactResultCallback
 {
 	bool collided;
+	//Position World On First Body
 	btVector3 pos;
+	//Position World On Second Body
+	btVector3 pos2;
 	btCollisionObject* obj;
-   collisionCallback(btCollisionObject* colObj)
+	btCollisionObject* obj2;
+   collisionCallback(btCollisionObject* colObj,btCollisionObject* colObj2 = NULL)
    {
 		collided=false;
 		obj = colObj;
+		obj2 = colObj2;
    }
    virtual   btScalar   addSingleResult(btManifoldPoint& cp,   const btCollisionObject* colObj0,int partId0,int index0,const btCollisionObject* colObj1,int partId1,int index1)
    {
-     if(colObj0 == obj)
-      pos = cp.getPositionWorldOnA();
+	 if(obj2 == NULL)
+	 {
+		if(colObj0 == obj)
+		{
+			pos = cp.getPositionWorldOnA();
+			pos2 = cp.getPositionWorldOnB();
+		}
+		else
+		{
+			pos = cp.getPositionWorldOnB();
+			pos2 = cp.getPositionWorldOnA();
+		}
+	 }
 	 else
-      pos = cp.getPositionWorldOnB();
+	 {
+		 pos = cp.getPositionWorldOnA();
+		 pos2 = cp.getPositionWorldOnB();
+	 }
 	 collided=true;
-      return 0;
+     return 0;
    }
 };
 
@@ -113,6 +132,27 @@ void CIrrBPWorld::clear()
 	}
 
 	actionObj.set_used(0);
+}
+bool CIrrBPWorld::isPairColliding(CIrrBPCollisionObject *body1,CIrrBPCollisionObject *body2, contactPoint * dCP, bool returnSecondPoint)
+{
+	if(!body1)
+		assert(!body1);
+	if(!body2)
+		assert(!body2);
+	collisionCallback cBack(body1->getPtr(),body2->getPtr());
+	World->contactPairTest(body1->getPtr(),body2->getPtr(),cBack);	
+
+	if(dCP)
+	{
+		if(!returnSecondPoint)
+			dCP->point = bulletVectorToIrrVector(cBack.pos);
+		else
+			dCP->point = bulletVectorToIrrVector(cBack.pos2);
+		dCP->contact = cBack.collided;
+	}
+	
+	return cBack.collided;
+
 }
 bool CIrrBPWorld::getBodyCollidingPoint(CIrrBPCollisionObject *body, contactPoint * dCP)
 {
