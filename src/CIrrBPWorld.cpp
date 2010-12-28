@@ -169,23 +169,28 @@ bool CIrrBPWorld::getBodyCollidingPoint(CIrrBPCollisionObject *body, contactPoin
 bool CIrrBPWorld::isBodyColliding(CIrrBPCollisionObject *body)
 {
 	const int numManifolds = World->getDispatcher()->getNumManifolds();
-	   
-   int i;
-   for (i=0;i<numManifolds;i++)
-   {
-      
+	for (int i=0;i<numManifolds;i++)
+	{
+		btPersistentManifold* contactManifold =  World->getDispatcher()->getManifoldByIndexInternal(i);
+		btCollisionObject* obA = static_cast<btCollisionObject*>(contactManifold->getBody0());
+		btCollisionObject* obB = static_cast<btCollisionObject*>(contactManifold->getBody1());
+		if(obA == body->getPtr() || obB == body->getPtr())
+		{
+			int numContacts = contactManifold->getNumContacts();
 
-      btPersistentManifold* contactManifold = World->getDispatcher()->getManifoldByIndexInternal(i);
-      btCollisionObject* obA = static_cast<btCollisionObject*>(contactManifold->getBody0());
-      btCollisionObject* obB = static_cast<btCollisionObject*>(contactManifold->getBody1());
-	  if(obA == body->getPtr() || obB == body->getPtr())
-	  {
-//				  (*contactPoint)= bulletVectorToIrrVector(obA == body->getPtr()?contactManifold->getContactPoint(0).getPositionWorldOnA() : contactManifold->getContactPoint(0).getPositionWorldOnB());
-					  return true;
-	  }
-	   
-   } 
-   return false;
+			if (numContacts == 0)
+				return false;
+
+			for (int j=0;j<numContacts;j++)
+			{
+				btManifoldPoint& pt = contactManifold->getContactPoint(j);
+				if (pt.getDistance()>0.f)
+					return false;
+			}
+			return true;
+		}
+	}
+	return false;
 }
 void CIrrBPWorld::addSoftBody(CIrrBPSoftBody * sbody)
 {
