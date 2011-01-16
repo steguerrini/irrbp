@@ -1,3 +1,7 @@
+IrrBP 0.31 (r41):
++ Fixed linux path issue
++ Created new download package for linux
+
 r40:
 + Fixed setRotation() and getRotation() methods. [issue 4]
 + Fixed body collding test functions. [issue 5]
