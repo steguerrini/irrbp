@@ -1,5 +1,5 @@
 #include <softbody/CIrrBPPatchSoftBody.h>
-#include "CIrrBpWorld.h"
+#include "CIrrBPWorld.h"
 
 CIrrBPPatchSoftBody::~CIrrBPPatchSoftBody()
 {
