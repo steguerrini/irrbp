@@ -1,3 +1,6 @@
+r43:
++ Fixed Code::Blocks Project
+
 IrrBP 0.31-Release (r42):
 + Added 6DOF Constraint
 + New Constructor for the cone twist constraint

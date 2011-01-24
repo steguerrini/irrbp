@@ -70,6 +70,7 @@
 		<Unit filename="..\include\body\CIrrBPRigidBody.h" />
 		<Unit filename="..\include\body\CIrrBPSphereBody.h" />
 		<Unit filename="..\include\body\CIrrBPTrimeshBody.h" />
+		<Unit filename="..\include\constraint\CIrrBP6DOFConstraint.h" />
 		<Unit filename="..\include\constraint\CIrrBPConeTwistConstraint.h" />
 		<Unit filename="..\include\constraint\CIrrBPConstraint.h" />
 		<Unit filename="..\include\constraint\CIrrBPHingeConstraint.h" />
@@ -99,6 +100,7 @@
 		<Unit filename="..\src\body\CIrrBPRigidBody.cpp" />
 		<Unit filename="..\src\body\CIrrBPSphereBody.cpp" />
 		<Unit filename="..\src\body\CIrrBPTrimeshBody.cpp" />
+		<Unit filename="..\src\constraint\CIrrBP6DOFConstraint.cpp" />
 		<Unit filename="..\src\constraint\CIrrBPConeTwistConstraint.cpp" />
 		<Unit filename="..\src\constraint\CIrrBPConstraint.cpp" />
 		<Unit filename="..\src\constraint\CIrrBPHingeConstraint.cpp" />
