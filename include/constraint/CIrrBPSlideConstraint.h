@@ -66,18 +66,18 @@ public:
 	void setRestitutionOrthoAng(irr::f32 restitutionOrthoAng) { m_fixedConstraint->setRestitutionOrthoAng(restitutionOrthoAng); }
 	void setDampingOrthoAng(irr::f32 dampingOrthoAng) { m_fixedConstraint->setDampingOrthoAng(dampingOrthoAng); }
 	void setPoweredLinMotor(bool onOff) { m_fixedConstraint->setPoweredLinMotor(onOff); }
-	bool getPoweredLinMotor() { return m_fixedConstraint->getPoweredLinMotor(); }/*
-	void setTargetLinMotorVelocity(btScalar targetLinMotorVelocity) { m_targetLinMotorVelocity = targetLinMotorVelocity; }
-	btScalar getTargetLinMotorVelocity() { return m_targetLinMotorVelocity; }
-	void setMaxLinMotorForce(btScalar maxLinMotorForce) { m_maxLinMotorForce = maxLinMotorForce; }
-	btScalar getMaxLinMotorForce() { return m_maxLinMotorForce; }
-	void setPoweredAngMotor(bool onOff) { m_poweredAngMotor = onOff; }
-	bool getPoweredAngMotor() { return m_poweredAngMotor; }
-	void setTargetAngMotorVelocity(btScalar targetAngMotorVelocity) { m_targetAngMotorVelocity = targetAngMotorVelocity; }
-	btScalar getTargetAngMotorVelocity() { return m_targetAngMotorVelocity; }
-	void setMaxAngMotorForce(btScalar maxAngMotorForce) { m_maxAngMotorForce = maxAngMotorForce; }
-	btScalar getMaxAngMotorForce() { return m_maxAngMotorForce; }
-	btScalar getLinearPos() { return m_linPos; }/**/
+	bool getPoweredLinMotor() { return m_fixedConstraint->getPoweredLinMotor(); }
+	void setTargetLinMotorVelocity(irr::f32 targetLinMotorVelocity) { m_fixedConstraint->setTargetLinMotorVelocity(targetLinMotorVelocity); }
+	irr::f32 getTargetLinMotorVelocity() { return  m_fixedConstraint->getTargetLinMotorVelocity(); }
+	void setMaxLinMotorForce(irr::f32 maxLinMotorForce) {  m_fixedConstraint->setMaxLinMotorForce(maxLinMotorForce); }
+	irr::f32 getMaxLinMotorForce() { return  m_fixedConstraint->getMaxLinMotorForce(); }
+	void setPoweredAngMotor(bool onOff) {  m_fixedConstraint->setPoweredAngMotor(onOff); }
+	bool getPoweredAngMotor() { return  m_fixedConstraint->getPoweredAngMotor(); }
+	void setTargetAngMotorVelocity(irr::f32 targetAngMotorVelocity) { m_fixedConstraint-> setTargetAngMotorVelocity(targetAngMotorVelocity); }
+	irr::f32 getTargetAngMotorVelocity() { return  m_fixedConstraint->getTargetAngMotorVelocity(); }
+	void setMaxAngMotorForce(irr::f32 maxAngMotorForce) {  m_fixedConstraint->setMaxAngMotorForce( maxAngMotorForce); }
+	irr::f32 getMaxAngMotorForce() { return m_fixedConstraint-> getMaxAngMotorForce(); }
+	irr::f32 getLinearPos() { return m_fixedConstraint-> getLinearPos(); }
 	
 	void drop(){delete this;}
 protected:

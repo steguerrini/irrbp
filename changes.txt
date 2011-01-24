@@ -1,3 +1,9 @@
+IrrBP 0.31-Release (r42):
++ Added 6DOF Constraint
++ New Constructor for the cone twist constraint
++ Improved Slide Constraint
++ LINUX PACKAGE ADDED
+
 IrrBP 0.31 (r41):
 + Fixed linux path issue
 + Created new download package for linux
