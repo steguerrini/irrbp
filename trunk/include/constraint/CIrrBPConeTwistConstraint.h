@@ -7,6 +7,7 @@ class CIrrBPConeTwistConstraint: public CIrrBPConstraint
 {
 public:
 	CIrrBPConeTwistConstraint(CIrrBPRigidBody * bodyA,CIrrBPRigidBody * bodyB,const vector3df & pivotInA=vector3df(0,0,0),const vector3df & pivotInB=vector3df(0,0,0));
+	CIrrBPConeTwistConstraint(CIrrBPRigidBody * bodyA,const vector3df & pivotInA=vector3df(0,0,0));
 	void drop() { delete this; }
 	void setLimit (int limitIndex, irr::f32 limitValue) { m_fixedConstraint->setLimit(limitIndex,limitValue); }
 	void setLimit (irr::f32 _swingSpan1, irr::f32 _swingSpan2, irr::f32 _twistSpan, irr::f32 _softness=1.f, irr::f32 _biasFactor=0.3f, irr::f32 _relaxationFactor=1.0f) 
