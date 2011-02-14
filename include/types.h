@@ -51,7 +51,14 @@
 
 	struct contactPoint
 	{
+		contactPoint(){ body = NULL;}
+		//!Contact Exists
 		bool contact;
+
+		//!Point of contact
 		irr::core::vector3df point;
+
+		//! This pointer is only set by some routines to tell which body is colliding to.
+		class CIrrBPCollisionObject * body;
 	};
 #endif
