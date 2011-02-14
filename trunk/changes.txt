@@ -1,3 +1,7 @@
+r44:
++ Modified contactPoint structure
++ Added rayCastTest method in CIrrBPWorld class (beta)
+
 r43:
 + Fixed Code::Blocks Project
 

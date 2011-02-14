@@ -40,6 +40,7 @@ struct collisionCallback : public btCollisionWorld::ContactResultCallback
    }
 };
 
+
 CIrrBPWorld::~CIrrBPWorld()
 {
 	isClosing=true;
@@ -133,6 +134,33 @@ void CIrrBPWorld::clear()
 
 	actionObj.set_used(0);
 }
+CIrrBPCollisionObject * CIrrBPWorld::getObjectByPointer(btCollisionObject* cObj)
+{
+	for(irr::u32 i=0;i<collisionObj.size();i++)
+		if(collisionObj[i]->getPtr() == cObj)
+			return collisionObj[i];
+	return NULL;
+}
+bool CIrrBPWorld::rayCastTest(vector3df from,vector3df to, irr::core::array<contactPoint> * points)
+{
+	btCollisionWorld::AllHitsRayResultCallback cb(irrVectorToBulletVector(from),irrVectorToBulletVector(to));
+	
+	World->rayTest(irrVectorToBulletVector(from),irrVectorToBulletVector(to),cb);
+	bool hit = cb.hasHit();
+	if(points)
+	{
+		for(int i=0;i<cb.m_collisionObjects.size();i++)
+		{
+			contactPoint cp;
+			cp.contact = true;
+			cp.point = bulletVectorToIrrVector(cb.m_hitPointWorld[i]);
+			cp.body = getObjectByPointer(cb.m_collisionObjects[i]);
+			(*points).push_back(cp);
+		}
+	}
+	return hit;
+
+}
 bool CIrrBPWorld::isPairColliding(CIrrBPCollisionObject *body1,CIrrBPCollisionObject *body2, contactPoint * dCP, bool returnSecondPoint)
 {
 	if(!body1)
@@ -164,6 +192,7 @@ bool CIrrBPWorld::getBodyCollidingPoint(CIrrBPCollisionObject *body, contactPoin
 	World->contactTest(body->getPtr(),cBack);
 	dCP->point = bulletVectorToIrrVector(cBack.pos);
 	dCP->contact = cBack.collided;
+	dCP->body = body;
 	return cBack.collided;
 }
 bool CIrrBPWorld::isBodyColliding(CIrrBPCollisionObject *body)

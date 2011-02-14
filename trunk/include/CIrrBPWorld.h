@@ -34,6 +34,7 @@ using namespace gui;
 using namespace video;
 using namespace bullet;
 
+
 class CIrrBPWorld
 {
 public:
@@ -262,10 +263,20 @@ public:
 	void autoMaxSubSteps(int minFPS);
 
 	/*!
+		Performs a raycast test through all bodies in the world.
+		@param from line start point
+		@param to line end point
+		@param point contact points array (NULL if you don't need to receive the contact points)
+		@return returns true if the collision occur.
+	*/
+	bool rayCastTest(vector3df from,vector3df to, irr::core::array<contactPoint> * points=NULL);
+
+	/*!
 		Cleans the bullet world: removes all bodies and joints
 	*/
 	void clear();
 private:
+	CIrrBPCollisionObject * getObjectByPointer(btCollisionObject* cObj);
 	inline void updateObjects();
 
 	btSoftBodyRigidBodyCollisionConfiguration* CollisionConfiguration;
