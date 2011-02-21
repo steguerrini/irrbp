@@ -26,6 +26,10 @@ CIrrBPRigidBody::~CIrrBPRigidBody()
 	
 	m_RigidBody = NULL;
 }
+void CIrrBPRigidBody::activate(bool force)
+{
+	m_RigidBody->activate(force);
+}
 void CIrrBPRigidBody::applyCentralImpulse(const irr::core::vector3df &impulse)
 {
 	m_RigidBody->applyCentralImpulse(irrVectorToBulletVector(impulse));
