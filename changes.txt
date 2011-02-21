@@ -1,3 +1,7 @@
+r45:
++ Added activate function to Rigid Body class, to force body activation.
++ Removed unused pointer from the bullet's rigid body. Unused since CMotionState class introduction.
+
 r44:
 + Modified contactPoint structure
 + Added rayCastTest method in CIrrBPWorld class (beta)

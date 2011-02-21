@@ -271,6 +271,7 @@ public:
 	*/
 	bool rayCastTest(vector3df from,vector3df to, irr::core::array<contactPoint> * points=NULL);
 
+	const array<CIrrBPCollisionObject *> & getCollisionObjectsList(){return collisionObj;}
 	/*!
 		Cleans the bullet world: removes all bodies and joints
 	*/

@@ -23,6 +23,8 @@ public:
 	virtual void  applyTorqueImpulse (const vector3df &torque) ;
 	virtual void  applyImpulse (const vector3df &impulse, const vector3df &rel_pos) ;
 
+	void activate(bool force=false);
+
 	virtual btRigidBody * getBodyPtr() {return m_RigidBody;};
 	virtual CMotionState * getMotionState() {return m_MotionState;}
 
