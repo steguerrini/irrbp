@@ -43,12 +43,19 @@ using namespace video;
 class CIrrBPManager
 {
 public:
-	 /*!
+	 
+	/*!
         Constructor.
         @param device A pointer to a Irrlicht's device
     */
-
 	CIrrBPManager(IrrlichtDevice * device);
+
+	/*!
+        Constructor for multithreaded irrBP.
+        @param device A pointer to a Irrlicht's device
+    */
+	CIrrBPManager(IrrlichtDevice * device, int numThreads);
+
 	~CIrrBPManager();
 
 	/*!

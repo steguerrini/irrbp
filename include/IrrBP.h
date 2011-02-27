@@ -214,5 +214,9 @@ static CIrrBPManager * createBulletManager(IrrlichtDevice *device)
 {
 	return new CIrrBPManager(device);
 }
+static CIrrBPManager * createMultithreadedBulletManager(IrrlichtDevice *device, int numThread=4)
+{
+	return new CIrrBPManager(device,numThread);
+}
 
 #endif

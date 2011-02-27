@@ -1,4 +1,65 @@
 #include "CIrrBPWorld.h"
+#ifdef _WIN32
+#include "BulletMultiThreaded/Win32ThreadSupport.h"
+#else
+#include "BulletMultiThreaded/PosixThreadSupport.h"
+#endif
+
+#include "BulletMultiThreaded/SpuNarrowPhaseCollisionTask/SpuGatheringCollisionTask.h"
+
+#include "BulletMultiThreaded/btParallelConstraintSolver.h"
+#include "BulletMultiThreaded/SequentialThreadSupport.h"
+
+#include "BulletMultiThreaded/SpuGatheringCollisionDispatcher.h"
+#include "BulletMultiThreaded/PlatformDefinitions.h"
+
+#include "BulletCollision/CollisionDispatch/btSimulationIslandManager.h"
+
+/*Multithreaded irrBP utilites*/
+/* - START - */
+
+#ifndef _IRR_WINDOWS_
+	#ifndef USE_PTHREADS
+		#ifdef _IRR_POSIX_API_
+		#define USE_PTHREADS
+		#else
+		#warning Cannot use irrBP with multithread support (only works with Win32 and Posix compliant systems).
+		#endif	
+	#endif
+#endif
+
+btThreadSupportInterface* createSolverThreadSupport(int maxNumThreads)
+{
+
+
+#ifdef _WIN32
+	Win32ThreadSupport::Win32ThreadConstructionInfo threadConstructionInfo("solverThreads",SolverThreadFunc,SolverlsMemoryFunc,maxNumThreads);
+	Win32ThreadSupport* threadSupport = new Win32ThreadSupport(threadConstructionInfo);
+	threadSupport->startSPU();
+#elif defined (USE_PTHREADS)
+	PosixThreadSupport::ThreadConstructionInfo solverConstructionInfo("solver", SolverThreadFunc,
+																	  SolverlsMemoryFunc, maxNumThreads);
+	
+	PosixThreadSupport* threadSupport = new PosixThreadSupport(solverConstructionInfo);
+	
+#else
+	SequentialThreadSupport::SequentialThreadConstructionInfo tci("solverThreads",SolverThreadFunc,SolverlsMemoryFunc);
+	SequentialThreadSupport* threadSupport = new SequentialThreadSupport(tci);
+	threadSupport->startSPU();
+#endif
+	
+	return threadSupport;
+}
+
+btAlignedObjectArray<void*> sLocalStorePointers;
+
+void* createCollisionLocalStoreMemoryWithDelete()
+{
+void* localStore = createCollisionLocalStoreMemory();
+sLocalStorePointers.push_back(localStore);
+return localStore;
+}
+/* - END - */
 
 struct collisionCallback : public btCollisionWorld::ContactResultCallback
 {
@@ -53,32 +114,87 @@ CIrrBPWorld::~CIrrBPWorld()
 	if(dDrawer)
 		delete dDrawer;
 	delete World;
+	
+	
 	delete constraintSolver;
+	
+	if (m_threadSupportSolver) //!Only multithread
+	{
+		delete m_threadSupportSolver;
+	}
+		
 	delete pairCache;
 	delete dispatcher;
+	
+	if (m_threadSupportCollision) //!Only multithread
+	{
+		delete m_threadSupportCollision;
+	}
 	delete CollisionConfiguration;
 	
+	for (int i=0;i<sLocalStorePointers.size();i++) //!Only multithread
+	{
+		delete sLocalStorePointers[i];
+	}
+	sLocalStorePointers.clear();
 
 	cout<<"# IrrBP closed successfully!"<<endl;
 
 }
-CIrrBPWorld::CIrrBPWorld(irr::IrrlichtDevice *device,const vector3df & Gravity)
+CIrrBPWorld::CIrrBPWorld(irr::IrrlichtDevice *device,const vector3df & Gravity, bool multithread, int maxtasks)
 {
 	cout<<"# # # IrrBP - Version "<<IrrBP_MAJOR_VERSION<<"."<<IrrBP_MINOR_VERSION<<"."<<IrrBP_REVISION_VERSION<<" # # #"<<endl;
 	cout<<"# Initializing new Irr-Bullet World..."<<endl;
+	if(multithread)
+		cout<<"# Using IrrBP Multithreaded (beta)"<<endl;
+
+	//Sets the thread supporters to NULL
+	m_threadSupportSolver = NULL;
+	m_threadSupportCollision = NULL;
+
 	this->device = device;
 	this->driver = device->getVideoDriver();
 
 	this->Gravity = irrVectorToBulletVector(Gravity);
 	
+	if(multithread)
+	{
+		#ifdef _WIN32
+		m_threadSupportCollision = new Win32ThreadSupport(Win32ThreadSupport::Win32ThreadConstructionInfo(
+								"collision",
+								processCollisionTask,
+								createCollisionLocalStoreMemoryWithDelete,
+								maxtasks));
+
+		#elif defined (USE_PTHREADS)
+			PosixThreadSupport::ThreadConstructionInfo constructionInfo("collision",
+										processCollisionTask,
+										createCollisionLocalStoreMemory,
+										maxtasks);
+			m_threadSupportCollision = new PosixThreadSupport(constructionInfo);
+		#else
+
+			SequentialThreadSupport::SequentialThreadConstructionInfo colCI("collision",processCollisionTask,createCollisionLocalStoreMemory);
+			SequentialThreadSupport* m_threadSupportCollision = new SequentialThreadSupport(colCI);
+				
+		#endif 
+
+		m_threadSupportSolver = createSolverThreadSupport(maxtasks);
+	}
 	CollisionConfiguration = new btSoftBodyRigidBodyCollisionConfiguration();
 	//CollisionConfiguration->setConvexConvexMultipointIterations();
-	dispatcher = new btCollisionDispatcher(CollisionConfiguration);
+	if(!multithread)
+		dispatcher = new btCollisionDispatcher(CollisionConfiguration);
+	else
+		dispatcher = new SpuGatheringCollisionDispatcher(m_threadSupportCollision,maxtasks,CollisionConfiguration);
 
 	
 	pairCache = new btDbvtBroadphase();
 
-	constraintSolver = new btSequentialImpulseConstraintSolver();
+	if(!multithread)
+		constraintSolver = new btSequentialImpulseConstraintSolver();
+	else
+		constraintSolver = new btParallelConstraintSolver(m_threadSupportSolver);
 	
     World = new btSoftRigidDynamicsWorld(dispatcher, pairCache,
         constraintSolver, CollisionConfiguration);
@@ -90,6 +206,14 @@ CIrrBPWorld::CIrrBPWorld(irr::IrrlichtDevice *device,const vector3df & Gravity)
 	isClosing = false;
 
 	dDrawer = NULL;
+
+	/*Multithread data*/
+	if(multithread)
+	{
+		World->getSimulationIslandManager()->setSplitIslands(false);
+		World->getSolverInfo().m_solverMode = SOLVER_SIMD+SOLVER_USE_WARMSTARTING;//+SOLVER_RANDMIZE_ORDER;
+		World->getDispatchInfo().m_enableSPU = true;
+	}	
 
 	/*Set soft body informer*/
 	

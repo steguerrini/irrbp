@@ -10,6 +10,15 @@ CIrrBPManager::CIrrBPManager(IrrlichtDevice * device)
 
 	m_bulletWorld = new CIrrBPWorld(device,vector3df(0,0,0));
 }
+CIrrBPManager::CIrrBPManager(IrrlichtDevice * device, int numThreads)
+{
+	if(device)
+		m_irrDevice = device;
+	else
+		assert(!m_irrDevice);
+
+	m_bulletWorld = new CIrrBPWorld(device,vector3df(0,0,0),true,numThreads);
+}
 CIrrBPManager::~CIrrBPManager()
 {
 	delete m_bulletWorld;
