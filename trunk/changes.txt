@@ -1,3 +1,6 @@
+r46:
++ Added Bullet Multithread Support, activable by using createMultithreadedBulletManager function instead of createBulletManager [BETA - MEMORY LEAKS PRESENT, use at your own risk]
+
 r45:
 + Added activate function to Rigid Body class, to force body activation.
 + Removed unused pointer from the bullet's rigid body. Unused since CMotionState class introduction.

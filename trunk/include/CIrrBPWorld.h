@@ -43,8 +43,10 @@ public:
         Constructor.
         @param device A pointer to a Irrlicht's device
         @param Gravity World's Gravity .
+		@param multithread Uses Multithreaded bullet
+		@param maxtasks If multithread = true, then this value will set the nr of tasks to use bullet in multithread mode.
     */
-	CIrrBPWorld(IrrlichtDevice *device,const vector3df & Gravity);
+	CIrrBPWorld(IrrlichtDevice *device,const vector3df & Gravity, bool multithread=false, int maxtasks=4);
 
 	~CIrrBPWorld();
 
@@ -305,6 +307,9 @@ private:
 
 	irr::f32 timestep;
 	int maxSubSteps;
+
+	class	btThreadSupportInterface*		m_threadSupportCollision;
+	class	btThreadSupportInterface*		m_threadSupportSolver;
 };
 
 #endif
