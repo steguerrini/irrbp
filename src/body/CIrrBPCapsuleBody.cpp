@@ -55,5 +55,6 @@ CIrrBPCapsuleBody::CIrrBPCapsuleBody(ISceneNode * node,irr::f32 mass, irr::s32 b
    collisionObj = m_RigidBody;
 
    setAutomaticCCD();
-
+   
+   m_RBtype = CAPSULE;
 }

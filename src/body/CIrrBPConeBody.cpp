@@ -73,5 +73,6 @@ CIrrBPConeBody::CIrrBPConeBody(ISceneNode * node,irr::f32 mass, irr::s32 bodyId,
   
    collisionObj = m_RigidBody;
    setAutomaticCCD();
+   m_RBtype = CONE;
 
 }

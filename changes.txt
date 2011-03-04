@@ -1,3 +1,6 @@
+r49:
++ Added rigid body type for future function implementations
+
 r48:
 + Corrected an error in rayCastClosestHitTest function
 

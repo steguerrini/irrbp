@@ -23,4 +23,5 @@ CIrrBPSphereBody::CIrrBPSphereBody(irr::scene::ISceneNode *node, irr::f32 mass, 
    
    collisionObj = m_RigidBody;
    setAutomaticCCD();
+   m_RBtype = SPHERE;
 }
