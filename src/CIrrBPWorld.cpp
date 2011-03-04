@@ -287,9 +287,6 @@ bool CIrrBPWorld::rayCastTest(vector3df from,vector3df to, irr::core::array<cont
 }
 bool CIrrBPWorld::rayCastClosestHitTest(vector3df from,vector3df to, contactPoint * point)
 {
-	btCollisionWorld::LocalRayResult rr;
-	rr.m_localShapeInfo->m_triangleIndex
-		
 	btCollisionWorld::ClosestRayResultCallback cb(irrVectorToBulletVector(from),irrVectorToBulletVector(to));
 	
 	World->rayTest(irrVectorToBulletVector(from),irrVectorToBulletVector(to),cb);
