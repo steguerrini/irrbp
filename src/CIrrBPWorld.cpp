@@ -285,6 +285,24 @@ bool CIrrBPWorld::rayCastTest(vector3df from,vector3df to, irr::core::array<cont
 	return hit;
 
 }
+bool CIrrBPWorld::rayCastClosestHitTest(vector3df from,vector3df to, contactPoint * point)
+{
+	btCollisionWorld::LocalRayResult rr;
+	rr.m_localShapeInfo->m_triangleIndex
+		
+	btCollisionWorld::ClosestRayResultCallback cb(irrVectorToBulletVector(from),irrVectorToBulletVector(to));
+	
+	World->rayTest(irrVectorToBulletVector(from),irrVectorToBulletVector(to),cb);
+	bool hit = cb.hasHit();
+	
+	if(point)
+	{
+		point->contact = true;
+		point->point = bulletVectorToIrrVector(cb.m_hitPointWorld);
+		point->body = getObjectByPointer(cb.m_collisionObject);
+	}
+	return hit;
+}
 bool CIrrBPWorld::isPairColliding(CIrrBPCollisionObject *body1,CIrrBPCollisionObject *body2, contactPoint * dCP, bool returnSecondPoint)
 {
 	if(!body1)
