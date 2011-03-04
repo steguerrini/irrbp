@@ -26,5 +26,6 @@ CIrrBPBoxBody::CIrrBPBoxBody(irr::scene::ISceneNode *node, irr::f32 mass, irr::s
    collisionObj = m_RigidBody;
    
    setAutomaticCCD();
+   m_RBtype = BOX;
      
 }

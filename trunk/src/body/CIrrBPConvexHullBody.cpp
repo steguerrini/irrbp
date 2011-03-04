@@ -84,4 +84,5 @@ void CIrrBPConvexHullBody::initializeMesh(IMesh * pMesh,const vector3df & pos, c
     m_RigidBody->setUserPointer(nodePtr);
 	collisionObj = m_RigidBody;
 	setAutomaticCCD();
+	m_RBtype = CONVEXHULL;
 }

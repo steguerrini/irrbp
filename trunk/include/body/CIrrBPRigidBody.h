@@ -44,6 +44,8 @@ public:
 	void setDeactivation(bool value);
 
 	bool canDeactivate(){return deactivate;}
+
+	RIGID_BODY_TYPE getRigidBodyType(){return m_RBtype;}
 protected:
 	irr::f32 getAutomaticCCDSSR();
 	irr::f32 getAutomaticCCDMT();
@@ -52,6 +54,7 @@ protected:
 	CMotionState * m_MotionState;
 	btCollisionShape * m_Shape;
 	btRigidBody * m_RigidBody;
+	RIGID_BODY_TYPE m_RBtype;
 
 	bool kinematic;
 	bool deactivate;

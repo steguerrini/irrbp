@@ -48,7 +48,16 @@
 		VEHICLE,
 		CHARCONTROLLER,
 	};
-
+	enum RIGID_BODY_TYPE
+	{
+		BOX = 1,
+		CAPSULE,
+		CONE,
+		CONVEXHULL,
+		CYLINDER,
+		SPHERE,
+		TRIMESH
+	};
 	struct contactPoint
 	{
 		contactPoint(){ body = NULL;}

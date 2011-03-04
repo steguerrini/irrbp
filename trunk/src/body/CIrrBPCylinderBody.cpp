@@ -53,4 +53,5 @@ CIrrBPCylinderBody::CIrrBPCylinderBody(ISceneNode * node,irr::f32 mass, irr::s32
 
    collisionObj = m_RigidBody;
    setAutomaticCCD();
+   m_RBtype = CYLINDER;
 }

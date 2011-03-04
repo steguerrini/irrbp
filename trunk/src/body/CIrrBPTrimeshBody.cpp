@@ -18,9 +18,6 @@ void CIrrBPTrimesh::initializeMesh(IMesh * mesh, const vector3df & pos, const ve
 	m_indexVertexArrays = irrMeshToBulletTriangleMesh(mesh,scale);
 	m_trimeshShape = new btGImpactMeshShape(m_indexVertexArrays);
 
-
-
-
 	m_MotionState = new CMotionState(this,getTransformFromIrrlichtNode(m_IrrSceneNode));		
 	m_trimeshShape->updateBound();
 	
@@ -35,6 +32,7 @@ void CIrrBPTrimesh::initializeMesh(IMesh * mesh, const vector3df & pos, const ve
 	//m_RigidBody->setActivationState(DISABLE_DEACTIVATION);
 	collisionObj = m_RigidBody;
 	setAutomaticCCD();
+	m_RBtype = TRIMESH;
 	
 }
 
