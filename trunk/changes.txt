@@ -1,3 +1,6 @@
+r47:
++ Added rayCastClosestHitTest function.
+
 r46:
 + Added Bullet Multithread Support, activable by using createMultithreadedBulletManager function instead of createBulletManager [BETA - MEMORY LEAKS PRESENT, use at your own risk]
 

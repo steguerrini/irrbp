@@ -268,10 +268,19 @@ public:
 		Performs a raycast test through all bodies in the world.
 		@param from line start point
 		@param to line end point
-		@param point contact points array (NULL if you don't need to receive the contact points)
+		@param points contact points array (NULL if you don't need to receive the contact points)
 		@return returns true if the collision occur.
 	*/
 	bool rayCastTest(vector3df from,vector3df to, irr::core::array<contactPoint> * points=NULL);
+
+	/*!
+		Performs a raycast test through all bodies in the world, and return only the closest hit.
+		@param from line start point
+		@param to line end point
+		@param point contact point (NULL if you don't need to receive the contact points)
+		@return returns true if the collision occur.
+	*/
+	bool rayCastClosestHitTest(vector3df from,vector3df to, contactPoint * point=NULL);
 
 	const array<CIrrBPCollisionObject *> & getCollisionObjectsList(){return collisionObj;}
 	/*!
