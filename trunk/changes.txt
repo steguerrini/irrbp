@@ -1,3 +1,6 @@
+r48:
++ Corrected an error in rayCastClosestHitTest function
+
 r47:
 + Added rayCastClosestHitTest function.
 
