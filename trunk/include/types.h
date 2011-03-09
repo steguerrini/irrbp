@@ -60,7 +60,16 @@
 	};
 	struct contactPoint
 	{
-		contactPoint(){ body = NULL;}
+		contactPoint()
+		{
+		body = NULL;
+		triangle = NULL;
+		}
+		~contactPoint()
+		{
+			if(triangle)
+				delete triangle;
+		}
 		//!Contact Exists
 		bool contact;
 
@@ -69,5 +78,9 @@
 
 		//! This pointer is only set by some routines to tell which body is colliding to.
 		class CIrrBPCollisionObject * body;
+
+		//!Triangle of impact (only set for bullet trimeshes)
+		irr::core::triangle3df * triangle;
+		
 	};
 #endif
