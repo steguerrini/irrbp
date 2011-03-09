@@ -1,3 +1,7 @@
+r50:
++ Fixed some bugs rayCastTest and rayCastClosestHitTest functions
++ Added support in rayCastTest and rayCastClosestHitTest functions to retrieve the collision triangle (included in the collision point structure)
+
 r49:
 + Added rigid body type for future function implementations
 

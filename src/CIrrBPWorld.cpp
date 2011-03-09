@@ -15,6 +15,7 @@
 
 #include "BulletCollision/CollisionDispatch/btSimulationIslandManager.h"
 
+#include "body/CIrrBPTrimeshBody.h"
 /*Multithreaded irrBP utilites*/
 /* - START - */
 
@@ -265,13 +266,189 @@ CIrrBPCollisionObject * CIrrBPWorld::getObjectByPointer(btCollisionObject* cObj)
 			return collisionObj[i];
 	return NULL;
 }
+
+//Thanks to mihail isakov for the code below
+//Taken from game-ws repository
+bool getTriangleFromCallBack(btCollisionShape * shape,
+									 int hitTriangleIndex,
+									 irr::core::triangle3df & triangle)
+{
+btStridingMeshInterface * meshInterface = NULL;
+
+	if (shape->getShapeType() == GIMPACT_SHAPE_PROXYTYPE)
+	{
+		meshInterface = (static_cast<btGImpactMeshShape*>(shape))->getMeshInterface();
+	}
+	else if (shape->getShapeType() == TRIANGLE_MESH_SHAPE_PROXYTYPE)
+	{
+		meshInterface = (static_cast<btBvhTriangleMeshShape*>(shape))->getMeshInterface();
+	}
+	else
+	{
+	return false;
+	}
+
+	if (!meshInterface) return false;
+
+unsigned char *vertexbase;
+int numverts;
+PHY_ScalarType type;
+int stride;
+unsigned char *indexbase;
+int indexstride;
+int numfaces;
+PHY_ScalarType indicestype;
+
+meshInterface->getLockedVertexIndexBase(
+	&vertexbase,
+	numverts,
+	type,
+	stride,
+	&indexbase,
+	indexstride,
+	numfaces,
+	indicestype,
+	0);
+
+unsigned int * gfxbase = (unsigned int*)(indexbase+hitTriangleIndex*indexstride);
+const btVector3 & meshScaling = shape->getLocalScaling();
+btVector3 triangle_v[3];
+	for (int j=2;j>=0;j--)
+	{
+		int graphicsindex = indicestype==PHY_SHORT?((unsigned short*)gfxbase)[j]:gfxbase[j];
+
+		btScalar * graphicsbase = (btScalar*)(vertexbase+graphicsindex*stride);
+
+//#define TEST_DEFORM
+#ifdef TEST_DEFORM
+		if (shape->getShapeType() == GIMPACT_SHAPE_PROXYTYPE)
+		{
+			// model-specific approximations
+			if ( graphicsindex >= 0 && graphicsindex <= 31)
+			{
+			graphicsbase[0] *= btScalar(0.98);
+			graphicsbase[1] *= btScalar(0.98);
+			graphicsbase[2] *= btScalar(0.98);
+			}
+			else if (graphicsindex >= 32 && graphicsindex <= 33)
+			{
+			graphicsbase[0] *= btScalar(0.91);
+			graphicsbase[1] *= btScalar(0.91);
+			graphicsbase[2] *= btScalar(0.91);
+			}
+			else
+			{
+			graphicsbase[0] *= btScalar(0.88);
+			graphicsbase[1] *= btScalar(0.88);
+			graphicsbase[2] *= btScalar(0.88);
+			}
+		}
+
+#endif
+
+	triangle_v[j] = btVector3(graphicsbase[0]*meshScaling.getX(),
+							  graphicsbase[1]*meshScaling.getY(),
+							  graphicsbase[2]*meshScaling.getZ());	
+
+	}
+
+meshInterface->unLockVertexBase(0);
+
+#ifdef TEST_DEFORM
+	if (shape->getShapeType() == GIMPACT_SHAPE_PROXYTYPE)
+	{
+		btGImpactMeshShape * gimp_shape = static_cast<btGImpactMeshShape*>(shape);
+		gimp_shape->postUpdate();
+	}
+#endif
+
+triangle.pointA = bulletVectorToIrrVector(triangle_v[0]);
+triangle.pointB = bulletVectorToIrrVector(triangle_v[1]);
+triangle.pointC = bulletVectorToIrrVector(triangle_v[2]);
+
+return true;
+}
+
+struct	ClosestRayResultCallback : public btCollisionWorld::RayResultCallback
+{
+	ClosestRayResultCallback(const btVector3&	rayFromWorld,const btVector3&	rayToWorld)
+	:m_rayFromWorld(rayFromWorld),
+	m_rayToWorld(rayToWorld)
+	{
+	}
+
+	btVector3	m_rayFromWorld;//used to calculate hitPointWorld from hitFraction
+	btVector3	m_rayToWorld;
+
+	btVector3	m_hitNormalWorld;
+	btVector3	m_hitPointWorld;
+	int m_hitTriangle;
+	virtual	btScalar addSingleResult(btCollisionWorld::LocalRayResult& rayResult,bool normalInWorldSpace)
+	{
+		m_hitTriangle = rayResult.m_localShapeInfo->m_triangleIndex;
+		m_closestHitFraction = rayResult.m_hitFraction;
+		m_collisionObject = rayResult.m_collisionObject;
+		if (normalInWorldSpace)
+		{
+			m_hitNormalWorld = rayResult.m_hitNormalLocal;
+		} else
+		{
+			///need to transform normal into worldspace
+			m_hitNormalWorld = m_collisionObject->getWorldTransform().getBasis()*rayResult.m_hitNormalLocal;
+		}
+		m_hitPointWorld.setInterpolate3(m_rayFromWorld,m_rayToWorld,rayResult.m_hitFraction);
+		return rayResult.m_hitFraction;
+	}
+};
+
+struct	AllHitsRayResultModCallback : public btCollisionWorld::RayResultCallback
+{
+	AllHitsRayResultModCallback(const btVector3&	rayFromWorld,const btVector3&	rayToWorld)
+	:m_rayFromWorld(rayFromWorld),
+	m_rayToWorld(rayToWorld)
+	{
+	}
+
+	btAlignedObjectArray<btCollisionObject*>		m_collisionObjects;
+
+	btVector3	m_rayFromWorld;//used to calculate hitPointWorld from hitFraction
+	btVector3	m_rayToWorld;
+
+	btAlignedObjectArray<btVector3>	m_hitNormalWorld;
+	btAlignedObjectArray<btVector3>	m_hitPointWorld;
+	btAlignedObjectArray<btScalar> m_hitFractions;
+	btAlignedObjectArray<int> m_hitTriangles;
+	virtual	btScalar	addSingleResult(btCollisionWorld::LocalRayResult& rayResult,bool normalInWorldSpace)
+	{
+		m_collisionObject = rayResult.m_collisionObject;
+		m_collisionObjects.push_back(rayResult.m_collisionObject);
+		m_hitTriangles.push_back(rayResult.m_localShapeInfo->m_triangleIndex);
+		btVector3 hitNormalWorld;
+		if (normalInWorldSpace)
+		{
+			hitNormalWorld = rayResult.m_hitNormalLocal;
+		} else
+		{
+			///need to transform normal into worldspace
+			hitNormalWorld = m_collisionObject->getWorldTransform().getBasis()*rayResult.m_hitNormalLocal;
+		}
+		m_hitNormalWorld.push_back(hitNormalWorld);
+		btVector3 hitPointWorld;
+		hitPointWorld.setInterpolate3(m_rayFromWorld,m_rayToWorld,rayResult.m_hitFraction);
+		m_hitPointWorld.push_back(hitPointWorld);
+		m_hitFractions.push_back(rayResult.m_hitFraction);
+		return m_closestHitFraction;
+	}
+};
+
+
 bool CIrrBPWorld::rayCastTest(vector3df from,vector3df to, irr::core::array<contactPoint> * points)
 {
-	btCollisionWorld::AllHitsRayResultCallback cb(irrVectorToBulletVector(from),irrVectorToBulletVector(to));
+	AllHitsRayResultModCallback cb(irrVectorToBulletVector(from),irrVectorToBulletVector(to));
 	
 	World->rayTest(irrVectorToBulletVector(from),irrVectorToBulletVector(to),cb);
 	bool hit = cb.hasHit();
-	if(points)
+	if(points && hit)
 	{
 		for(int i=0;i<cb.m_collisionObjects.size();i++)
 		{
@@ -279,24 +456,52 @@ bool CIrrBPWorld::rayCastTest(vector3df from,vector3df to, irr::core::array<cont
 			cp.contact = true;
 			cp.point = bulletVectorToIrrVector(cb.m_hitPointWorld[i]);
 			cp.body = getObjectByPointer(cb.m_collisionObjects[i]);
+			if(cp.body->getObjectType() == RIGID_BODY)
+			{
+				if(((CIrrBPRigidBody*)cp.body)->getRigidBodyType() == TRIMESH)
+				{
+					irr::core::triangle3df tr;
+					getTriangleFromCallBack(cb.m_collisionObjects[i]->getCollisionShape(),cb.m_hitTriangles[i],tr);
+					
+					if(cp.triangle)
+						delete cp.triangle;
+					cp.triangle = new irr::core::triangle3df(tr);
+				}
+			}
 			(*points).push_back(cp);
 		}
 	}
 	return hit;
 
 }
+
+
 bool CIrrBPWorld::rayCastClosestHitTest(vector3df from,vector3df to, contactPoint * point)
 {
-	btCollisionWorld::ClosestRayResultCallback cb(irrVectorToBulletVector(from),irrVectorToBulletVector(to));
+	ClosestRayResultCallback cb(irrVectorToBulletVector(from),irrVectorToBulletVector(to));
 	
 	World->rayTest(irrVectorToBulletVector(from),irrVectorToBulletVector(to),cb);
 	bool hit = cb.hasHit();
-	
-	if(point)
+		
+	if(point && hit)
 	{
 		point->contact = true;
 		point->point = bulletVectorToIrrVector(cb.m_hitPointWorld);
 		point->body = getObjectByPointer(cb.m_collisionObject);
+		
+		if(point->body->getObjectType() == RIGID_BODY)
+		{
+			if(((CIrrBPRigidBody*)point->body)->getRigidBodyType() == TRIMESH)
+			{
+				irr::core::triangle3df tr;
+				getTriangleFromCallBack(cb.m_collisionObject->getCollisionShape(),cb.m_hitTriangle,tr);
+
+				if(point->triangle)
+					delete point->triangle;
+				point->triangle = new irr::core::triangle3df(tr);
+
+			}
+		}
 	}
 	return hit;
 }

@@ -9,6 +9,8 @@ public:
 	~CIrrBPTrimesh();
 	CIrrBPTrimesh(IAnimatedMeshSceneNode * node,irr::f32 mass, irr::s32 bodyId = -1);
 	CIrrBPTrimesh(IMeshSceneNode * node,irr::f32 mass, irr::s32 bodyId = -1);
+	const btGImpactMeshShape * getTrimeshShape(){return m_trimeshShape;}
+	const btTriangleMesh * getVertexArrays(){return m_indexVertexArrays;}
 private:
 	btGImpactMeshShape * m_trimeshShape;
 	btTriangleMesh* m_indexVertexArrays;
