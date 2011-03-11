@@ -16,12 +16,12 @@ public:
 	virtual ~CIrrBPRigidBody();
 	virtual void drop() = 0;
 
-	virtual void  applyTorque (const vector3df &torque) ;
-	virtual void  applyForce (const vector3df &force, const vector3df &rel_pos) ;
-	virtual void  applyCentralImpulse (const vector3df &impulse) ;
-	virtual void  applyCentralForce(const vector3df &force);
-	virtual void  applyTorqueImpulse (const vector3df &torque) ;
-	virtual void  applyImpulse (const vector3df &impulse, const vector3df &rel_pos) ;
+	virtual void  applyTorque (const irr::core::vector3df &torque) ;
+	virtual void  applyForce (const irr::core::vector3df &force, const irr::core::vector3df &rel_pos) ;
+	virtual void  applyCentralImpulse (const irr::core::vector3df &impulse) ;
+	virtual void  applyCentralForce(const irr::core::vector3df &force);
+	virtual void  applyTorqueImpulse (const irr::core::vector3df &torque) ;
+	virtual void  applyImpulse (const irr::core::vector3df &impulse, const irr::core::vector3df &rel_pos) ;
 
 	void activate(bool force=false);
 
@@ -29,13 +29,13 @@ public:
 	virtual CMotionState * getMotionState() {return m_MotionState;}
 
 	virtual bool isStaticObject() { return m_RigidBody->isStaticObject();}
-	virtual ISceneNode * getIrrlichtNode() { return m_IrrSceneNode;}
+	virtual irr::scene::ISceneNode * getIrrlichtNode() { return m_IrrSceneNode;}
 
-	vector3df getPosition();
-	void setPosition(const vector3df & newPos);
+	irr::core::vector3df getPosition();
+	void setPosition(const irr::core::vector3df & newPos);
 
-	vector3df getRotation();
-	void setRotation(const vector3df & newPos);
+	irr::core::vector3df getRotation();
+	void setRotation(const irr::core::vector3df & newPos);
 
 	void setKinematic(bool isKinematic);
 	bool isKinematic();
@@ -50,7 +50,7 @@ protected:
 	irr::f32 getAutomaticCCDSSR();
 	irr::f32 getAutomaticCCDMT();
 	void setAutomaticCCD();
-	ISceneNode * m_IrrSceneNode;
+	irr::scene::ISceneNode * m_IrrSceneNode;
 	CMotionState * m_MotionState;
 	btCollisionShape * m_Shape;
 	btRigidBody * m_RigidBody;

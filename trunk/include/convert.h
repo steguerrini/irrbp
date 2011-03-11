@@ -4,20 +4,17 @@
 #include <btBulletCollisionCommon.h>
 #include <btBulletDynamicsCommon.h>
 #include <irrlicht.h>
-using namespace irr;
-using namespace core;
-using namespace video;
-using namespace scene;
+
 #include "actions/wheel.h"
 namespace bullet
 {
-	inline static btVector3 irrVectorToBulletVector(const vector3df & toConvert)
+	inline static btVector3 irrVectorToBulletVector(const irr::core::vector3df & toConvert)
 	{
 		return btVector3(toConvert.X,toConvert.Y,toConvert.Z);
 	}
-	inline static vector3df bulletVectorToIrrVector(const btVector3 & toConvert)
+	inline static irr::core::vector3df bulletVectorToIrrVector(const btVector3 & toConvert)
 	{
-		return vector3df(toConvert.x(),toConvert.y(),toConvert.z());
+		return irr::core::vector3df(toConvert.x(),toConvert.y(),toConvert.z());
 	}
 	inline static void QuaternionToEuler(const btQuaternion &TQuat, btVector3 &TEuler)
 	{
@@ -32,14 +29,14 @@ namespace bullet
 	   TEuler.setX(atan2f(2.0f * (Y * Z + X * W), -XSquared - YSquared + ZSquared + WSquared));
 	   TEuler.setY(asinf(-2.0f * (X * Z - Y * W)));
 	   TEuler.setZ(atan2f(2.0f * (X * Y + Z * W), XSquared - YSquared - ZSquared + WSquared));
-	   TEuler *= RADTODEG;
+	   TEuler *= irr::core::RADTODEG;
 	}
 
-	static vector3df QuaternionToIrrEuler(const btQuaternion &TQuat)
+	static irr::core::vector3df QuaternionToIrrEuler(const btQuaternion &TQuat)
 	{
 		btVector3 bulletEuler;
 		QuaternionToEuler(TQuat,bulletEuler);
-		return bulletVectorToIrrVector(bulletEuler);
+		return bullet::bulletVectorToIrrVector(bulletEuler);
 	}
 
 	inline static irr::core::vector3df bulletTransformToIrrRotation(const btTransform & tr)
@@ -50,7 +47,7 @@ namespace bullet
 		tr.getOpenGLMatrix(ptr);
 		return mat.getRotationDegrees();
 	}
-	inline static btTransform irrRotationToBulletTransform(const vector3df & rotation)
+	inline static btTransform irrRotationToBulletTransform(const irr::core::vector3df & rotation)
 	{
 		irr::core::matrix4 mat;
 		mat.setRotationDegrees(rotation);
@@ -60,23 +57,20 @@ namespace bullet
 		return tr;
 	}
 
-	static btTransform getTransformFromIrrlichtNode(const ISceneNode * irrNode)
+	static btTransform getTransformFromIrrlichtNode(const irr::scene::ISceneNode * irrNode)
 	{
 		btTransform transf;
 		transf.setIdentity();
-		/*If this node is the 1st, we need the relative position due to possible offset.*/
-		transf.setOrigin(irrVectorToBulletVector(irrNode->getPosition()));
-		//transf.setOrigin(irrVectorToBulletVector((*irrNode->getSceneManager()->getRootSceneNode()->getChildren().begin()) != irrNode ?
-		//	irrNode->getAbsolutePosition() : irrNode->getPosition()));
-		transf.getBasis().setEulerZYX(irrNode->getRotation().X * DEGTORAD,irrNode->getRotation().Y* DEGTORAD,irrNode->getRotation().Z* DEGTORAD);
+		transf.setOrigin(bullet::irrVectorToBulletVector(irrNode->getPosition()));
+		transf.getBasis().setEulerZYX(irrNode->getRotation().X * irr::core::DEGTORAD,irrNode->getRotation().Y* irr::core::DEGTORAD,irrNode->getRotation().Z* irr::core::DEGTORAD);
 		return transf;
 	}
 	static btWheelInfoConstructionInfo & irrBPWheelICtoBulletIC(const irrBPWheelInfoConstructionInfo & tc)
 	{
 		btWheelInfoConstructionInfo ci;
-		ci.m_chassisConnectionCS = irrVectorToBulletVector(tc.m_chassisConnectionCS);
-		ci.m_wheelDirectionCS = irrVectorToBulletVector(tc.m_wheelDirectionCS);
-		ci.m_wheelAxleCS = irrVectorToBulletVector(tc.m_wheelAxleCS);
+		ci.m_chassisConnectionCS = bullet::irrVectorToBulletVector(tc.m_chassisConnectionCS);
+		ci.m_wheelDirectionCS = bullet::irrVectorToBulletVector(tc.m_wheelDirectionCS);
+		ci.m_wheelAxleCS = bullet::irrVectorToBulletVector(tc.m_wheelAxleCS);
 		ci.m_suspensionRestLength = tc.m_suspensionRestLength;
 		ci.m_maxSuspensionTravelCm = tc.m_maxSuspensionTravelCm;
 		ci.m_wheelRadius = tc.m_wheelRadius;
@@ -92,14 +86,14 @@ namespace bullet
 	static btWheelInfo::RaycastInfo & irrBPWheelRCItoBulletWheelRCI(const irrBPWheelInfo::RaycastInfo & rci)
 	{
 		btWheelInfo::RaycastInfo ri;
-		ri.m_contactNormalWS = irrVectorToBulletVector(rci.m_contactNormalWS);
-		ri.m_contactPointWS = irrVectorToBulletVector(rci.m_contactPointWS);
+		ri.m_contactNormalWS = bullet::irrVectorToBulletVector(rci.m_contactNormalWS);
+		ri.m_contactPointWS = bullet::irrVectorToBulletVector(rci.m_contactPointWS);
 		
 		ri.m_suspensionLength = rci.m_suspensionLength;
 		
-		ri.m_hardPointWS = irrVectorToBulletVector(rci.m_hardPointWS);
-		ri.m_wheelDirectionWS = irrVectorToBulletVector(rci.m_wheelDirectionWS);  
-		ri.m_wheelAxleWS = irrVectorToBulletVector(rci.m_wheelAxleWS); 
+		ri.m_hardPointWS = bullet::irrVectorToBulletVector(rci.m_hardPointWS);
+		ri.m_wheelDirectionWS = bullet::irrVectorToBulletVector(rci.m_wheelDirectionWS);  
+		ri.m_wheelAxleWS = bullet::irrVectorToBulletVector(rci.m_wheelAxleWS); 
 		ri.m_isInContact = rci.m_isInContact;
 		return ri;
 	}
@@ -115,9 +109,9 @@ namespace bullet
 	}
 	static void irrBPWheelInfotoBulletWheelInfo(const irrBPWheelInfo & info, btWheelInfo & btinfo)
 	{
-		btinfo.m_chassisConnectionPointCS = irrVectorToBulletVector(info.m_chassisConnectionPointCS);
-		btinfo.m_wheelDirectionCS = irrVectorToBulletVector(info.m_wheelDirectionCS);
-		btinfo.m_wheelAxleCS = irrVectorToBulletVector(info.m_wheelAxleCS);
+		btinfo.m_chassisConnectionPointCS = bullet::irrVectorToBulletVector(info.m_chassisConnectionPointCS);
+		btinfo.m_wheelDirectionCS = bullet::irrVectorToBulletVector(info.m_wheelDirectionCS);
+		btinfo.m_wheelAxleCS = bullet::irrVectorToBulletVector(info.m_wheelAxleCS);
 		btinfo.m_suspensionRestLength1 = info.m_suspensionRestLength1;
 		btinfo.m_maxSuspensionTravelCm = info.m_maxSuspensionTravelCm;
 		btinfo.m_wheelsRadius = info.m_wheelsRadius;
@@ -134,9 +128,9 @@ namespace bullet
 	}
 	static void bulletWheelInfotoirrBPWheelInfo(const btWheelInfo & btinfo, irrBPWheelInfo & info )
 	{
-		info.m_chassisConnectionPointCS = bulletVectorToIrrVector(btinfo.m_chassisConnectionPointCS);
-		info.m_wheelDirectionCS = bulletVectorToIrrVector(btinfo.m_wheelDirectionCS);
-		info.m_wheelAxleCS = bulletVectorToIrrVector(btinfo.m_wheelAxleCS);
+		info.m_chassisConnectionPointCS = bullet::bulletVectorToIrrVector(btinfo.m_chassisConnectionPointCS);
+		info.m_wheelDirectionCS = bullet::bulletVectorToIrrVector(btinfo.m_wheelDirectionCS);
+		info.m_wheelAxleCS = bullet::bulletVectorToIrrVector(btinfo.m_wheelAxleCS);
 		info.m_suspensionRestLength1 = btinfo.m_suspensionRestLength1;
 		info.m_maxSuspensionTravelCm = btinfo.m_maxSuspensionTravelCm;
 		info.m_wheelsRadius = btinfo.m_wheelsRadius;
@@ -152,18 +146,18 @@ namespace bullet
 		info.m_skidInfo = btinfo.m_skidInfo;
 	}
 
-	static btTriangleMesh* irrMeshToBulletTriangleMesh(IMesh* pMesh,const vector3df& scaling)
+	static btTriangleMesh* irrMeshToBulletTriangleMesh(irr::scene::IMesh* pMesh,const irr::core::vector3df& scaling)
 	{
 	  btVector3 vertices[3];
-	  u32 i,j,k,index,numVertices,numIndices;
-	  u16* mb_indices;
+	  irr::u32 i,j,k,index,numVertices,numIndices;
+	  irr::u16* mb_indices;
 	  btTriangleMesh *pTriMesh = new btTriangleMesh();
 	  for (i=0; i<pMesh->getMeshBufferCount(); i++)
 	  {
-		IMeshBuffer* mb=pMesh->getMeshBuffer(i);
-		if(mb->getVertexType()==EVT_STANDARD)
+		irr::scene::IMeshBuffer* mb=pMesh->getMeshBuffer(i);
+		if(mb->getVertexType()==irr::video::EVT_STANDARD)
 		{
-		  S3DVertex* mb_vertices=(S3DVertex*)mb->getVertices();
+		  irr::video::S3DVertex* mb_vertices=(irr::video::S3DVertex*)mb->getVertices();
 		  mb_indices = mb->getIndices();
 		  numVertices = mb->getVertexCount();
 		  numIndices = mb->getIndexCount();
@@ -178,9 +172,9 @@ namespace bullet
 			pTriMesh->addTriangle(vertices[0], vertices[1], vertices[2]);
 		  }
 		}
-		else if(mb->getVertexType()==EVT_2TCOORDS)
+		else if(mb->getVertexType()==irr::video::EVT_2TCOORDS)
 		{
-		  S3DVertex2TCoords* mb_vertices=(S3DVertex2TCoords*)mb->getVertices();
+		  irr::video::S3DVertex2TCoords* mb_vertices=(irr::video::S3DVertex2TCoords*)mb->getVertices();
 		  mb_indices = mb->getIndices();
 		  numVertices = mb->getVertexCount();
 		  numIndices = mb->getIndexCount();

@@ -32,32 +32,32 @@ void CIrrBPRigidBody::activate(bool force)
 }
 void CIrrBPRigidBody::applyCentralImpulse(const irr::core::vector3df &impulse)
 {
-	m_RigidBody->applyCentralImpulse(irrVectorToBulletVector(impulse));
+	m_RigidBody->applyCentralImpulse(bullet::irrVectorToBulletVector(impulse));
 }
-void CIrrBPRigidBody::applyCentralForce(const vector3df &force)
+void CIrrBPRigidBody::applyCentralForce(const irr::core::vector3df &force)
 {
-	m_RigidBody->applyCentralForce(irrVectorToBulletVector(force));
+	m_RigidBody->applyCentralForce(bullet::irrVectorToBulletVector(force));
 }
-void  CIrrBPRigidBody::applyForce (const vector3df &force, const vector3df &rel_pos)
+void  CIrrBPRigidBody::applyForce (const irr::core::vector3df &force, const irr::core::vector3df &rel_pos)
 {
-	m_RigidBody->applyForce(irrVectorToBulletVector(force),irrVectorToBulletVector(rel_pos));
+	m_RigidBody->applyForce(bullet::irrVectorToBulletVector(force),bullet::irrVectorToBulletVector(rel_pos));
 }
-void  CIrrBPRigidBody::applyTorqueImpulse (const vector3df &torque)
+void  CIrrBPRigidBody::applyTorqueImpulse (const irr::core::vector3df &torque)
 {
-	m_RigidBody->applyTorqueImpulse(irrVectorToBulletVector(torque));
+	m_RigidBody->applyTorqueImpulse(bullet::irrVectorToBulletVector(torque));
 }
-void  CIrrBPRigidBody::applyImpulse (const vector3df &impulse, const vector3df &rel_pos) 
+void  CIrrBPRigidBody::applyImpulse (const irr::core::vector3df &impulse, const irr::core::vector3df &rel_pos) 
 {
-	m_RigidBody->applyImpulse(irrVectorToBulletVector(impulse),irrVectorToBulletVector(rel_pos));
+	m_RigidBody->applyImpulse(bullet::irrVectorToBulletVector(impulse),bullet::irrVectorToBulletVector(rel_pos));
 }
-void CIrrBPRigidBody::applyTorque (const vector3df &torque)
+void CIrrBPRigidBody::applyTorque (const irr::core::vector3df &torque)
 {
-	m_RigidBody->applyTorque(irrVectorToBulletVector(torque));
+	m_RigidBody->applyTorque(bullet::irrVectorToBulletVector(torque));
 }
 
 irr::f32 CIrrBPRigidBody::getAutomaticCCDSSR()
 {
-	vector3df realExt = m_IrrSceneNode->getBoundingBox().getExtent() * m_IrrSceneNode->getScale();
+	irr::core::vector3df realExt = m_IrrSceneNode->getBoundingBox().getExtent() * m_IrrSceneNode->getScale();
 	irr::f32 ccdSSR = 0.0f;
 	irr::f32 tolerance = 2.0f;
 	if(realExt.X < realExt.Y && realExt.X < realExt.Z)
@@ -71,7 +71,7 @@ irr::f32 CIrrBPRigidBody::getAutomaticCCDSSR()
 
 irr::f32 CIrrBPRigidBody::getAutomaticCCDMT()
 {
-	vector3df realExt = m_IrrSceneNode->getBoundingBox().getExtent() * m_IrrSceneNode->getScale();
+	irr::core::vector3df realExt = m_IrrSceneNode->getBoundingBox().getExtent() * m_IrrSceneNode->getScale();
 	irr::f32 ccdMT = 0.0f;
 	irr::f32 tolerance = 1.2f;
 	if(realExt.X < realExt.Y && realExt.X < realExt.Z)
@@ -90,29 +90,29 @@ void CIrrBPRigidBody::setAutomaticCCD()
 	this->setCcdSweptSphereRadius(this->getAutomaticCCDSSR());
 }
 
-vector3df CIrrBPRigidBody::getPosition()
+irr::core::vector3df CIrrBPRigidBody::getPosition()
 {
-	return bulletVectorToIrrVector(m_RigidBody->getWorldTransform().getOrigin());
+	return bullet::bulletVectorToIrrVector(m_RigidBody->getWorldTransform().getOrigin());
 }
 
-void CIrrBPRigidBody::setPosition(const vector3df & newPos)
+void CIrrBPRigidBody::setPosition(const irr::core::vector3df & newPos)
 {
 	m_IrrSceneNode->setPosition(newPos);
 	btTransform  tr = m_RigidBody->getWorldTransform();
-	tr.setOrigin(irrVectorToBulletVector(newPos));	
+	tr.setOrigin(bullet::irrVectorToBulletVector(newPos));	
 	m_RigidBody->setWorldTransform(tr);
 }
 
-vector3df CIrrBPRigidBody::getRotation()
+irr::core::vector3df CIrrBPRigidBody::getRotation()
 {
-	return bulletTransformToIrrRotation(m_RigidBody->getWorldTransform());
+	return bullet::bulletTransformToIrrRotation(m_RigidBody->getWorldTransform());
 }
 
-void CIrrBPRigidBody::setRotation(const vector3df & newPos)
+void CIrrBPRigidBody::setRotation(const irr::core::vector3df & newPos)
 {
 	m_IrrSceneNode->setRotation(newPos);
 	btTransform bt;
-	bt = irrRotationToBulletTransform(newPos);
+	bt = bullet::irrRotationToBulletTransform(newPos);
 	bt.setOrigin(m_RigidBody->getWorldTransform().getOrigin());
 	
 	m_RigidBody->setWorldTransform(bt);

@@ -5,15 +5,6 @@
 #include <irrlicht.h>
 #include "convert.h"
 
-
-using namespace irr;
-using namespace core;
-using namespace scene;
-using namespace io;
-using namespace gui;
-using namespace video;
-
-
 class CIrrBPRigidBody;
 
 class CIrrBPConstraint
@@ -33,9 +24,9 @@ public:
 protected:
 	btTypedConstraint * m_Constraint;
 	CIrrBPRigidBody * m_bodyA;
-	vector3df m_pivotA;
+	irr::core::vector3df m_pivotA;
 	CIrrBPRigidBody * m_bodyB;
-	vector3df m_pivotB;
+	irr::core::vector3df m_pivotB;
 };
 
 

@@ -1,11 +1,11 @@
 #include "body/CIrrBPTrimeshBody.h"
-CIrrBPTrimesh::CIrrBPTrimesh(IAnimatedMeshSceneNode * node,irr::f32 mass, irr::s32 bodyId)
+CIrrBPTrimesh::CIrrBPTrimesh(irr::scene::IAnimatedMeshSceneNode * node,irr::f32 mass, irr::s32 bodyId)
 {
 	m_IrrSceneNode = node;
 	m_BodyId = bodyId;
 	initializeMesh(node->getMesh(),node->getPosition(),node->getScale(),node,mass);
 }
-CIrrBPTrimesh::CIrrBPTrimesh(IMeshSceneNode * node,irr::f32 mass, irr::s32 bodyId)
+CIrrBPTrimesh::CIrrBPTrimesh(irr::scene::IMeshSceneNode * node,irr::f32 mass, irr::s32 bodyId)
 {
 	m_IrrSceneNode = node;
 	m_BodyId = bodyId;
@@ -13,12 +13,12 @@ CIrrBPTrimesh::CIrrBPTrimesh(IMeshSceneNode * node,irr::f32 mass, irr::s32 bodyI
 }
 
 
-void CIrrBPTrimesh::initializeMesh(IMesh * mesh, const vector3df & pos, const vector3df & scale, void * nodePtr,irr::f32 mass)
+void CIrrBPTrimesh::initializeMesh(irr::scene::IMesh * mesh, const irr::core::vector3df & pos, const irr::core::vector3df & scale, void * nodePtr,irr::f32 mass)
 {
-	m_indexVertexArrays = irrMeshToBulletTriangleMesh(mesh,scale);
+	m_indexVertexArrays = bullet::irrMeshToBulletTriangleMesh(mesh,scale);
 	m_trimeshShape = new btGImpactMeshShape(m_indexVertexArrays);
 
-	m_MotionState = new CMotionState(this,getTransformFromIrrlichtNode(m_IrrSceneNode));		
+	m_MotionState = new CMotionState(this,bullet::getTransformFromIrrlichtNode(m_IrrSceneNode));		
 	m_trimeshShape->updateBound();
 	
 	//Calculate Inertia

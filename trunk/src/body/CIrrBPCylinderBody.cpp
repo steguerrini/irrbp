@@ -1,17 +1,17 @@
 #include "body/CIrrBPCylinderBody.h"
-CIrrBPCylinderBody::CIrrBPCylinderBody(ISceneNode * node,irr::f32 mass, irr::s32 bodyId, BODY_OR bodyOrientationAxis)
+CIrrBPCylinderBody::CIrrBPCylinderBody(irr::scene::ISceneNode * node,irr::f32 mass, irr::s32 bodyId, BODY_OR bodyOrientationAxis)
 {
    m_IrrSceneNode = node;
    m_BodyId = bodyId;
    
-   vector3df Extent;
+   irr::core::vector3df Extent;
    Extent = node->getBoundingBox().getExtent();
 
-   vector3df TScale = node->getScale();
+   irr::core::vector3df TScale = node->getScale();
    	//Calculate the half edges
-   vector3df HalfEdges(Extent.X/2.0f,Extent.Y/2.0f,Extent.Z/2.0f);
+   irr::core::vector3df HalfEdges(Extent.X/2.0f,Extent.Y/2.0f,Extent.Z/2.0f);
 
-   m_MotionState = new CMotionState(this,getTransformFromIrrlichtNode(node));
+   m_MotionState = new CMotionState(this,bullet::getTransformFromIrrlichtNode(node));
 
    
    btVector3 HalfExtents(TScale.X * HalfEdges.X, TScale.Y * HalfEdges.Y, TScale.Z * HalfEdges.Z);

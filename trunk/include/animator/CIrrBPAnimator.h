@@ -4,13 +4,6 @@
 #include "convert.h"
 #include "types.h"
 
-using namespace irr;
-using namespace core;
-using namespace scene;
-using namespace io;
-using namespace gui;
-using namespace video;
-
 class CIrrBPCollisionObject;
 
 class CIrrBPAnimator

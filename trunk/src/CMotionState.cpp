@@ -1,10 +1,6 @@
 #include "CMotionState.h"
 #include "body/CIrrBPRigidBody.h"
 
-using namespace irr;
-using namespace core;
-using namespace scene;
-
 CMotionState::CMotionState(CIrrBPRigidBody * body,const btTransform &startTrans, const btTransform &centerOfMassOffset)
 {
 	m_startWorldTrans = startTrans;
@@ -25,9 +21,9 @@ void CMotionState::setWorldTransform(const btTransform &worldTrans)
 {
 	if(m_irrNode)
 	{
-		m_irrNode->setPosition(bulletVectorToIrrVector(worldTrans.getOrigin()));
+		m_irrNode->setPosition(bullet::bulletVectorToIrrVector(worldTrans.getOrigin()));
 		//Seems to be more precise
-		m_irrNode->setRotation(bulletTransformToIrrRotation(worldTrans));
+		m_irrNode->setRotation(bullet::bulletTransformToIrrRotation(worldTrans));
 		//m_irrNode->setRotation(QuaternionToIrrEuler(worldTrans.getRotation()));
 		m_graphicsWorldTrans = worldTrans * m_centerOfMassOffset ;
 

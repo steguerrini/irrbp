@@ -16,13 +16,13 @@ public:
 class CIrrBPTimeCallbackAnimator  : public CIrrBPAnimator
 {
 public:
-	CIrrBPTimeCallbackAnimator(ITimer* timer, irr::s32 ms, EndTimeCallback * callback);
+	CIrrBPTimeCallbackAnimator(irr::ITimer* timer, irr::s32 ms, EndTimeCallback * callback);
 	void setBody(CIrrBPCollisionObject* body) ;
 	void animate();
 	
 	void drop() {delete this;}
 private:
-	ITimer* irrTimer;
+	irr::ITimer* irrTimer;
 	irr::u32 activationTime;
 	irr::u32 endTime;
 	irr::u32 timeMs;

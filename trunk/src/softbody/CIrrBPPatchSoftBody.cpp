@@ -10,7 +10,7 @@ CIrrBPPatchSoftBody::~CIrrBPPatchSoftBody()
 	//Workaround to mesh->clear(). Thanks to serengeor for the submit. 
 	//mesh->clear() is only available on SVN version.
 
-	for (u32 i=0; i<mesh->MeshBuffers.size(); ++i)
+	for (irr::u32 i=0; i<mesh->MeshBuffers.size(); ++i)
 		mesh->MeshBuffers[i]->drop();
 	mesh->MeshBuffers.clear();
 	mesh->BoundingBox.reset ( 0.f, 0.f, 0.f );
@@ -20,7 +20,7 @@ CIrrBPPatchSoftBody::~CIrrBPPatchSoftBody()
 	}
 	delete m_softBody;
 }
-CIrrBPPatchSoftBody::CIrrBPPatchSoftBody(const vector3df & corner00 ,const vector3df & corner01,const vector3df & corner10 ,const vector3df & corner11,irr::f32 mass,CIrrBPWorld * world,int resx,int resy)
+CIrrBPPatchSoftBody::CIrrBPPatchSoftBody(const irr::core::vector3df & corner00 ,const irr::core::vector3df & corner01,const irr::core::vector3df & corner10 ,const irr::core::vector3df & corner11,irr::f32 mass,CIrrBPWorld * world,int resx,int resy)
 {
 	mesh =NULL;
 	m_corner00 = corner00;
@@ -29,7 +29,7 @@ CIrrBPPatchSoftBody::CIrrBPPatchSoftBody(const vector3df & corner00 ,const vecto
 	m_corner11 = corner11;
 	this->resx = resx;
 	this->resy = resy;
-	m_softBody = btSoftBodyHelpers::CreatePatch(world->getSoftBodyWorldInfo(),irrVectorToBulletVector(corner00),irrVectorToBulletVector(corner01),irrVectorToBulletVector(corner10),irrVectorToBulletVector(corner11), resx,resy,0,true);
+	m_softBody = btSoftBodyHelpers::CreatePatch(world->getSoftBodyWorldInfo(),bullet::irrVectorToBulletVector(corner00),bullet::irrVectorToBulletVector(corner01),bullet::irrVectorToBulletVector(corner10),bullet::irrVectorToBulletVector(corner11), resx,resy,0,true);
 	m_softBody->setTotalMass(mass);
 	m_softBody->randomizeConstraints();
 	collisionObj = m_softBody;
@@ -42,7 +42,7 @@ void CIrrBPPatchSoftBody::setMass(irr::u32 x,irr::u32 y,irr::f32 mass)
 	CIrrBPSoftBody::setMass(IDX(x,y),mass);
 }
 
-IMesh * CIrrBPPatchSoftBody::getMesh()
+irr::scene::IMesh * CIrrBPPatchSoftBody::getMesh()
 {
 	if(!mesh)
 		createMesh();
@@ -51,21 +51,21 @@ IMesh * CIrrBPPatchSoftBody::getMesh()
 
 void CIrrBPPatchSoftBody::createMesh()
 {
-	SMeshBuffer * buffer = new SMeshBuffer();
-	mesh = new SMesh();
+	irr::scene::SMeshBuffer * buffer = new irr::scene::SMeshBuffer();
+	mesh = new irr::scene::SMesh();
 	btSoftBody::tNodeArray nodes = m_softBody->m_nodes;
 	btSoftBody::tFaceArray faces = m_softBody->m_faces;
 	
 	//Indices
-	irr::core::array<u16> indices;
+	irr::core::array<irr::u16> indices;
 	
 	
 	std::map<btSoftBody::Node*,int>::iterator it;
 
 	
-	for(u32 i=0;i<faces.size();i++)
+	for(irr::u32 i=0;i<faces.size();i++)
 	{
-		for(u32 k=0;k<3;k++)
+		for(irr::u32 k=0;k<3;k++)
 		{
 			it = index.find(faces[i].m_n[k]);		
 			if(it == index.end())
@@ -89,24 +89,24 @@ void CIrrBPPatchSoftBody::createMesh()
 	for(int i=0; i<nodes.size();i++)
 	{
 
-		video::S3DVertex mtri;
-		vector3df trianglePos = bulletVectorToIrrVector(indexsw.find(i)->second->m_x);
+		irr::video::S3DVertex mtri;
+		irr::core::vector3df trianglePos = bullet::bulletVectorToIrrVector(indexsw.find(i)->second->m_x);
 		mtri.Pos = trianglePos;
-		mtri.Color = SColor(255,255,255,255);
+		mtri.Color = irr::video::SColor(255,255,255,255);
 		
 		buffer->Vertices.push_back(mtri);
 	}
 
-	SMaterial material;
+	irr::video::SMaterial material;
 	material.BackfaceCulling = false;
 
 	buffer->Material = material;
 	
-	aabbox3df bbox;
+	irr::core::aabbox3df bbox;
 	btVector3 MinEdge,MaxEdge;
 	m_softBody->getAabb(MinEdge,MaxEdge);
-	bbox.MinEdge = bulletVectorToIrrVector(MinEdge);
-	bbox.MaxEdge = bulletVectorToIrrVector(MaxEdge);
+	bbox.MinEdge = bullet::bulletVectorToIrrVector(MinEdge);
+	bbox.MaxEdge = bullet::bulletVectorToIrrVector(MaxEdge);
 	
 	mesh->addMeshBuffer(buffer);
 	mesh->setBoundingBox(bbox);
@@ -119,16 +119,16 @@ void CIrrBPPatchSoftBody::update()
 {
 	if(!mesh)
 		return;
-	video::S3DVertex* mb_vertices;
-	mb_vertices = (video::S3DVertex*)meshbuff->getVertices();
+	irr::video::S3DVertex* mb_vertices;
+	mb_vertices = (irr::video::S3DVertex*)meshbuff->getVertices();
 
 	//Update Vertices..
-	for(u32 i=0;i<meshbuff->getVertexCount();i++)
-		mb_vertices[i].Pos = bulletVectorToIrrVector(indexsw[i]->m_x);
+	for(irr::u32 i=0;i<meshbuff->getVertexCount();i++)
+		mb_vertices[i].Pos = bullet::bulletVectorToIrrVector(indexsw[i]->m_x);
 	
 	//Recalculate AABB
 	btVector3 MinEdge,MaxEdge;
 	m_softBody->getAabb(MinEdge,MaxEdge);
-	mesh->setBoundingBox(aabbox3df(bulletVectorToIrrVector(MinEdge),bulletVectorToIrrVector(MaxEdge)));
+	mesh->setBoundingBox(irr::core::aabbox3df(bullet::bulletVectorToIrrVector(MinEdge),bullet::bulletVectorToIrrVector(MaxEdge)));
 	
 }

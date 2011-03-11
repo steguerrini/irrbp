@@ -1,11 +1,11 @@
 /*IRR-BULLET MAIN INCLUDE.*/
 /*					IRR-BULLET
 			An Irrlicht-Bullet Wrapper.
-					  V.0.2.1
+					  V.0.3.1
 */
 
 /*!
-    @mainpage IrrBP 0.2.1 Documentation
+    @mainpage IrrBP 0.3.1 Documentation
 
 
     @section intro Introduction
@@ -57,7 +57,7 @@ bool Receiver::OnEvent(const irr::SEvent &event)
 	{
 		if(event.MouseInput.Event == EMIE_LMOUSE_PRESSED_DOWN)
 		{
-			ISceneNode * node = smgr->addCubeSceneNode(10,0,-1,smgr->getActiveCamera()->getPosition());
+			irr::scene::ISceneNode * node = smgr->addCubeSceneNode(10,0,-1,smgr->getActiveCamera()->getPosition());
 			CIrrBPBoxBody * body = bulletmgr->addRigidBox(node,40);
 			irr::core::vector3df rot = smgr->getActiveCamera()->getRotation();
 			irr::core::matrix4 mat;
@@ -65,7 +65,7 @@ bool Receiver::OnEvent(const irr::SEvent &event)
 			mat.setRotationDegrees(rot);
 			irr::core::vector3df forwardDir(irr::core::vector3df(mat[8],mat[9],mat[10]) *120);
 
-			body->getBodyPtr()->setLinearVelocity(irrVectorToBulletVector(forwardDir) * 2);
+			body->getBodyPtr()->setLinearVelocity(bullet::irrVectorToBulletVector(forwardDir) * 2);
 	
 		}
 		
@@ -99,30 +99,30 @@ int main()
 		node = smgr->addOctreeSceneNode(mesh->getMesh(0), 0, -1, 1024);
 
 	if (node)
-		node->setPosition(core::vector3df(-1350,-130,-1400));
+		node->setPosition(core::irr::core::vector3df(-1350,-130,-1400));
 
 	
 	ICameraSceneNode * cam =  smgr->addCameraSceneNodeFPS(0,100,0.1f);
-	cam->setPosition(vector3df(-20,60,-30));
+	cam->setPosition(irr::core::vector3df(-20,60,-30));
 
 	
 	device->getCursorControl()->setVisible(false);
 
 	bulletmgr = createBulletManager(device);
-	bulletmgr->getWorld()->setGravity(vector3df(0,-10,0));
+	bulletmgr->getWorld()->setGravity(irr::core::vector3df(0,-10,0));
 	bulletmgr->addTrimesh(node,0);
 
 	int xshift,yshift,zshift;
 	IMeshSceneNode * Node;
 	IMeshSceneNode * Node2;
-	Node = smgr->addCubeSceneNode(5,0,-1,vector3df(-20,30,0));
+	Node = smgr->addCubeSceneNode(5,0,-1,irr::core::vector3df(-20,30,0));
 
 	Node->setMaterialType(EMT_TRANSPARENT_ADD_COLOR);
 	Node->setMaterialFlag(EMF_LIGHTING,false);
 	Node->setMaterialTexture(0,driver->getTexture("sphere1.jpg"));
 	CIrrBPBoxBody * box= bulletmgr->addRigidBox(Node,0);
 	
-	Node2 = smgr->addCubeSceneNode(5,0,-1,vector3df(20,0,-20));
+	Node2 = smgr->addCubeSceneNode(5,0,-1,irr::core::vector3df(20,0,-20));
 	Node2->setMaterialType(EMT_TRANSPARENT_ADD_COLOR);
 	Node2->setMaterialFlag(EMF_LIGHTING,false);
 	Node2->setMaterialTexture(0,driver->getTexture("sphere1.jpg"));
@@ -206,15 +206,14 @@ To avoid linking problems in your project you need to verify (and even change) t
 
 #include "types.h"
 #include "convert.h"
-using namespace bullet;
 #include "CIrrBPWorld.h"
 #include "CIrrBPManager.h"
 
-static CIrrBPManager * createBulletManager(IrrlichtDevice *device)
+static CIrrBPManager * createBulletManager(irr::IrrlichtDevice *device)
 {
 	return new CIrrBPManager(device);
 }
-static CIrrBPManager * createMultithreadedBulletManager(IrrlichtDevice *device, int numThread=4)
+static CIrrBPManager * createMultithreadedBulletManager(irr::IrrlichtDevice *device, int numThread=4)
 {
 	return new CIrrBPManager(device,numThread);
 }

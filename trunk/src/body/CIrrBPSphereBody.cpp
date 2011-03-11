@@ -6,13 +6,13 @@ CIrrBPSphereBody::CIrrBPSphereBody(irr::scene::ISceneNode *node, irr::f32 mass, 
    m_BodyId = bodyId;
 
       
-   vector3df Extent;
+   irr::core::vector3df Extent;
    Extent = node->getBoundingBox().getExtent();
 
 	//Calculate the estimated radius.
    irr::f32 estimatedradius =  (Extent.Y * node->getScale().Y)/2.0f;
 
-   m_MotionState = new CMotionState(this,getTransformFromIrrlichtNode(node));
+   m_MotionState = new CMotionState(this,bullet::getTransformFromIrrlichtNode(node));
 
    m_Shape = new btSphereShape(estimatedradius);
    

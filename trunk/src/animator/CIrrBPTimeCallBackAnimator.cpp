@@ -1,8 +1,8 @@
 #include "animator/CIrrBPTimeCallBackAnimator.h"
 
-CIrrBPTimeCallbackAnimator::CIrrBPTimeCallbackAnimator(ITimer* timer, irr::s32 ms,EndTimeCallback * callback)
+CIrrBPTimeCallbackAnimator::CIrrBPTimeCallbackAnimator(irr::ITimer* timer, irr::s32 ms,EndTimeCallback * callback)
 {
-		isEnded = false;
+	isEnded = false;
 	rBody = NULL;
 	irrTimer = timer;
 	timeMs = ms;

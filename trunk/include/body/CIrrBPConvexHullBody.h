@@ -7,11 +7,11 @@ class CIrrBPConvexHullBody : public CIrrBPRigidBody
 public:
 	virtual void drop() { delete this;}
 	~CIrrBPConvexHullBody();
-	CIrrBPConvexHullBody(IMeshSceneNode * node,irr::f32 mass, irr::s32 bodyId = -1);
-	CIrrBPConvexHullBody(IAnimatedMeshSceneNode * node,irr::f32 mass, irr::s32 bodyId = -1);
+	CIrrBPConvexHullBody(irr::scene::IMeshSceneNode * node,irr::f32 mass, irr::s32 bodyId = -1);
+	CIrrBPConvexHullBody(irr::scene::IAnimatedMeshSceneNode * node,irr::f32 mass, irr::s32 bodyId = -1);
 	
 private:
-	void initializeMesh(IMesh * pMesh,const vector3df & pos, const vector3df & scale, void * nodePtr,irr::f32 mass);
+	void initializeMesh(irr::scene::IMesh * pMesh,const irr::core::vector3df & pos, const irr::core::vector3df & scale, void * nodePtr,irr::f32 mass);
 	btConvexHullShape * m_hullShape;
 };
 

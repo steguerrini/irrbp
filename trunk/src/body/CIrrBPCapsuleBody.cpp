@@ -1,15 +1,15 @@
 #include "body/CIrrBPCapsuleBody.h"
 
-CIrrBPCapsuleBody::CIrrBPCapsuleBody(ISceneNode * node,irr::f32 mass, irr::s32 bodyId,BODY_OR bodyOrientationAxis)
+CIrrBPCapsuleBody::CIrrBPCapsuleBody(irr::scene::ISceneNode * node,irr::f32 mass, irr::s32 bodyId,BODY_OR bodyOrientationAxis)
 {
    m_IrrSceneNode = node;
    m_BodyId = bodyId;
-   vector3df Extent;
+   irr::core::vector3df Extent;
    Extent = node->getBoundingBox().getExtent();
 
-   vector3df TScale = node->getScale();
+   irr::core::vector3df TScale = node->getScale();
 
-   m_MotionState = new CMotionState(this,getTransformFromIrrlichtNode(node));
+   m_MotionState = new CMotionState(this,bullet::getTransformFromIrrlichtNode(node));
 
    irr::f32 radius,height;
 

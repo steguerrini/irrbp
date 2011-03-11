@@ -15,11 +15,11 @@ class CIrrBPSoftBody : public CIrrBPCollisionObject
 public:
 	CIrrBPSoftBody(){m_objType = SOFT_BODY;}
 	virtual void drop() = 0;
-	virtual void addForce(const vector3df& force);
-	virtual void addForce(const vector3df& force,int node);
-	virtual void addVelocity(const vector3df& velocity);
-	virtual void setVelocity(const vector3df& velocity);
-	virtual void addVelocity(const vector3df& velocity,int node);
+	virtual void addForce(const irr::core::vector3df& force);
+	virtual void addForce(const irr::core::vector3df& force,int node);
+	virtual void addVelocity(const irr::core::vector3df& velocity);
+	virtual void setVelocity(const irr::core::vector3df& velocity);
+	virtual void addVelocity(const irr::core::vector3df& velocity,int node);
 	/*! Appends an anchor in the last cluster of the body*/
 	void appendAnchor(CIrrBPRigidBody * body);
 	/*! Appends an anchor to a specific cluster of the body*/

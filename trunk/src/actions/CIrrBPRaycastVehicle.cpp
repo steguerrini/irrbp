@@ -31,7 +31,7 @@ CIrrBPRaycastVehicle::~CIrrBPRaycastVehicle()
 
 const irrBPWheelInfo & CIrrBPRaycastVehicle::addWheel(const irrBPWheelInfo & wheel)
 {
-	btWheelInfo newwheel = irrBPWheelInfotoBulletWheelInfo(wheel,wheel.m_cinfo);
+	btWheelInfo newwheel = bullet::irrBPWheelInfotoBulletWheelInfo(wheel,wheel.m_cinfo);
 	
 	m_vehicle->addWheel(newwheel.m_chassisConnectionPointCS,newwheel.m_wheelDirectionCS,
 		newwheel.m_wheelAxleCS,newwheel.m_suspensionRestLength1,newwheel.m_wheelsRadius,m_tuning,newwheel.m_bIsFrontWheel);
@@ -47,13 +47,13 @@ const irrBPWheelInfo & CIrrBPRaycastVehicle::addWheel(const irrBPWheelInfoConstr
 void CIrrBPRaycastVehicle::editWheel(irr::u32 id, const irrBPWheelInfo & wheel)
 {
 	btWheelInfo & exwheel = m_vehicle->getWheelInfo(id);
-	irrBPWheelInfotoBulletWheelInfo(wheel,exwheel);
+	bullet::irrBPWheelInfotoBulletWheelInfo(wheel,exwheel);
 }
 irrBPWheelInfo CIrrBPRaycastVehicle::getWheel(irr::u32 id)
 {
 	
 	irrBPWheelInfo info;
-	bulletWheelInfotoirrBPWheelInfo(m_vehicle->getWheelInfo(id),info);
+	bullet::bulletWheelInfotoirrBPWheelInfo(m_vehicle->getWheelInfo(id),info);
 	return info;
 }
 
