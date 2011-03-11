@@ -1,20 +1,20 @@
 #include "body/CIrrBPConeBody.h"
 
-CIrrBPConeBody::CIrrBPConeBody(ISceneNode * node,irr::f32 mass, irr::s32 bodyId,BODY_OR bodyOrientationAxis)
+CIrrBPConeBody::CIrrBPConeBody(irr::scene::ISceneNode * node,irr::f32 mass, irr::s32 bodyId,BODY_OR bodyOrientationAxis)
 {
    m_IrrSceneNode = node;
    m_BodyId = bodyId;
    irr::core::vector3df edges[8];
    node->getBoundingBox().getEdges(edges);
    
-   vector3df TScale = node->getScale();
+   irr::core::vector3df TScale = node->getScale();
 
    
-   vector3df Extent;
+   irr::core::vector3df Extent;
    Extent = node->getBoundingBox().getExtent();
 
    irr::f32 radius,height;
-   m_MotionState = new CMotionState(this,getTransformFromIrrlichtNode(node));
+   m_MotionState = new CMotionState(this,bullet::getTransformFromIrrlichtNode(node));
 
    BODY_OR coneOr = bodyOrientationAxis;
 

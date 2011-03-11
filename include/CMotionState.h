@@ -1,21 +1,10 @@
 #ifndef CMOTIONSTATE_H_
 #define CMOTIONSTATE_H_
 
-#include "convert.h"
-
 #include <btBulletCollisionCommon.h>
 
 #include <irrlicht.h>
 #include "convert.h"
-
-using namespace irr;
-using namespace core;
-using namespace scene;
-using namespace io;
-using namespace gui;
-using namespace video;
-using namespace bullet;
-
 
 
 class CIrrBPRigidBody;
@@ -33,7 +22,7 @@ class CMotionState : public btDefaultMotionState
 
     protected:
 		CIrrBPRigidBody * m_body;
-		ISceneNode * m_irrNode;
+		irr::scene::ISceneNode * m_irrNode;
 };
 
 #endif 

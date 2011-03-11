@@ -32,13 +32,6 @@
 #include "irrlicht.h"
 #include "types.h"
 
-using namespace irr;
-using namespace core;
-using namespace scene;
-using namespace io;
-using namespace gui;
-using namespace video;
-
 
 class CIrrBPManager
 {
@@ -48,13 +41,13 @@ public:
         Constructor.
         @param device A pointer to a Irrlicht's device
     */
-	CIrrBPManager(IrrlichtDevice * device);
+	CIrrBPManager(irr::IrrlichtDevice * device);
 
 	/*!
         Constructor for multithreaded irrBP.
         @param device A pointer to a Irrlicht's device
     */
-	CIrrBPManager(IrrlichtDevice * device, int numThreads);
+	CIrrBPManager(irr::IrrlichtDevice * device, int numThreads);
 
 	~CIrrBPManager();
 
@@ -71,7 +64,7 @@ public:
 	  @param bodyId a irrlicht-style body id
 	  @return Pointer to the object.
 	*/
-	CIrrBPBoxBody * addRigidBox(ISceneNode * node, irr::f32 mass, irr::s32 bodyId = -1);
+	CIrrBPBoxBody * addRigidBox(irr::scene::ISceneNode * node, irr::f32 mass, irr::s32 bodyId = -1);
 
 	/*!
 	  Adds a rigid sphere into the world
@@ -80,7 +73,7 @@ public:
 	  @param bodyId a irrlicht-style body id
 	  @return Pointer to the object.
 	*/
-	CIrrBPSphereBody * addRigidSphere(ISceneNode * node, irr::f32 mass, irr::s32 bodyId = -1);
+	CIrrBPSphereBody * addRigidSphere(irr::scene::ISceneNode * node, irr::f32 mass, irr::s32 bodyId = -1);
 
 	/*!
 	  Adds a rigid cylinder into the world
@@ -90,7 +83,7 @@ public:
 	  @param bodyOrientation the object' axis orientation. For example [====] has an X orientation.
 	  @return Pointer to the object.
 	*/
-	CIrrBPCylinderBody * addRigidCylinder(ISceneNode * node, irr::f32 mass, irr::s32 bodyId = -1,BODY_OR bodyOrientationAxis = AUTO);
+	CIrrBPCylinderBody * addRigidCylinder(irr::scene::ISceneNode * node, irr::f32 mass, irr::s32 bodyId = -1,BODY_OR bodyOrientationAxis = AUTO);
 
 	/*!
 	  Adds a rigid cone into the world
@@ -100,7 +93,7 @@ public:
 	  @param bodyOrientation the object' axis orientation. // has an Y orientation.
 	  @return Pointer to the object.
 	*/
-	CIrrBPConeBody * addRigidCone(ISceneNode * node, irr::f32 mass, irr::s32 bodyId = -1,BODY_OR bodyOrientationAxis=AUTO);
+	CIrrBPConeBody * addRigidCone(irr::scene::ISceneNode * node, irr::f32 mass, irr::s32 bodyId = -1,BODY_OR bodyOrientationAxis=AUTO);
 
 	/*!
 	  Adds a rigid capsule into the world
@@ -110,7 +103,7 @@ public:
 	  @param bodyOrientation the object' axis orientation. (====) has an X orientation.
 	  @return Pointer to the object.
 	*/
-	CIrrBPCapsuleBody * addRigidCapsule (ISceneNode * node,irr::f32 mass, irr::s32 bodyId = -1,BODY_OR bodyOrientationAxis =AUTO);
+	CIrrBPCapsuleBody * addRigidCapsule (irr::scene::ISceneNode * node,irr::f32 mass, irr::s32 bodyId = -1,BODY_OR bodyOrientationAxis =AUTO);
 
 	/*!
 	  Adds a rigid trimesh into the world
@@ -119,7 +112,7 @@ public:
 	  @param bodyId a irrlicht-style body id
 	  @return Pointer to the object.
 	*/
-	CIrrBPTrimesh * addTrimesh (IAnimatedMeshSceneNode * node,irr::f32 mass, irr::s32 bodyId = -1);
+	CIrrBPTrimesh * addTrimesh (irr::scene::IAnimatedMeshSceneNode * node,irr::f32 mass, irr::s32 bodyId = -1);
 
 	/*!
 	  Adds a rigid trimesh into the world
@@ -128,7 +121,7 @@ public:
 	  @param bodyId a irrlicht-style body id
 	  @return Pointer to the object.
 	*/
-	CIrrBPTrimesh * addTrimesh (IMeshSceneNode * node,irr::f32 mass, irr::s32 bodyId = -1);
+	CIrrBPTrimesh * addTrimesh (irr::scene::IMeshSceneNode * node,irr::f32 mass, irr::s32 bodyId = -1);
 
 	/*!
 	  Adds a convex hull body into the world
@@ -137,7 +130,7 @@ public:
 	  @param bodyId a irrlicht-style body id
 	  @return Pointer to the object.
 	*/
-	CIrrBPConvexHullBody * addConvexHullBody(IAnimatedMeshSceneNode * node, irr::f32 mass, irr::s32 bodyId = -1);
+	CIrrBPConvexHullBody * addConvexHullBody(irr::scene::IAnimatedMeshSceneNode * node, irr::f32 mass, irr::s32 bodyId = -1);
 
 	/*!
 	  Adds a convex hull body into the world
@@ -146,7 +139,7 @@ public:
 	  @param bodyId a irrlicht-style body id
 	  @return Pointer to the object.
 	*/
-	CIrrBPConvexHullBody * addConvexHullBody(IMeshSceneNode * node, irr::f32 mass, irr::s32 bodyId = -1);
+	CIrrBPConvexHullBody * addConvexHullBody(irr::scene::IMeshSceneNode * node, irr::f32 mass, irr::s32 bodyId = -1);
 
 	/*!
 	  Adds a rope (soft body) into the world.
@@ -156,7 +149,7 @@ public:
 	  @param res resolution of the rope. By increasing the resolution, you'll have got a more detailed rope but less performance. Leave -1 to auto-detect
 	  @return Pointer to the object.
 	*/
-	CIrrBPRopeSoftBody * addRopeSoftBody(const vector3df & from ,const vector3df & to,irr::f32 mass,int res=-1);
+	CIrrBPRopeSoftBody * addRopeSoftBody(const irr::core::vector3df & from ,const irr::core::vector3df & to,irr::f32 mass,int res=-1);
 
 	/*!
 	  Adds a cloth/patch (soft body) into the world. You must specify the 4 cloth' corners.
@@ -169,7 +162,7 @@ public:
 	  @param resy depth resolution. More resolution, minor performance.
 	  @return Pointer to the object.
 	*/
-	CIrrBPPatchSoftBody * addPatchSoftBody(const vector3df & corner00 ,const vector3df & corner01,const vector3df & corner10 ,const vector3df & corner11,irr::f32 mass,s32 resx,s32 resy);
+	CIrrBPPatchSoftBody * addPatchSoftBody(const irr::core::vector3df & corner00 ,const irr::core::vector3df & corner01,const irr::core::vector3df & corner10 ,const irr::core::vector3df & corner11,irr::f32 mass,irr::s32 resx,irr::s32 resy);
 
 	/*!
 	  Adds a raycast vehicle into the world. 
@@ -191,7 +184,7 @@ public:
 		@param rotatepiston If setted to true, the dynamic object (piston) will be rotated in the slide direction.
 		@return pointer to the constraint
 	*/
-	CIrrBPSlideConstraint *	buildSlideConstraint(CIrrBPRigidBody * bodyA,CIrrBPRigidBody * bodyB,const vector3df & pivotInA=vector3df(0,0,0),const vector3df & pivotInB=vector3df(0,0,0),bool autoadapt=true, bool rotatepiston=true);
+	CIrrBPSlideConstraint *	buildSlideConstraint(CIrrBPRigidBody * bodyA,CIrrBPRigidBody * bodyB,const irr::core::vector3df & pivotInA=irr::core::vector3df(0,0,0),const irr::core::vector3df & pivotInB=irr::core::vector3df(0,0,0),bool autoadapt=true, bool rotatepiston=true);
 
 	/*!
 		Builds and attach a point-to-point constraint to the body.
@@ -201,7 +194,7 @@ public:
 		@return pointer to the constraint
 	*/
 
-	CIrrBPP2PConstraint * buildP2PConstraint(CIrrBPRigidBody * bodyA,const vector3df & pivotInA=vector3df(0,0,0));
+	CIrrBPP2PConstraint * buildP2PConstraint(CIrrBPRigidBody * bodyA,const irr::core::vector3df & pivotInA=irr::core::vector3df(0,0,0));
 
 	/*!
 		Builds and attach a point-to-point constraint to the bodies.
@@ -212,7 +205,7 @@ public:
 		@param pivotInB The constraint position in B
 		@return pointer to the constraint
 	*/
-	CIrrBPP2PConstraint * buildP2PConstraint (CIrrBPRigidBody * bodyA, CIrrBPRigidBody * bodyB, const vector3df & pivotInA=vector3df(0,0,0), const vector3df & pivotInB=vector3df(0,0,0));
+	CIrrBPP2PConstraint * buildP2PConstraint (CIrrBPRigidBody * bodyA, CIrrBPRigidBody * bodyB, const irr::core::vector3df & pivotInA=irr::core::vector3df(0,0,0), const irr::core::vector3df & pivotInB=irr::core::vector3df(0,0,0));
 
 	/*!
 		Builds a cone twist constraint to the bodies. A cone-twist can be used to simulate ragdoll joints (shoulders, legs..)
@@ -223,7 +216,7 @@ public:
 		@param pivotInB The constraint position in B
 		@return pointer to the constraint
 	*/
-	CIrrBPConeTwistConstraint * buildConeTwistConstraint(CIrrBPRigidBody * bodyA, CIrrBPRigidBody * bodyB, const vector3df & pivotInA=vector3df(0,0,0), const vector3df & pivotInB=vector3df(0,0,0));
+	CIrrBPConeTwistConstraint * buildConeTwistConstraint(CIrrBPRigidBody * bodyA, CIrrBPRigidBody * bodyB, const irr::core::vector3df & pivotInA=irr::core::vector3df(0,0,0), const irr::core::vector3df & pivotInB=irr::core::vector3df(0,0,0));
 
 	/*!
 		Builds and attach a hinge constraint to the body.
@@ -233,7 +226,7 @@ public:
 		@param axisInA The axis position in A
 		@return pointer to the constraint
 	*/
-	CIrrBPHingeConstraint * buildHingeConstraint(CIrrBPRigidBody * bodyA,const vector3df & pivotInA,const vector3df & axisInA);
+	CIrrBPHingeConstraint * buildHingeConstraint(CIrrBPRigidBody * bodyA,const irr::core::vector3df & pivotInA,const irr::core::vector3df & axisInA);
 
 	/*!
 		Builds and attach a hinge constraint to the body.
@@ -246,7 +239,7 @@ public:
 		@param axisInB The axis position in B
 		@return pointer to the constraint
 	*/
-	CIrrBPHingeConstraint * buildHingeConstraint(CIrrBPRigidBody * bodyA,CIrrBPRigidBody * bodyB,const vector3df & pivotInA,const vector3df & pivotInB,const vector3df & axisInA,const vector3df & axisInB);
+	CIrrBPHingeConstraint * buildHingeConstraint(CIrrBPRigidBody * bodyA,CIrrBPRigidBody * bodyB,const irr::core::vector3df & pivotInA,const irr::core::vector3df & pivotInB,const irr::core::vector3df & axisInA,const irr::core::vector3df & axisInB);
 
 
 	/*!
@@ -301,7 +294,7 @@ public:
 		Sets the gravity in the world.
 		@param Gravity vector containing direction
 	*/
-	void setWorldGravity(const vector3df & Gravity) { m_bulletWorld->setGravity(Gravity);}
+	void setWorldGravity(const irr::core::vector3df & Gravity) { m_bulletWorld->setGravity(Gravity);}
 
 	/*!
 		Drops the bullet manager
@@ -345,8 +338,8 @@ public:
 		m_bulletWorld->stepSimulation();
 	}
 private:
-	IrrlichtDevice * m_irrDevice;
+	irr::IrrlichtDevice * m_irrDevice;
 	CIrrBPWorld * m_bulletWorld;
-	array<CIrrBPAnimator *> m_bodyAnimators;
+	irr::core::array<CIrrBPAnimator *> m_bodyAnimators;
 };
 #endif

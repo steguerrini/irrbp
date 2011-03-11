@@ -24,15 +24,7 @@
 #include "convert.h"
 #include "types.h"
 #include <iostream>
-using namespace std;
 
-using namespace irr;
-using namespace core;
-using namespace scene;
-using namespace io;
-using namespace gui;
-using namespace video;
-using namespace bullet;
 
 
 class CIrrBPWorld
@@ -46,7 +38,7 @@ public:
 		@param multithread Uses Multithreaded bullet
 		@param maxtasks If multithread = true, then this value will set the nr of tasks to use bullet in multithread mode.
     */
-	CIrrBPWorld(IrrlichtDevice *device,const vector3df & Gravity, bool multithread=false, int maxtasks=4);
+	CIrrBPWorld(irr::IrrlichtDevice *device,const irr::core::vector3df & Gravity, bool multithread=false, int maxtasks=4);
 
 	~CIrrBPWorld();
 
@@ -182,7 +174,7 @@ public:
 	*/
 	void drop() { delete this;}
 
-	void setGravity(const vector3df & newGravity) { World->setGravity(irrVectorToBulletVector(newGravity));}
+	void setGravity(const irr::core::vector3df & newGravity) { World->setGravity(bullet::irrVectorToBulletVector(newGravity));}
 
 	/*!
 		Only for internal or expert use.
@@ -215,7 +207,7 @@ public:
 
 	btSoftBodyWorldInfo & getSoftBodyWorldInfo();
 
-	IrrlichtDevice * getIrrDevice() {return device;}
+	irr::IrrlichtDevice * getIrrDevice() {return device;}
 
 	/*!
 		Sets your own value of ERP
@@ -271,7 +263,7 @@ public:
 		@param points contact points array (NULL if you don't need to receive the contact points)
 		@return returns true if the collision occur.
 	*/
-	bool rayCastTest(vector3df from,vector3df to, irr::core::array<contactPoint> * points=NULL);
+	bool rayCastTest(irr::core::vector3df from,irr::core::vector3df to, irr::core::array<contactPoint> * points=NULL);
 
 	/*!
 		Performs a raycast test through all bodies in the world, and return only the closest hit.
@@ -280,9 +272,9 @@ public:
 		@param point contact point (NULL if you don't need to receive the contact points)
 		@return returns true if the collision occur.
 	*/
-	bool rayCastClosestHitTest(vector3df from,vector3df to, contactPoint * point=NULL);
+	bool rayCastClosestHitTest(irr::core::vector3df from,irr::core::vector3df to, contactPoint * point=NULL);
 
-	const array<CIrrBPCollisionObject *> & getCollisionObjectsList(){return collisionObj;}
+	const irr::core::array<CIrrBPCollisionObject *> & getCollisionObjectsList(){return collisionObj;}
 	/*!
 		Cleans the bullet world: removes all bodies and joints
 	*/
@@ -297,17 +289,17 @@ private:
     btBroadphaseInterface* pairCache;
     btConstraintSolver*	constraintSolver;
 
-	array<CIrrBPCollisionObject *> collisionObj;
-	array<CIrrBPConstraint*> rigidBodiesConst;
-	array<CIrrBPActionInterface*> actionObj;
-	ITimer* irrTimer;
-	u32 TimeStamp;
-    u32 DeltaTime;
+	irr::core::array<CIrrBPCollisionObject *> collisionObj;
+	irr::core::array<CIrrBPConstraint*> rigidBodiesConst;
+	irr::core::array<CIrrBPActionInterface*> actionObj;
+	irr::ITimer* irrTimer;
+	irr::u32 TimeStamp;
+    irr::u32 DeltaTime;
 
 	btVector3 Gravity;
-	IrrlichtDevice *device;
-	IVideoDriver* driver;
-	IMeshSceneNode* worldNode;
+	irr::IrrlichtDevice *device;
+	irr::video::IVideoDriver* driver;
+	irr::scene::IMeshSceneNode* worldNode;
 
 	CIrrBPDebugDrawer * dDrawer;
 	irr::video::SMaterial mat;

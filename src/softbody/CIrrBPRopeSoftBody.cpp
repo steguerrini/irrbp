@@ -5,7 +5,7 @@ CIrrBPRopeSoftBody::~CIrrBPRopeSoftBody()
 {
 	delete m_softBody;
 }
-CIrrBPRopeSoftBody::CIrrBPRopeSoftBody(const vector3df & From ,const vector3df & To,irr::f32 mass,CIrrBPWorld * world,int res)
+CIrrBPRopeSoftBody::CIrrBPRopeSoftBody(const irr::core::vector3df & From ,const irr::core::vector3df & To,irr::f32 mass,CIrrBPWorld * world,int res)
 {
 	from=From;
 	to=To;
@@ -13,7 +13,7 @@ CIrrBPRopeSoftBody::CIrrBPRopeSoftBody(const vector3df & From ,const vector3df &
 	draw = false;
 	drawMat.Thickness = 3;
 	drawMat.Lighting = false;
-	m_softBody = btSoftBodyHelpers::CreateRope(world->getSoftBodyWorldInfo(),irrVectorToBulletVector(from),irrVectorToBulletVector(to),res == -1 ? getAutoFixedRes() : res,1);
+	m_softBody = btSoftBodyHelpers::CreateRope(world->getSoftBodyWorldInfo(),bullet::irrVectorToBulletVector(from),bullet::irrVectorToBulletVector(to),res == -1 ? getAutoFixedRes() : res,1);
 	m_softBody->setTotalMass(mass);
 	m_softBody->randomizeConstraints();
 	collisionObj = m_softBody;
@@ -29,8 +29,8 @@ void CIrrBPRopeSoftBody::update()
 {
 	if(!draw)
 		return;
-	driver->setTransform(ETS_WORLD,matrix4());
+	driver->setTransform(irr::video::ETS_WORLD,irr::core::matrix4());
 	driver->setMaterial(drawMat);
 	for(int i=0;i<m_softBody->m_links.size();i++)
-		driver->draw3DLine(bulletVectorToIrrVector(m_softBody->m_links[i].m_n[0]->m_x),bulletVectorToIrrVector(m_softBody->m_links[i].m_n[1]->m_x),SColor(0,0,0,0));
+		driver->draw3DLine(bullet::bulletVectorToIrrVector(m_softBody->m_links[i].m_n[0]->m_x),bullet::bulletVectorToIrrVector(m_softBody->m_links[i].m_n[1]->m_x),irr::video::SColor(0,0,0,0));
 }

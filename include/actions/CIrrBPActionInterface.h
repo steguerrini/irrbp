@@ -27,9 +27,9 @@ public:
 	*/
 	virtual void setValidStatus (bool newStat) { m_ActionStatus = newStat;}
 
-	virtual void setName(const stringc & newName)	{		m_ActionName = newName;	}
+	virtual void setName(const irr::core::stringc & newName)	{		m_ActionName = newName;	}
 	virtual void setID(const irr::s32 & newID)	{		m_ActionId = newID;	}
-	virtual const c8* getName() const { return m_ActionName.c_str();}
+	virtual const irr::c8* getName() const { return m_ActionName.c_str();}
 	virtual irr::s32 getID() const { return m_ActionId;}
 
 	virtual irr::u32 getUniqueID() const { return m_uActionID;}

@@ -6,12 +6,12 @@ class CIrrBPCollisionObject;
 class CIrrBPDeleteAnimator : public CIrrBPAnimator
 {
 public:
-	CIrrBPDeleteAnimator(ITimer* timer, irr::u32 end);
+	CIrrBPDeleteAnimator(irr::ITimer* timer, irr::u32 end);
 	void setBody(CIrrBPCollisionObject* body) ;
 	void animate();
 	void drop() {delete this;}
 private:
-	ITimer* irrTimer;
+	irr::ITimer* irrTimer;
 	irr::u32 activationTime;
 	irr::u32 endTime;
 	irr::u32 timeMs;

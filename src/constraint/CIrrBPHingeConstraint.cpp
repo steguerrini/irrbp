@@ -1,19 +1,19 @@
 #include "constraint/CIrrBPHingeConstraint.h"
 #include "body/CIrrBPRigidBody.h"
 
-CIrrBPHingeConstraint::CIrrBPHingeConstraint(CIrrBPRigidBody * bodyA,const vector3df & pivotInA,const vector3df & axisInA)
+CIrrBPHingeConstraint::CIrrBPHingeConstraint(CIrrBPRigidBody * bodyA,const irr::core::vector3df & pivotInA,const irr::core::vector3df & axisInA)
 {
-	m_Constraint = new btHingeConstraint(*(bodyA->getBodyPtr()),irrVectorToBulletVector(pivotInA),irrVectorToBulletVector(axisInA));
+	m_Constraint = new btHingeConstraint(*(bodyA->getBodyPtr()),bullet::irrVectorToBulletVector(pivotInA),bullet::irrVectorToBulletVector(axisInA));
 	this->m_bodyA = bodyA;
 	this->m_axisA = axisInA;
 	this->m_pivotA = pivotInA;
 }
 
-CIrrBPHingeConstraint::CIrrBPHingeConstraint(CIrrBPRigidBody * bodyA,CIrrBPRigidBody * bodyB,const vector3df & pivotInA,const vector3df & pivotInB,const vector3df & axisInA,const vector3df & axisInB)
+CIrrBPHingeConstraint::CIrrBPHingeConstraint(CIrrBPRigidBody * bodyA,CIrrBPRigidBody * bodyB,const irr::core::vector3df & pivotInA,const irr::core::vector3df & pivotInB,const irr::core::vector3df & axisInA,const irr::core::vector3df & axisInB)
 {
 	m_Constraint = new btHingeConstraint(*(bodyA->getBodyPtr()),*(bodyB->getBodyPtr()),
-											irrVectorToBulletVector(pivotInA),irrVectorToBulletVector(pivotInB),
-											irrVectorToBulletVector(axisInA),irrVectorToBulletVector(axisInB));
+											bullet::irrVectorToBulletVector(pivotInA),bullet::irrVectorToBulletVector(pivotInB),
+											bullet::irrVectorToBulletVector(axisInA),bullet::irrVectorToBulletVector(axisInB));
 	this->m_bodyA = bodyA;
 	this->m_axisA = axisInA;
 	this->m_pivotA = pivotInA;

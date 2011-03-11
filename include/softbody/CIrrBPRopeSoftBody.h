@@ -9,7 +9,7 @@ class CIrrBPWorld;
 class CIrrBPRopeSoftBody : public CIrrBPSoftBody
 {
 public:
-	CIrrBPRopeSoftBody(const vector3df & from ,const vector3df & to,irr::f32 mass,CIrrBPWorld * world,int res=-1);
+	CIrrBPRopeSoftBody(const irr::core::vector3df & from ,const irr::core::vector3df & to,irr::f32 mass,CIrrBPWorld * world,int res=-1);
 	~CIrrBPRopeSoftBody();
 	void drop() { delete this;}
 	/*Set this to true to draw the rope*/
@@ -18,11 +18,11 @@ public:
 	void update();
 protected:
 	bool draw;
-	IVideoDriver* driver;
-	SMaterial drawMat;
+	irr::video::IVideoDriver* driver;
+	irr::video::SMaterial drawMat;
 	int getAutoFixedRes();
-	vector3df from;
-	vector3df to;
+	irr::core::vector3df from;
+	irr::core::vector3df to;
 };
 
 #endif

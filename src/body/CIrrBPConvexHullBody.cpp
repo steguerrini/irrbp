@@ -1,12 +1,12 @@
 #include "body/CIrrBPConvexHullBody.h"
 
-CIrrBPConvexHullBody::CIrrBPConvexHullBody(IAnimatedMeshSceneNode * node,irr::f32 mass, irr::s32 bodyId)
+CIrrBPConvexHullBody::CIrrBPConvexHullBody(irr::scene::IAnimatedMeshSceneNode * node,irr::f32 mass, irr::s32 bodyId)
 {
 	m_IrrSceneNode = node;
 	m_BodyId = bodyId;
 	initializeMesh(node->getMesh(),node->getPosition(),node->getScale(),node,mass);
 }
-CIrrBPConvexHullBody::CIrrBPConvexHullBody(IMeshSceneNode * node,irr::f32 mass, irr::s32 bodyId)
+CIrrBPConvexHullBody::CIrrBPConvexHullBody(irr::scene::IMeshSceneNode * node,irr::f32 mass, irr::s32 bodyId)
 {
 	m_IrrSceneNode = node;
 	m_BodyId = bodyId;
@@ -22,20 +22,20 @@ CIrrBPConvexHullBody::~CIrrBPConvexHullBody()
 	this->m_RigidBody = NULL;
 
 }
-void CIrrBPConvexHullBody::initializeMesh(IMesh * pMesh,const vector3df & pos, const vector3df & scale, void * nodePtr,irr::f32 mass)
+void CIrrBPConvexHullBody::initializeMesh(irr::scene::IMesh * pMesh,const irr::core::vector3df & pos, const irr::core::vector3df & scale, void * nodePtr,irr::f32 mass)
 {
 	m_hullShape = new btConvexHullShape();
 	
 	  btVector3 vertices[3];
-	  u32 i,j,k,index,numVertices,numIndices;
-	  u16* mb_indices;
+	  irr::u32 i,j,k,index,numVertices,numIndices;
+	  irr::u16* mb_indices;
 	  
 	  for (i=0; i<pMesh->getMeshBufferCount(); i++)
 	  {
-		IMeshBuffer* mb=pMesh->getMeshBuffer(i);
-		if(mb->getVertexType()==EVT_STANDARD)
+		irr::scene::IMeshBuffer* mb=pMesh->getMeshBuffer(i);
+		if(mb->getVertexType()==irr::video::EVT_STANDARD)
 		{
-		  S3DVertex* mb_vertices=(S3DVertex*)mb->getVertices();
+		  irr::video::S3DVertex* mb_vertices=(irr::video::S3DVertex*)mb->getVertices();
 		  mb_indices = mb->getIndices();
 		  numVertices = mb->getVertexCount();
 		  numIndices = mb->getIndexCount();
@@ -49,12 +49,11 @@ void CIrrBPConvexHullBody::initializeMesh(IMesh * pMesh,const vector3df & pos, c
 			m_hullShape->addPoint(vertices[0]);
 			m_hullShape->addPoint(vertices[1]);
 			m_hullShape->addPoint(vertices[2]);
-			//pTriMesh->addTriangle(vertices[0], vertices[1], vertices[2]);
 		  }
 		}
-		else if(mb->getVertexType()==EVT_2TCOORDS)
+		else if(mb->getVertexType()==irr::video::EVT_2TCOORDS)
 		{
-		  S3DVertex2TCoords* mb_vertices=(S3DVertex2TCoords*)mb->getVertices();
+		  irr::video::S3DVertex2TCoords* mb_vertices=(irr::video::S3DVertex2TCoords*)mb->getVertices();
 		  mb_indices = mb->getIndices();
 		  numVertices = mb->getVertexCount();
 		  numIndices = mb->getIndexCount();
@@ -68,12 +67,11 @@ void CIrrBPConvexHullBody::initializeMesh(IMesh * pMesh,const vector3df & pos, c
 			m_hullShape->addPoint(vertices[0]);
 			m_hullShape->addPoint(vertices[1]);
 			m_hullShape->addPoint(vertices[2]);
-			//pTriMesh->addTriangle(vertices[0], vertices[1], vertices[2]);
 		  }
 		}
 	  }
 
-	m_MotionState = new CMotionState(this,getTransformFromIrrlichtNode(m_IrrSceneNode));
+	  m_MotionState = new CMotionState(this,bullet::getTransformFromIrrlichtNode(m_IrrSceneNode));
 		
 	//Calculate Inertia
 	btVector3 LocalInertia;

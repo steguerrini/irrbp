@@ -1,6 +1,6 @@
 #include "CIrrBPManager.h"
 
-CIrrBPManager::CIrrBPManager(IrrlichtDevice * device)
+CIrrBPManager::CIrrBPManager(irr::IrrlichtDevice * device)
 {
 	
 	if(device)
@@ -8,16 +8,16 @@ CIrrBPManager::CIrrBPManager(IrrlichtDevice * device)
 	else
 		assert(!m_irrDevice);
 
-	m_bulletWorld = new CIrrBPWorld(device,vector3df(0,0,0));
+	m_bulletWorld = new CIrrBPWorld(device,irr::core::vector3df(0,0,0));
 }
-CIrrBPManager::CIrrBPManager(IrrlichtDevice * device, int numThreads)
+CIrrBPManager::CIrrBPManager(irr::IrrlichtDevice * device, int numThreads)
 {
 	if(device)
 		m_irrDevice = device;
 	else
 		assert(!m_irrDevice);
 
-	m_bulletWorld = new CIrrBPWorld(device,vector3df(0,0,0),true,numThreads);
+	m_bulletWorld = new CIrrBPWorld(device,irr::core::vector3df(0,0,0),true,numThreads);
 }
 CIrrBPManager::~CIrrBPManager()
 {
@@ -73,13 +73,13 @@ CIrrBPTrimesh * CIrrBPManager::addTrimesh(irr::scene::IAnimatedMeshSceneNode *no
 	m_bulletWorld->addRigidBody(trimesh);
 	return trimesh;
 }
-CIrrBPConvexHullBody * CIrrBPManager::addConvexHullBody(IAnimatedMeshSceneNode * node, irr::f32 mass, irr::s32 bodyId)
+CIrrBPConvexHullBody * CIrrBPManager::addConvexHullBody(irr::scene::IAnimatedMeshSceneNode * node, irr::f32 mass, irr::s32 bodyId)
 {
 	CIrrBPConvexHullBody * chb = new CIrrBPConvexHullBody(node,mass,bodyId);
 	m_bulletWorld->addRigidBody(chb);
 	return chb;
 }
-CIrrBPConvexHullBody * CIrrBPManager::addConvexHullBody(IMeshSceneNode * node, irr::f32 mass, irr::s32 bodyId)
+CIrrBPConvexHullBody * CIrrBPManager::addConvexHullBody(irr::scene::IMeshSceneNode * node, irr::f32 mass, irr::s32 bodyId)
 {
 	CIrrBPConvexHullBody * chb = new CIrrBPConvexHullBody(node,mass,bodyId);
 	m_bulletWorld->addRigidBody(chb);
@@ -121,51 +121,51 @@ CIrrBPTimeCallbackAnimator * CIrrBPManager::createTimeCallbackAnimator(irr::s32 
 	return tcback;
 }
 
-CIrrBPSlideConstraint  * CIrrBPManager::buildSlideConstraint(CIrrBPRigidBody * bodyA,CIrrBPRigidBody * bodyB,const vector3df & pivotInA,const vector3df & pivotInB,bool autoadapt, bool rotatepiston)
+CIrrBPSlideConstraint  * CIrrBPManager::buildSlideConstraint(CIrrBPRigidBody * bodyA,CIrrBPRigidBody * bodyB,const irr::core::vector3df & pivotInA,const irr::core::vector3df & pivotInB,bool autoadapt, bool rotatepiston)
 {
 	CIrrBPSlideConstraint * slide = new CIrrBPSlideConstraint(bodyA,bodyB,pivotInA,pivotInB,autoadapt,rotatepiston);
 	m_bulletWorld->addRigidBodyConstraint(slide);
 	return slide;
 }
-CIrrBPP2PConstraint * CIrrBPManager::buildP2PConstraint(CIrrBPRigidBody * bodyA,const vector3df & pivotInA)
+CIrrBPP2PConstraint * CIrrBPManager::buildP2PConstraint(CIrrBPRigidBody * bodyA,const irr::core::vector3df & pivotInA)
 {
 	CIrrBPP2PConstraint * p2p = new CIrrBPP2PConstraint(bodyA,pivotInA);
 	m_bulletWorld->addRigidBodyConstraint(p2p);
 	return p2p;
 }
-CIrrBPP2PConstraint * CIrrBPManager::buildP2PConstraint (CIrrBPRigidBody * bodyA, CIrrBPRigidBody * bodyB, const vector3df & pivotInA, const vector3df & pivotInB)
+CIrrBPP2PConstraint * CIrrBPManager::buildP2PConstraint (CIrrBPRigidBody * bodyA, CIrrBPRigidBody * bodyB, const irr::core::vector3df & pivotInA, const irr::core::vector3df & pivotInB)
 {
 	CIrrBPP2PConstraint * p2p = new CIrrBPP2PConstraint(bodyA,bodyB,pivotInA,pivotInB);
 	m_bulletWorld->addRigidBodyConstraint(p2p);
 	return p2p;
 }
-CIrrBPConeTwistConstraint* CIrrBPManager::buildConeTwistConstraint(CIrrBPRigidBody * bodyA, CIrrBPRigidBody * bodyB, const vector3df & pivotInA, const vector3df & pivotInB)
+CIrrBPConeTwistConstraint* CIrrBPManager::buildConeTwistConstraint(CIrrBPRigidBody * bodyA, CIrrBPRigidBody * bodyB, const irr::core::vector3df & pivotInA, const irr::core::vector3df & pivotInB)
 {
 	CIrrBPConeTwistConstraint * ctw = new CIrrBPConeTwistConstraint(bodyA,bodyB,pivotInA,pivotInB);
 	m_bulletWorld->addRigidBodyConstraint(ctw);
 	return ctw;
 }
-CIrrBPHingeConstraint * CIrrBPManager::buildHingeConstraint(CIrrBPRigidBody * bodyA,const vector3df & pivotInA,const vector3df & axisInA)
+CIrrBPHingeConstraint * CIrrBPManager::buildHingeConstraint(CIrrBPRigidBody * bodyA,const irr::core::vector3df & pivotInA,const irr::core::vector3df & axisInA)
 {
 	CIrrBPHingeConstraint * hinge = new CIrrBPHingeConstraint(bodyA,pivotInA,axisInA);
 	m_bulletWorld->addRigidBodyConstraint(hinge);
 	return hinge;
 }
-CIrrBPHingeConstraint * CIrrBPManager::buildHingeConstraint(CIrrBPRigidBody * bodyA,CIrrBPRigidBody * bodyB,const vector3df & pivotInA,const vector3df & pivotInB,const vector3df & axisInA,const vector3df & axisInB)
+CIrrBPHingeConstraint * CIrrBPManager::buildHingeConstraint(CIrrBPRigidBody * bodyA,CIrrBPRigidBody * bodyB,const irr::core::vector3df & pivotInA,const irr::core::vector3df & pivotInB,const irr::core::vector3df & axisInA,const irr::core::vector3df & axisInB)
 {
 	CIrrBPHingeConstraint * hinge = new CIrrBPHingeConstraint(bodyA,bodyB,pivotInA,pivotInB,axisInA,axisInB);
 	m_bulletWorld->addRigidBodyConstraint(hinge);
 	return hinge;
 }
 
-CIrrBPRopeSoftBody * CIrrBPManager::addRopeSoftBody(const vector3df & from ,const vector3df & to,irr::f32 mass,int res)
+CIrrBPRopeSoftBody * CIrrBPManager::addRopeSoftBody(const irr::core::vector3df & from ,const irr::core::vector3df & to,irr::f32 mass,int res)
 {
 	CIrrBPRopeSoftBody * rope = new CIrrBPRopeSoftBody(from,to,mass,m_bulletWorld,res);
 	m_bulletWorld->addSoftBody(rope);
 	return rope;
 }
 
-CIrrBPPatchSoftBody * CIrrBPManager::addPatchSoftBody(const vector3df & corner00 ,const vector3df & corner01,const vector3df & corner10 ,const vector3df & corner11,irr::f32 mass,s32 resx,s32 resy)
+CIrrBPPatchSoftBody * CIrrBPManager::addPatchSoftBody(const irr::core::vector3df & corner00 ,const irr::core::vector3df & corner01,const irr::core::vector3df & corner10 ,const irr::core::vector3df & corner11,irr::f32 mass,irr::s32 resx,irr::s32 resy)
 {
 	CIrrBPPatchSoftBody * patch = new CIrrBPPatchSoftBody(corner00,corner01,corner10,corner11,mass,m_bulletWorld,resx,resy);
 	m_bulletWorld->addSoftBody(patch);

@@ -3,7 +3,7 @@
 #include "CIrrBPCollisionObject.h"
 
 
-CIrrBPDeleteAnimator::CIrrBPDeleteAnimator(ITimer* timer, irr::u32 end)
+CIrrBPDeleteAnimator::CIrrBPDeleteAnimator(irr::ITimer* timer, irr::u32 end)
 {
 	isEnded = false;
 	rBody = NULL;

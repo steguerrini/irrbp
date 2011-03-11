@@ -6,11 +6,11 @@
 class CIrrBPHingeConstraint : public CIrrBPConstraint
 {
 public:
-		CIrrBPHingeConstraint(CIrrBPRigidBody * bodyA,const vector3df & pivotInA,const vector3df & axisInA);
-		CIrrBPHingeConstraint(CIrrBPRigidBody * bodyA,CIrrBPRigidBody * bodyB,const vector3df & pivotInA,const vector3df & pivotInB,const vector3df & axisInA,const vector3df & axisInB);
+		CIrrBPHingeConstraint(CIrrBPRigidBody * bodyA,const irr::core::vector3df & pivotInA,const irr::core::vector3df & axisInA);
+		CIrrBPHingeConstraint(CIrrBPRigidBody * bodyA,CIrrBPRigidBody * bodyB,const irr::core::vector3df & pivotInA,const irr::core::vector3df & pivotInB,const irr::core::vector3df & axisInA,const irr::core::vector3df & axisInB);
 		void drop(){delete this;}
 protected:
-	vector3df m_axisA;
-	vector3df m_axisB;
+	irr::core::vector3df m_axisA;
+	irr::core::vector3df m_axisB;
 };
 #endif

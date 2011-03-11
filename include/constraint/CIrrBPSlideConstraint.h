@@ -17,7 +17,7 @@ public:
 	@param autoadapt If one body is static, and this flag is setted to false. The Slide will be only orthogonal
 	@param rotatepiston If setted to true, the dynamic object (piston) will be rotated in the slide direction.
 	*/
-	CIrrBPSlideConstraint(CIrrBPRigidBody * bodyA,CIrrBPRigidBody * bodyB,const vector3df & pivotInA=vector3df(0,0,0),const vector3df & pivotInB=vector3df(0,0,0),bool autoadapt=true, bool rotatepiston=true);
+	CIrrBPSlideConstraint(CIrrBPRigidBody * bodyA,CIrrBPRigidBody * bodyB,const irr::core::vector3df & pivotInA=irr::core::vector3df(0,0,0),const irr::core::vector3df & pivotInB=irr::core::vector3df(0,0,0),bool autoadapt=true, bool rotatepiston=true);
 	
 	irr::f32 getLowerLinLimit () { return m_fixedConstraint->getLowerLinLimit();}
 	void setLowerLinLimit(irr::f32 lowerLimit) {m_fixedConstraint->setLowerLinLimit(lowerLimit);}

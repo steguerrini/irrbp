@@ -1,25 +1,27 @@
 #include "softbody/CIrrBPSoftBody.h"
 #include <body/CIrrBPRigidBody.h>
 
-void CIrrBPSoftBody::addForce(const vector3df& force)
+using namespace bullet;
+
+void CIrrBPSoftBody::addForce(const irr::core::vector3df& force)
 {
-	m_softBody->addForce(irrVectorToBulletVector(force));
+	m_softBody->addForce(bullet::irrVectorToBulletVector(force));
 }
-void CIrrBPSoftBody::addForce(const vector3df& force,int node)
+void CIrrBPSoftBody::addForce(const irr::core::vector3df& force,int node)
 {
-	m_softBody->addForce(irrVectorToBulletVector(force),node);
+	m_softBody->addForce(bullet::irrVectorToBulletVector(force),node);
 }
-void CIrrBPSoftBody::addVelocity(const vector3df& velocity)
+void CIrrBPSoftBody::addVelocity(const irr::core::vector3df& velocity)
 {
-	m_softBody->addVelocity(irrVectorToBulletVector(velocity));
+	m_softBody->addVelocity(bullet::irrVectorToBulletVector(velocity));
 }
-void CIrrBPSoftBody::setVelocity(const vector3df& velocity)
+void CIrrBPSoftBody::setVelocity(const irr::core::vector3df& velocity)
 {
-	m_softBody->setVelocity(irrVectorToBulletVector(velocity));
+	m_softBody->setVelocity(bullet::irrVectorToBulletVector(velocity));
 }
-void CIrrBPSoftBody::addVelocity(const vector3df& velocity,int node)
+void CIrrBPSoftBody::addVelocity(const irr::core::vector3df& velocity,int node)
 {
-	m_softBody->addVelocity(irrVectorToBulletVector(velocity),node);
+	m_softBody->addVelocity(bullet::irrVectorToBulletVector(velocity),node);
 }
 
 void CIrrBPSoftBody::appendAnchor(CIrrBPRigidBody * body)

@@ -106,7 +106,7 @@ struct collisionCallback : public btCollisionWorld::ContactResultCallback
 CIrrBPWorld::~CIrrBPWorld()
 {
 	isClosing=true;
-	cout<<"# Cleaning IrrBP' pointers..."<<endl;
+	std::cout<<"# Cleaning IrrBP' pointers..."<<std::endl;
 	m_worldInfo.m_sparsesdf.GarbageCollect();
 	m_worldInfo.m_sparsesdf.Reset();
 
@@ -139,15 +139,15 @@ CIrrBPWorld::~CIrrBPWorld()
 	}
 	sLocalStorePointers.clear();
 
-	cout<<"# IrrBP closed successfully!"<<endl;
+	std::cout<<"# IrrBP closed successfully!"<<std::endl;
 
 }
-CIrrBPWorld::CIrrBPWorld(irr::IrrlichtDevice *device,const vector3df & Gravity, bool multithread, int maxtasks)
+CIrrBPWorld::CIrrBPWorld(irr::IrrlichtDevice *device,const irr::core::vector3df & Gravity, bool multithread, int maxtasks)
 {
-	cout<<"# # # IrrBP - Version "<<IrrBP_MAJOR_VERSION<<"."<<IrrBP_MINOR_VERSION<<"."<<IrrBP_REVISION_VERSION<<" # # #"<<endl;
-	cout<<"# Initializing new Irr-Bullet World..."<<endl;
+	std::cout<<"# # # IrrBP - Version "<<IrrBP_MAJOR_VERSION<<"."<<IrrBP_MINOR_VERSION<<"."<<IrrBP_REVISION_VERSION<<" # # #"<<std::endl;
+	std::cout<<"# Initializing new Irr-Bullet World..."<<std::endl;
 	if(multithread)
-		cout<<"# Using IrrBP Multithreaded (beta)"<<endl;
+		std::cout<<"# Using IrrBP Multithreaded (beta)"<<std::endl;
 
 	//Sets the thread supporters to NULL
 	m_threadSupportSolver = NULL;
@@ -156,7 +156,7 @@ CIrrBPWorld::CIrrBPWorld(irr::IrrlichtDevice *device,const vector3df & Gravity, 
 	this->device = device;
 	this->driver = device->getVideoDriver();
 
-	this->Gravity = irrVectorToBulletVector(Gravity);
+	this->Gravity = bullet::irrVectorToBulletVector(Gravity);
 	
 	if(multithread)
 	{
@@ -235,7 +235,7 @@ void CIrrBPWorld::clear()
 {
 
 	/*Delete all constraints*/
-	for(u32 i=0;i<this->rigidBodiesConst.size();i++)
+	for(irr::u32 i=0;i<this->rigidBodiesConst.size();i++)
 	{
 		World->removeConstraint(rigidBodiesConst[i]->getConstraintPtr());
 		rigidBodiesConst[i]->drop();
@@ -243,7 +243,7 @@ void CIrrBPWorld::clear()
 	rigidBodiesConst.set_used(0);
 
 	/*Delete all objects*/
-	for(u32 i=0;i<this->collisionObj.size();i++)
+	for(irr::u32 i=0;i<this->collisionObj.size();i++)
 	{
 		World->removeCollisionObject(collisionObj[i]->getPtr());
 		collisionObj[i]->drop();
@@ -251,7 +251,7 @@ void CIrrBPWorld::clear()
 	collisionObj.set_used(0);
 
 	/*Delete all action intefaces*/
-	for(u32 i=0;i<this->actionObj.size();i++)
+	for(irr::u32 i=0;i<this->actionObj.size();i++)
 	{
 		World->removeAction(actionObj[i]->getPtr());
 		actionObj[i]->drop();
@@ -361,10 +361,10 @@ meshInterface->unLockVertexBase(0);
 		gimp_shape->postUpdate();
 	}
 #endif
-
-triangle.pointA = bulletVectorToIrrVector(triangle_v[0]);
-triangle.pointB = bulletVectorToIrrVector(triangle_v[1]);
-triangle.pointC = bulletVectorToIrrVector(triangle_v[2]);
+	
+triangle.pointA = bullet::bulletVectorToIrrVector(triangle_v[0]);
+triangle.pointB = bullet::bulletVectorToIrrVector(triangle_v[1]);
+triangle.pointC = bullet::bulletVectorToIrrVector(triangle_v[2]);
 
 return true;
 }
@@ -442,11 +442,11 @@ struct	AllHitsRayResultModCallback : public btCollisionWorld::RayResultCallback
 };
 
 
-bool CIrrBPWorld::rayCastTest(vector3df from,vector3df to, irr::core::array<contactPoint> * points)
+bool CIrrBPWorld::rayCastTest(irr::core::vector3df from,irr::core::vector3df to, irr::core::array<contactPoint> * points)
 {
-	AllHitsRayResultModCallback cb(irrVectorToBulletVector(from),irrVectorToBulletVector(to));
+	AllHitsRayResultModCallback cb(bullet::irrVectorToBulletVector(from),bullet::irrVectorToBulletVector(to));
 	
-	World->rayTest(irrVectorToBulletVector(from),irrVectorToBulletVector(to),cb);
+	World->rayTest(bullet::irrVectorToBulletVector(from),bullet::irrVectorToBulletVector(to),cb);
 	bool hit = cb.hasHit();
 	if(points && hit)
 	{
@@ -454,7 +454,7 @@ bool CIrrBPWorld::rayCastTest(vector3df from,vector3df to, irr::core::array<cont
 		{
 			contactPoint cp;
 			cp.contact = true;
-			cp.point = bulletVectorToIrrVector(cb.m_hitPointWorld[i]);
+			cp.point = bullet::bulletVectorToIrrVector(cb.m_hitPointWorld[i]);
 			cp.body = getObjectByPointer(cb.m_collisionObjects[i]);
 			if(cp.body->getObjectType() == RIGID_BODY)
 			{
@@ -476,17 +476,17 @@ bool CIrrBPWorld::rayCastTest(vector3df from,vector3df to, irr::core::array<cont
 }
 
 
-bool CIrrBPWorld::rayCastClosestHitTest(vector3df from,vector3df to, contactPoint * point)
+bool CIrrBPWorld::rayCastClosestHitTest(irr::core::vector3df from,irr::core::vector3df to, contactPoint * point)
 {
-	ClosestRayResultCallback cb(irrVectorToBulletVector(from),irrVectorToBulletVector(to));
+	ClosestRayResultCallback cb(bullet::irrVectorToBulletVector(from),bullet::irrVectorToBulletVector(to));
 	
-	World->rayTest(irrVectorToBulletVector(from),irrVectorToBulletVector(to),cb);
+	World->rayTest(bullet::irrVectorToBulletVector(from),bullet::irrVectorToBulletVector(to),cb);
 	bool hit = cb.hasHit();
 		
 	if(point && hit)
 	{
 		point->contact = true;
-		point->point = bulletVectorToIrrVector(cb.m_hitPointWorld);
+		point->point = bullet::bulletVectorToIrrVector(cb.m_hitPointWorld);
 		point->body = getObjectByPointer(cb.m_collisionObject);
 		
 		if(point->body->getObjectType() == RIGID_BODY)
@@ -517,9 +517,9 @@ bool CIrrBPWorld::isPairColliding(CIrrBPCollisionObject *body1,CIrrBPCollisionOb
 	if(dCP)
 	{
 		if(!returnSecondPoint)
-			dCP->point = bulletVectorToIrrVector(cBack.pos);
+			dCP->point = bullet::bulletVectorToIrrVector(cBack.pos);
 		else
-			dCP->point = bulletVectorToIrrVector(cBack.pos2);
+			dCP->point = bullet::bulletVectorToIrrVector(cBack.pos2);
 		dCP->contact = cBack.collided;
 	}
 	
@@ -534,7 +534,7 @@ bool CIrrBPWorld::getBodyCollidingPoint(CIrrBPCollisionObject *body, contactPoin
 		assert(!dCP);
 	collisionCallback cBack(body->getPtr());
 	World->contactTest(body->getPtr(),cBack);
-	dCP->point = bulletVectorToIrrVector(cBack.pos);
+	dCP->point = bullet::bulletVectorToIrrVector(cBack.pos);
 	dCP->contact = cBack.collided;
 	dCP->body = body;
 	return cBack.collided;
@@ -571,7 +571,7 @@ void CIrrBPWorld::addSoftBody(CIrrBPSoftBody * sbody)
 	World->addSoftBody(sbody->getBodyPtr());
 	sbody->setValidStatus(true);
 	#ifdef IRRBP_DEBUG_TEXT
-	cout<<"# Added new Soft Body"<<endl;
+	std::cout<<"# Added new Soft Body"<<std::endl;
 	#endif
 	
 }
@@ -583,7 +583,7 @@ void CIrrBPWorld::addRigidBody(CIrrBPRigidBody *body)
 	body->setValidStatus(true);
 	
 	#ifdef IRRBP_DEBUG_TEXT
-	cout<<"# Added new Body "<<endl<<"## Body ID: "<<body->getID()<<endl<<"## Absolute Body ID: "<<body->getUniqueID()<<endl;
+	std::cout<<"# Added new Body "<<std::endl<<"## Body ID: "<<body->getID()<<std::endl<<"## Absolute Body ID: "<<body->getUniqueID()<<std::endl;
 	#endif
 
 }
@@ -605,10 +605,10 @@ void CIrrBPWorld::addRigidBodyConstraint(CIrrBPConstraint * constraint)
 	rigidBodiesConst.push_back(constraint);
 	World->addConstraint(constraint->getConstraintPtr());
 	#ifdef IRRBP_DEBUG_TEXT
-	cout<<"# Added new constraint"<<endl<<"## Body ID (A): "<<constraint->getBodyA()->getID()<<endl<<"## Body UID (A): "<<constraint->getBodyA()->getUniqueID()<<endl;
+	std::cout<<"# Added new constraint"<<std::endl<<"## Body ID (A): "<<constraint->getBodyA()->getID()<<std::endl<<"## Body UID (A): "<<constraint->getBodyA()->getUniqueID()<<std::endl;
 	
 	if(constraint->getBodyB())
-		cout<<"## Body ID (B): "<<constraint->getBodyB()->getID()<<endl<<"## Body UID (B): "<<constraint->getBodyB()->getUniqueID()<<endl;
+		std::cout<<"## Body ID (B): "<<constraint->getBodyB()->getID()<<std::endl<<"## Body UID (B): "<<constraint->getBodyB()->getUniqueID()<<std::endl;
 	#endif
 }
 
@@ -617,7 +617,7 @@ void CIrrBPWorld::addAction(CIrrBPActionInterface * action)
 	actionObj.push_back(action);
 	World->addAction(action->getPtr());
 	#ifdef IRRBP_DEBUG_TEXT
-	cout<<"# Added new action "<<endl<<"## Action ID: "<<action->getID()<<endl<<"## Absolute Action ID: "<<action->getUniqueID()<<endl;
+	std::cout<<"# Added new action "<<std::endl<<"## Action ID: "<<action->getID()<<std::endl<<"## Absolute Action ID: "<<action->getUniqueID()<<std::endl;
 	#endif
 
 }
@@ -633,7 +633,7 @@ void CIrrBPWorld::removeAction(CIrrBPActionInterface * action)
 			actionObj[i]->drop();
 			actionObj.erase(i);
 			#ifdef IRRBP_DEBUG_TEXT
-			cout<<"# Deleted action "<<endl<<"## Action ID: "<<action->getID()<<endl<<"## Absolute Action ID: "<<action->getUniqueID()<<endl;
+			std::cout<<"# Deleted action "<<std::endl<<"## Action ID: "<<action->getID()<<std::endl<<"## Absolute Action ID: "<<action->getUniqueID()<<std::endl;
 			#endif
 			return;
 		}
@@ -651,14 +651,14 @@ void CIrrBPWorld::removeCollisionObject(CIrrBPCollisionObject * cobj)
 			collisionObj[i]->drop();
 			collisionObj.erase(i);
 			#ifdef IRRBP_DEBUG_TEXT
-			cout<<"# Deleted Body"<<endl<<"## Body ID: "<<cobj->getID()<<endl;
+			std::cout<<"# Deleted Body"<<std::endl<<"## Body ID: "<<cobj->getID()<<std::endl;
 			#endif
 
 			return;
 		}
 	}
 	#ifdef IRRBP_DEBUG_TEXT
-	cout<<"# Error while deleting body...Body not found!";
+	std::cout<<"# Error while deleting body...Body not found!";
 	#endif
 }
 void CIrrBPWorld::removeRigidBody(CIrrBPRigidBody *body)
@@ -681,7 +681,7 @@ void CIrrBPWorld::stepSimulation()
 	DeltaTime = irrTimer->getRealTime();
 	#ifdef IRRBP_DEBUG_TEXT
 		if((DeltaTime-TimeStamp) / 1000.0f >= (10*timestep))
-		cout<<"You must fix your physics parameters"<<endl;
+		std::cout<<"You must fix your physics parameters"<<std::endl;
 	#endif
 
 	World->stepSimulation((DeltaTime-TimeStamp) / 1000.0f,maxSubSteps,timestep);
@@ -695,7 +695,7 @@ void CIrrBPWorld::stepSimulation()
 
 void CIrrBPWorld::updateObjects()
 {
-	array<CIrrBPAnimator *> anims;
+	irr::core::array<CIrrBPAnimator *> anims;
 	for(irr::u32 i=0;i<collisionObj.size();)
 	{
 		if(collisionObj[i]->isValid() == false)
@@ -778,7 +778,7 @@ void CIrrBPWorld::createDebugDrawer()
 
 void CIrrBPWorld::stepDebugDrawer()
 {
-	driver->setTransform(ETS_WORLD,matrix4());
+	driver->setTransform(irr::video::ETS_WORLD,irr::core::matrix4());
 	driver->setMaterial(mat);
 	World->debugDrawWorld();
 }

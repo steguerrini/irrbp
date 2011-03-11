@@ -6,13 +6,6 @@
 #include "types.h"
 #include "CMotionState.h"
 
-using namespace irr;
-using namespace core;
-using namespace scene;
-using namespace io;
-using namespace gui;
-using namespace video;
-using namespace bullet;
 
 class CIrrBPAnimator;
 static int UNIQUE_BODY_ID_GENERATOR = 0;
@@ -45,12 +38,12 @@ public:
 	virtual void setValidStatus (bool newStat) { m_BodyStatus = newStat;}
 
 	virtual irr::u32 getAnimatorsNr() {return m_Animators.size();}
-	virtual const array<CIrrBPAnimator *> getAnimators() const { return m_Animators; }
+	virtual const irr::core::array<CIrrBPAnimator *> getAnimators() const { return m_Animators; }
 	virtual void addAnimator(CIrrBPAnimator * anim);
 
-	virtual void setName(const stringc & newName)	{		m_BodyName = newName;	}
+	virtual void setName(const irr::core::stringc & newName)	{		m_BodyName = newName;	}
 	virtual void setID(const irr::s32 & newID)	{		m_BodyId = newID;	}
-	virtual const c8* getName() const { return m_BodyName.c_str();}
+	virtual const irr::c8* getName() const { return m_BodyName.c_str();}
 	virtual irr::s32 getID() const { return m_BodyId;}
 
 	virtual irr::u32 getUniqueID() const { return m_uBodyId;}
@@ -65,7 +58,7 @@ protected:
 	COLL_OBJ_TYPE m_objType;
 	btCollisionObject * collisionObj;
 	bool m_BodyStatus;
-	array<CIrrBPAnimator *> m_Animators;
+	irr::core::array<CIrrBPAnimator *> m_Animators;
 };
 
 #endif
