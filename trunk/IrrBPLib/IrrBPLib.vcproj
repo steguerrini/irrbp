@@ -192,6 +192,10 @@
 					>
 				</File>
 				<File
+					RelativePath="..\src\animator\CIrrBPFollowAnimator.cpp"
+					>
+				</File>
+				<File
 					RelativePath="..\src\animator\CIrrBPTimeCallBackAnimator.cpp"
 					>
 				</File>
@@ -277,6 +281,14 @@
 				>
 				<File
 					RelativePath="..\src\actions\CIrrBPRaycastVehicle.cpp"
+					>
+				</File>
+			</Filter>
+			<Filter
+				Name="Cameras"
+				>
+				<File
+					RelativePath="..\src\CIrrBPCamera.cpp"
 					>
 				</File>
 			</Filter>
@@ -414,6 +426,10 @@
 					>
 				</File>
 				<File
+					RelativePath="..\include\animator\CIrrBPFollowAnimator.h"
+					>
+				</File>
+				<File
 					RelativePath="..\include\animator\CIrrBPTimeCallBackAnimator.h"
 					>
 				</File>
@@ -431,6 +447,14 @@
 				</File>
 				<File
 					RelativePath="..\include\actions\wheel.h"
+					>
+				</File>
+			</Filter>
+			<Filter
+				Name="Cameras"
+				>
+				<File
+					RelativePath="..\include\CIrrBPCamera.h"
 					>
 				</File>
 			</Filter>

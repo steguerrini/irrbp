@@ -22,6 +22,7 @@
 #include "animator/CIrrBPDeleteAnimator.h"
 #include "animator/CIrrBPCollisionCallbackAnimator.h"
 #include "animator/CIrrBPTimeCallBackAnimator.h"
+#include "animator/CIrrBPFollowAnimator.h"
 
 #include "softbody/CIrrBPSoftBody.h"
 #include "softbody/CIrrBPRopeSoftBody.h"
@@ -29,6 +30,7 @@
 
 #include "actions/CIrrBPRaycastVehicle.h"
 
+#include "CIrrBPCamera.h"
 #include "irrlicht.h"
 #include "types.h"
 
@@ -276,6 +278,28 @@ public:
 	*/
 
 	CIrrBPTimeCallbackAnimator * createTimeCallbackAnimator(irr::s32 timeMs,EndTimeCallback * callback);
+
+	/*!
+		Creates a "follower" animator. The animator will make the attached body to always follow the selected node. 
+		Useful for cameras.
+		@param node node to follow
+		@param offset offset relative to the node to follow
+	*/
+	CIrrBPFollowAnimator * createFollowAnimator(irr::scene::ISceneNode * node,irr::core::vector3df offset = irr::core::vector3df(0,0,0));
+	
+	/*!
+		Creates a camera in the physics contest.
+		@param cam the camera already created. 
+		@parem size size of the approximated body.
+	*/
+	CIrrBPCamera * createCamera(irr::scene::ICameraSceneNode * cam, int size = 15);
+
+	/*!
+		Creates a camera in the physics contest with a personal approximative body.
+		@param cam the camera already created. 
+		@parem relativeBody body to attach to the camera to approximate the camera body.
+	*/
+	CIrrBPCamera * createCamera(irr::scene::ICameraSceneNode * cam, CIrrBPRigidBody * relativeBody);
 
 	/*!
 		Adds your own collision object to the bullet queue.

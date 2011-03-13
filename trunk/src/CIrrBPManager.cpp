@@ -121,6 +121,24 @@ CIrrBPTimeCallbackAnimator * CIrrBPManager::createTimeCallbackAnimator(irr::s32 
 	return tcback;
 }
 
+CIrrBPFollowAnimator * CIrrBPManager::createFollowAnimator(irr::scene::ISceneNode * node,irr::core::vector3df offset)
+{
+	CIrrBPFollowAnimator * fanim = new CIrrBPFollowAnimator(node,offset);
+	m_bodyAnimators.push_back(fanim);
+	return fanim;
+}
+
+CIrrBPCamera * CIrrBPManager::createCamera(irr::scene::ICameraSceneNode * cam, int size)
+{
+	CIrrBPCamera * camera = new CIrrBPCamera(cam,size);
+	return camera;
+}
+CIrrBPCamera * CIrrBPManager::createCamera(irr::scene::ICameraSceneNode * cam, CIrrBPRigidBody * relativeBody)
+{
+	CIrrBPCamera * camera = new CIrrBPCamera(cam,relativeBody);
+	return camera;
+}
+
 CIrrBPSlideConstraint  * CIrrBPManager::buildSlideConstraint(CIrrBPRigidBody * bodyA,CIrrBPRigidBody * bodyB,const irr::core::vector3df & pivotInA,const irr::core::vector3df & pivotInB,bool autoadapt, bool rotatepiston)
 {
 	CIrrBPSlideConstraint * slide = new CIrrBPSlideConstraint(bodyA,bodyB,pivotInA,pivotInB,autoadapt,rotatepiston);
