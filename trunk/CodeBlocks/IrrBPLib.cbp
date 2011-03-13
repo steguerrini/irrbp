@@ -48,6 +48,7 @@
 				</ResourceCompiler>
 			</Target>
 		</Build>
+		<Unit filename="..\include\CIrrBPCamera.h" />
 		<Unit filename="..\include\CIrrBPCollisionObject.h" />
 		<Unit filename="..\include\CIrrBPDebugDrawer.h" />
 		<Unit filename="..\include\CIrrBPManager.h" />
@@ -61,6 +62,7 @@
 		<Unit filename="..\include\animator\CIrrBPCollisionCallbackAnimator.h" />
 		<Unit filename="..\include\animator\CIrrBPCollisionDeleteAnimator.h" />
 		<Unit filename="..\include\animator\CIrrBPDeleteAnimator.h" />
+		<Unit filename="..\include\animator\CIrrBPFollowAnimator.h" />
 		<Unit filename="..\include\animator\CIrrBPTimeCallBackAnimator.h" />
 		<Unit filename="..\include\body\CIrrBPBoxBody.h" />
 		<Unit filename="..\include\body\CIrrBPCapsuleBody.h" />
@@ -81,6 +83,7 @@
 		<Unit filename="..\include\softbody\CIrrBPRopeSoftBody.h" />
 		<Unit filename="..\include\softbody\CIrrBPSoftBody.h" />
 		<Unit filename="..\include\types.h" />
+		<Unit filename="..\src\CIrrBPCamera.cpp" />
 		<Unit filename="..\src\CIrrBPCollisionObject.cpp" />
 		<Unit filename="..\src\CIrrBPDebugDrawer.cpp" />
 		<Unit filename="..\src\CIrrBPManager.cpp" />
@@ -91,6 +94,7 @@
 		<Unit filename="..\src\animator\CIrrBPCollisionCallbackAnimator.cpp" />
 		<Unit filename="..\src\animator\CIrrBPCollisionDeleteAnimator.cpp" />
 		<Unit filename="..\src\animator\CIrrBPDeleteAnimator.cpp" />
+		<Unit filename="..\src\animator\CIrrBPFollowAnimator.cpp" />
 		<Unit filename="..\src\animator\CIrrBPTimeCallBackAnimator.cpp" />
 		<Unit filename="..\src\body\CIrrBPBoxBody.cpp" />
 		<Unit filename="..\src\body\CIrrBPCapsuleBody.cpp" />
