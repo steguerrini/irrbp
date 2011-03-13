@@ -1,3 +1,6 @@
+r52:
++ Fixed bug in the raycast test functions
+
 r51:
 + Source code cleaned
 + Removed all namespace using in header files [Thanks to Serengeor for the tip]
