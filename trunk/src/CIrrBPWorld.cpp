@@ -385,7 +385,8 @@ struct	ClosestRayResultCallback : public btCollisionWorld::RayResultCallback
 	int m_hitTriangle;
 	virtual	btScalar addSingleResult(btCollisionWorld::LocalRayResult& rayResult,bool normalInWorldSpace)
 	{
-		m_hitTriangle = rayResult.m_localShapeInfo->m_triangleIndex;
+		if(rayResult.m_localShapeInfo)
+			m_hitTriangle = rayResult.m_localShapeInfo->m_triangleIndex;
 		m_closestHitFraction = rayResult.m_hitFraction;
 		m_collisionObject = rayResult.m_collisionObject;
 		if (normalInWorldSpace)
@@ -422,7 +423,8 @@ struct	AllHitsRayResultModCallback : public btCollisionWorld::RayResultCallback
 	{
 		m_collisionObject = rayResult.m_collisionObject;
 		m_collisionObjects.push_back(rayResult.m_collisionObject);
-		m_hitTriangles.push_back(rayResult.m_localShapeInfo->m_triangleIndex);
+		if(rayResult.m_localShapeInfo)
+			m_hitTriangles.push_back(rayResult.m_localShapeInfo->m_triangleIndex);
 		btVector3 hitNormalWorld;
 		if (normalInWorldSpace)
 		{
