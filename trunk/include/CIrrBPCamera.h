@@ -23,6 +23,7 @@ public:
 	*/
 	CIrrBPCamera(irr::scene::ICameraSceneNode * cam, CIrrBPRigidBody * relativeBody);
 
+	void drop();
 	~CIrrBPCamera(){ delete anim;}
 	CIrrBPRigidBody * getCameraBody() { return body;}
 

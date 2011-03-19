@@ -19,3 +19,8 @@ CIrrBPCamera::CIrrBPCamera(irr::scene::ICameraSceneNode * cam, CIrrBPRigidBody *
 	anim->setBody(body);
 	body->addAnimator(anim);
 }
+void CIrrBPCamera::drop()
+{
+	body->setValidStatus(false);
+	delete this;
+}

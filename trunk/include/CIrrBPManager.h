@@ -365,5 +365,6 @@ private:
 	irr::IrrlichtDevice * m_irrDevice;
 	CIrrBPWorld * m_bulletWorld;
 	irr::core::array<CIrrBPAnimator *> m_bodyAnimators;
+	irr::core::array<CIrrBPCamera *> m_cameras;
 };
 #endif
