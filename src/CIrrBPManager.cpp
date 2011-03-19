@@ -21,6 +21,8 @@ CIrrBPManager::CIrrBPManager(irr::IrrlichtDevice * device, int numThreads)
 }
 CIrrBPManager::~CIrrBPManager()
 {
+	for(irr::u32 i=0;i<m_cameras.size();i++)
+		m_cameras[i]->drop();
 	delete m_bulletWorld;
 	for(irr::u32 i=0;i<m_bodyAnimators.size();i++)
 		m_bodyAnimators[i]->drop();
@@ -131,11 +133,15 @@ CIrrBPFollowAnimator * CIrrBPManager::createFollowAnimator(irr::scene::ISceneNod
 CIrrBPCamera * CIrrBPManager::createCamera(irr::scene::ICameraSceneNode * cam, int size)
 {
 	CIrrBPCamera * camera = new CIrrBPCamera(cam,size);
+	m_bulletWorld->addCollisionObject(camera->getCameraBody());
+	m_cameras.push_back(camera);
 	return camera;
 }
 CIrrBPCamera * CIrrBPManager::createCamera(irr::scene::ICameraSceneNode * cam, CIrrBPRigidBody * relativeBody)
 {
 	CIrrBPCamera * camera = new CIrrBPCamera(cam,relativeBody);
+	m_bulletWorld->addCollisionObject(camera->getCameraBody());
+	m_cameras.push_back(camera);
 	return camera;
 }
 
