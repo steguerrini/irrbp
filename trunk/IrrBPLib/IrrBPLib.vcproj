@@ -240,6 +240,10 @@
 				Name="Constraint"
 				>
 				<File
+					RelativePath="..\src\constraint\CIrrBP6DOFConstraint.cpp"
+					>
+				</File>
+				<File
 					RelativePath="..\src\constraint\CIrrBPConeTwistConstraint.cpp"
 					>
 				</File>
@@ -369,6 +373,10 @@
 			<Filter
 				Name="Constraint"
 				>
+				<File
+					RelativePath="..\include\constraint\CIrrBP6DOFConstraint.h"
+					>
+				</File>
 				<File
 					RelativePath="..\include\constraint\CIrrBPConeTwistConstraint.h"
 					>
