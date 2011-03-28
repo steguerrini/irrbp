@@ -1,11 +1,11 @@
 /*IRR-BULLET MAIN INCLUDE.*/
 /*					IRR-BULLET
 			An Irrlicht-Bullet Wrapper.
-					  V.0.3.1
+					  V.0.4.0
 */
 
 /*!
-    @mainpage IrrBP 0.3.1 Documentation
+    @mainpage IrrBP 0.4.0 Documentation
 
 
     @section intro Introduction
