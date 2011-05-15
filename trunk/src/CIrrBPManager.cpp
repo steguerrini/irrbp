@@ -21,8 +21,6 @@ CIrrBPManager::CIrrBPManager(irr::IrrlichtDevice * device, int numThreads)
 }
 CIrrBPManager::~CIrrBPManager()
 {
-	for(irr::u32 i=0;i<m_cameras.size();i++)
-		m_cameras[i]->drop();
 	delete m_bulletWorld;
 	for(irr::u32 i=0;i<m_bodyAnimators.size();i++)
 		m_bodyAnimators[i]->drop();
@@ -103,6 +101,10 @@ void CIrrBPManager::removeBody(CIrrBPRigidBody * body)
 {
 	m_bulletWorld->removeRigidBody(body);
 }
+void CIrrBPManager::removeConstraint(CIrrBPConstraint * constraint)
+{
+	m_bulletWorld->removeRigidBodyConstraint(constraint);
+}
 CIrrBPCollisionDeleteAnimator * CIrrBPManager::createCollisionDeleteAnimator(CIB_DFLAG delFlag)
 {
 	CIrrBPCollisionDeleteAnimator * collAnim = new CIrrBPCollisionDeleteAnimator(delFlag,m_bulletWorld);
@@ -130,18 +132,10 @@ CIrrBPFollowAnimator * CIrrBPManager::createFollowAnimator(irr::scene::ISceneNod
 	return fanim;
 }
 
-CIrrBPCamera * CIrrBPManager::createCamera(irr::scene::ICameraSceneNode * cam, int size)
+CIrrBPCamera * CIrrBPManager::createCamera(irr::scene::ICameraSceneNode * cam, float mass, int size,irr::s32 bodyId)
 {
-	CIrrBPCamera * camera = new CIrrBPCamera(cam,size);
-	m_bulletWorld->addCollisionObject(camera->getCameraBody());
-	m_cameras.push_back(camera);
-	return camera;
-}
-CIrrBPCamera * CIrrBPManager::createCamera(irr::scene::ICameraSceneNode * cam, CIrrBPRigidBody * relativeBody)
-{
-	CIrrBPCamera * camera = new CIrrBPCamera(cam,relativeBody);
-	m_bulletWorld->addCollisionObject(camera->getCameraBody());
-	m_cameras.push_back(camera);
+	CIrrBPCamera * camera = new CIrrBPCamera(cam,m_irrDevice,mass,size,bodyId);
+	m_bulletWorld->addCollisionObject(camera);
 	return camera;
 }
 

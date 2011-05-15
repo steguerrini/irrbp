@@ -237,24 +237,33 @@ void CIrrBPWorld::clear()
 	/*Delete all constraints*/
 	for(irr::u32 i=0;i<this->rigidBodiesConst.size();i++)
 	{
-		World->removeConstraint(rigidBodiesConst[i]->getConstraintPtr());
-		rigidBodiesConst[i]->drop();
+		if(rigidBodiesConst[i])
+		{
+			World->removeConstraint(rigidBodiesConst[i]->getConstraintPtr());
+			rigidBodiesConst[i]->drop();
+		}
 	}
 	rigidBodiesConst.set_used(0);
 
 	/*Delete all objects*/
 	for(irr::u32 i=0;i<this->collisionObj.size();i++)
 	{
-		World->removeCollisionObject(collisionObj[i]->getPtr());
-		collisionObj[i]->drop();
+		if(collisionObj[i])
+		{
+			World->removeCollisionObject(collisionObj[i]->getPtr());
+			collisionObj[i]->drop();
+		}
 	}
 	collisionObj.set_used(0);
 
 	/*Delete all action intefaces*/
 	for(irr::u32 i=0;i<this->actionObj.size();i++)
 	{
-		World->removeAction(actionObj[i]->getPtr());
-		actionObj[i]->drop();
+		if(actionObj[i])
+		{
+			World->removeAction(actionObj[i]->getPtr());
+			actionObj[i]->drop();
+		}
 	}
 
 	actionObj.set_used(0);
@@ -612,6 +621,20 @@ void CIrrBPWorld::addRigidBodyConstraint(CIrrBPConstraint * constraint)
 	if(constraint->getBodyB())
 		std::cout<<"## Body ID (B): "<<constraint->getBodyB()->getID()<<std::endl<<"## Body UID (B): "<<constraint->getBodyB()->getUniqueID()<<std::endl;
 	#endif
+}
+
+void CIrrBPWorld::removeRigidBodyConstraint(CIrrBPConstraint * constraint)
+{
+	for(irr::u32 i=0;i<rigidBodiesConst.size();i++)
+	{
+		if(constraint == rigidBodiesConst[i])
+		{
+			World->removeConstraint(constraint->getConstraintPtr());
+			rigidBodiesConst[i]->drop();
+			rigidBodiesConst.erase(i);
+			return;
+		}
+	}
 }
 
 void CIrrBPWorld::addAction(CIrrBPActionInterface * action)

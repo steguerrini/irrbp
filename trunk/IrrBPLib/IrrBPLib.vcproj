@@ -196,6 +196,10 @@
 					>
 				</File>
 				<File
+					RelativePath="..\src\animator\CIrrBPFPSCameraAnimator.cpp"
+					>
+				</File>
+				<File
 					RelativePath="..\src\animator\CIrrBPTimeCallBackAnimator.cpp"
 					>
 				</File>
@@ -438,6 +442,10 @@
 					>
 				</File>
 				<File
+					RelativePath="..\include\animator\CIrrBPFPSCameraAnimator.h"
+					>
+				</File>
+				<File
 					RelativePath="..\include\animator\CIrrBPTimeCallBackAnimator.h"
 					>
 				</File>
@@ -463,6 +471,14 @@
 				>
 				<File
 					RelativePath="..\include\CIrrBPCamera.h"
+					>
+				</File>
+				<File
+					RelativePath="..\src\CSceneNodeAnimatorCameraFPS.cpp"
+					>
+				</File>
+				<File
+					RelativePath="..\src\CSceneNodeAnimatorCameraFPS.h"
 					>
 				</File>
 			</Filter>

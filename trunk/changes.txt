@@ -1,3 +1,7 @@
+r57:
++ Improved the physic camera, but it stills remain in beta status
++ Added removeConstraint function
+
 r56:
 + Fixes for 0.4 Release
 

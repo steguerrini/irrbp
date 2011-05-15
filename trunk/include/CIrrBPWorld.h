@@ -61,6 +61,12 @@ public:
 	void addRigidBodyConstraint(CIrrBPConstraint * constraint);
 
 	/*!
+		Adds a constraint to the world.
+		@param constraint A pointer to the constraint that needs to be removed
+	*/
+	void removeRigidBodyConstraint(CIrrBPConstraint * constraint);
+
+	/*!
 		Removes a rigid Body from the world.
 		Please note that the body's Scene Node won't be dropped.
 		@param body A pointer to the body that needs to be deleted.
