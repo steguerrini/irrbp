@@ -289,17 +289,14 @@ public:
 	
 	/*!
 		Creates a camera in the physics contest.
-		@param cam the camera already created. 
-		@parem size size of the approximated body.
+		Please note that a physics camera is equivalent to a FPS Camera
+		@param cam the camera already created (All the animators will be destroyed). 
+		@param mass camera's mass
+		@param size size of the approximated body.
+		@param bodyId a irrlicht-style body id
 	*/
-	CIrrBPCamera * createCamera(irr::scene::ICameraSceneNode * cam, int size = 15);
+	CIrrBPCamera * createCamera(irr::scene::ICameraSceneNode * cam, float mass, int size = 15, irr::s32 bodyId=-1);
 
-	/*!
-		Creates a camera in the physics contest with a personal approximative body.
-		@param cam the camera already created. 
-		@parem relativeBody body to attach to the camera to approximate the camera body.
-	*/
-	CIrrBPCamera * createCamera(irr::scene::ICameraSceneNode * cam, CIrrBPRigidBody * relativeBody);
 
 	/*!
 		Adds your own collision object to the bullet queue.
@@ -312,6 +309,12 @@ public:
 		Call this function instead of using body's internal drop function
 	*/
 	void removeBody(CIrrBPRigidBody * body);
+
+	/*!
+		Removes a constraint from the bullet queue.
+		Call this function instead of using constraint's internal drop function
+	*/
+	void removeConstraint(CIrrBPConstraint * constraint);
 
 
 	/*!
@@ -365,6 +368,5 @@ private:
 	irr::IrrlichtDevice * m_irrDevice;
 	CIrrBPWorld * m_bulletWorld;
 	irr::core::array<CIrrBPAnimator *> m_bodyAnimators;
-	irr::core::array<CIrrBPCamera *> m_cameras;
 };
 #endif

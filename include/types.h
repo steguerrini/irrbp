@@ -56,7 +56,8 @@
 		CONVEXHULL,
 		CYLINDER,
 		SPHERE,
-		TRIMESH
+		TRIMESH,
+		CAM
 	};
 	struct contactPoint
 	{
