@@ -7,4 +7,5 @@ CIrrBPFPSCameraAnimator::CIrrBPFPSCameraAnimator()
 }
 bool CIrrBPFPSCameraAnimator::OnEvent(const irr::SEvent& event)
 {
+	return true;
 }

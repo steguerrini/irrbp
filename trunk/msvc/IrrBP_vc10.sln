@@ -1,9 +1,9 @@
 ﻿
-Microsoft Visual Studio Solution File, Format Version 9.00
-# Visual Studio 2005
-Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "IrrBPLib", "IrrBPLib\IrrBPLib.vcproj", "{ED6E828A-4770-47DC-8F70-EEA501C1D0B7}"
+Microsoft Visual Studio Solution File, Format Version 11.00
+# Visual Studio 2010
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "IrrBPLib", "IrrBPLib_vc10.vcxproj", "{ED6E828A-4770-47DC-8F70-EEA501C1D0B7}"
 EndProject
-Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "HelloWorld", "HelloWorld\HelloWorld.vcproj", "{AE1474DC-A3AD-4B09-89FE-B237B0060757}"
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "HelloWorld", "HelloWorld_vc10.vcxproj", "{AE1474DC-A3AD-4B09-89FE-B237B0060757}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -11,8 +11,8 @@ Global
 		Release|Win32 = Release|Win32
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
-		{ED6E828A-4770-47DC-8F70-EEA501C1D0B7}.Debug|Win32.ActiveCfg = Release|Win32
-		{ED6E828A-4770-47DC-8F70-EEA501C1D0B7}.Debug|Win32.Build.0 = Release|Win32
+		{ED6E828A-4770-47DC-8F70-EEA501C1D0B7}.Debug|Win32.ActiveCfg = Debug|Win32
+		{ED6E828A-4770-47DC-8F70-EEA501C1D0B7}.Debug|Win32.Build.0 = Debug|Win32
 		{ED6E828A-4770-47DC-8F70-EEA501C1D0B7}.Release|Win32.ActiveCfg = Release|Win32
 		{ED6E828A-4770-47DC-8F70-EEA501C1D0B7}.Release|Win32.Build.0 = Release|Win32
 		{AE1474DC-A3AD-4B09-89FE-B237B0060757}.Debug|Win32.ActiveCfg = Debug|Win32
