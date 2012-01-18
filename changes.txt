@@ -1,3 +1,8 @@
+r58:
++ Added support for VS2010 (Bullet precomp libraries can be downloaded from irrBP download section)
++ Folder re-organization
+- Removed support for VS2005 and VS2008
+
 r57:
 + Improved the physic camera, but it stills remain in beta status
 + Added removeConstraint function

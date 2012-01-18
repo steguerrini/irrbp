@@ -1,0 +1,264 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <Filter Include="File di origine">
+      <UniqueIdentifier>{4FC737F1-C7A5-4376-A066-2A32D752A2FF}</UniqueIdentifier>
+      <Extensions>cpp;c;cc;cxx;def;odl;idl;hpj;bat;asm;asmx</Extensions>
+    </Filter>
+    <Filter Include="File di origine\Animator">
+      <UniqueIdentifier>{2dbbee1b-c2af-4e78-962f-e7695296cb3b}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="File di origine\Body">
+      <UniqueIdentifier>{7179d119-bfe6-49c9-a7e1-669b632da185}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="File di origine\Constraint">
+      <UniqueIdentifier>{944800f4-11a6-4f56-a3c8-28d4f0d51465}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="File di origine\SoftBody">
+      <UniqueIdentifier>{6238e41a-199e-4365-b56d-68bee202751c}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="File di origine\Actions">
+      <UniqueIdentifier>{b98b2dde-b08f-48dc-96dc-778739710e50}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="File di origine\Cameras">
+      <UniqueIdentifier>{3e9897eb-7e24-4d38-a5e9-95d522527562}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="File di intestazione">
+      <UniqueIdentifier>{93995380-89BD-4b04-88EB-625FBE52EBFB}</UniqueIdentifier>
+      <Extensions>h;hpp;hxx;hm;inl;inc;xsd</Extensions>
+    </Filter>
+    <Filter Include="File di intestazione\Body">
+      <UniqueIdentifier>{90367dd5-56b2-4172-a49e-5de47d9c2567}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="File di intestazione\Constraint">
+      <UniqueIdentifier>{122f26ca-9377-4aaa-a96b-2088467d6a2f}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="File di intestazione\SoftBody">
+      <UniqueIdentifier>{d7afcdf8-64ae-44f6-bb3a-c3e614802aaa}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="File di intestazione\Animator">
+      <UniqueIdentifier>{ccb2e2e5-2cba-4e5d-905e-3b18e1d36125}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="File di intestazione\Actions">
+      <UniqueIdentifier>{49b6cc1c-4e4b-4c18-a298-5b9a03080f57}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="File di intestazione\Cameras">
+      <UniqueIdentifier>{7890efa3-c5ee-4ae8-8693-b1cd372ddb78}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="File di risorse">
+      <UniqueIdentifier>{67DA6AB6-F800-4c08-8B7A-83BB121AAD01}</UniqueIdentifier>
+      <Extensions>rc;ico;cur;bmp;dlg;rc2;rct;bin;rgs;gif;jpg;jpeg;jpe;resx;tiff;tif;png;wav</Extensions>
+    </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="..\src\CIrrBPCollisionObject.cpp">
+      <Filter>File di origine</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\CIrrBPDebugDrawer.cpp">
+      <Filter>File di origine</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\CIrrBPManager.cpp">
+      <Filter>File di origine</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\CIrrBPWorld.cpp">
+      <Filter>File di origine</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\CMotionState.cpp">
+      <Filter>File di origine</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\animator\CIrrBPAnimator.cpp">
+      <Filter>File di origine\Animator</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\animator\CIrrBPCollisionCallbackAnimator.cpp">
+      <Filter>File di origine\Animator</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\animator\CIrrBPCollisionDeleteAnimator.cpp">
+      <Filter>File di origine\Animator</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\animator\CIrrBPDeleteAnimator.cpp">
+      <Filter>File di origine\Animator</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\animator\CIrrBPFollowAnimator.cpp">
+      <Filter>File di origine\Animator</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\animator\CIrrBPFPSCameraAnimator.cpp">
+      <Filter>File di origine\Animator</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\animator\CIrrBPTimeCallBackAnimator.cpp">
+      <Filter>File di origine\Animator</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\body\CIrrBPBoxBody.cpp">
+      <Filter>File di origine\Body</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\body\CIrrBPCapsuleBody.cpp">
+      <Filter>File di origine\Body</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\body\CIrrBPConeBody.cpp">
+      <Filter>File di origine\Body</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\body\CIrrBPConvexHullBody.cpp">
+      <Filter>File di origine\Body</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\body\CIrrBPCylinderBody.cpp">
+      <Filter>File di origine\Body</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\body\CIrrBPRigidBody.cpp">
+      <Filter>File di origine\Body</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\body\CIrrBPSphereBody.cpp">
+      <Filter>File di origine\Body</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\body\CIrrBPTrimeshBody.cpp">
+      <Filter>File di origine\Body</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\constraint\CIrrBP6DOFConstraint.cpp">
+      <Filter>File di origine\Constraint</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\constraint\CIrrBPConeTwistConstraint.cpp">
+      <Filter>File di origine\Constraint</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\constraint\CIrrBPConstraint.cpp">
+      <Filter>File di origine\Constraint</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\constraint\CIrrBPHingeConstraint.cpp">
+      <Filter>File di origine\Constraint</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\constraint\CIrrBPP2PConstraint.cpp">
+      <Filter>File di origine\Constraint</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\constraint\CIrrBPSlideConstraint.cpp">
+      <Filter>File di origine\Constraint</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\softbody\CIrrBPPatchSoftBody.cpp">
+      <Filter>File di origine\SoftBody</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\softbody\CIrrBPRopeSoftBody.cpp">
+      <Filter>File di origine\SoftBody</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\softbody\CIrrBPSoftBody.cpp">
+      <Filter>File di origine\SoftBody</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\actions\CIrrBPRaycastVehicle.cpp">
+      <Filter>File di origine\Actions</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\CIrrBPCamera.cpp">
+      <Filter>File di origine\Cameras</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\CSceneNodeAnimatorCameraFPS.cpp">
+      <Filter>File di intestazione\Cameras</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="..\include\CIrrBPCollisionObject.h">
+      <Filter>File di intestazione</Filter>
+    </ClInclude>
+    <ClInclude Include="..\include\CIrrBPDebugDrawer.h">
+      <Filter>File di intestazione</Filter>
+    </ClInclude>
+    <ClInclude Include="..\include\CIrrBPManager.h">
+      <Filter>File di intestazione</Filter>
+    </ClInclude>
+    <ClInclude Include="..\include\CIrrBPWorld.h">
+      <Filter>File di intestazione</Filter>
+    </ClInclude>
+    <ClInclude Include="..\include\CMotionState.h">
+      <Filter>File di intestazione</Filter>
+    </ClInclude>
+    <ClInclude Include="..\include\convert.h">
+      <Filter>File di intestazione</Filter>
+    </ClInclude>
+    <ClInclude Include="..\include\IrrBP.h">
+      <Filter>File di intestazione</Filter>
+    </ClInclude>
+    <ClInclude Include="..\include\types.h">
+      <Filter>File di intestazione</Filter>
+    </ClInclude>
+    <ClInclude Include="..\include\body\CIrrBPBoxBody.h">
+      <Filter>File di intestazione\Body</Filter>
+    </ClInclude>
+    <ClInclude Include="..\include\body\CIrrBPCapsuleBody.h">
+      <Filter>File di intestazione\Body</Filter>
+    </ClInclude>
+    <ClInclude Include="..\include\body\CIrrBPConeBody.h">
+      <Filter>File di intestazione\Body</Filter>
+    </ClInclude>
+    <ClInclude Include="..\include\body\CIrrBPConvexHullBody.h">
+      <Filter>File di intestazione\Body</Filter>
+    </ClInclude>
+    <ClInclude Include="..\include\body\CIrrBPCylinderBody.h">
+      <Filter>File di intestazione\Body</Filter>
+    </ClInclude>
+    <ClInclude Include="..\include\body\CIrrBPRigidBody.h">
+      <Filter>File di intestazione\Body</Filter>
+    </ClInclude>
+    <ClInclude Include="..\include\body\CIrrBPSphereBody.h">
+      <Filter>File di intestazione\Body</Filter>
+    </ClInclude>
+    <ClInclude Include="..\include\body\CIrrBPTrimeshBody.h">
+      <Filter>File di intestazione\Body</Filter>
+    </ClInclude>
+    <ClInclude Include="..\include\constraint\CIrrBP6DOFConstraint.h">
+      <Filter>File di intestazione\Constraint</Filter>
+    </ClInclude>
+    <ClInclude Include="..\include\constraint\CIrrBPConeTwistConstraint.h">
+      <Filter>File di intestazione\Constraint</Filter>
+    </ClInclude>
+    <ClInclude Include="..\include\constraint\CIrrBPConstraint.h">
+      <Filter>File di intestazione\Constraint</Filter>
+    </ClInclude>
+    <ClInclude Include="..\include\constraint\CIrrBPHingeConstraint.h">
+      <Filter>File di intestazione\Constraint</Filter>
+    </ClInclude>
+    <ClInclude Include="..\include\constraint\CIrrBPP2PConstraint.h">
+      <Filter>File di intestazione\Constraint</Filter>
+    </ClInclude>
+    <ClInclude Include="..\include\constraint\CIrrBPSlideConstraint.h">
+      <Filter>File di intestazione\Constraint</Filter>
+    </ClInclude>
+    <ClInclude Include="..\include\softbody\CIrrBPPatchSoftBody.h">
+      <Filter>File di intestazione\SoftBody</Filter>
+    </ClInclude>
+    <ClInclude Include="..\include\softbody\CIrrBPRopeSoftBody.h">
+      <Filter>File di intestazione\SoftBody</Filter>
+    </ClInclude>
+    <ClInclude Include="..\include\softbody\CIrrBPSoftBody.h">
+      <Filter>File di intestazione\SoftBody</Filter>
+    </ClInclude>
+    <ClInclude Include="..\include\animator\CIrrBPAnimator.h">
+      <Filter>File di intestazione\Animator</Filter>
+    </ClInclude>
+    <ClInclude Include="..\include\animator\CIrrBPCollisionCallbackAnimator.h">
+      <Filter>File di intestazione\Animator</Filter>
+    </ClInclude>
+    <ClInclude Include="..\include\animator\CIrrBPCollisionDeleteAnimator.h">
+      <Filter>File di intestazione\Animator</Filter>
+    </ClInclude>
+    <ClInclude Include="..\include\animator\CIrrBPDeleteAnimator.h">
+      <Filter>File di intestazione\Animator</Filter>
+    </ClInclude>
+    <ClInclude Include="..\include\animator\CIrrBPFollowAnimator.h">
+      <Filter>File di intestazione\Animator</Filter>
+    </ClInclude>
+    <ClInclude Include="..\include\animator\CIrrBPFPSCameraAnimator.h">
+      <Filter>File di intestazione\Animator</Filter>
+    </ClInclude>
+    <ClInclude Include="..\include\animator\CIrrBPTimeCallBackAnimator.h">
+      <Filter>File di intestazione\Animator</Filter>
+    </ClInclude>
+    <ClInclude Include="..\include\actions\CIrrBPActionInterface.h">
+      <Filter>File di intestazione\Actions</Filter>
+    </ClInclude>
+    <ClInclude Include="..\include\actions\CIrrBPRaycastVehicle.h">
+      <Filter>File di intestazione\Actions</Filter>
+    </ClInclude>
+    <ClInclude Include="..\include\actions\wheel.h">
+      <Filter>File di intestazione\Actions</Filter>
+    </ClInclude>
+    <ClInclude Include="..\include\CIrrBPCamera.h">
+      <Filter>File di intestazione\Cameras</Filter>
+    </ClInclude>
+    <ClInclude Include="..\src\CSceneNodeAnimatorCameraFPS.h">
+      <Filter>File di intestazione\Cameras</Filter>
+    </ClInclude>
+  </ItemGroup>
+</Project>

@@ -3,6 +3,10 @@
 #include "animator/CIrrBPAnimator.h"
 #include "CIrrBPCamera.h"
 class CIrrBPCollisionObject;
+/*
+This class has not been implemented yet.
+Only for future implementations
+*/
 class CIrrBPFPSCameraAnimator : public CIrrBPAnimator,irr::scene::ISceneNodeAnimatorCameraFPS
 {
 public:

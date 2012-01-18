@@ -1,0 +1,151 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup Label="ProjectConfigurations">
+    <ProjectConfiguration Include="Debug|Win32">
+      <Configuration>Debug</Configuration>
+      <Platform>Win32</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Release|Win32">
+      <Configuration>Release</Configuration>
+      <Platform>Win32</Platform>
+    </ProjectConfiguration>
+  </ItemGroup>
+  <PropertyGroup Label="Globals">
+    <ProjectName>IrrBPLib</ProjectName>
+    <ProjectGuid>{ED6E828A-4770-47DC-8F70-EEA501C1D0B7}</ProjectGuid>
+    <RootNamespace>IrrBPLib</RootNamespace>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'" Label="Configuration">
+    <ConfigurationType>StaticLibrary</ConfigurationType>
+    <CharacterSet>MultiByte</CharacterSet>
+    <WholeProgramOptimization>true</WholeProgramOptimization>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'" Label="Configuration">
+    <ConfigurationType>StaticLibrary</ConfigurationType>
+    <CharacterSet>MultiByte</CharacterSet>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.props" />
+  <ImportGroup Label="ExtensionSettings">
+  </ImportGroup>
+  <ImportGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'" Label="PropertySheets">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <ImportGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'" Label="PropertySheets">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <PropertyGroup Label="UserMacros" />
+  <PropertyGroup>
+    <_ProjectFileVersion>10.0.40219.1</_ProjectFileVersion>
+    <OutDir Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">..\lib\$(Configuration)\</OutDir>
+    <IntDir Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">$(Configuration)\</IntDir>
+    <OutDir Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">$(SolutionDir)\lib\$(Configuration)\</OutDir>
+    <IntDir Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">$(Configuration)\</IntDir>
+  </PropertyGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+    <ClCompile>
+      <Optimization>Full</Optimization>
+      <InlineFunctionExpansion>AnySuitable</InlineFunctionExpansion>
+      <AdditionalIncludeDirectories>E:\Documenti\Lavori Stefano\ProgettoFPS\Engine\Engine\IrrBP\include;E:\Programmi\PROGRAMMAZIONE\Bullet Physics\bullet-2.79\src;E:\Documenti\Lavori Stefano\ProgettoFPS\Engine\Engine\irrlicht\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <MinimalRebuild>true</MinimalRebuild>
+      <BasicRuntimeChecks>Default</BasicRuntimeChecks>
+      <RuntimeLibrary>MultiThreaded</RuntimeLibrary>
+      <BufferSecurityCheck>false</BufferSecurityCheck>
+      <FunctionLevelLinking>true</FunctionLevelLinking>
+      <RuntimeTypeInfo>false</RuntimeTypeInfo>
+      <WarningLevel>Level3</WarningLevel>
+      <DebugInformationFormat>
+      </DebugInformationFormat>
+      <CallingConvention>Cdecl</CallingConvention>
+      <PreprocessorDefinitions>_MBCS;%(PreprocessorDefinitions); </PreprocessorDefinitions>
+    </ClCompile>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+    <ClCompile>
+      <Optimization>Full</Optimization>
+      <InlineFunctionExpansion>AnySuitable</InlineFunctionExpansion>
+      <AdditionalIncludeDirectories>E:\Documenti\Lavori Stefano\ProgettoFPS\Engine\Engine\IrrBP\include;E:\Programmi\PROGRAMMAZIONE\Bullet Physics\bullet-2.79\src;E:\Documenti\Lavori Stefano\ProgettoFPS\Engine\Engine\irrlicht\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <RuntimeLibrary>MultiThreaded</RuntimeLibrary>
+      <BufferSecurityCheck>false</BufferSecurityCheck>
+      <FunctionLevelLinking>true</FunctionLevelLinking>
+      <WarningLevel>Level3</WarningLevel>
+      <DebugInformationFormat>ProgramDatabase</DebugInformationFormat>
+    </ClCompile>
+  </ItemDefinitionGroup>
+  <ItemGroup>
+    <ClCompile Include="..\src\CIrrBPCollisionObject.cpp" />
+    <ClCompile Include="..\src\CIrrBPDebugDrawer.cpp" />
+    <ClCompile Include="..\src\CIrrBPManager.cpp" />
+    <ClCompile Include="..\src\CIrrBPWorld.cpp" />
+    <ClCompile Include="..\src\CMotionState.cpp" />
+    <ClCompile Include="..\src\animator\CIrrBPAnimator.cpp" />
+    <ClCompile Include="..\src\animator\CIrrBPCollisionCallbackAnimator.cpp" />
+    <ClCompile Include="..\src\animator\CIrrBPCollisionDeleteAnimator.cpp" />
+    <ClCompile Include="..\src\animator\CIrrBPDeleteAnimator.cpp" />
+    <ClCompile Include="..\src\animator\CIrrBPFollowAnimator.cpp" />
+    <ClCompile Include="..\src\animator\CIrrBPFPSCameraAnimator.cpp" />
+    <ClCompile Include="..\src\animator\CIrrBPTimeCallBackAnimator.cpp" />
+    <ClCompile Include="..\src\body\CIrrBPBoxBody.cpp" />
+    <ClCompile Include="..\src\body\CIrrBPCapsuleBody.cpp" />
+    <ClCompile Include="..\src\body\CIrrBPConeBody.cpp" />
+    <ClCompile Include="..\src\body\CIrrBPConvexHullBody.cpp" />
+    <ClCompile Include="..\src\body\CIrrBPCylinderBody.cpp" />
+    <ClCompile Include="..\src\body\CIrrBPRigidBody.cpp" />
+    <ClCompile Include="..\src\body\CIrrBPSphereBody.cpp" />
+    <ClCompile Include="..\src\body\CIrrBPTrimeshBody.cpp" />
+    <ClCompile Include="..\src\constraint\CIrrBP6DOFConstraint.cpp" />
+    <ClCompile Include="..\src\constraint\CIrrBPConeTwistConstraint.cpp" />
+    <ClCompile Include="..\src\constraint\CIrrBPConstraint.cpp" />
+    <ClCompile Include="..\src\constraint\CIrrBPHingeConstraint.cpp" />
+    <ClCompile Include="..\src\constraint\CIrrBPP2PConstraint.cpp" />
+    <ClCompile Include="..\src\constraint\CIrrBPSlideConstraint.cpp" />
+    <ClCompile Include="..\src\softbody\CIrrBPPatchSoftBody.cpp" />
+    <ClCompile Include="..\src\softbody\CIrrBPRopeSoftBody.cpp" />
+    <ClCompile Include="..\src\softbody\CIrrBPSoftBody.cpp" />
+    <ClCompile Include="..\src\actions\CIrrBPRaycastVehicle.cpp" />
+    <ClCompile Include="..\src\CIrrBPCamera.cpp" />
+    <ClCompile Include="..\src\CSceneNodeAnimatorCameraFPS.cpp" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="..\include\CIrrBPCollisionObject.h" />
+    <ClInclude Include="..\include\CIrrBPDebugDrawer.h" />
+    <ClInclude Include="..\include\CIrrBPManager.h" />
+    <ClInclude Include="..\include\CIrrBPWorld.h" />
+    <ClInclude Include="..\include\CMotionState.h" />
+    <ClInclude Include="..\include\convert.h" />
+    <ClInclude Include="..\include\IrrBP.h" />
+    <ClInclude Include="..\include\types.h" />
+    <ClInclude Include="..\include\body\CIrrBPBoxBody.h" />
+    <ClInclude Include="..\include\body\CIrrBPCapsuleBody.h" />
+    <ClInclude Include="..\include\body\CIrrBPConeBody.h" />
+    <ClInclude Include="..\include\body\CIrrBPConvexHullBody.h" />
+    <ClInclude Include="..\include\body\CIrrBPCylinderBody.h" />
+    <ClInclude Include="..\include\body\CIrrBPRigidBody.h" />
+    <ClInclude Include="..\include\body\CIrrBPSphereBody.h" />
+    <ClInclude Include="..\include\body\CIrrBPTrimeshBody.h" />
+    <ClInclude Include="..\include\constraint\CIrrBP6DOFConstraint.h" />
+    <ClInclude Include="..\include\constraint\CIrrBPConeTwistConstraint.h" />
+    <ClInclude Include="..\include\constraint\CIrrBPConstraint.h" />
+    <ClInclude Include="..\include\constraint\CIrrBPHingeConstraint.h" />
+    <ClInclude Include="..\include\constraint\CIrrBPP2PConstraint.h" />
+    <ClInclude Include="..\include\constraint\CIrrBPSlideConstraint.h" />
+    <ClInclude Include="..\include\softbody\CIrrBPPatchSoftBody.h" />
+    <ClInclude Include="..\include\softbody\CIrrBPRopeSoftBody.h" />
+    <ClInclude Include="..\include\softbody\CIrrBPSoftBody.h" />
+    <ClInclude Include="..\include\animator\CIrrBPAnimator.h" />
+    <ClInclude Include="..\include\animator\CIrrBPCollisionCallbackAnimator.h" />
+    <ClInclude Include="..\include\animator\CIrrBPCollisionDeleteAnimator.h" />
+    <ClInclude Include="..\include\animator\CIrrBPDeleteAnimator.h" />
+    <ClInclude Include="..\include\animator\CIrrBPFollowAnimator.h" />
+    <ClInclude Include="..\include\animator\CIrrBPFPSCameraAnimator.h" />
+    <ClInclude Include="..\include\animator\CIrrBPTimeCallBackAnimator.h" />
+    <ClInclude Include="..\include\actions\CIrrBPActionInterface.h" />
+    <ClInclude Include="..\include\actions\CIrrBPRaycastVehicle.h" />
+    <ClInclude Include="..\include\actions\wheel.h" />
+    <ClInclude Include="..\include\CIrrBPCamera.h" />
+    <ClInclude Include="..\src\CSceneNodeAnimatorCameraFPS.h" />
+  </ItemGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
+  <ImportGroup Label="ExtensionTargets">
+  </ImportGroup>
+</Project>
