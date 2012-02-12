@@ -1,4 +1,4 @@
-IrrBP 0.41(r59):
+IrrBP 0.41(r59-r60):
 + FULL Support for Bullet 2.79
 + Updated C::B Project
 

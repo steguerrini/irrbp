@@ -2077,3 +2077,15 @@
 	"constraint/CIrrBPSlideConstraint.h"
 	"body/CIrrBPRigidBody.h"
 
+1329038913 source:/home/stefano/Scrivania/irrbp-0.41/src/softbody/CIrrBPPatchSoftBody.cpp
+	<softbody/CIrrBPPatchSoftBody.h>
+	"CIrrBPWorld.h"
+
+1329038913 source:/home/stefano/Scrivania/irrbp-0.41/src/softbody/CIrrBPRopeSoftBody.cpp
+	<softbody/CIrrBPRopeSoftBody.h>
+	"CIrrBPWorld.h"
+
+1329038913 source:/home/stefano/Scrivania/irrbp-0.41/src/softbody/CIrrBPSoftBody.cpp
+	"softbody/CIrrBPSoftBody.h"
+	<body/CIrrBPRigidBody.h>
+
