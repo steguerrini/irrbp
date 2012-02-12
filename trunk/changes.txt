@@ -1,3 +1,7 @@
+IrrBP 0.41(r59):
++ FULL Support for Bullet 2.79
++ Updated C::B Project
+
 r58:
 + Added support for VS2010 (Bullet precomp libraries can be downloaded from irrBP download section)
 + Folder re-organization
