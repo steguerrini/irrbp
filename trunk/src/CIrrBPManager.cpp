@@ -175,6 +175,12 @@ CIrrBPHingeConstraint * CIrrBPManager::buildHingeConstraint(CIrrBPRigidBody * bo
 	m_bulletWorld->addRigidBodyConstraint(hinge);
 	return hinge;
 }
+CIrrBPSpringConstraint * CIrrBPManager::buildSpringConstraint(CIrrBPRigidBody * bodyA,CIrrBPRigidBody * bodyB,const irr::core::vector3df & pivotInA,const irr::core::vector3df & pivotInB,bool autoadapt)
+{
+	CIrrBPSpringConstraint * spring = new CIrrBPSpringConstraint(bodyA,bodyB,pivotInA,pivotInB,autoadapt);
+	m_bulletWorld->addRigidBodyConstraint(spring);
+	return spring;
+}
 
 CIrrBPRopeSoftBody * CIrrBPManager::addRopeSoftBody(const irr::core::vector3df & from ,const irr::core::vector3df & to,irr::f32 mass,int res)
 {

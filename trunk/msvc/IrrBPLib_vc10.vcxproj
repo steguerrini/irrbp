@@ -44,7 +44,7 @@
   </PropertyGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
     <ClCompile>
-      <Optimization>Full</Optimization>
+      <Optimization>Disabled</Optimization>
       <InlineFunctionExpansion>AnySuitable</InlineFunctionExpansion>
       <AdditionalIncludeDirectories>E:\Documenti\Lavori Stefano\ProgettoFPS\Engine\Engine\IrrBP\include;E:\Programmi\PROGRAMMAZIONE\Bullet Physics\bullet-2.79\src;E:\Documenti\Lavori Stefano\ProgettoFPS\Engine\Engine\irrlicht\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <MinimalRebuild>true</MinimalRebuild>
@@ -70,7 +70,12 @@
       <FunctionLevelLinking>true</FunctionLevelLinking>
       <WarningLevel>Level3</WarningLevel>
       <DebugInformationFormat>ProgramDatabase</DebugInformationFormat>
+      <PreprocessorDefinitions>_ITERATOR_DEBUG_LEVEL=0;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <WholeProgramOptimization>false</WholeProgramOptimization>
     </ClCompile>
+    <Link>
+      <AdditionalDependencies>../libs/BulletCollision.lib;../libs/BulletDynamics.lib;../libs/BulletSoftBody.lib;../libs/LinearMath.lib;../libs/Irrlicht.lib;%(AdditionalDependencies)</AdditionalDependencies>
+    </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClCompile Include="..\src\CIrrBPCollisionObject.cpp" />
@@ -99,6 +104,7 @@
     <ClCompile Include="..\src\constraint\CIrrBPHingeConstraint.cpp" />
     <ClCompile Include="..\src\constraint\CIrrBPP2PConstraint.cpp" />
     <ClCompile Include="..\src\constraint\CIrrBPSlideConstraint.cpp" />
+    <ClCompile Include="..\src\constraint\CIrrBPSpringConstraint.cpp" />
     <ClCompile Include="..\src\softbody\CIrrBPPatchSoftBody.cpp" />
     <ClCompile Include="..\src\softbody\CIrrBPRopeSoftBody.cpp" />
     <ClCompile Include="..\src\softbody\CIrrBPSoftBody.cpp" />
@@ -112,6 +118,7 @@
     <ClInclude Include="..\include\CIrrBPManager.h" />
     <ClInclude Include="..\include\CIrrBPWorld.h" />
     <ClInclude Include="..\include\CMotionState.h" />
+    <ClInclude Include="..\include\constraint\CIrrBPSpringConstraint.h" />
     <ClInclude Include="..\include\convert.h" />
     <ClInclude Include="..\include\IrrBP.h" />
     <ClInclude Include="..\include\types.h" />

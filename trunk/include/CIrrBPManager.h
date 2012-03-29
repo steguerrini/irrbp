@@ -16,6 +16,7 @@
 #include "constraint/CIrrBPP2PConstraint.h"
 #include "constraint/CIrrBPSlideConstraint.h"
 #include "constraint/CIrrBPConeTwistConstraint.h"
+#include "constraint/CIrrBPSpringConstraint.h"
 
 #include "animator/CIrrBPAnimator.h"
 #include "animator/CIrrBPCollisionDeleteAnimator.h"
@@ -243,6 +244,19 @@ public:
 	*/
 	CIrrBPHingeConstraint * buildHingeConstraint(CIrrBPRigidBody * bodyA,CIrrBPRigidBody * bodyB,const irr::core::vector3df & pivotInA,const irr::core::vector3df & pivotInB,const irr::core::vector3df & axisInA,const irr::core::vector3df & axisInB);
 
+	/*!
+		Builds and attach a spring to the bodies.
+
+		@param bodyA The first body
+		@param bodyB The second body
+		@param pivotInA The constraint position in A
+		@param pivotInB The constraint position in B
+		@param axisInA The axis position in A
+		@param axisInB The axis position in B
+		@param autoadapt If one body is static, and this flag is setted to false. The spring constraint will be only orthogonal
+		@return pointer to the constraint
+	*/
+	CIrrBPSpringConstraint * buildSpringConstraint(CIrrBPRigidBody * bodyA,CIrrBPRigidBody * bodyB,const irr::core::vector3df & pivotInA=irr::core::vector3df(0,0,0),const irr::core::vector3df & pivotInB=irr::core::vector3df(0,0,0),bool autoadapt=true);
 
 	/*!
 		Creates a delete animator to attach to a body.
