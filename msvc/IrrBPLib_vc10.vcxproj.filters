@@ -147,6 +147,9 @@
     <ClCompile Include="..\src\CSceneNodeAnimatorCameraFPS.cpp">
       <Filter>File di intestazione\Cameras</Filter>
     </ClCompile>
+    <ClCompile Include="..\src\constraint\CIrrBPSpringConstraint.cpp">
+      <Filter>File di origine\Constraint</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="..\include\CIrrBPCollisionObject.h">
@@ -259,6 +262,9 @@
     </ClInclude>
     <ClInclude Include="..\src\CSceneNodeAnimatorCameraFPS.h">
       <Filter>File di intestazione\Cameras</Filter>
+    </ClInclude>
+    <ClInclude Include="..\include\constraint\CIrrBPSpringConstraint.h">
+      <Filter>File di intestazione\Constraint</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>
